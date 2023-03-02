@@ -21,17 +21,24 @@ let
 
   infra = with pkgs;[
     jq
+    exa
     git
+    bat
     nmap
     wget
     tree
     htop
+    procs
     p7zip
     xclip
+    broot
+    tokei
     podman
+    bottom
     pstree
     evtest
     nixfmt
+    du-dust
     libinput
     patchelf
     nix-index
@@ -54,7 +61,6 @@ let
 
   etc = with pkgs;[
     vlc
-    bat
     clash
     docker
     vsftpd
@@ -73,7 +79,6 @@ let
     gnome.gnome-boxes
     gnome.gnome-tweaks
     gnome.gnome-terminal
-    gnomeExtensions.tiling-assistant
   ];
 in
 {

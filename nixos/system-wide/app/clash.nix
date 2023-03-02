@@ -3,7 +3,6 @@
 {
 
   systemd.services.clash-daemon = {
-
     enable = true;
     after = [ "network.target" ];
     serviceConfig = {
@@ -12,7 +11,6 @@
       ExecStart = "${pkgs.clash}/bin/clash -d /home/thaumy/cfg/clash";
     };
     wantedBy = [ "multi-user.target" ];
-
   };
 
 }

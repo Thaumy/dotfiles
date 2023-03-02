@@ -3,7 +3,6 @@
 {
 
   fonts = {
-
     enableDefaultFonts = true;
 
     fonts = with pkgs;[
@@ -21,7 +20,6 @@
       sansSerif = [ "Sarasa UI SC" ];
       monospace = [ "JetBrains Mono" ];
     };
-
   };
 
   i18n = 
@@ -29,7 +27,6 @@
     locale = "en_US.UTF-8";
   in
   {
-
     inputMethod = {
       enabled = "fcitx5";
       fcitx5.addons = [ pkgs.fcitx5-chinese-addons ];
@@ -48,7 +45,6 @@
       LC_MEASUREMENT = locale;
       LC_IDENTIFICATION = locale;
     };
-
   };
 
   time.timeZone = "Asia/Shanghai";

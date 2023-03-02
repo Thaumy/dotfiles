@@ -23,9 +23,6 @@
     sessionVariables = {
       # NIXOS_OZONE_WL = "1";
       DOTNET_ROOT = "${pkgs.dotnet-sdk_7}";
-      PATH = [
-        "/home/thaumy/.dotnet/tools"
-      ];
     };
   };
 
@@ -34,7 +31,6 @@
     description = "Thaumy";
     isNormalUser = true;
     shell = pkgs.fish;
-    packages = with pkgs; [ ];
     extraGroups = [ "networkmanager" "wheel" ];
   };
 

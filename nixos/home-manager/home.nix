@@ -7,6 +7,7 @@
     ./app/gpg.nix
     ./app/git.nix
     ./app/fish.nix
+    ./app/atuin.nix
     ./app/neovim.nix
   ];
 
@@ -14,6 +15,9 @@
     username = "thaumy";
     stateVersion = "22.11";
     homeDirectory = "/home/thaumy";
+    sessionPath = [
+      "/home/thaumy/.dotnet/tools"
+    ];
   };
 
   nixpkgs.config = {

@@ -5,12 +5,12 @@ let
 in
 {
   home.packages = with pkgs;[
-    #nur
+    # nur
     nur.repos.thaumy.idbuilder
     nur.repos.linyinfeng.wemeet
     nur.repos.thaumy.microsoft-todo-electron
 
-    #sh
+    # sh
     (writeShellScriptBin "aes-en"
       (builtins.readFile /home/thaumy/sh/crypto/aes-en.sh))
     (writeShellScriptBin "aes-de"
@@ -24,11 +24,11 @@ in
     (writeShellScriptBin "update-clash-sub"
       (builtins.readFile /home/thaumy/sh/update-clash-sub/run.sh))
 
-    #office
+    # office
     stable-pkgs.wpsoffice
     stable-pkgs.libreoffice
 
-    #editor
+    # editor
     glow
     vscode
     android-studio
@@ -40,13 +40,18 @@ in
     jetbrains.idea-ultimate
     jetbrains.pycharm-professional
 
-    #im
+    # im
     tdesktop
     element-desktop
 
-    #etc
+    # gnome ext
+    gnomeExtensions.tiling-assistant
+    gnomeExtensions.internet-speed-monitor
+
+    # etc
     gimp
     xmrig
+    atuin
     steam
     postman
     monero-gui

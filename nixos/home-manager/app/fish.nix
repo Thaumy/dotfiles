@@ -7,8 +7,10 @@
     enable = true;
 
     shellAliases = {
+      ls = "exa";
+      du = "dust";
+      ps = "procs";
       cat = "bat";
-      bat = "cat";
     };
 
     shellInit = ''
@@ -16,6 +18,9 @@
     '';
 
     interactiveShellInit = ''
+      # configure atuin
+      #atuin init fish | source
+
       # color scheme
       set -U fish_color_normal 767676 #-575f66
       set -U fish_color_command 87ff00
