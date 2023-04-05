@@ -1,13 +1,13 @@
 { config, pkgs, ... }:
 
 {
+  manual.manpages.enable = false;
 
   imports = [
     ./pkgs.nix
     ./app/gpg.nix
     ./app/git.nix
     ./app/fish.nix
-    ./app/atuin.nix
     ./app/neovim.nix
   ];
 

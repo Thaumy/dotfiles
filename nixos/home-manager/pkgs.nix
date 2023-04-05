@@ -51,10 +51,10 @@ in
     # etc
     gimp
     xmrig
-    atuin
     steam
     postman
     monero-gui
     github-desktop
+    blackbox-terminal
   ];
 }

@@ -60,6 +60,7 @@ in
       sqls
       deno
       gopls
+      taplo
       rnix-lsp
       marksman
       rust-analyzer

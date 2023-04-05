@@ -17,6 +17,8 @@
     ./app/yubikey.nix
   ];
 
+  virtualisation.docker.enable = true;
+
   environment = {
     localBinInPath = true;
     variables = { EDITOR = "nvim"; };
@@ -31,7 +33,7 @@
     description = "Thaumy";
     isNormalUser = true;
     shell = pkgs.fish;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 
   hardware = {

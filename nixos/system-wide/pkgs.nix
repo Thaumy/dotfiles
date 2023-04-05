@@ -7,13 +7,20 @@ let
     go
     jdk
     gcc
+    jdk8
     ocaml
     stack
+    jdk11
+    jdk17
+    redis
+    docker
     nodejs
-    python39
+    python311
+    tomcat10
     clang-tools
     dotnet-sdk_7
     android-tools
+    linuxKernel.packages.linux_6_1.perf
     (rust-bin.nightly."2023-01-11".default.override {
       extensions = [ "rust-src" ];
     })
@@ -62,7 +69,6 @@ let
   etc = with pkgs;[
     vlc
     clash
-    docker
     vsftpd
     gparted
     qrencode
