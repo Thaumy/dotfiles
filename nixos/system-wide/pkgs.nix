@@ -15,13 +15,15 @@ let
     redis
     docker
     nodejs
+    gnumake
+    valgrind
     python311
-    tomcat10
     clang-tools
     dotnet-sdk_7
     android-tools
+    llvmPackages_15.libllvm
     linuxKernel.packages.linux_6_1.perf
-    (rust-bin.nightly."2023-01-11".default.override {
+    (rust-bin.nightly."2023-04-16".default.override {
       extensions = [ "rust-src" ];
     })
   ];
@@ -52,11 +54,6 @@ let
     steam-run
     pkg-config
     nixpkgs-fmt
-  ];
-
-  db = with pkgs;[
-    mysql80
-    postgresql_15
   ];
 
   sec = with pkgs;[
@@ -92,7 +89,6 @@ in
   environment.systemPackages =
     sdk ++
     infra ++
-    db ++
     sec ++
     etc;
 

@@ -6,7 +6,7 @@ in
 {
   home.packages = with pkgs;[
     # nur
-    nur.repos.thaumy.idbuilder
+    #nur.repos.thaumy.idbuilder
     nur.repos.linyinfeng.wemeet
     nur.repos.thaumy.microsoft-todo-electron
 
@@ -51,7 +51,7 @@ in
     # etc
     gimp
     xmrig
-    steam
+    # steam
     postman
     monero-gui
     github-desktop

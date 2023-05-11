@@ -15,9 +15,14 @@
     ./app/postgres.nix
     ./app/steam.nix
     ./app/yubikey.nix
+    ./app/tomcat.nix
   ];
 
-  virtualisation.docker.enable = true;
+  virtualisation = {
+    docker.enable = true;
+    waydroid.enable = true;
+    lxd.enable = true;
+  };
 
   environment = {
     localBinInPath = true;
