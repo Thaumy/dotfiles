@@ -3,11 +3,15 @@
 let
   stable-pkgs = import <nixos-22.11> { config = { allowUnfree = true; }; };
 
+  rust = (pkgs.rust-bin.nightly."2023-04-16".default.override {
+    extensions = [ "rust-src" ];
+  });
+
   sdk = with pkgs;[
     go
-    jdk
     gcc
     jdk8
+    rust
     ocaml
     stack
     jdk11
@@ -23,9 +27,6 @@ let
     android-tools
     llvmPackages_15.libllvm
     linuxKernel.packages.linux_6_1.perf
-    (rust-bin.nightly."2023-04-16".default.override {
-      extensions = [ "rust-src" ];
-    })
   ];
 
   infra = with pkgs;[
@@ -54,6 +55,8 @@ let
     steam-run
     pkg-config
     nixpkgs-fmt
+    smartmontools
+    nix-prefetch-github
   ];
 
   sec = with pkgs;[
@@ -68,6 +71,7 @@ let
     clash
     vsftpd
     gparted
+    firefox
     qrencode
     yarn2nix
     neofetch
@@ -85,26 +89,42 @@ let
   ];
 in
 {
+  environment = {
+    systemPackages =
+      sdk ++
+      infra ++
+      sec ++
+      etc;
 
-  environment.systemPackages =
-    sdk ++
-    infra ++
-    sec ++
-    etc;
+    gnome.excludePackages = with pkgs;[
+      kgx
+      epiphany
+      gnome-tour
+      gnome.yelp
+      gnome.totem
+      gnome.gnome-maps
+      gnome.gnome-music
+      gnome.simple-scan
+      gnome.gnome-clocks
+      gnome.gnome-weather
+      gnome.gnome-calendar
+      gnome.gnome-contacts
+    ];
 
-  environment.gnome.excludePackages = with pkgs;[
-    kgx
-    epiphany
-    gnome-tour
-    gnome.yelp
-    gnome.totem
-    gnome.gnome-maps
-    gnome.gnome-music
-    gnome.simple-scan
-    gnome.gnome-clocks
-    gnome.gnome-weather
-    gnome.gnome-calendar
-    gnome.gnome-contacts
-  ];
+    etc = with pkgs; {
+      "sdk-homes/go".source = go;
+      "sdk-homes/rust".source = rust;
+      "sdk-homes/jdk8".source = jdk8;
+      "sdk-homes/jdk11".source = jdk11;
+      "sdk-homes/jdk17".source = jdk17;
+      "sdk-homes/tomcat".source = tomcat10;
+      "sdk-homes/dotnet".source = dotnet-sdk_7;
+      "sdk-homes/llvm".source = llvmPackages_15.libllvm;
+      "sdk-homes/perf".source = linuxKernel.packages.linux_6_1.perf;
 
+      "app-homes/mysql".source = mysql80;
+      "app-homes/pgsql".source = postgresql_15;
+    };
+  };
 }
+
