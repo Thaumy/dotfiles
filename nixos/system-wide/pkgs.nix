@@ -3,7 +3,7 @@
 let
   stable-pkgs = import <nixos-22.11> { config = { allowUnfree = true; }; };
 
-  rust = (pkgs.rust-bin.nightly."2023-04-16".default.override {
+  rust = (pkgs.rust-bin.nightly."2023-04-20".default.override {
     extensions = [ "rust-src" ];
   });
 

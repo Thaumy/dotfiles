@@ -4,6 +4,7 @@
   manual.manpages.enable = false;
 
   imports = [
+    ./sh.nix
     ./pkgs.nix
     ./app/gpg.nix
     ./app/git.nix

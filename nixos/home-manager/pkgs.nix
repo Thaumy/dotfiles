@@ -4,25 +4,11 @@ let
   stable-pkgs = import <nixos-22.11> { config = { allowUnfree = true; }; };
 in
 {
-  home.packages = with pkgs;[
+  home.packages = with pkgs; [
     # nur
     nur.repos.thaumy.idbuilder
     nur.repos.linyinfeng.wemeet
     nur.repos.thaumy.microsoft-todo-electron
-
-    # sh
-    (writeShellScriptBin "aes-en"
-      (builtins.readFile /home/thaumy/sh/crypto/aes-en.sh))
-    (writeShellScriptBin "aes-de"
-      (builtins.readFile /home/thaumy/sh/crypto/aes-de.sh))
-    (writeShellScriptBin "memdir"
-      (builtins.readFile /home/thaumy/sh/memdir/run.sh))
-    (writeShellScriptBin "backup"
-      (builtins.readFile /home/thaumy/sh/backup/run.sh))
-    (writeShellScriptBin "disable-kb"
-      (builtins.readFile /home/thaumy/sh/disable-kb/run.sh))
-    (writeShellScriptBin "update-clash-sub"
-      (builtins.readFile /home/thaumy/sh/update-clash-sub/run.sh))
 
     # office
     stable-pkgs.wpsoffice
@@ -41,6 +27,7 @@ in
     jetbrains.pycharm-professional
 
     # im
+    feishu
     tdesktop
     element-desktop
 
@@ -52,7 +39,7 @@ in
     gimp
     qrcp
     xmrig
-    # steam
+    hdparm
     postman
     monero-gui
     ventoy-full
