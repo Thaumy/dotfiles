@@ -3,7 +3,7 @@
 let
   stable-pkgs = import <nixos-22.11> { config = { allowUnfree = true; }; };
 
-  rust = (pkgs.rust-bin.nightly."2023-04-20".default.override {
+  rust = (pkgs.rust-bin.nightly."2023-06-09".default.override {
     extensions = [ "rust-src" ];
   });
 
@@ -122,6 +122,8 @@ in
       "sdk-homes/llvm".source = llvmPackages_15.libllvm;
       "sdk-homes/perf".source = linuxKernel.packages.linux_6_1.perf;
 
+      "app-homes/chromium".source = chromium;
+      "app-homes/firefox".source = firefox;
       "app-homes/mysql".source = mysql80;
       "app-homes/pgsql".source = postgresql_15;
     };

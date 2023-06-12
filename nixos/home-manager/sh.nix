@@ -16,5 +16,7 @@
       (builtins.readFile /home/thaumy/sh/up-proxy-sub/run.sh))
     (writeShellScriptBin "archive-core-files"
       (builtins.readFile /home/thaumy/sh/archive-core-files/run.sh))
+    (writeShellScriptBin "soft-link-localize"
+      (builtins.readFile /home/thaumy/sh/soft-link-localize/run.sh))
   ];
 }
