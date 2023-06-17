@@ -20,6 +20,7 @@ let
     docker
     nodejs
     gnumake
+    protobuf
     valgrind
     python311
     clang-tools

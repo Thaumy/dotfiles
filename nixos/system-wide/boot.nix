@@ -11,7 +11,7 @@
     };
 
     kernelPackages = pkgs.linuxPackages_6_3;
-    kernel.sysctl = { "vm.swappiness" = 10; };
+    kernel.sysctl = { "vm.swappiness" = 0; };
     kernelModules = [ "v4l2loopback" ];
 
     supportedFilesystems = [ "ntfs" ];

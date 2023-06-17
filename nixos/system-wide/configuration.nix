@@ -122,6 +122,9 @@
           inherit pkgs;
         };
     };
+    config.permittedInsecurePackages = [
+      "openssl-1.1.1u"
+    ];
   };
 
   nix.settings = {

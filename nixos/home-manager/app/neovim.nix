@@ -64,7 +64,7 @@ in
       nodePackages.bash-language-server
       nodePackages.yaml-language-server
       haskellPackages.haskell-language-server
-      nodePackages.vscode-langservers-extracted
+      #nodePackages.vscode-langservers-extracted
     ];
 
   };

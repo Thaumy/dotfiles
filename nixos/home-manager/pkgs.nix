@@ -44,7 +44,8 @@ in
     postman
     monero-gui
     ventoy-full
-    github-desktop
+    qbittorrent
+    #github-desktop
     blackbox-terminal
   ];
 }
