@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  stable-pkgs = import <nixos-22.11> { config = { allowUnfree = true; }; };
+  pkgs-22-11 = import <nixos-22.11> { config = { allowUnfree = true; }; };
 in
 {
   home.packages = with pkgs; [
@@ -12,8 +12,8 @@ in
     nur.repos.thaumy.microsoft-todo-electron
 
     # office
-    stable-pkgs.wpsoffice
-    stable-pkgs.libreoffice
+    pkgs-22-11.wpsoffice
+    pkgs-22-11.libreoffice
 
     # editor
     glow
@@ -36,6 +36,10 @@ in
     gnomeExtensions.tiling-assistant
     gnomeExtensions.internet-speed-monitor
 
+    # git ext
+    git-lfs
+    git-filter-repo
+
     # etc
     gimp
     qrcp
@@ -45,7 +49,13 @@ in
     monero-gui
     ventoy-full
     qbittorrent
-    #github-desktop
+    pkgs-22-11.github-desktop
     blackbox-terminal
+
+    # penetration
+    mdk4
+    macchanger
+    aircrack-ng
+    wirelesstools
   ];
 }

@@ -23,8 +23,10 @@ let
     protobuf
     valgrind
     python311
+    kubernetes
     clang-tools
     dotnet-sdk_7
+    rust-bindgen
     android-tools
     llvmPackages_15.libllvm
     linuxKernel.packages.linux_6_1.perf
