@@ -13,6 +13,8 @@ let
     jdk8
     rust
     ocaml
+    redli
+    redis
     stack
     jdk11
     jdk17
@@ -20,6 +22,7 @@ let
     docker
     nodejs
     gnumake
+    kafkactl
     protobuf
     valgrind
     python311
@@ -129,6 +132,9 @@ in
       "app-homes/firefox".source = firefox;
       "app-homes/mysql".source = mysql80;
       "app-homes/pgsql".source = postgresql_15;
+      "app-homes/mongodb".source = mongodb;
+      "app-homes/kafka".source = apacheKafka_3_2;
+      "app-homes/redis".source = redis;
     };
   };
 }

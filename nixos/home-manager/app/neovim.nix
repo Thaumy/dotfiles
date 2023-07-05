@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  stable-pkgs = import <nixos-22.11> { config = { allowUnfree = true; }; };
+  pkgs-22-11 = import <nixos-22.11> { config = { allowUnfree = true; }; };
 in
 {
 
@@ -64,7 +64,7 @@ in
       nodePackages.bash-language-server
       nodePackages.yaml-language-server
       haskellPackages.haskell-language-server
-      #nodePackages.vscode-langservers-extracted
+      pkgs-22-11.nodePackages.vscode-langservers-extracted
     ];
 
   };

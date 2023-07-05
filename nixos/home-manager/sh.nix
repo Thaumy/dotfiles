@@ -10,6 +10,8 @@
       (builtins.readFile /home/thaumy/sh/memdir/run.sh))
     (writeShellScriptBin "backup"
       (builtins.readFile /home/thaumy/sh/backup/run.sh))
+    (writeShellScriptBin "pic-search"
+      (builtins.readFile /home/thaumy/sh/pic-search/run.sh))
     (writeShellScriptBin "disable-kb"
       (builtins.readFile /home/thaumy/sh/disable-kb/run.sh))
     (writeShellScriptBin "up-proxy-sub"

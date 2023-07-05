@@ -40,22 +40,27 @@ in
     git-lfs
     git-filter-repo
 
-    # etc
-    gimp
-    qrcp
-    xmrig
-    hdparm
+    # dev
     postman
-    monero-gui
-    ventoy-full
-    qbittorrent
-    pkgs-22-11.github-desktop
     blackbox-terminal
+    pkgs-22-11.github-desktop
+
+    # blockchain
+    xmrig
+    monero-gui
 
     # penetration
     mdk4
     macchanger
     aircrack-ng
     wirelesstools
+
+    # etc
+    gimp
+    qrcp
+    hdparm
+    virtualbox
+    ventoy-full
+    qbittorrent
   ];
 }
