@@ -14,11 +14,9 @@ let
     rust
     ocaml
     redli
-    redis
     stack
     jdk11
     jdk17
-    redis
     docker
     nodejs
     gnumake
@@ -31,6 +29,7 @@ let
     dotnet-sdk_7
     rust-bindgen
     android-tools
+    docker-compose
     llvmPackages_15.libllvm
     linuxKernel.packages.linux_6_1.perf
   ];
@@ -41,6 +40,7 @@ let
     git
     bat
     nmap
+    lsof
     wget
     tree
     htop
@@ -53,6 +53,7 @@ let
     bottom
     pstree
     evtest
+    psmisc
     nixfmt
     du-dust
     libinput
@@ -128,13 +129,13 @@ in
       "sdk-homes/llvm".source = llvmPackages_15.libllvm;
       "sdk-homes/perf".source = linuxKernel.packages.linux_6_1.perf;
 
-      "app-homes/chromium".source = chromium;
       "app-homes/firefox".source = firefox;
+      "app-homes/chromium".source = chromium;
       "app-homes/mysql".source = mysql80;
+      #"app-homes/mongodb".source = mongodb;
       "app-homes/pgsql".source = postgresql_15;
-      "app-homes/mongodb".source = mongodb;
-      "app-homes/kafka".source = apacheKafka_3_2;
       "app-homes/redis".source = redis;
+      "app-homes/kafka".source = apacheKafka_3_2;
     };
   };
 }

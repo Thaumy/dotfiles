@@ -18,6 +18,13 @@
     # firewall.allowedTCPPorts = [ 40040 ];
     # firewall.allowedUDPPorts = [  ];
     firewall.enable = false;
+
+    # WRN: only for cnblogs dev env
+    extraHosts =
+      ''
+        127.0.0.1 www.cnblogs.com
+        127.0.0.1 i.cnblogs.com
+      '';
   };
 
 }

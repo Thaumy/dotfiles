@@ -8,24 +8,12 @@
     ./local.nix
     ./networking.nix
     ./pkgs.nix
-
-    ./app/clash.nix
-    ./app/fish.nix
-    ./app/mysql.nix
-    ./app/postgres.nix
-    ./app/mongodb.nix
-    ./app/redis.nix
-    ./app/kafka.nix
-    ./app/steam.nix
-    ./app/yubikey.nix
-    ./app/tomcat.nix
+    ./app.nix
   ];
 
   virtualisation = {
-    docker.enable = true;
-    waydroid.enable = true;
     lxd.enable = true;
-    virtualbox.host.enable = true;
+    #virtualbox.host.enable = true;
   };
 
   environment = {
@@ -37,7 +25,7 @@
     };
   };
 
-  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+  #users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.thaumy = {
