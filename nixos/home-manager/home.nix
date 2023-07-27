@@ -5,11 +5,8 @@
 
   imports = [
     ./sh.nix
+    ./app.nix
     ./pkgs.nix
-    ./app/gpg.nix
-    ./app/git.nix
-    ./app/fish.nix
-    ./app/neovim.nix
   ];
 
   home = {

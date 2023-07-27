@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 rm -rf system-wide
 rm -rf home-manager
 

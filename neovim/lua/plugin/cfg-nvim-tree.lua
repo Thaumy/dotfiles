@@ -2,7 +2,7 @@ local function setup()
 	require "nvim-tree".setup {
 		sort_by = "case_sensitive",
 		view = {
-			width = 18,
+			width = 30,
 			signcolumn = "no"
 		},
 		hijack_cursor = true,

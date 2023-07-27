@@ -20,11 +20,13 @@
     firewall.enable = false;
 
     # WRN: only for cnblogs dev env
-    extraHosts =
-      ''
-        127.0.0.1 www.cnblogs.com
-        127.0.0.1 i.cnblogs.com
-      '';
+    #extraHosts =
+    #  ''
+    #    127.0.0.1 www.cnblogs.com
+    #    127.0.0.1 i.cnblogs.com
+    #    127.0.0.1 account.cnblogs.com
+    #    120.55.181.22 gitblog.cnblogs.com
+    #  '';
   };
 
 }

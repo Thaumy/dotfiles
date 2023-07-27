@@ -16,6 +16,9 @@ local function setup()
 	lspcfg.sqls.setup {
 		capabilities = capabilities,
 	}
+	lspcfg.taplo.setup {
+		capabilities = capabilities,
+	}
 	lspcfg.jdtls.setup {
 		capabilities = capabilities,
 		cmd = { "jdt-language-server" },
@@ -38,18 +41,18 @@ local function setup()
 	lspcfg.clangd.setup {
 		capabilities = capabilities,
 	}
-	lspcfg.denols.setup {
-		capabilities = capabilities,
-	}
+	--lspcfg.denols.setup {
+	--	capabilities = capabilities,
+	--}
 	lspcfg.yamlls.setup {
 		capabilities = capabilities,
 	}
 	lspcfg.pyright.setup {
 		capabilities = capabilities,
 	}
-	lspcfg.marksman.setup {
-		capabilities = capabilities,
-	}
+	--lspcfg.marksman.setup {
+	--	capabilities = capabilities,
+	--}
 	lspcfg.omnisharp.setup {
 		cmd = { "OmniSharp" },
 		capabilities = capabilities,

@@ -2,7 +2,7 @@
 
 let
   pkgs-22-11 = import <nixos-22.11> { config = { allowUnfree = true; }; };
-  #pkgs-23-05 = import <nixos-23.05> { config = { allowUnfree = true; }; };
+  pkgs-23-05 = import <nixos-23.05> { config = { allowUnfree = true; }; };
 in
 {
   home.packages = with pkgs; [
@@ -19,6 +19,8 @@ in
 
     # editor
     glow
+    #pkgs-22-11.vscode
+    #pkgs-23-05.vscode
     vscode
     android-studio
     jetbrains.rider
@@ -61,7 +63,6 @@ in
     gimp
     qrcp
     hdparm
-    virtualbox
     ventoy-full
     qbittorrent
   ];

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 rm -rf lua
 rm -rf init.lua
 

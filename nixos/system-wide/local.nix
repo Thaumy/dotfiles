@@ -3,9 +3,9 @@
 {
 
   fonts = {
-    enableDefaultFonts = true;
+    enableDefaultPackages = true;
 
-    fonts = with pkgs;[
+    packages = with pkgs;[
       nerdfonts
       noto-fonts
       sarasa-gothic

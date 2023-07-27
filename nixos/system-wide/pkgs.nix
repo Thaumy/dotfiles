@@ -1,10 +1,12 @@
 { config, pkgs, ... }:
 
 let
-  stable-pkgs = import <nixos-22.11> { config = { allowUnfree = true; }; };
+  pkgs-22-11 = import <nixos-22.11> { config = { allowUnfree = true; }; };
+  pkgs-23-05 = import <nixos-23.05> { config = { allowUnfree = true; }; };
 
   rust = (pkgs.rust-bin.nightly."2023-06-09".default.override {
     extensions = [ "rust-src" ];
+    targets = [ "wasm32-unknown-unknown" ];
   });
 
   sdk = with pkgs;[
@@ -12,6 +14,7 @@ let
     gcc
     jdk8
     rust
+    vsce
     ocaml
     redli
     stack
@@ -24,14 +27,24 @@ let
     protobuf
     valgrind
     python311
+    wasm-pack
     kubernetes
     clang-tools
     dotnet-sdk_7
     rust-bindgen
     android-tools
     docker-compose
-    llvmPackages_15.libllvm
+    wasm-bindgen-cli
+    nodePackages_latest.yo
+    nodePackages_latest.webpack
+    nodePackages_latest.webpack-cli
     linuxKernel.packages.linux_6_1.perf
+  ];
+
+  lib = with pkgs;[
+    libvirt
+    libinput
+    llvmPackages_15.libllvm
   ];
 
   infra = with pkgs;[
@@ -40,12 +53,16 @@ let
     git
     bat
     nmap
+    zbar
     lsof
     wget
+    qemu
     tree
     htop
+    whois
     procs
     p7zip
+    spice
     xclip
     broot
     tokei
@@ -56,8 +73,8 @@ let
     psmisc
     nixfmt
     du-dust
-    libinput
     patchelf
+    win-spice
     nix-index
     steam-run
     pkg-config
@@ -99,6 +116,7 @@ in
   environment = {
     systemPackages =
       sdk ++
+      lib ++
       infra ++
       sec ++
       etc;
