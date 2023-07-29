@@ -2,6 +2,8 @@
 
 {
   home.packages = with pkgs; [
+    (writeShellScriptBin "sr"
+      (builtins.readFile /home/thaumy/sh/sr/run.sh))
     (writeShellScriptBin "aes-en"
       (builtins.readFile /home/thaumy/sh/crypto/aes-en.sh))
     (writeShellScriptBin "aes-de"
