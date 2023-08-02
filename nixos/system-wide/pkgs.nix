@@ -14,7 +14,6 @@ let
     gcc
     jdk8
     rust
-    vsce
     ocaml
     redli
     stack
@@ -27,14 +26,11 @@ let
     protobuf
     valgrind
     python311
-    wasm-pack
     kubernetes
     clang-tools
     dotnet-sdk_7
     rust-bindgen
     android-tools
-    docker-compose
-    wasm-bindgen-cli
     nodePackages_latest.yo
     nodePackages_latest.webpack
     nodePackages_latest.webpack-cli
@@ -42,8 +38,10 @@ let
   ];
 
   lib = with pkgs;[
+    openssl
     libvirt
     libinput
+    libiconv
     llvmPackages_15.libllvm
   ];
 
@@ -55,6 +53,7 @@ let
     nmap
     zbar
     lsof
+    vsce
     wget
     qemu
     tree
@@ -76,15 +75,17 @@ let
     patchelf
     win-spice
     nix-index
+    wasm-pack
     steam-run
     pkg-config
     nixpkgs-fmt
     smartmontools
+    docker-compose
+    wasm-bindgen-cli
     nix-prefetch-github
   ];
 
   sec = with pkgs;[
-    openssl
     paperkey
     yubikey-manager
     yubikey-personalization
