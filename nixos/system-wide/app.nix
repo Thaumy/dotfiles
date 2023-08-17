@@ -10,8 +10,8 @@
     #./app/tomcat.nix
     #./app/waydroid.nix
 
-    ./app/mysql.nix
-    #./app/postgres.nix
+    #./app/mysql.nix
+    ./app/postgres.nix
     #./app/mongodb.nix
 
     #./app/redis.nix

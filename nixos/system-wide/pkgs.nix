@@ -26,6 +26,7 @@ let
     protobuf
     valgrind
     python311
+    sysfsutils
     kubernetes
     clang-tools
     dotnet-sdk_7
@@ -75,6 +76,7 @@ let
     patchelf
     win-spice
     nix-index
+    inetutils
     wasm-pack
     steam-run
     pkg-config
