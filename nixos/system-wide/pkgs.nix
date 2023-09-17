@@ -82,6 +82,7 @@ let
     psmisc
     nixfmt
     du-dust
+    pciutils
     patchelf
     cdrtools
     win-spice
