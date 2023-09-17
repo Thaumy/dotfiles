@@ -4,9 +4,18 @@ let
   pkgs-22-11 = import <nixos-22.11> { config = { allowUnfree = true; }; };
   pkgs-23-05 = import <nixos-23.05> { config = { allowUnfree = true; }; };
 
-  rust = (pkgs.rust-bin.nightly."2023-06-09".default.override {
+  rust = (pkgs.rust-bin.nightly."2023-09-06".default.override {
     extensions = [ "rust-src" ];
-    targets = [ "wasm32-unknown-unknown" ];
+    targets = [
+      "aarch64-apple-darwin"
+      "aarch64-unknown-linux-gnu"
+      "aarch64-unknown-linux-musl"
+      "x86_64-apple-darwin"
+      "x86_64-pc-windows-msvc"
+      "x86_64-unknown-linux-gnu"
+      "x86_64-unknown-linux-musl"
+      "wasm32-unknown-unknown"
+    ];
   });
 
   sdk = with pkgs;[
@@ -35,7 +44,7 @@ let
     nodePackages_latest.yo
     nodePackages_latest.webpack
     nodePackages_latest.webpack-cli
-    linuxKernel.packages.linux_6_1.perf
+    linuxKernel.packages.linux_6_4.perf
   ];
 
   lib = with pkgs;[
@@ -74,6 +83,7 @@ let
     nixfmt
     du-dust
     patchelf
+    cdrtools
     win-spice
     nix-index
     inetutils
@@ -87,18 +97,13 @@ let
     nix-prefetch-github
   ];
 
-  sec = with pkgs;[
-    paperkey
-    yubikey-manager
-    yubikey-personalization
-  ];
-
   etc = with pkgs;[
     vlc
     clash
     vsftpd
     gparted
     firefox
+    paperkey
     qrencode
     yarn2nix
     neofetch
@@ -108,11 +113,7 @@ let
     obs-studio
     home-manager
     ffmpeg_5-full
-
-    gnome.mutter
-    gnome.gnome-boxes
-    gnome.gnome-tweaks
-    gnome.gnome-terminal
+    libsForQt5.qtstyleplugin-kvantum
   ];
 in
 {
@@ -121,23 +122,7 @@ in
       sdk ++
       lib ++
       infra ++
-      sec ++
       etc;
-
-    gnome.excludePackages = with pkgs;[
-      kgx
-      epiphany
-      gnome-tour
-      gnome.yelp
-      gnome.totem
-      gnome.gnome-maps
-      gnome.gnome-music
-      gnome.simple-scan
-      gnome.gnome-clocks
-      gnome.gnome-weather
-      gnome.gnome-calendar
-      gnome.gnome-contacts
-    ];
 
     etc = with pkgs; {
       "sdk-homes/go".source = go;

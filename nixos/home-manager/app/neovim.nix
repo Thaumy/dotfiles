@@ -49,7 +49,7 @@ in
     ];
 
     extraPackages = with pkgs;[
-      sqls
+      #sqls
       deno
       gopls
       taplo

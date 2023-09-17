@@ -12,13 +12,23 @@
   ];
 
   virtualisation = {
-    lxd.enable = true;
+    #lxd.enable = true;
+    podman = {
+      enable = true;
+
+      defaultNetwork.settings = {
+        dns_enabled = true;
+      };
+    };
     #virtualbox.host.enable = true;
   };
 
   environment = {
     localBinInPath = true;
-    variables = { EDITOR = "nvim"; };
+    variables = {
+      EDITOR = "nvim";
+      QT_STYLE_OVERRIDE = "kvantum";
+    };
     sessionVariables = {
       # NIXOS_OZONE_WL = "1";
       DOTNET_ROOT = "${pkgs.dotnet-sdk_7}";

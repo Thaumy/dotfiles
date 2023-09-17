@@ -7,7 +7,7 @@ in
 {
   home.packages = with pkgs; [
     # nur
-    nur.repos.thaumy.dup-img-finder
+    #nur.repos.thaumy.dup-img-finder
     nur.repos.thaumy.idbuilder
     nur.repos.thaumy.microsoft-todo-electron
     nur.repos.linyinfeng.wemeet
@@ -60,10 +60,17 @@ in
     wirelesstools
 
     # etc
+    zip
     gimp
     qrcp
     hdparm
     ventoy-full
     qbittorrent
+    gnome.dconf-editor
+
+    # cargo
+    cargo-audit
+    cargo-edit
+    cargo-outdated
   ];
 }
