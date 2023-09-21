@@ -5,6 +5,7 @@
   imports = [
     ./boot.nix
     ./hardware-configuration.nix
+    ./user.nix
     ./local.nix
     ./networking.nix
     ./pkgs.nix
@@ -36,14 +37,6 @@
   };
 
   #users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.thaumy = {
-    description = "Thaumy";
-    isNormalUser = true;
-    shell = pkgs.fish;
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
-  };
 
   hardware = {
     opengl.enable = true;
