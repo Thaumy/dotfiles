@@ -47,7 +47,7 @@ in
     # dev
     postman
     blackbox-terminal
-    pkgs-22-11.github-desktop
+    github-desktop
 
     # blockchain
     xmrig
