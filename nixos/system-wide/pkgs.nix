@@ -57,7 +57,7 @@ let
 
   infra = with pkgs;[
     jq
-    exa
+    eza
     git
     bat
     nmap
