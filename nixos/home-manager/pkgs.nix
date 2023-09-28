@@ -27,6 +27,7 @@ in
     jetbrains.goland
     jetbrains.datagrip
     jetbrains.webstorm
+    jetbrains.rust-rover
     jetbrains.idea-ultimate
     jetbrains.pycharm-professional
 
