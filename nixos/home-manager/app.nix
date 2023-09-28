@@ -7,6 +7,7 @@
     ./app/bash.nix
     ./app/fish.nix
     ./app/neovim.nix
+    ./app/symlinks.nix
     ./app/dup-img-finder.nix
     ./app/sh-history-filter.nix
   ];
