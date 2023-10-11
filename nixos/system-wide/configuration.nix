@@ -10,6 +10,7 @@
     ./networking.nix
     ./pkgs.nix
     ./app.nix
+    ./sec.nix
   ];
 
   virtualisation = {
