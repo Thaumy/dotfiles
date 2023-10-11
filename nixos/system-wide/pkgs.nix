@@ -81,7 +81,9 @@ let
     evtest
     psmisc
     nixfmt
+    screen
     du-dust
+    sysstat
     pciutils
     patchelf
     cdrtools
