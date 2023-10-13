@@ -10,7 +10,7 @@
       grub.configurationLimit = 4;
     };
 
-    kernelPackages = pkgs.linuxPackages_6_4;
+    kernelPackages = pkgs.linuxPackages_6_5;
     kernel.sysctl = { "vm.swappiness" = 0; };
     kernelModules = [
       "v4l2loopback"

@@ -44,7 +44,7 @@ let
     nodePackages_latest.yo
     nodePackages_latest.webpack
     nodePackages_latest.webpack-cli
-    linuxKernel.packages.linux_6_4.perf
+    linuxKernel.packages.linux_6_5.perf
   ];
 
   lib = with pkgs;[
