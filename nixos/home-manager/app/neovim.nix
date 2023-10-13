@@ -23,7 +23,6 @@ in
 
     plugins = with pkgs.vimPlugins;[
       catppuccin-nvim
-      suda-vim
       Ionide-vim
       lualine-nvim
       nvim-tree-lua
@@ -31,6 +30,7 @@ in
       formatter-nvim
       nvim-colorizer-lua
       markdown-preview-nvim
+      lightspeed-nvim
       nvim-treesitter.withAllGrammars
 
       dashboard-nvim
@@ -64,7 +64,7 @@ in
       nodePackages.bash-language-server
       nodePackages.yaml-language-server
       haskellPackages.haskell-language-server
-      pkgs-22-11.nodePackages.vscode-langservers-extracted
+      nodePackages.vscode-langservers-extracted
     ];
 
   };
