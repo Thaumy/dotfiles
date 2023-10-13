@@ -13,9 +13,9 @@ local function setup()
 	lspcfg.html.setup {
 		capabilities = capabilities,
 	}
-	lspcfg.sqls.setup {
-		capabilities = capabilities,
-	}
+	--lspcfg.sqls.setup {
+	--	capabilities = capabilities,
+	--}
 	lspcfg.taplo.setup {
 		capabilities = capabilities,
 	}
