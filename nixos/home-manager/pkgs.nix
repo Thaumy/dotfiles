@@ -46,7 +46,7 @@ in
     git-filter-repo
 
     # dev
-    postman
+    #pkgs-23-05.postman
     blackbox-terminal
     github-desktop
 
