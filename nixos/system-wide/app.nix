@@ -6,6 +6,7 @@
     ./app/fish.nix
     ./app/gnome.nix
     #./app/steam.nix
+    ./app/openssh.nix
     ./app/yubikey.nix
     #./app/tomcat.nix
     #./app/waydroid.nix
