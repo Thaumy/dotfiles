@@ -75,6 +75,7 @@ let
     xclip
     broot
     tokei
+    dutree
     podman
     bottom
     pstree
@@ -113,6 +114,7 @@ let
     chromium
     distrobox
     wireshark
+    cryptsetup
     obs-studio
     home-manager
     ffmpeg_5-full
