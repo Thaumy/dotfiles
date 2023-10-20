@@ -5,8 +5,8 @@
 
   imports = [
     ./sh.nix
-    ./app.nix
     ./pkgs.nix
+    ./app/mod.nix
   ];
 
   home = {
