@@ -1,17 +1,15 @@
-{ config, pkgs, ... }:
-
+{ config, ... }:
 let
   homeDir = config.home.homeDirectory;
   mkSymlink = config.lib.file.mkOutOfStoreSymlink;
 in
 {
-
   home.file = {
     "dl" = {
       enable = true;
       source = mkSymlink "${homeDir}/Downloads";
     };
-    "doc" = {
+    "docs" = {
       enable = true;
       source = mkSymlink "${homeDir}/Documents";
     };
@@ -27,6 +25,9 @@ in
       enable = true;
       source = mkSymlink "${homeDir}/Videos";
     };
+    "sec" = {
+      enable = true;
+      source = mkSymlink "${homeDir}/Documents/sec";
+    };
   };
-
 }

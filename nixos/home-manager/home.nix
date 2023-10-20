@@ -7,6 +7,7 @@
     ./sh.nix
     ./pkgs.nix
     ./app/mod.nix
+    ./symlinks.nix
   ];
 
   home = {
