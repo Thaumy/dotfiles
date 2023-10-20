@@ -1,9 +1,5 @@
-{ config, pkgs, ... }:
-
-{
-
+{ ... }: {
   programs.fish = {
-
     enable = true;
 
     shellAliases = {
@@ -60,7 +56,5 @@
       set -U fish_pager_color_secondary_completion 
       set -U fish_pager_color_secondary_description 
     '';
-
   };
-
 }

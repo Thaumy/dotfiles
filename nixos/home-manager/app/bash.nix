@@ -1,7 +1,4 @@
-{ config, pkgs, ... }:
-
-{
-
+{ ... }: {
   programs.bash = {
     enable = true;
     initExtra = ''
@@ -15,5 +12,4 @@
       && cp $processed_history_path $raw_history_path
     '';
   };
-
 }

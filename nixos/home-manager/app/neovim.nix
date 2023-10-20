@@ -1,12 +1,9 @@
-{ config, pkgs, ... }:
-
+{ pkgs, ... }:
 let
   pkgs-22-11 = import <nixos-22.11> { config = { allowUnfree = true; }; };
 in
 {
-
   programs.neovim = {
-
     enable = true;
 
     viAlias = true;
@@ -21,7 +18,7 @@ in
       	luafile ~/cfg/neovim/init.lua
     '';
 
-    plugins = with pkgs.vimPlugins;[
+    plugins = with pkgs.vimPlugins; [
       catppuccin-nvim
       Ionide-vim
       lualine-nvim
@@ -48,7 +45,7 @@ in
       cmp-nvim-lsp
     ];
 
-    extraPackages = with pkgs;[
+    extraPackages = with pkgs; [
       #sqls
       deno
       gopls
@@ -66,7 +63,5 @@ in
       haskellPackages.haskell-language-server
       nodePackages.vscode-langservers-extracted
     ];
-
   };
-
 }
