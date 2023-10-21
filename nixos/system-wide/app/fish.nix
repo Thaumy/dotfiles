@@ -1,9 +1,3 @@
-{ config, pkgs, ... }:
-
-{
-
-  programs.fish = {
-    enable = true;
-  };
-
+{ ... }: {
+  programs.fish.enable = true;
 }

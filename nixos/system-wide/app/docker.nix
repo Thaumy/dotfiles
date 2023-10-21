@@ -1,7 +1,4 @@
-{ config, pkgs, ... }:
-
-{
-
+{ ... }: {
   virtualisation.docker = {
     enable = true;
     #daemon.settings = {
@@ -11,5 +8,4 @@
     #  };
     #};
   };
-
 }

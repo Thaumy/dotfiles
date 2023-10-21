@@ -1,8 +1,5 @@
-{ pkgs, ... }:
-
-{
-
-  environment.systemPackages = with pkgs;[
+{ pkgs, ... }: {
+  environment.systemPackages = with pkgs; [
     yubikey-manager
     yubikey-personalization
   ];
@@ -11,5 +8,4 @@
     udev.packages = [ pkgs.yubikey-personalization ];
     pcscd.enable = true;
   };
-
 }

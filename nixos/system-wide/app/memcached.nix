@@ -1,9 +1,3 @@
-{ config, pkgs, ... }:
-
-{
-
-  services.memcached = {
-    enable = true;
-  };
-
+{ ... }: {
+  services.memcached.enable = true;
 }
