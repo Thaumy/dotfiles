@@ -8,6 +8,7 @@
     ./pkgs.nix
     ./app/mod.nix
     ./symlinks.nix
+    ./daemon/mod.nix
   ];
 
   home = {
