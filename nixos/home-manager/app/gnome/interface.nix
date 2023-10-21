@@ -4,7 +4,7 @@ let
 in
 {
   dconf.settings. ${base ""} = {
-    color-scheme = "default";
+    color-scheme = "prefer-dark";
     cursor-size = 32;
     document-font-name = "Cantarell 11";
     enable-animations = true;
