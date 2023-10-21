@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-
+{ pkgs, ... }:
 let
   pkgs-22-11 = import <nixos-22.11> { config = { allowUnfree = true; }; };
   pkgs-23-05 = import <nixos-23.05> { config = { allowUnfree = true; }; };
@@ -67,7 +66,7 @@ in
     hdparm
     ventoy-full
     qbittorrent
-    gnome.dconf-editor
+    #gnome.dconf-editor
 
     # cargo
     cargo-audit
