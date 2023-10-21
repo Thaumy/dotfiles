@@ -1,7 +1,5 @@
-{ config, pkgs, ... }:
-
+{ pkgs, config, ... }:
 {
-
   imports = [
     ./boot.nix
     ./hardware-configuration.nix
@@ -9,8 +7,8 @@
     ./local.nix
     ./networking.nix
     ./pkgs.nix
-    ./app.nix
     ./sec.nix
+    ./app/mod.nix
   ];
 
   virtualisation = {
@@ -135,5 +133,4 @@
       "thaumy.cachix.org-1:aUhbtORDWI0e/T/FcTMezJc0S7IO9mT1IE84cXHNm14="
     ];
   };
-
 }
