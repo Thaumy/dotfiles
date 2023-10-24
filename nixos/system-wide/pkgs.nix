@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-
+{ pkgs, ... }:
 let
   pkgs-22-11 = import <nixos-22.11> { config = { allowUnfree = true; }; };
   pkgs-23-05 = import <nixos-23.05> { config = { allowUnfree = true; }; };
@@ -20,9 +19,10 @@ let
 
   sdk = with pkgs;[
     go
-    gcc
     jdk8
     rust
+    gcc10
+    gcc13
     ocaml
     redli
     stack
@@ -133,8 +133,10 @@ in
       "sdk-homes/go".source = go;
       "sdk-homes/rust".source = rust;
       "sdk-homes/jdk8".source = jdk8;
-      "sdk-homes/jdk11".source = jdk11;
-      "sdk-homes/jdk17".source = jdk17;
+      "sdk-homes/jdk-11".source = jdk11;
+      "sdk-homes/jdk-17".source = jdk17;
+      "sdk-homes/gcc-10".source = gcc10;
+      "sdk-homes/gcc-13".source = gcc13;
       "sdk-homes/tomcat".source = tomcat10;
       "sdk-homes/dotnet".source = dotnet-sdk_7;
       "sdk-homes/llvm".source = llvmPackages_15.libllvm;

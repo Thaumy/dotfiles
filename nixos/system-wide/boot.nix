@@ -1,7 +1,4 @@
-{ config, pkgs, ... }:
-
-{
-
+{ pkgs, config, ... }: {
   boot = {
     loader = {
       systemd-boot.enable = true;
@@ -31,6 +28,5 @@
     extraModulePackages = with config.boot.kernelPackages;
       [ v4l2loopback.out ];
   };
-
 }
 

@@ -1,8 +1,6 @@
-{ config, pkgs, ... }:
-
-{
+{ pkgs, ... }: {
   fonts = {
-    packages = with pkgs;[
+    packages = with pkgs; [
       nerdfonts
       noto-fonts
       noto-fonts-emoji
@@ -55,6 +53,5 @@
     };
 
   time.timeZone = "Asia/Shanghai";
-
 }
 

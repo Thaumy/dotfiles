@@ -1,5 +1,4 @@
-{ pkgs, config, ... }:
-{
+{ pkgs, config, ... }: {
   imports = [
     ./boot.nix
     ./hardware-configuration.nix
@@ -51,7 +50,6 @@
   };
 
   services = {
-
     xserver = {
       enable = true;
 
@@ -77,7 +75,6 @@
 
     # Enable CUPS to print documents.
     printing.enable = true;
-
   };
 
   # Enable sound with pipewire.
