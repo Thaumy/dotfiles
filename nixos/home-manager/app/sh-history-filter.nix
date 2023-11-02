@@ -48,7 +48,11 @@ let cfg = ''
 '';
 in
 {
-  home.file."shf.toml" = {
+  #home.file."shf.toml" = {
+  #  enable = true;
+  #  text = cfg;
+  #};
+  home.file.".config/sh-history-filter/cfg.toml" = {
     enable = true;
     text = cfg;
   };
