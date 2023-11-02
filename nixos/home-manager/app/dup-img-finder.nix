@@ -27,7 +27,11 @@ let cfg = ''
 '';
 in
 {
-  home.file."dif.toml" = {
+  #home.file."dif.toml" = {
+  #  enable = true;
+  #  text = cfg;
+  #};
+  home.file.".config/dup-img-finder/cfg.toml" = {
     enable = true;
     text = cfg;
   };
