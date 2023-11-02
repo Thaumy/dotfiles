@@ -15,13 +15,13 @@
 
     interactiveShellInit = ''
       # color scheme
-      set -U fish_color_normal 767676 #-575f66
-      set -U fish_color_command 87ff00
-      set -U fish_color_quote 767676
-      set -U fish_color_redirection afd7d7
+      set -U fish_color_normal white
+      set -U fish_color_command brgreen
+      set -U fish_color_quote white
+      set -U fish_color_redirection brcyan #-afd7d7
       set -U fish_color_end afd7d7
       set -U fish_color_error ff5f5f
-      set -U fish_color_param ffffff
+      set -U fish_color_param white
       set -U fish_color_comment 5f8700
       set -U fish_color_match f07171
       set -U fish_color_selection --background=f89595
@@ -33,7 +33,7 @@
       set -U fish_color_autosuggestion 8b8b8b #-8a9199
       set -U fish_color_user 12478b
       set -U fish_color_host 12478b
-      set -U fish_color_cwd 399ee6
+      set -U fish_color_cwd brcyan #-399ee6
       set -U fish_color_cwd_root ff5f5f
       set -U fish_color_cancel --reverse
       set -U fish_color_option 
@@ -43,7 +43,7 @@
       set -U fish_pager_color_background 
       set -U fish_pager_color_prefix 131518
       set -U fish_pager_color_progress brwhite --background=6790c5
-      set -U fish_pager_color_completion ffffff
+      set -U fish_pager_color_completion brwhite #-ffffff
       set -U fish_pager_color_description 8b8b8b
       # ...
       set -U fish_pager_color_selected_prefix ffffff
