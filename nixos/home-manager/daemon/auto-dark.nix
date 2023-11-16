@@ -5,10 +5,12 @@ let auto-dark = pkgs.writeShellScriptBin "auto-dark" ''
   function action {
     if [[ $1 =~ 'dark' ]] ; then
       dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita-dark'"
-      dconf write /org/gnome/terminal/legacy/theme-variant "'dark'"
+      dconf load /org/gnome/terminal/legacy/ < \
+        $HOME/cfg/gnome-terminal-legacy/dark-cfg
     else
       dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita'"
-      dconf write /org/gnome/terminal/legacy/theme-variant "'light'"
+      dconf load /org/gnome/terminal/legacy/ < \
+        $HOME/cfg/gnome-terminal-legacy/light-cfg
     fi
   }
 
