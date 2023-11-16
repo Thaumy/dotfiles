@@ -15,7 +15,7 @@
     #./redis.nix
     #./memcached.nix
     #./kafka.nix
-    ./docker.nix
+    #./docker.nix
     ./virt-manager.nix
   ];
 }
