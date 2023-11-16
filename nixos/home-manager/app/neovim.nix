@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  pkgs-22-11 = import <nixos-22.11> { config = { allowUnfree = true; }; };
+  pkgs-23-05 = import <nixos-23.05> { config = { allowUnfree = true; }; };
 in
 {
   programs.neovim = {
@@ -10,12 +10,12 @@ in
     vimAlias = true;
 
     extraConfig = ''
-      	set nocompatible
+      set nocompatible
 
-      	" share system clipboard
-      	set clipboard+=unnamedplus
+      " share system clipboard
+      set clipboard+=unnamedplus
 
-      	luafile ~/cfg/neovim/init.lua
+      luafile ~/cfg/neovim/init.lua
     '';
 
     plugins = with pkgs.vimPlugins; [
@@ -46,12 +46,13 @@ in
     ];
 
     extraPackages = with pkgs; [
-      #sqls
+      sqls
       deno
       gopls
-      taplo
+      taplo # TOML
       rnix-lsp
       marksman
+      typst-lsp
       rust-analyzer
       omnisharp-roslyn
       jdt-language-server
