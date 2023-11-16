@@ -31,6 +31,7 @@
     sessionVariables = {
       # NIXOS_OZONE_WL = "1";
       DOTNET_ROOT = "${pkgs.dotnet-sdk_7}";
+      LIBCLANG_PATH = "${pkgs.libclang.lib}/lib";
     };
   };
 
