@@ -5,11 +5,12 @@ in
 {
   dconf.settings = {
     ${base ""} = {
-      home = [ "<Super>e" ];
+      home = [ ];
       custom-keybindings = [
         ("/" + base "/custom-keybindings/custom0/")
         ("/" + base "/custom-keybindings/custom1/")
         ("/" + base "/custom-keybindings/custom2/")
+        ("/" + base "/custom-keybindings/custom3/")
       ];
     };
 
@@ -29,6 +30,12 @@ in
       name = "Run nvim";
       binding = "<Super>v";
       command = "gnome-terminal -- nvim";
+    };
+
+    ${base "/custom-keybindings/custom3"} = {
+      name = "Open home";
+      binding = "<Super>e";
+      command = "nautilus -w";
     };
   };
 }
