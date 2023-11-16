@@ -81,7 +81,6 @@ let
     pstree
     evtest
     psmisc
-    nixfmt
     screen
     du-dust
     sysstat
@@ -92,9 +91,8 @@ let
     nix-index
     inetutils
     wasm-pack
-    steam-run
+    dmidecode
     pkg-config
-    nixpkgs-fmt
     smartmontools
     docker-compose
     wasm-bindgen-cli

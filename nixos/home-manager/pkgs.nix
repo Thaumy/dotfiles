@@ -11,25 +11,28 @@ in
     nur.repos.thaumy.microsoft-todo-electron
     nur.repos.thaumy.sh-history-filter
     nur.repos.linyinfeng.wemeet
-    nur.repos.xddxdd.dingtalk
+    #nur.repos.xddxdd.dingtalk
 
     # office
     pkgs-22-11.wpsoffice
-    pkgs-22-11.libreoffice
+    pkgs-23-05.libreoffice
 
     # editor
+    # TODO: pin uncommonly used apps to ng stable version
     glow
+    typst
+    typstfmt
     vscode
     android-studio
     jetbrains.rider
     jetbrains.clion
-    jetbrains.goland
+    pkgs-22-11.jetbrains.goland
     jetbrains.datagrip
     jetbrains.webstorm
     jetbrains.dataspell
     jetbrains.rust-rover
-    jetbrains.idea-ultimate
-    jetbrains.pycharm-professional
+    pkgs-22-11.jetbrains.idea-ultimate
+    pkgs-22-11.jetbrains.pycharm-professional
 
     # im
     feishu
@@ -45,6 +48,7 @@ in
     git-filter-repo
 
     # dev
+    fio
     #pkgs-23-05.postman
     blackbox-terminal
     github-desktop
@@ -67,6 +71,9 @@ in
     ventoy-full
     qbittorrent
     #gnome.dconf-editor
+    nixfmt
+    steam-run
+    nixpkgs-fmt
 
     # cargo
     cargo-audit
