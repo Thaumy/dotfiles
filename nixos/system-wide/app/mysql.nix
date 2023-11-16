@@ -6,6 +6,6 @@ in
 {
   services.mysql = {
     enable = true;
-    package = pkgs-22-11.mysql80;
+    package = pkgs-23-05.mysql80;
   };
 }
