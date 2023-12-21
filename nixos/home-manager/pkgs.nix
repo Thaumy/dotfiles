@@ -49,6 +49,9 @@ in
 
     # dev
     fio
+    wasm-pack
+    wit-bindgen
+    wasm-bindgen-cli
     #pkgs-23-05.postman
     blackbox-terminal
     github-desktop
@@ -74,6 +77,7 @@ in
     nixfmt
     steam-run
     nixpkgs-fmt
+    wl-clipboard-x11
 
     # cargo
     cargo-audit

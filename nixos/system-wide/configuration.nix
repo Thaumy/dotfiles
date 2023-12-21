@@ -7,8 +7,8 @@
     ./networking.nix
     ./pkgs.nix
     ./sec.nix
-    ./app/mod.nix
-  ];
+
+  ] ++ (import ./app/mod.nix);
 
   virtualisation = {
     #lxd.enable = true;
@@ -29,7 +29,7 @@
       QT_STYLE_OVERRIDE = "kvantum";
     };
     sessionVariables = {
-      # NIXOS_OZONE_WL = "1";
+      #NIXOS_OZONE_WL = "1";
       DOTNET_ROOT = "${pkgs.dotnet-sdk_7}";
       LIBCLANG_PATH = "${pkgs.libclang.lib}/lib";
     };
@@ -100,12 +100,7 @@
   system.stateVersion = "22.11"; # Did you read the comment?
 
   nixpkgs = {
-    overlays = [
-      (import ./overlay/rust.nix)
-      # (import ./overlay/vscode.nix)
-      # (import ./overlay/neovim.nix)
-      (import ./overlay/chromium.nix)
-    ];
+    overlays = import ./overlay/mod.nix;
 
     config.allowUnfree = true;
     config.packageOverrides = pkgs: {

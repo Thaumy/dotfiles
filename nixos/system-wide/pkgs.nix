@@ -2,8 +2,9 @@
 let
   pkgs-22-11 = import <nixos-22.11> { config = { allowUnfree = true; }; };
   pkgs-23-05 = import <nixos-23.05> { config = { allowUnfree = true; }; };
+  pkgs-23-11 = import <nixos-23.11> { config = { allowUnfree = true; }; };
 
-  rust = (pkgs.rust-bin.nightly."2023-09-06".default.override {
+  rust = (pkgs.rust-bin.nightly."2023-10-03".default.override {
     extensions = [ "rust-src" ];
     targets = [
       "aarch64-apple-darwin"
@@ -38,6 +39,7 @@ let
     sysfsutils
     kubernetes
     clang-tools
+    linuxHeaders
     dotnet-sdk_7
     rust-bindgen
     android-tools
@@ -72,7 +74,6 @@ let
     procs
     p7zip
     spice
-    xclip
     broot
     tokei
     dutree
@@ -90,18 +91,15 @@ let
     win-spice
     nix-index
     inetutils
-    wasm-pack
     dmidecode
     pkg-config
     smartmontools
     docker-compose
-    wasm-bindgen-cli
     nix-prefetch-github
   ];
 
   etc = with pkgs;[
     vlc
-    clash
     vsftpd
     gparted
     firefox
@@ -112,6 +110,7 @@ let
     chromium
     distrobox
     wireshark
+    clash-meta
     cryptsetup
     obs-studio
     home-manager
@@ -137,6 +136,7 @@ in
       "sdk-homes/gcc-13".source = gcc13;
       "sdk-homes/tomcat".source = tomcat10;
       "sdk-homes/dotnet".source = dotnet-sdk_7;
+      "sdk-homes/linux-headers".source = linuxHeaders;
       "sdk-homes/llvm".source = llvmPackages_15.libllvm;
       "sdk-homes/perf".source = linuxKernel.packages.linux_6_1.perf;
 
