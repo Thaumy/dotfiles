@@ -18,6 +18,8 @@
       (builtins.readFile /home/thaumy/sh/memdir/run.sh))
     (writeShellScriptBin "pic-search"
       (builtins.readFile /home/thaumy/sh/pic-search/run.sh))
+    (writeShellScriptBin "pwdc"
+      (builtins.readFile /home/thaumy/sh/pwdc/run.sh))
     (writeShellScriptBin "symlink-localize"
       (builtins.readFile /home/thaumy/sh/symlink-localize/run.sh))
     (writeShellScriptBin "sr"
