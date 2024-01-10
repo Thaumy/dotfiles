@@ -10,6 +10,9 @@ in
     nur.repos.thaumy.idbuilder
     nur.repos.thaumy.microsoft-todo-electron
     nur.repos.thaumy.sh-history-filter
+    nur.repos.thaumy.mojave-dyn
+    nur.repos.thaumy.catalina-dyn
+    nur.repos.thaumy.bigsur-dyn
     nur.repos.linyinfeng.wemeet
     #nur.repos.xddxdd.dingtalk
 
@@ -24,7 +27,7 @@ in
     typstfmt
     vscode
     android-studio
-    jetbrains.rider
+    pkgs-23-05.jetbrains.rider
     jetbrains.clion
     pkgs-22-11.jetbrains.goland
     jetbrains.datagrip
@@ -49,7 +52,10 @@ in
 
     # dev
     fio
+    gitoxide
+    binaryen
     wasm-pack
+    wasm-tools
     wit-bindgen
     wasm-bindgen-cli
     #pkgs-23-05.postman
@@ -83,5 +89,6 @@ in
     cargo-audit
     cargo-edit
     cargo-outdated
+    cargo-generate
   ];
 }
