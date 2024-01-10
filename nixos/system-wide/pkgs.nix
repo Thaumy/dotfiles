@@ -4,7 +4,7 @@ let
   pkgs-23-05 = import <nixos-23.05> { config = { allowUnfree = true; }; };
   pkgs-23-11 = import <nixos-23.11> { config = { allowUnfree = true; }; };
 
-  rust = (pkgs.rust-bin.nightly."2023-10-03".default.override {
+  rust = (pkgs.rust-bin.nightly."2024-01-01".default.override {
     extensions = [ "rust-src" ];
     targets = [
       "aarch64-apple-darwin"
@@ -21,14 +21,14 @@ let
   sdk = with pkgs;[
     go
     jdk8
+    jdk11
+    jdk17
     rust
     gcc10
     gcc13
     ocaml
     redli
     stack
-    jdk11
-    jdk17
     docker
     nodejs
     gnumake
