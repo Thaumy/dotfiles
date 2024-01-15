@@ -1,8 +1,21 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
+  homeDir = config.home.homeDirectory;
+  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
   pkgs-23-05 = import <nixos-23.05> { config = { allowUnfree = true; }; };
 in
 {
+  home.file = {
+    ".config/nvim/lua" = {
+      enable = true;
+      source = mkSymlink "${homeDir}/cfg/neovim/lua";
+    };
+    ".config/nvim/ftplugin" = {
+      enable = true;
+      source = mkSymlink "${homeDir}/cfg/neovim/ftplugin";
+    };
+  };
+
   programs.neovim = {
     enable = true;
 
@@ -11,6 +24,7 @@ in
 
     extraConfig = ''
       set nocompatible
+      "set autochdir
 
       " share system clipboard
       set clipboard+=unnamedplus
@@ -35,6 +49,7 @@ in
 
       todo-comments-nvim
       plenary-nvim
+      autoclose-nvim # auto pairs & closes brackets
 
       nvim-cmp
       cmp-path
@@ -52,7 +67,7 @@ in
       taplo # TOML
       rnix-lsp
       marksman
-      typst-lsp
+      #typst-lsp
       rust-analyzer
       omnisharp-roslyn
       jdt-language-server

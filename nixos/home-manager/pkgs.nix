@@ -23,12 +23,13 @@ in
     # editor
     # TODO: pin uncommonly used apps to ng stable version
     glow
+    helix
     typst
     typstfmt
     vscode
     android-studio
     pkgs-23-05.jetbrains.rider
-    jetbrains.clion
+    pkgs-23-05.jetbrains.clion
     pkgs-22-11.jetbrains.goland
     jetbrains.datagrip
     jetbrains.webstorm
@@ -86,8 +87,9 @@ in
     wl-clipboard-x11
 
     # cargo
-    cargo-audit
     cargo-edit
+    cargo-audit
+    cargo-expand
     cargo-outdated
     cargo-generate
   ];
