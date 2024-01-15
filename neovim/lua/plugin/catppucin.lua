@@ -1,7 +1,7 @@
-local vim = vim
+local plugin = require 'catppuccin'
 
 local function setup_dark()
-  require "catppuccin".setup {
+  plugin.setup {
     flavour = "mocha",
     color_overrides = {
       all = {
@@ -12,7 +12,7 @@ local function setup_dark()
 end
 
 local function setup_light()
-  require "catppuccin".setup {
+  plugin.setup {
     flavour = "latte",
     color_overrides = {
       all = {
@@ -39,14 +39,10 @@ local function is_dark_theme()
   return false
 end
 
-local function setup()
-  if (is_dark_theme()) then
-    setup_dark()
-  else
-    setup_light()
-  end
-
-  vim.cmd.colorscheme "catppuccin"
+if (is_dark_theme()) then
+  setup_dark()
+else
+  setup_light()
 end
 
-return setup()
+vim.cmd.colorscheme "catppuccin"
