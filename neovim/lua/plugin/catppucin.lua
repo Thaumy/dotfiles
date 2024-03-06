@@ -5,7 +5,7 @@ local function setup_dark()
     flavour = "mocha",
     color_overrides = {
       all = {
-        surface1 = "#313240",
+        --surface1 = "#313240",
       },
     },
   }
@@ -16,7 +16,7 @@ local function setup_light()
     flavour = "latte",
     color_overrides = {
       all = {
-        surface1 = "#dbdbdb"
+        --surface1 = "#dbdbdb"
       },
     },
   }
