@@ -4,16 +4,26 @@ local map = vim.api.nvim_set_keymap
 map('n', 'U', '<C-R>', {})
 -- toggle nvim-tree
 map('n', '<C-t>', ':NvimTreeToggle<CR>', { silent = true })
+-- switch tab L/R
+map('n', '<S-Right>', '<cmd>BufferNext<CR>', {})
+map('n', '<S-Left>', '<cmd>BufferPrevious<CR>', {})
 -- override but not write register
 map('v', 'tp', '\'_dP', {})
 -- fmt
 map('n', '<S-q>', '<cmd>lua vim.lsp.buf.format { sync = true }<CR>', { silent = true })
+-- show LSP diagnostic in cursor line
+map('n', '<M-a>', '<cmd>lua vim.diagnostic.open_float()<CR>', { silent = true })
+-- show def
+map('n', '<M-a>', '<cmd>lua vim.lsp.buf.hover()<CR>', { silent = true })
+-- LSP quick fix in cursor line
+map('n', '<M-q>', '<cmd>lua vim.lsp.buf.code_action()<CR>', { silent = true })
 
 -- disable
-map('i', '<C-k>', '', {})   -- key chord
-map('n', '<C-m>', '', {})   -- down
-map('n', '<C-p>', '', {})   -- up
-map('n', 'q:', '<nop>', {}) -- command history display
+map('i', '<C-k>', '<nop>', {}) -- key chord
+map('n', '<C-m>', '<nop>', {}) -- down
+map('n', '<C-p>', '<nop>', {}) -- up
+map('n', 'q:', '<nop>', {})    -- command history display
+map('c', '<C-f>', '<nop>', {}) -- command history display
 
 -- scroll line up/down
 map('n', '<C-A-k>', '<C-e>', {})
@@ -31,7 +41,7 @@ map('v', 'H', '^', {})
 map('n', 'L', '$', {})
 map('v', 'L', '$', {})
 
--- quick left/right
+-- quick L/R
 map('n', '<C-H>', '8h', {})
 map('v', '<C-H>', '8h', {})
 map('n', '<C-L>', '8l', {})
