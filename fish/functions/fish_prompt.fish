@@ -15,7 +15,7 @@ function fish_prompt
     set -l statusb_color (set_color --bold $fish_color_status)
     set -l pipestatus_string (__fish_print_pipestatus "[" "]" "|" "$status_color" "$statusb_color" $last_pipestatus)
 
-    printf '%s┌' (set_color ffffff)
+    printf '%s┌' (set_color brwhite)
 
     printf '%s%s %s%s%s%s %s%s%s%s ' \
       (set_color e9aa43) (fish_git_prompt) \
@@ -23,7 +23,7 @@ function fish_prompt
       (set_color $fish_color_cwd) $PWD ' ' $pipestatus_string
 
     printf '\n'
-    printf '%s└ ' (set_color ffffff)
+    printf '%s└ ' (set_color brwhite)
 
     printf '%s' (set_color normal)
   end
