@@ -28,5 +28,7 @@
       (builtins.readFile /home/thaumy/sh/up-proxy-sub/run.sh))
     (writeShellScriptBin "nix-gc"
       (builtins.readFile /home/thaumy/sh/nix-gc/run.sh))
+    (writeShellScriptBin "nix-chan-up"
+      (builtins.readFile /home/thaumy/sh/nix-chan-up/run.sh))
   ];
 }
