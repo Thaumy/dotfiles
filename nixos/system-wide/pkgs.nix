@@ -85,6 +85,7 @@ let
     psmisc
     screen
     du-dust
+    numactl
     sysstat
     pciutils
     patchelf
