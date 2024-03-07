@@ -53,8 +53,11 @@ in
 
     # dev
     fio
+    netdata
     gitoxide
     binaryen
+    wasmer
+    wasmtime
     wasm-pack
     wasm-tools
     wit-bindgen
@@ -77,6 +80,7 @@ in
     zip
     gimp
     qrcp
+    unar
     hdparm
     ventoy-full
     qbittorrent
