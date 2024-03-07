@@ -26,5 +26,7 @@
       (builtins.readFile /home/thaumy/sh/safe-remove/run.sh))
     (writeShellScriptBin "up-proxy-sub"
       (builtins.readFile /home/thaumy/sh/up-proxy-sub/run.sh))
+    (writeShellScriptBin "nix-gc"
+      (builtins.readFile /home/thaumy/sh/nix-gc/run.sh))
   ];
 }
