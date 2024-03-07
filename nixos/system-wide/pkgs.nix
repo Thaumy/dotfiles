@@ -14,6 +14,7 @@ let
       "x86_64-pc-windows-msvc"
       "x86_64-unknown-linux-gnu"
       "x86_64-unknown-linux-musl"
+      "wasm32-wasi"
       "wasm32-unknown-unknown"
     ];
   });
