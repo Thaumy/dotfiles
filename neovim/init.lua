@@ -11,3 +11,9 @@ vim.filetype.add({
     typ = 'typst'
   }
 })
+
+vim.diagnostic.config {
+  float = {
+    border = nil,
+  },
+}
