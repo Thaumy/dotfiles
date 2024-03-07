@@ -9,3 +9,7 @@ vim.o.cmdheight = 0
 
 -- single status line
 vim.opt.laststatus = 3
+
+-- show trailing whitespace
+vim.cmd.highlight('trailing_whitespace guibg=#ffdd00')
+vim.cmd.match('trailing_whitespace /\\s\\+$/')
