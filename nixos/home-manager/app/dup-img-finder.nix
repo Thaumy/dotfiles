@@ -8,20 +8,21 @@ let cfg = ''
     "/home/thaumy/.dotnet",
     "/home/thaumy/.nix-defexpr",
     "/home/thaumy/.nix-profile",
+    "/home/thaumy/.npm",
     "/home/thaumy/.nuget",
     "/home/thaumy/.vscode",
     "/home/thaumy/.cargo",
-      
+    "/home/thaumy/.gradle",
+
     "/home/thaumy/Android",
     "/home/thaumy/caches",
-      
-    "/home/thaumy/dev/repo/cnblogs",
   ]
   regex = [
     "node_modules",
     ".stack-work",
     "target/debug",
     "target/release",
+    "/home/thaumy/dev/repo/.*",
     "build/intermediates/packaged_res/debug",
   ]
 '';
