@@ -1,3 +1,7 @@
+function polish_pwd
+  echo $argv[1] | sed -e "s;$HOME;~;"
+end
+
 function fish_prompt
   # save the return status of the previous command
   set -l last_pipestatus $pipestatus
@@ -20,7 +24,7 @@ function fish_prompt
     printf '%s%s %s%s%s%s %s%s%s%s ' \
       (set_color e9aa43) (fish_git_prompt) \
       (set_color brblue) $USER '@' (prompt_hostname) \
-      (set_color $fish_color_cwd) $PWD ' ' $pipestatus_string
+      (set_color $fish_color_cwd) $(polish_pwd $PWD) ' ' $pipestatus_string
 
     printf '\n'
     printf '%s└ ' (set_color brwhite)
