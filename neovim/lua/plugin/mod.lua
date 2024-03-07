@@ -6,6 +6,7 @@ require 'plugin/dashboard'
 require 'plugin/formatter'
 require 'plugin/nvim-tree'
 require 'plugin/colorizer'
+require 'plugin/indent-blankline-nvim'
 require 'plugin/rainbow-delimiters'
 require 'plugin/todo-comments'
 
