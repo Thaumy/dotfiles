@@ -2,9 +2,9 @@ local vim = vim
 
 require 'keymap'
 require 'style'
-require 'plugin/mod'
 require 'cmd'
 require 'ui'
+require 'plugin/mod'
 
 vim.filetype.add({
   extension = {
