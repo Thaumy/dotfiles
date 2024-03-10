@@ -2,8 +2,6 @@ local map = vim.api.nvim_set_keymap
 
 -- redo
 map('n', 'U', '<C-R>', {})
--- toggle nvim-tree
-map('n', '<C-t>', ':NvimTreeToggle<CR>', { silent = true })
 -- switch tab L/R
 map('n', '<S-Right>', '<cmd>BufferNext<CR>', {})
 map('n', '<S-Left>', '<cmd>BufferPrevious<CR>', {})
@@ -52,3 +50,11 @@ map('n', '<C-K>', '5k', {})
 map('v', '<C-K>', '5k', {})
 map('n', '<C-J>', '5j', {})
 map('v', '<C-J>', '5j', {})
+
+-- nvim-tree: toggle
+map('n', '<C-t>', ':NvimTreeToggle<CR>', { silent = true })
+-- nvim-tree: next/prev file
+map('n', '<Down>', '<cmd>lua require("nvim-tree.api").node.navigate.sibling.next()<CR>', { silent = true })
+map('n', '<Up>', '<cmd>lua require("nvim-tree.api").node.navigate.sibling.prev()<CR>', { silent = true })
+-- nvim-tree: open file
+map('n', '<CR>', '<cmd>lua require("nvim-tree.api").node.open.edit()<CR>', { silent = true })
