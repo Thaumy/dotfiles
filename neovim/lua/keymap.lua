@@ -1,20 +1,30 @@
 local map = vim.api.nvim_set_keymap
 
+local function cmd_map(mode, lhs, cmd_rhs)
+  local rhs = string.format('<cmd>%s<CR>', cmd_rhs)
+  map(mode, lhs, rhs, { silent = true })
+end
+
+local function lua_map(mode, lhs, lua_rhs)
+  local rhs = string.format('lua %s', lua_rhs)
+  cmd_map(mode, lhs, rhs)
+end
+
 -- redo
 map('n', 'U', '<C-R>', {})
 -- switch tab L/R
-map('n', '<S-Right>', '<cmd>BufferNext<CR>', {})
-map('n', '<S-Left>', '<cmd>BufferPrevious<CR>', {})
+cmd_map('n', '<S-Right>', 'BufferNext')
+cmd_map('n', '<S-Left>', 'BufferPrevious')
 -- override but not write register
 map('v', 'tp', '\'_dP', {})
 -- fmt
-map('n', '<S-q>', '<cmd>lua vim.lsp.buf.format { sync = true }<CR>', { silent = true })
+lua_map('n', '<S-q>', 'vim.lsp.buf.format { sync = true }')
 -- show LSP diagnostic in cursor line
-map('n', '<M-a>', '<cmd>lua vim.diagnostic.open_float()<CR>', { silent = true })
+lua_map('n', '<M-a>', 'vim.diagnostic.open_float()')
 -- show def
-map('n', '<M-a>', '<cmd>lua vim.lsp.buf.hover()<CR>', { silent = true })
+lua_map('n', '<M-a>', 'vim.lsp.buf.hover()')
 -- LSP quick fix in cursor line
-map('n', '<M-q>', '<cmd>lua vim.lsp.buf.code_action()<CR>', { silent = true })
+lua_map('n', '<M-q>', 'vim.lsp.buf.code_action()')
 
 -- disable
 map('i', '<C-k>', '<nop>', {}) -- key chord
@@ -52,9 +62,9 @@ map('n', '<C-J>', '5j', {})
 map('v', '<C-J>', '5j', {})
 
 -- nvim-tree: toggle
-map('n', '<C-t>', ':NvimTreeToggle<CR>', { silent = true })
+cmd_map('n', '<C-t>', 'NvimTreeToggle')
 -- nvim-tree: next/prev file
-map('n', '<Down>', '<cmd>lua require("nvim-tree.api").node.navigate.sibling.next()<CR>', { silent = true })
-map('n', '<Up>', '<cmd>lua require("nvim-tree.api").node.navigate.sibling.prev()<CR>', { silent = true })
+lua_map('n', '<Down>', 'require("nvim-tree.api").node.navigate.sibling.next()')
+lua_map('n', '<Up>', 'require("nvim-tree.api").node.navigate.sibling.prev()')
 -- nvim-tree: open file
-map('n', '<CR>', '<cmd>lua require("nvim-tree.api").node.open.edit()<CR>', { silent = true })
+lua_map('n', '<CR>', 'require("nvim-tree.api").node.open.edit()')
