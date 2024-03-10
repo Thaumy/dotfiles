@@ -1,5 +1,9 @@
 local map = vim.api.nvim_set_keymap
 
+local function unmap(mode, lhs)
+  map(mode, lhs, '<nop>', {})
+end
+
 local function cmd_map(mode, lhs, cmd_rhs)
   local rhs = string.format('<cmd>%s<CR>', cmd_rhs)
   map(mode, lhs, rhs, { silent = true })
@@ -10,17 +14,17 @@ local function lua_map(mode, lhs, lua_rhs)
   cmd_map(mode, lhs, rhs)
 end
 
+-- disable
+unmap('i', '<C-k>') -- key chord
+unmap('n', '<C-m>') -- down
+unmap('n', '<C-p>') -- up
+unmap('n', 'q:')    -- command history display
+unmap('c', '<C-f>') -- command history display
+
 -- redo
 map('n', 'U', '<C-R>', {})
 -- override but not write register
 map('v', 'tp', '\'_dP', {})
-
--- disable
-map('i', '<C-k>', '<nop>', {}) -- key chord
-map('n', '<C-m>', '<nop>', {}) -- down
-map('n', '<C-p>', '<nop>', {}) -- up
-map('n', 'q:', '<nop>', {})    -- command history display
-map('c', '<C-f>', '<nop>', {}) -- command history display
 
 -- scroll line up/down
 map('n', '<C-A-k>', '<C-e>', {})
@@ -70,4 +74,3 @@ lua_map('n', '<Down>', 'require("nvim-tree.api").node.navigate.sibling.next()')
 lua_map('n', '<Up>', 'require("nvim-tree.api").node.navigate.sibling.prev()')
 -- nvim-tree: open file
 lua_map('n', '<CR>', 'require("nvim-tree.api").node.open.edit()')
-
