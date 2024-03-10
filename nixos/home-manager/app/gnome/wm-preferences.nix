@@ -4,7 +4,7 @@ let
 in
 {
   dconf.settings.${base ""} = {
-    num-workspaces = 5;
+    num-workspaces = 6;
     titlebar-font = "Cantarell Bold 11";
   };
 }
