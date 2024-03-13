@@ -10,15 +10,14 @@ plugin.setup {
       -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
     end,
   },
-  window = {
-    completion = {
-    },
-    documentation = {
-    },
+  window = { -- TODO
+    completion = {},
+    documentation = {},
   },
   mapping = plugin.mapping.preset.insert {
     ['<C-k>'] = plugin.mapping.scroll_docs(-3),
     ['<C-j>'] = plugin.mapping.scroll_docs(3),
+    ['<CR>'] = plugin.mapping.confirm { select = false },
     ['<Right>'] = plugin.mapping.confirm { select = false },
   },
   sources = plugin.config.sources({
@@ -51,7 +50,11 @@ plugin.setup.cmdline({ '/', '?' }, {
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 plugin.setup.cmdline(':', {
-  mapping = plugin.mapping.preset.cmdline(),
+  mapping = plugin.mapping.preset.cmdline {
+    -- Use up & down to select command
+    ['<Up>'] = { c = plugin.mapping.select_prev_item {} },
+    ['<Down>'] = { c = plugin.mapping.select_next_item {} },
+  },
   sources = plugin.config.sources({
     { name = 'path' }
   }, {
