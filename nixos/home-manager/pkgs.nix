@@ -47,7 +47,8 @@ in
     gnomeExtensions.tiling-assistant
     gnomeExtensions.internet-speed-monitor
 
-    # git ext
+    # git
+    gh
     git-lfs
     git-filter-repo
 
@@ -91,10 +92,13 @@ in
     wl-clipboard-x11
 
     # cargo
+    grcov
     cargo-edit
     cargo-audit
+    cargo-tauri
     cargo-expand
     cargo-outdated
     cargo-generate
+    cargo-component
   ];
 }
