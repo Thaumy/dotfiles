@@ -35,6 +35,9 @@
           inherit pkgs;
         };
     };
+    permittedInsecurePackages = [
+      "nix-2.16.2"
+    ];
 
   };
 
