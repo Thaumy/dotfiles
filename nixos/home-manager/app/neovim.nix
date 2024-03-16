@@ -33,24 +33,25 @@ in
     '';
 
     plugins = with pkgs.vimPlugins; [
-      catppuccin-nvim
-      Ionide-vim
       barbar-nvim # file tabs
       lualine-nvim
-      nvim-tree-lua
+      nvim-tree-lua # file explorer
+
+      Ionide-vim
       nvim-lspconfig
-      formatter-nvim
-      nvim-colorizer-lua
       markdown-preview-nvim
       lightspeed-nvim
+      formatter-nvim
       nvim-treesitter.withAllGrammars
 
-      dashboard-nvim
-      nvim-web-devicons
+      dashboard-nvim # dashboard
+      catppuccin-nvim # theme
+      nvim-web-devicons # icons
+      nvim-colorizer-lua
 
-      todo-comments-nvim
       rainbow-delimiters-nvim # colorful delimiters
       indent-blankline-nvim # indent lines
+      todo-comments-nvim # TODOs highlight
       plenary-nvim
       autoclose-nvim # auto pairs & closes brackets
 
