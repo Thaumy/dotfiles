@@ -61,11 +61,11 @@ in
     ];
 
     extraPackages = with pkgs; [
+      nixd
       sqls
       deno
       gopls
       taplo # TOML
-      rnix-lsp
       marksman
       #typst-lsp
       rust-analyzer
