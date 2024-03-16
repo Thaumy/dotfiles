@@ -55,7 +55,7 @@ map('n', '<C-J>', '5j', {})
 map('v', '<C-J>', '5j', {})
 
 -- LSP: fmt
-lua_map('n', '<S-q>', 'vim.lsp.buf.format { sync = true }')
+lua_map('n', 'qq', 'vim.lsp.buf.format { sync = true }')
 -- LSP: show LSP diagnostic in cursor line
 lua_map('n', '<M-a>', 'vim.diagnostic.open_float()')
 -- LSP: show def
