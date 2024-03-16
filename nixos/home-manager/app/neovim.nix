@@ -35,6 +35,7 @@ in
     plugins = with pkgs.vimPlugins; [
       catppuccin-nvim
       Ionide-vim
+      barbar-nvim # file tabs
       lualine-nvim
       nvim-tree-lua
       nvim-lspconfig
@@ -48,6 +49,8 @@ in
       nvim-web-devicons
 
       todo-comments-nvim
+      rainbow-delimiters-nvim # colorful delimiters
+      indent-blankline-nvim # indent lines
       plenary-nvim
       autoclose-nvim # auto pairs & closes brackets
 
