@@ -1,5 +1,3 @@
-local vim = vim
-
 require 'keymap'
 require 'style'
 require 'cmd'
