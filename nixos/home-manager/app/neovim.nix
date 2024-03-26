@@ -44,6 +44,8 @@ in
       formatter-nvim
       nvim-treesitter.withAllGrammars
 
+      noice-nvim # notice
+      nvim-notify # noice-nvim:dep
       dashboard-nvim # dashboard
       catppuccin-nvim # theme
       nvim-web-devicons # icons
