@@ -3,10 +3,11 @@
     enable = true;
 
     shellAliases = {
-      ls = "exa";
+      l = "eza -l --git -g --time-style '+%m-%d %H:%M' -a --smart-group --group-directories-first";
+      ls = "eza -l --no-permissions --no-filesize --no-user --no-time --group-directories-first";
       du = "dust";
       ps = "procs";
-      cat = "bat";
+      cat = "bat --style numbers";
     };
 
     shellInit = ''
