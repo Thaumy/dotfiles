@@ -10,8 +10,3 @@ vim.filetype.add({
   }
 })
 
-vim.diagnostic.config {
-  float = {
-    border = nil,
-  },
-}

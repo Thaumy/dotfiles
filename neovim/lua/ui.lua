@@ -1,5 +1,11 @@
 local api = vim.api
 
+vim.diagnostic.config {
+  float = {
+    border = nil,
+  },
+}
+
 function string.starts(str, start)
   return string.sub(str, 1, string.len(start)) == start
 end
