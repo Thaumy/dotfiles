@@ -73,3 +73,9 @@ map('n', '<Down>', function() nvim_tree_api.node.navigate.sibling.next() end)
 map('n', '<Up>', function() nvim_tree_api.node.navigate.sibling.prev() end)
 -- nvim-tree: open file
 map('n', '<CR>', function() nvim_tree_api.node.open.edit() end)
+
+-- nvim-ufo:
+-- fold code block
+map('n', '<M-k>', 'za')
+-- expand code block
+map('n', '<M-j>', 'zo')

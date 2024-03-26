@@ -54,6 +54,7 @@ in
       todo-comments-nvim # TODOs highlight
       plenary-nvim
       autoclose-nvim # auto pairs & closes brackets
+      nvim-ufo # code folding
 
       nvim-cmp
       cmp-path
