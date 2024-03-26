@@ -12,7 +12,7 @@ end
 
 -- open nvim-tree when read file
 -- TODO: nvim-tree not open on BufEnter
-api.nvim_create_autocmd({ "BufReadPost" }, {
+api.nvim_create_autocmd("BufReadPost", {
   callback = function()
     -- HACK: for some nvim-tree reasons, only this way will be work
     vim.fn.timer_start(0, function()
@@ -23,7 +23,7 @@ api.nvim_create_autocmd({ "BufReadPost" }, {
 })
 
 -- exit vim when all buffers is hidden
-api.nvim_create_autocmd({ "WinEnter" }, {
+api.nvim_create_autocmd("WinEnter", {
   callback = function()
     if vim.fn.winnr('$') == 1 and string.starts(vim.fn.bufname(), "NvimTree_") then
       vim.cmd "q"
