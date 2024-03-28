@@ -33,7 +33,7 @@ in
     '';
 
     plugins = with pkgs.vimPlugins; [
-      barbar-nvim # file tabs
+      bufferline-nvim # file tabs
       lualine-nvim
       neo-tree-nvim # file explorer
 

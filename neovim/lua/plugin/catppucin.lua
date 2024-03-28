@@ -8,6 +8,9 @@ local function setup_dark()
         --surface1 = "#313240",
       },
     },
+    custom_highlights = {
+      BufferLineBufferSelected = { style = { "bold" } },
+    },
   }
 end
 
@@ -18,6 +21,9 @@ local function setup_light()
       all = {
         --surface1 = "#dbdbdb"
       },
+    },
+    custom_highlights = {
+      BufferLineBufferSelected = { style = { "bold" } },
     },
   }
 end

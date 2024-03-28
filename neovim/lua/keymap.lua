@@ -62,8 +62,8 @@ map('n', '<M-a>', function() vim.lsp.buf.hover() end)
 map('n', '<M-q>', function() vim.lsp.buf.code_action() end)
 
 -- barbar: switch tab L/R
-map_cmd('n', '<S-Right>', 'BufferNext')
-map_cmd('n', '<S-Left>', 'BufferPrevious')
+map_cmd('n', '<S-Right>', 'BufferLineCycleNext')
+map_cmd('n', '<S-Left>', 'BufferLineCyclePrev')
 
 --neo-tree:
 -- toggle

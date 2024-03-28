@@ -1,7 +1,7 @@
 require 'plugin/autoclose-nvim'
 require 'plugin/catppucin'
 require 'plugin/lualine'
-require 'plugin/barbar'
+require 'plugin/bufferline'
 require 'plugin/dashboard'
 require 'plugin/formatter'
 require 'plugin/neo-tree'
