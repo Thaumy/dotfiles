@@ -12,6 +12,7 @@ require 'plugin/noice'
 require 'plugin/indent-blankline-nvim'
 require 'plugin/rainbow-delimiters'
 require 'plugin/todo-comments'
+require 'plugin/gitsigns-nvim'
 
 require 'plugin/nvim-cmp'
 require 'plugin/ionide'     -- TODO: test

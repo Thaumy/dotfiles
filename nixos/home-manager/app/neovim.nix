@@ -51,6 +51,7 @@ in
       nvim-web-devicons # icons
       nvim-colorizer-lua
 
+      gitsigns-nvim # git lines in gutter
       rainbow-delimiters-nvim # colorful delimiters
       indent-blankline-nvim # indent lines
       todo-comments-nvim # TODOs highlight
