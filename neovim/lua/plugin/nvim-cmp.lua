@@ -17,8 +17,7 @@ plugin.setup {
   mapping = plugin.mapping.preset.insert {
     ['<C-k>'] = plugin.mapping.scroll_docs(-3),
     ['<C-j>'] = plugin.mapping.scroll_docs(3),
-    ['<CR>'] = plugin.mapping.confirm { select = false },
-    ['<Right>'] = plugin.mapping.confirm { select = false },
+    ['<CR>'] = plugin.mapping.confirm { select = true },
   },
   sources = plugin.config.sources({
     { name = 'nvim_lsp' },
@@ -51,13 +50,19 @@ plugin.setup.cmdline({ '/', '?' }, {
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 plugin.setup.cmdline(':', {
   mapping = plugin.mapping.preset.cmdline {
-    -- Use up & down to select command
+    -- Use arrow keys to select command
     ['<Up>'] = { c = plugin.mapping.select_prev_item {} },
     ['<Down>'] = { c = plugin.mapping.select_next_item {} },
+    ['<Tab>'] = { c = plugin.mapping.confirm { select = false } },
+    -- Disable tab key
+    --['<Tab>'] = { c = function() end },
   },
   sources = plugin.config.sources({
     { name = 'path' }
   }, {
     { name = 'cmdline' }
-  })
+  }),
+  completion = {
+    completeopt = 'menu,menuone,noinsert'
+  }
 })

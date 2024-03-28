@@ -13,7 +13,7 @@ require 'plugin/indent-blankline-nvim'
 require 'plugin/rainbow-delimiters'
 require 'plugin/todo-comments'
 
-require 'plugin/cmp'
+require 'plugin/nvim-cmp'
 require 'plugin/ionide'     -- TODO: test
 require 'plugin/treesitter'
 require 'plugin/lsp-config' -- TODO: fsautocomplete
