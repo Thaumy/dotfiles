@@ -18,5 +18,3 @@ plugin.setup {
     TEST = { icon = "T" },
   },
 }
-
-vim.opt.termguicolors = true
