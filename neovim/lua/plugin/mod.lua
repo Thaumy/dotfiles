@@ -4,7 +4,7 @@ require 'plugin/lualine'
 require 'plugin/barbar'
 require 'plugin/dashboard'
 require 'plugin/formatter'
-require 'plugin/nvim-tree'
+require 'plugin/neo-tree'
 require 'plugin/nvim-ufo'
 require 'plugin/colorizer'
 require 'plugin/nvim-notify' -- noice:dep

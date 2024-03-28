@@ -6,6 +6,6 @@ plugin.setup {
     colorscheme = "catppuccin",
     component_separators = { left = '|', right = '|' },
     section_separators = { left = '', right = '' },
-    disabled_filetypes = { 'NvimTree' }
+    disabled_filetypes = { 'neo-tree' }
   },
 }

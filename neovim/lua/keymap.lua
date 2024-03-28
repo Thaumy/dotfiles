@@ -65,14 +65,9 @@ map('n', '<M-q>', function() vim.lsp.buf.code_action() end)
 map_cmd('n', '<S-Right>', 'BufferNext')
 map_cmd('n', '<S-Left>', 'BufferPrevious')
 
-local nvim_tree_api = require 'nvim-tree.api'
--- nvim-tree: toggle
-map('n', '<C-t>', function() nvim_tree_api.tree.toggle() end)
--- nvim-tree: next/prev file
-map('n', '<Down>', function() nvim_tree_api.node.navigate.sibling.next() end)
-map('n', '<Up>', function() nvim_tree_api.node.navigate.sibling.prev() end)
--- nvim-tree: open file
-map('n', '<CR>', function() nvim_tree_api.node.open.edit() end)
+--neo-tree:
+-- toggle
+map_cmd('n', '<C-t>', 'Neotree action=show toggle=true')
 
 -- nvim-ufo:
 -- fold code block

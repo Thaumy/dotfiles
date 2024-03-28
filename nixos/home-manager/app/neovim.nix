@@ -35,7 +35,7 @@ in
     plugins = with pkgs.vimPlugins; [
       barbar-nvim # file tabs
       lualine-nvim
-      nvim-tree-lua # file explorer
+      neo-tree-nvim # file explorer
 
       Ionide-vim
       nvim-lspconfig
