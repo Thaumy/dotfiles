@@ -54,8 +54,8 @@ map('v', '<C-J>', '5j')
 
 -- LSP: fmt
 map('n', 'qq', function() vim.lsp.buf.format { sync = true } end)
--- LSP: show LSP diagnostic in cursor line
-map('n', '<M-a>', function() vim.diagnostic.open_float() end)
+-- LSP: go def
+map('n', '<M-d>', function() vim.lsp.buf.definition() end)
 -- LSP: show def
 map('n', '<M-a>', function() vim.lsp.buf.hover() end)
 -- LSP: quick fix in cursor line
