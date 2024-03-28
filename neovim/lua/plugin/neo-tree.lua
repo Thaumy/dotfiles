@@ -25,5 +25,10 @@ plugin.setup {
 }
 
 vim.api.nvim_create_autocmd('VimEnter', {
-  command = 'Neotree show',
+  callback = function()
+    local term_width = vim.go.columns
+    if term_width > 120 then
+      vim.cmd 'Neotree show'
+    end
+  end
 })
