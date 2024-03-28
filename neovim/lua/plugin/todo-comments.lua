@@ -1,6 +1,7 @@
 local plugin = require 'todo-comments'
 
 plugin.setup {
+  signs = false,
   keywords = {
     -- BUG:
     FIX  = { icon = "B", alt = { "BUG" } },
