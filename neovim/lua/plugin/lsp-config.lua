@@ -13,7 +13,7 @@ local util = require 'lspconfig/util'
 plugin.hls.setup {
   capabilities = capabilities,
 }
-plugin.nixd.setup {
+plugin.nil_ls.setup { -- Nix
   capabilities = capabilities,
 }
 plugin.html.setup {

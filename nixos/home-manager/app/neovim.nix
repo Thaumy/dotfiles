@@ -69,7 +69,7 @@ in
     ];
 
     extraPackages = with pkgs; [
-      nixd
+      nil
       sqls
       deno
       gopls
