@@ -1,4 +1,3 @@
--- Set up lspconfig.
 local plugin = require 'lspconfig'
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -28,7 +27,7 @@ plugin.taplo.setup { -- TOML
 }
 plugin.jdtls.setup {
   capabilities = capabilities,
-  cmd = { "jdt-language-server" },
+  cmd = { 'jdt-language-server' },
 }
 plugin.gopls.setup {
   capabilities = capabilities,
@@ -61,7 +60,7 @@ plugin.pyright.setup {
 --	capabilities = capabilities,
 --}
 plugin.omnisharp.setup {
-  cmd = { "OmniSharp" },
+  cmd = { 'OmniSharp' },
   capabilities = capabilities,
 }
 plugin.lua_ls.setup {
@@ -76,10 +75,10 @@ plugin.lua_ls.setup {
 }
 plugin.rust_analyzer.setup {
   capabilities = capabilities,
-  filetypes = { "rust" },
-  root_dir = util.root_pattern("Cargo.toml"),
+  filetypes = { 'rust' },
+  root_dir = util.root_pattern('Cargo.toml'),
   settings = {
-    ["rust_analyzer"] = {
+    ['rust_analyzer'] = {
       cargo = {
         allFeatures = true,
       }
@@ -88,7 +87,7 @@ plugin.rust_analyzer.setup {
 }
 plugin.fsautocomplete.setup {
   capabilities = capabilities,
-  cmd = { "fsautocomplete", "--adaptive-lsp-server-enabled" },
+  cmd = { 'fsautocomplete', '--adaptive-lsp-server-enabled' },
 }
 plugin.kotlin_language_server.setup {
   capabilities = capabilities,

@@ -1,6 +1,6 @@
 local plugin = require 'neo-tree'
 
-vim.o.fillchars = "vert:▎,horiz:─"
+vim.o.fillchars = 'vert:▎,horiz:─'
 
 plugin.setup {
   enable_diagnostics = false,

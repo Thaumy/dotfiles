@@ -2,28 +2,28 @@ local plugin = require 'catppuccin'
 
 local function setup_dark()
   plugin.setup {
-    flavour = "mocha",
+    flavour = 'mocha',
     color_overrides = {
       all = {
-        --surface1 = "#313240",
+        --surface1 = '#313240',
       },
     },
     custom_highlights = {
-      BufferLineBufferSelected = { style = { "bold" } },
+      BufferLineBufferSelected = { style = { 'bold' } },
     },
   }
 end
 
 local function setup_light()
   plugin.setup {
-    flavour = "latte",
+    flavour = 'latte',
     color_overrides = {
       all = {
-        --surface1 = "#dbdbdb"
+        --surface1 = '#dbdbdb'
       },
     },
     custom_highlights = {
-      BufferLineBufferSelected = { style = { "bold" } },
+      BufferLineBufferSelected = { style = { 'bold' } },
     },
   }
 end
@@ -51,4 +51,4 @@ else
   setup_light()
 end
 
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme 'catppuccin'

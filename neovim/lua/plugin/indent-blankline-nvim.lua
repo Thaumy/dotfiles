@@ -19,7 +19,7 @@ plugin.setup {
   }
 }
 
-local hooks = require "ibl.hooks"
+local hooks = require 'ibl.hooks'
 hooks.register(
   hooks.type.SCOPE_HIGHLIGHT,
   hooks.builtin.scope_highlight_from_extmark

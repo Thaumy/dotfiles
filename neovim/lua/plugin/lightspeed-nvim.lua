@@ -7,19 +7,19 @@ plugin.setup {
 }
 
 -- remap
-map("n", "f", "<Plug>Lightspeed_omni_s", {})
+map('n', 'f', '<Plug>Lightspeed_omni_s', {})
 
 -- unmap default lightspeed keymaps
-map("", "F", "F", {})
-map("", "s", "s", {})
-map("", "S", "S", {})
-map("", "t", "t", {})
-map("", "T", "T", {})
-map("", "z", "z", {})
-map("", "Z", "Z", {})
-map("", "x", "x", {})
-map("", "X", "X", {})
-map("", "gs", "", {})
-map("", "gS", "", {})
-map("", ",", ",", {})
-map("", ";", ";", {})
+map('', 'F', 'F', {})
+map('', 's', 's', {})
+map('', 'S', 'S', {})
+map('', 't', 't', {})
+map('', 'T', 'T', {})
+map('', 'z', 'z', {})
+map('', 'Z', 'Z', {})
+map('', 'x', 'x', {})
+map('', 'X', 'X', {})
+map('', 'gs', '', {})
+map('', 'gS', '', {})
+map('', ',', ',', {})
+map('', ';', ';', {})
