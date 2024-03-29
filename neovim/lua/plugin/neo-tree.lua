@@ -2,6 +2,9 @@ local plugin = require 'neo-tree'
 
 vim.o.fillchars = 'vert:▎,horiz:─'
 
+vim.api.nvim_set_hl(0, 'NeoTreeGitUntracked', { fg = '#83c66d' })
+vim.api.nvim_set_hl(0, 'NeoTreeGitConflict', { fg = '#ff8700' })
+
 plugin.setup {
   enable_diagnostics = false,
 
@@ -10,7 +13,55 @@ plugin.setup {
       indent_marker = '🭲',
       last_indent_marker = '🮡',
     },
+    modified = {
+      symbol = '● '
+    },
+    icon = {
+      folder_closed = '🖿',
+      folder_open = '-',
+      folder_empty = '🖿',
+      folder_empty_open = '-',
+      default = '∗',
+    },
+    git_status = {
+      symbols = {
+        -- Change type
+        added     = '+',
+        deleted   = '-',
+        modified  = '~',
+        renamed   = '↗',
+        -- Status type
+        untracked = '',
+        ignored   = '',
+        unstaged  = '',
+        staged    = '',
+        conflict  = '!',
+      },
+    },
+    file_size = {
+      required_width = 50,
+    },
+    type = {
+      enabled = false,
+    },
+    last_modified = {
+      required_width = 70,
+    },
+    symlink_target = {
+      enabled = true,
+    },
   },
+
+  filtered_items = {
+    hide_dotfiles = false,
+  },
+
+  filesystem = {
+    follow_current_file = {
+      enabled = true,
+    },
+  },
+
   event_handlers = {
     -- disable line number
     {
