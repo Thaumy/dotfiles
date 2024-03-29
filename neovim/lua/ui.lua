@@ -1,12 +1,11 @@
 vim.diagnostic.config {
-  float = {
-    border = nil,
-  },
+  virtual_text = false,
+  signs = false,
+  severity_sort = true,
 }
 
 -- show diagnostic on hover
 vim.o.updatetime = 300
-vim.diagnostic.config { virtual_text = false }
 local is_cursor_moved = true
 vim.api.nvim_create_autocmd('CursorMoved', {
   callback = function()
