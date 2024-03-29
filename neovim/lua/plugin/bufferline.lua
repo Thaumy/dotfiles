@@ -1,5 +1,9 @@
 local plugin = require 'bufferline'
 
+local neotree_modified_icon_color = string.format('#%x',
+  vim.api.nvim_get_hl(0, { name = 'NeoTreeModified' }).fg
+)
+
 plugin.setup {
   options = {
     show_buffer_icons = false,
@@ -8,9 +12,20 @@ plugin.setup {
     right_trunc_marker = '+',
     offsets = {
       {
-        filetype = "neo-tree",
+        filetype = 'neo-tree',
         separator = ''
       }
     }
+  },
+  highlights = {
+    modified = {
+      fg = neotree_modified_icon_color,
+    },
+    modified_visible = {
+      fg = neotree_modified_icon_color,
+    },
+    modified_selected = {
+      fg = neotree_modified_icon_color,
+    },
   }
 }
