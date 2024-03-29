@@ -1,5 +1,5 @@
--- use `Q` to force exit (`q!`)
-vim.api.nvim_create_user_command('Q', 'q!', {})
+-- use `Q` to force exit (`qa!`)
+vim.api.nvim_create_user_command('Q', 'qa!', {})
 
 -- disable auto comment in normal mode
 vim.api.nvim_create_autocmd("BufEnter", {
