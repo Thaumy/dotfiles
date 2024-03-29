@@ -29,9 +29,9 @@ local static_in_fade_out = {
     return {
       opacity = {
         0,
-        frequency = 4,
+        frequency = 1,
         complete = function(cur_opacity)
-          return cur_opacity <= 4
+          return cur_opacity < 2
         end,
       },
       col = { vim.opt.columns:get() },
@@ -41,12 +41,12 @@ local static_in_fade_out = {
 
 notify.setup {
   background_colour = 'NotifyBackground',
-  fps = 100,
+  fps = 60,
   icons = {},
   level = 2,
   minimum_width = 0,
   render = 'wrapped-compact',
   stages = static_in_fade_out,
-  timeout = 3000,
+  timeout = 4000,
   top_down = true
 }
