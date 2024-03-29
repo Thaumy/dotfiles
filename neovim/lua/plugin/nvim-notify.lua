@@ -39,12 +39,26 @@ local static_in_fade_out = {
   end,
 }
 
+local function max_width()
+  local term_width = vim.go.columns
+  local val = math.floor(term_width / 2)
+  return val
+end
+
+local function max_height()
+  local term_height = vim.go.lines
+  local val = math.floor(term_height / 3)
+  return val
+end
+
 notify.setup {
   background_colour = 'NotifyBackground',
   fps = 60,
   icons = {},
   level = 2,
   minimum_width = 0,
+  max_width = max_width,
+  max_height = max_height,
   render = 'wrapped-compact',
   stages = static_in_fade_out,
   timeout = 4000,
