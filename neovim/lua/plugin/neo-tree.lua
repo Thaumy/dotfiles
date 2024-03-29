@@ -62,6 +62,14 @@ plugin.setup {
     },
   },
 
+  window = {
+    mappings = {
+      ['<M-j>'] = 'open',
+      ['<M-k>'] = 'close_node',
+      ['<space>'] = { 'toggle_preview', config = { use_float = false } },
+    }
+  },
+
   event_handlers = {
     -- disable line number
     {
