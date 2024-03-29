@@ -21,4 +21,25 @@ plugin.setup {
       input = false,
     }
   },
+  views = {
+    confirm = {
+      backend = 'popup',
+      relative = 'editor',
+      focusable = false,
+      position = {
+        col = '100%',
+        row = 2,
+      },
+      border = {
+        style = 'single',
+        padding = { 0, 1 },
+        text = {
+          top = " Confirm ",
+        },
+      },
+    },
+  },
+  health = {
+    checker = false
+  },
 }
