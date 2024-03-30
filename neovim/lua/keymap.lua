@@ -74,21 +74,24 @@ map('n', '<M-;>', function()
   end
 end)
 
--- LSP: fmt
+-- lsp:
+-- fmt
 map('n', 'qq', function() vim.lsp.buf.format { sync = true } end)
--- LSP: go def
+-- go def
 map('n', '<M-d>', function() vim.lsp.buf.definition() end)
--- LSP: show def
+-- show def
 map('n', '<M-a>', function() vim.lsp.buf.hover() end)
--- LSP: quick fix in cursor line
+-- quick fix in cursor line
 map('n', '<M-q>', function() vim.lsp.buf.code_action() end)
 
--- barbar: switch tab L/R
+-- bufferline:
+-- switch buffer L/R
 map_cmd('n', '<S-Right>', 'BufferLineCycleNext')
 map_cmd('n', '<S-Left>', 'BufferLineCyclePrev')
+-- close buffer
 map_cmd('n', '<S-Up>', 'BufDel')
 
---neo-tree:
+-- neo-tree:
 -- toggle
 map_cmd('n', '<C-t>', 'Neotree action=show toggle=true')
 
