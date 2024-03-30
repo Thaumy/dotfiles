@@ -52,6 +52,28 @@ map('v', '<C-K>', '5k')
 map('n', '<C-J>', '5j')
 map('v', '<C-J>', '5j')
 
+local function win_ft(win)
+  local win_current_buf = vim.api.nvim_win_get_buf(win)
+  local ft = vim.api.nvim_buf_get_option(win_current_buf, 'filetype')
+  return ft
+end
+
+-- cycle wins
+map('n', '<M-;>', function()
+  local wins = vim.api.nvim_list_wins()
+  local current_win = vim.api.nvim_get_current_win()
+  for _, win in ipairs(wins) do
+    local can_switch =
+        win ~= current_win and
+        win_ft(win) ~= 'notify'
+
+    if can_switch then
+      vim.api.nvim_set_current_win(win)
+      return
+    end
+  end
+end)
+
 -- LSP: fmt
 map('n', 'qq', function() vim.lsp.buf.format { sync = true } end)
 -- LSP: go def
@@ -64,6 +86,7 @@ map('n', '<M-q>', function() vim.lsp.buf.code_action() end)
 -- barbar: switch tab L/R
 map_cmd('n', '<S-Right>', 'BufferLineCycleNext')
 map_cmd('n', '<S-Left>', 'BufferLineCyclePrev')
+map_cmd('n', '<S-Up>', 'BufDel')
 
 --neo-tree:
 -- toggle
