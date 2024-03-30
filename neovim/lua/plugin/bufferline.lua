@@ -15,7 +15,8 @@ plugin.setup {
         filetype = 'neo-tree',
         separator = ''
       }
-    }
+    },
+    close_command = 'BufDel %d' -- fix weird behavior of closing active buffer
   },
   highlights = {
     modified = {

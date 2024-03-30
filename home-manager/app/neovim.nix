@@ -59,6 +59,7 @@ in
       autoclose-nvim # auto pairs & closes brackets
       nvim-ufo # code folding
 
+      nvim-bufdel # better buffer delete
       nvim-cmp
       cmp-path
       cmp-vsnip
