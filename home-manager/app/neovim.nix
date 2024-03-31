@@ -44,6 +44,7 @@ in
       formatter-nvim
       nvim-treesitter.withAllGrammars
 
+      toggleterm-nvim # terminal
       noice-nvim # notice
       nvim-notify # noice-nvim:dep
       dashboard-nvim # dashboard
