@@ -12,10 +12,27 @@ local highlight = {
 vim.g.rainbow_delimiters = { highlight = highlight }
 
 plugin.setup {
-  indent = { char = '▏' },
-  scope = {
+  indent  = { char = '▏' },
+  scope   = {
     show_start = false,
     highlight = highlight
+  },
+  exclude = {
+    filetypes = {
+      'man',
+      'help',
+      'lspinfo',
+      'gitcommit',
+      'dashboard',
+      'checkhealth',
+      '',
+    },
+    buftypes = {
+      'terminal',
+      'nofile',
+      'quickfix',
+      'prompt',
+    },
   }
 }
 
