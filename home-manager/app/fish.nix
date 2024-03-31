@@ -8,6 +8,7 @@
       du = "dust";
       ps = "procs";
       cat = "bat --style numbers";
+      q = "exit";
     };
 
     shellInit = ''
