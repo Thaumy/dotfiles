@@ -16,7 +16,6 @@ require 'plugin/gitsigns-nvim'
 
 require 'plugin/nvim-bufdel'
 require 'plugin/nvim-cmp'
-require 'plugin/ionide'     -- TODO: test
 require 'plugin/treesitter'
-require 'plugin/lsp-config' -- TODO: fsautocomplete
+require 'plugin/lsp-config'
 require 'plugin/lightspeed-nvim'

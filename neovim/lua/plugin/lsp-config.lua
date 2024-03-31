@@ -85,9 +85,8 @@ plugin.rust_analyzer.setup {
     }
   }
 }
-plugin.fsautocomplete.setup {
+plugin.fsautocomplete.setup { -- F#
   capabilities = capabilities,
-  cmd = { 'fsautocomplete', '--adaptive-lsp-server-enabled' },
 }
 plugin.kotlin_language_server.setup {
   capabilities = capabilities,

@@ -37,7 +37,7 @@ in
       lualine-nvim
       neo-tree-nvim # file explorer
 
-      Ionide-vim
+      #Ionide-vim
       nvim-lspconfig
       markdown-preview-nvim
       lightspeed-nvim
@@ -60,6 +60,7 @@ in
       nvim-ufo # code folding
 
       nvim-bufdel # better buffer delete
+      Ionide-vim
       nvim-cmp
       cmp-path
       cmp-vsnip
@@ -75,9 +76,11 @@ in
       deno
       gopls
       taplo # TOML
+      fantomas # F# formatter
       marksman
       #typst-lsp
       rust-analyzer
+      fsautocomplete
       omnisharp-roslyn
       jdt-language-server
       lua-language-server
