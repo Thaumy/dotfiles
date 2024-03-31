@@ -59,7 +59,7 @@ local function win_ft(win)
 end
 
 -- cycle wins
-map('n', '<M-;>', function()
+map('n', ';', function()
   local wins = vim.api.nvim_list_wins()
   local current_win = vim.api.nvim_get_current_win()
   for _, win in ipairs(wins) do
@@ -93,10 +93,14 @@ map_cmd('n', '<S-Up>', 'BufDel')
 
 -- neo-tree:
 -- toggle
-map_cmd('n', '<C-t>', 'Neotree action=show toggle=true')
+map_cmd('n', 'e', 'Neotree action=show toggle=true')
 
 -- nvim-ufo:
 -- fold code block
 map('n', '<M-k>', 'za')
 -- expand code block
 map('n', '<M-j>', 'zo')
+
+-- toggleterm:
+-- toggle
+map_cmd('n', 't', 'ToggleTerm')

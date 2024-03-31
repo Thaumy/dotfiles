@@ -60,10 +60,12 @@ plugin.setup {
     follow_current_file = {
       enabled = true,
     },
+    hijack_netrw_behavior = 'open_current',
   },
 
   window = {
     mappings = {
+      ['t'] = '',
       ['<M-j>'] = 'open',
       ['<M-k>'] = 'close_node',
       ['<space>'] = { 'toggle_preview', config = { use_float = false } },
