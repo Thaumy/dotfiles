@@ -1,6 +1,6 @@
 local plugin = require 'neo-tree'
 
-vim.o.fillchars = 'vert:▎,horiz:─'
+vim.go.fillchars = 'vert:▎,vertleft:▎,vertright:▎,verthoriz:─,horiz:─,horizup:─,horizdown:─'
 
 vim.api.nvim_set_hl(0, 'NeoTreeGitUntracked', { fg = '#83c66d' })
 vim.api.nvim_set_hl(0, 'NeoTreeGitConflict', { fg = '#ff8700' })
