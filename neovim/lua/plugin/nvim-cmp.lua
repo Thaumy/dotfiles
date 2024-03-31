@@ -17,6 +17,7 @@ plugin.setup {
   mapping = plugin.mapping.preset.insert {
     ['<C-k>'] = plugin.mapping.scroll_docs(-3),
     ['<C-j>'] = plugin.mapping.scroll_docs(3),
+    ['<Tab>'] = plugin.mapping.confirm { select = true },
     ['<CR>'] = plugin.mapping.confirm { select = true },
   },
   sources = plugin.config.sources({
