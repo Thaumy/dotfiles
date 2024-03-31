@@ -14,8 +14,11 @@ let cfg = ''
     "/home/thaumy/.cargo",
     "/home/thaumy/.gradle",
 
+    "/home/thaumy/Documents/blog",
     "/home/thaumy/Android",
+    "/home/thaumy/dev",
     "/home/thaumy/caches",
+    "/home/thaumy/design",
   ]
   regex = [
     "node_modules",
