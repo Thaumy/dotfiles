@@ -16,7 +16,8 @@ plugin.setup {
         separator = ''
       }
     },
-    close_command = 'BufDel %d' -- fix weird behavior of closing active buffer
+    close_command = 'BufDel %d', -- use `BufDel` to fix weird behavior of closing active buffer
+    right_mouse_command = ''
   },
   highlights = {
     modified = {
