@@ -8,7 +8,7 @@ require 'plugin/nvim-ufo'
 require 'plugin/colorizer'
 require 'plugin/nvim-notify' -- noice:dep
 require 'plugin/noice'
-require 'plugin/indent-blankline-nvim'
+require 'plugin/ibl-nvim'
 require 'plugin/rainbow-delimiters'
 require 'plugin/todo-comments'
 require 'plugin/gitsigns-nvim'
