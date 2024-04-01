@@ -71,6 +71,7 @@ let
     qemu
     tree
     htop
+    bluez
     whois
     procs
     p7zip
