@@ -47,7 +47,6 @@ in
       toggleterm-nvim # terminal
       noice-nvim # notice
       nvim-notify # noice-nvim:dep
-      dashboard-nvim # dashboard
       catppuccin-nvim # theme
       nvim-web-devicons # icons
       nvim-colorizer-lua

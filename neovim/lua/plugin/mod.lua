@@ -1,7 +1,6 @@
 require 'plugin/autoclose-nvim'
 require 'plugin/catppucin'
 require 'plugin/lualine'
-require 'plugin/dashboard'
 require 'plugin/formatter'
 require 'plugin/neo-tree'
 require 'plugin/bufferline' -- to get neo-tree's hl group, bufferline must be import after it.
