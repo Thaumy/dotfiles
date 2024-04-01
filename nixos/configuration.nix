@@ -38,6 +38,8 @@
   #users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
 
   hardware = {
+    bluetooth.enable = true;
+    bluetooth.powerOnBoot = true;
     opengl.enable = true;
     nvidia.modesetting.enable = true;
     nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
