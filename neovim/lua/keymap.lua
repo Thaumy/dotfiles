@@ -1,15 +1,31 @@
-local function map(mode, lhs, rhs)
-  local opts = { noremap = true, silent = true }
-  vim.keymap.set(mode, lhs, rhs, opts)
+local map_opts = { noremap = true, silent = true }
+
+local function unmap(modes, lhs)
+  if type(modes) == 'string' then
+    vim.keymap.set(modes, lhs, '<nop>', map_opts)
+  elseif type(modes) == 'table' then
+    for _, mode in ipairs(modes) do
+      unmap(mode, lhs)
+    end
+  end
 end
 
-local function unmap(mode, lhs)
-  map(mode, lhs, '<nop>')
+local function map(modes, lhs, rhs)
+  if type(modes) == 'string' then
+    vim.keymap.set(modes, lhs, rhs, map_opts)
+    if type(rhs) == 'string' then
+      unmap(modes, rhs) -- unmap original
+    end
+  elseif type(modes) == 'table' then
+    for _, mode in ipairs(modes) do
+      map(mode, lhs, rhs)
+    end
+  end
 end
 
 local function map_cmd(mode, lhs, cmd_rhs)
-  local rhs = string.format('<cmd>%s<CR>', cmd_rhs)
-  map(mode, lhs, rhs)
+  local rhs = string.format(':%s<CR>', cmd_rhs)
+  vim.keymap.set(mode, lhs, rhs, map_opts)
 end
 
 -- disable
