@@ -1,20 +1,21 @@
 local plugin = require 'lspconfig'
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.foldingRange = {
+local caps = vim.lsp.protocol.make_client_capabilities()
+caps.textDocument.foldingRange = {
   dynamicRegistration = false,
   lineFoldingOnly = true
 }
 
 local util = require 'lspconfig/util'
 
--- See:
+-- for lsp names, see:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+
 plugin.hls.setup {
-  capabilities = capabilities,
+  capabilities = caps,
 }
 plugin.nil_ls.setup { -- Nix
-  capabilities = capabilities,
+  capabilities = caps,
   settings = {
     ['nil'] = {
       formatting = {
@@ -24,54 +25,54 @@ plugin.nil_ls.setup { -- Nix
   },
 }
 plugin.html.setup {
-  capabilities = capabilities,
+  capabilities = caps,
 }
 --plugin.sqls.setup {
---  capabilities = capabilities,
+--  capabilities = caps,
 --}
 plugin.taplo.setup { -- TOML
-  capabilities = capabilities,
+  capabilities = caps,
 }
 plugin.jdtls.setup {
-  capabilities = capabilities,
+  capabilities = caps,
   cmd = { 'jdt-language-server' },
 }
 plugin.gopls.setup {
-  capabilities = capabilities,
+  capabilities = caps,
 }
 plugin.cssls.setup {
-  capabilities = capabilities,
+  capabilities = caps,
 }
 plugin.texlab.setup {
-  capabilities = capabilities,
+  capabilities = caps,
 }
 plugin.bashls.setup {
-  capabilities = capabilities,
+  capabilities = caps,
 }
 plugin.jsonls.setup {
-  capabilities = capabilities,
+  capabilities = caps,
 }
 plugin.clangd.setup {
-  capabilities = capabilities,
+  capabilities = caps,
 }
 --plugin.denols.setup {
---	capabilities = capabilities,
+--	capabilities = caps,
 --}
 plugin.yamlls.setup {
-  capabilities = capabilities,
+  capabilities = caps,
 }
 plugin.pyright.setup {
-  capabilities = capabilities,
+  capabilities = caps,
 }
 --plugin.marksman.setup {
---	capabilities = capabilities,
+--	capabilities = caps,
 --}
 plugin.omnisharp.setup {
   cmd = { 'OmniSharp' },
-  capabilities = capabilities,
+  capabilities = caps,
 }
 plugin.lua_ls.setup {
-  capabilities = capabilities,
+  capabilities = caps,
   settings = {
     Lua = {
       diagnostics = {
@@ -81,7 +82,7 @@ plugin.lua_ls.setup {
   }
 }
 plugin.rust_analyzer.setup {
-  capabilities = capabilities,
+  capabilities = caps,
   filetypes = { 'rust' },
   root_dir = util.root_pattern('Cargo.toml'),
   settings = {
@@ -93,11 +94,11 @@ plugin.rust_analyzer.setup {
   }
 }
 plugin.fsautocomplete.setup { -- F#
-  capabilities = capabilities,
+  capabilities = caps,
 }
 plugin.kotlin_language_server.setup {
-  capabilities = capabilities,
+  capabilities = caps,
 }
 plugin.typst_lsp.setup {
-  capabilities = capabilities,
+  capabilities = caps,
 }
