@@ -13,6 +13,7 @@ require 'plugin/rainbow-delimiters'
 require 'plugin/todo-comments'
 require 'plugin/gitsigns-nvim'
 require 'plugin/toggleterm-nvim'
+require 'plugin/nvim-comment'
 
 require 'plugin/nvim-bufdel'
 require 'plugin/nvim-cmp'

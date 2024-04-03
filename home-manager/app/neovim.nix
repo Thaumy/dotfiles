@@ -58,6 +58,7 @@ in
       plenary-nvim
       autoclose-nvim # auto pairs & closes brackets
       nvim-ufo # code folding
+      nvim-comment # comment block
 
       nvim-bufdel # better buffer delete
       Ionide-vim

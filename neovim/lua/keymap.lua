@@ -117,3 +117,7 @@ map('n', '<M-j>', 'zo')
 -- toggleterm:
 -- toggle
 map_cmd('n', 't', 'ToggleTerm')
+
+-- nvim-comment:
+-- toggle comment
+map_cmd('v', 'm', 'CommentToggle')
