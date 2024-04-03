@@ -22,6 +22,7 @@ in
     viAlias = true;
     vimAlias = true;
 
+    # TODO: config in lua
     extraConfig = ''
       set nocompatible
       "set autochdir
@@ -33,42 +34,46 @@ in
     '';
 
     plugins = with pkgs.vimPlugins; [
-      bufferline-nvim # file tabs
-      lualine-nvim
-      neo-tree-nvim # file explorer
+      # neovim infrastructures
+      plenary-nvim # async lib
+      nvim-bufdel # better buffer delete
 
-      #Ionide-vim
-      nvim-lspconfig
-      markdown-preview-nvim
-      lightspeed-nvim
-      formatter-nvim
-      nvim-treesitter.withAllGrammars
-
-      toggleterm-nvim # terminal
-      noice-nvim # notice
-      nvim-notify # noice-nvim:dep
-      catppuccin-nvim # theme
+      # colorizers or signs
       nvim-web-devicons # icons
-      nvim-colorizer-lua
-
-      gitsigns-nvim # git lines in gutter
+      catppuccin-nvim # color scheme
       rainbow-delimiters-nvim # colorful delimiters
       indent-blankline-nvim # indent lines
-      todo-comments-nvim # TODOs highlight
-      plenary-nvim
-      autoclose-nvim # auto pairs & closes brackets
-      nvim-ufo # code folding
-      nvim-comment # comment block
+      nvim-colorizer-lua # color text hl
+      todo-comments-nvim # TODOs hl
+      gitsigns-nvim # gutter git signs
+      nvim-ufo # code block folding
+      lightspeed-nvim # cursor jumper  TODO: deprecated
 
-      nvim-bufdel # better buffer delete
-      Ionide-vim
-      nvim-cmp
+      # user interfaces
+      markdown-preview-nvim # markdown renderer
+      lualine-nvim # status line
+      neo-tree-nvim # file explorer
+      bufferline-nvim # buffer tabs
+      nvim-notify # notify boxes, [noice-nvim:dep]
+      noice-nvim # notice
+      toggleterm-nvim # terminal
+
+      # analyzers
+      nvim-cmp # code completion
       cmp-path
       cmp-vsnip
       vim-vsnip
       cmp-buffer
       cmp-cmdline
       cmp-nvim-lsp
+      nvim-treesitter.withAllGrammars # language parser
+      nvim-lspconfig # lsp support
+      Ionide-vim # F# lsp support
+
+      # input helpers
+      formatter-nvim # formatter  TODO: deprecated
+      autoclose-nvim # auto close pairs and brackets
+      nvim-comment # apply comment block
     ];
 
     extraPackages = with pkgs; [
