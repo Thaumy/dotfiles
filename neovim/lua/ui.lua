@@ -23,13 +23,23 @@ vim.api.nvim_create_autocmd('CursorHold', {
 })
 
 -- hl refs on hover
+local function buf_lsp_client_has(provider)
+  local clients = vim.lsp.buf_get_clients()
+  if clients == nil or clients[1] == nil then return false end
+  local capas = clients[1].server_capabilities
+  return capas[provider] == true
+end
 vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
   callback = function()
-    vim.lsp.buf.document_highlight()
+    if buf_lsp_client_has('documentHighlightProvider') then
+      vim.lsp.buf.document_highlight()
+    end
   end
 })
 vim.api.nvim_create_autocmd('CursorMoved', {
   callback = function()
-    vim.lsp.buf.clear_references()
+    if buf_lsp_client_has('documentHighlightProvider') then
+      vim.lsp.buf.clear_references()
+    end
   end
 })
