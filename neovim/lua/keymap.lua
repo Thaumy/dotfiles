@@ -29,44 +29,41 @@ local function map_cmd(mode, lhs, cmd_rhs)
 end
 
 -- disable
-unmap('i', '<C-k>') -- key chord
-unmap('n', '<C-m>') -- down
-unmap('n', '<C-p>') -- up
-unmap('n', 'q:')    -- command history display
-unmap('c', '<C-f>') -- command history display
+unmap({ 'v', 'i' }, '<C-k>') -- key chord
+unmap({ 'n', 'v' }, '<C-m>') -- down
+unmap({ 'n', 'v' }, '<C-p>') -- up
+unmap({ 'n', 'v' }, 'H')     -- go page start
+unmap({ 'n', 'v' }, 'L')     -- go page end
+unmap({ 'n', 'v' }, 'q:')    -- command history display
+unmap('c', '<C-f>')          -- command history display
 
 -- redo
 map('n', 'U', '<C-R>')
 -- override but not write register
 map('v', 'tp', '\'_dP')
 
+-- go bottom
+map({ 'n', 'v' }, 'ff', 'G')
+
 -- scroll line up/down
-map('n', '<C-A-k>', '<C-e>')
-map('n', '<C-A-j>', '<C-y>')
+map('n', '<C-S-k>', '<C-e>')
+map('n', '<C-S-j>', '<C-y>')
 
 -- scroll page up/down
-map('n', 'K', '<C-B>')
-map('v', 'K', '<C-B>')
-map('n', 'J', '<C-F>')
-map('v', 'J', '<C-F>')
+map({ 'n', 'v' }, 'K', '<C-b>')
+map({ 'n', 'v' }, 'J', '<C-f>')
 
 -- goto line head/end
-map('n', 'H', '^')
-map('v', 'H', '^')
-map('n', 'L', '$')
-map('v', 'L', '$')
+map({ 'n', 'v' }, 'qh', '^')
+map({ 'n', 'v' }, 'ql', '$')
 
 -- quick L/R
-map('n', '<C-H>', '8h')
-map('v', '<C-H>', '8h')
-map('n', '<C-L>', '8l')
-map('v', '<C-L>', '8l')
+map({ 'n', 'v' }, '<C-h>', '8h')
+map({ 'n', 'v' }, '<C-l>', '8l')
 
 -- quick up/down
-map('n', '<C-K>', '5k')
-map('v', '<C-K>', '5k')
-map('n', '<C-J>', '5j')
-map('v', '<C-J>', '5j')
+map({ 'n', 'v' }, '<C-k>', '6k')
+map({ 'n', 'v' }, '<C-j>', '6j')
 
 local function win_ft(win)
   local win_current_buf = vim.api.nvim_win_get_buf(win)
@@ -101,11 +98,11 @@ map('n', '<M-a>', function() vim.lsp.buf.hover() end)
 map('n', '<M-q>', function() vim.lsp.buf.code_action() end)
 
 -- bufferline:
--- switch buffer L/R
-map_cmd('n', '<S-Right>', 'BufferLineCycleNext')
-map_cmd('n', '<S-Left>', 'BufferLineCyclePrev')
+-- cycle buffer R/L
+map_cmd('n', '<M-;>', 'BufferLineCycleNext')
+map_cmd('n', '<M-S-;>', 'BufferLineCyclePrev')
 -- close buffer
-map_cmd('n', '<S-Up>', 'BufDel')
+map_cmd('n', '<M-x>', 'BufDel')
 
 -- neo-tree:
 -- toggle
