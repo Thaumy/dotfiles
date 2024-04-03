@@ -15,6 +15,13 @@ plugin.hls.setup {
 }
 plugin.nil_ls.setup { -- Nix
   capabilities = capabilities,
+  settings = {
+    ['nil'] = {
+      formatting = {
+        command = { "nixpkgs-fmt" },
+      },
+    },
+  },
 }
 plugin.html.setup {
   capabilities = capabilities,
