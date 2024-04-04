@@ -24,6 +24,5 @@ require 'plugin/treesitter'
 require 'plugin/nvim-lspconfig'
 
 -- input helpers
-require 'plugin/formatter'
 require 'plugin/autoclose-nvim'
 require 'plugin/nvim-comment'

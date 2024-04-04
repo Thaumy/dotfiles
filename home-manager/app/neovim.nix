@@ -70,7 +70,6 @@ in
       Ionide-vim # F# lsp support
 
       # input helpers
-      formatter-nvim # formatter  TODO: deprecated
       autoclose-nvim # auto close pairs and brackets
       nvim-comment # apply comment block
     ];
