@@ -9,7 +9,6 @@ require 'plugin/colorizer'
 require 'plugin/todo-comments'
 require 'plugin/gitsigns-nvim'
 require 'plugin/nvim-ufo'
-require 'plugin/lightspeed-nvim'
 
 -- user interfaces
 require 'plugin/lualine'

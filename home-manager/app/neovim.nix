@@ -47,7 +47,6 @@ in
       todo-comments-nvim # TODOs hl
       gitsigns-nvim # gutter git signs
       nvim-ufo # code block folding
-      lightspeed-nvim # cursor jumper  TODO: deprecated
 
       # user interfaces
       markdown-preview-nvim # markdown renderer
