@@ -55,9 +55,9 @@ plugin.jsonls.setup {
 plugin.clangd.setup {
   capabilities = caps,
 }
---plugin.denols.setup {
---	capabilities = caps,
---}
+plugin.denols.setup {
+  capabilities = caps,
+}
 plugin.yamlls.setup {
   capabilities = caps,
 }
