@@ -59,12 +59,10 @@ in
 
       # analyzers
       nvim-cmp # code completion
-      cmp-path
-      cmp-vsnip
-      vim-vsnip
-      cmp-buffer
-      cmp-cmdline
-      cmp-nvim-lsp
+      cmp-path # path completion source
+      cmp-buffer # buffer completion source
+      cmp-cmdline # cmdline completion source
+      cmp-nvim-lsp # lsp completion source
       nvim-treesitter.withAllGrammars # language parser
       nvim-lspconfig # lsp support
       Ionide-vim # F# lsp support
