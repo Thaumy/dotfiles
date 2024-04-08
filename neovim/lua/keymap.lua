@@ -89,7 +89,16 @@ end)
 
 -- lsp:
 -- fmt
-map('n', 'qq', function() vim.lsp.buf.format { sync = true } end)
+local function fmt()
+  local buf = vim.api.nvim_get_current_buf()
+  local ft = vim.api.nvim_buf_get_option(buf, 'filetype')
+  if ft == 'markdown' then
+    vim.cmd('Neoformat denofmt')
+  else
+    vim.lsp.buf.format { sync = true }
+  end
+end
+map('n', 'qq', fmt)
 -- go def
 map('n', '<M-d>', function() vim.lsp.buf.definition() end)
 -- show def
