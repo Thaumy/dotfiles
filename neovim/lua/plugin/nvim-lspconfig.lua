@@ -64,9 +64,9 @@ plugin.yamlls.setup {
 plugin.pyright.setup {
   capabilities = caps,
 }
---plugin.marksman.setup {
---	capabilities = caps,
---}
+plugin.marksman.setup {
+  capabilities = caps,
+}
 plugin.omnisharp.setup {
   cmd = { 'OmniSharp' },
   capabilities = caps,
