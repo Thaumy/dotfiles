@@ -65,10 +65,18 @@ plugin.setup {
 
   window = {
     mappings = {
+      ['s'] = '',
+      ['o'] = '',
       ['t'] = '',
+      ['<'] = '',
+      ['>'] = '',
+      ['<Bs>'] = '',
+      ['h'] = 'prev_source',
+      ['l'] = 'next_source',
       ['<M-j>'] = 'open',
       ['<M-k>'] = 'close_node',
-      ['<space>'] = { 'toggle_preview', config = { use_float = false } },
+      ['<Esc>'] = 'navigate_up',
+      ['<Space>'] = { 'toggle_preview', config = { use_float = false } },
     }
   },
 
