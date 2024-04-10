@@ -53,6 +53,9 @@ map({ 'n', 'v' }, '<C-l>', '8l')
 map({ 'n', 'v' }, '<C-k>', '6k')
 map({ 'n', 'v' }, '<C-j>', '6j')
 
+-- terminal to normal
+map('t', '<M-n>', '<C-\\><C-n>')
+
 local function win_ft(win)
   local win_current_buf = vim.api.nvim_win_get_buf(win)
   local ft = vim.api.nvim_buf_get_option(win_current_buf, 'filetype')
@@ -114,6 +117,7 @@ map('n', '<M-j>', 'zo')
 -- toggleterm:
 -- toggle
 map_cmd('n', 't', 'ToggleTerm')
+map('t', '<Esc>', '<cmd>ToggleTerm<CR>')
 
 -- nvim-comment:
 -- toggle comment
