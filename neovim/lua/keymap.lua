@@ -1,25 +1,13 @@
 local map_opts = { noremap = true, silent = true }
 
 local function unmap(modes, lhs)
-  if type(modes) == 'string' then
-    vim.keymap.set(modes, lhs, '<nop>', map_opts)
-  elseif type(modes) == 'table' then
-    for _, mode in ipairs(modes) do
-      unmap(mode, lhs)
-    end
-  end
+  vim.keymap.set(modes, lhs, '<nop>', map_opts)
 end
 
 local function map(modes, lhs, rhs)
-  if type(modes) == 'string' then
-    vim.keymap.set(modes, lhs, rhs, map_opts)
-    if type(rhs) == 'string' then
-      unmap(modes, rhs) -- unmap original
-    end
-  elseif type(modes) == 'table' then
-    for _, mode in ipairs(modes) do
-      map(mode, lhs, rhs)
-    end
+  vim.keymap.set(modes, lhs, rhs, map_opts)
+  if type(rhs) == 'string' then
+    unmap(modes, rhs) -- unmap original
   end
 end
 
