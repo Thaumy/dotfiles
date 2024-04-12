@@ -22,7 +22,7 @@
       set -U fish_color_quote white
       set -U fish_color_redirection brcyan
       set -U fish_color_end afd7d7
-      set -U fish_color_error ff5f5f
+      set -U fish_color_error red
       set -U fish_color_param white
       set -U fish_color_comment 5f8700
       set -U fish_color_match f07171
@@ -43,7 +43,7 @@
       set -U fish_color_host_remote
       # ...
       set -U fish_pager_color_background
-      set -U fish_pager_color_prefix 131518
+      set -U fish_pager_color_prefix grey
       set -U fish_pager_color_progress brwhite --background=6790c5
       set -U fish_pager_color_completion brwhite #-ffffff
       set -U fish_pager_color_description 8b8b8b
