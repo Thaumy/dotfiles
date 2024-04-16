@@ -30,27 +30,27 @@ local function setup_light()
   }
 end
 
-local function is_dark_theme()
+local function is_light_theme()
   local cmd = 'dconf read /org/gnome/desktop/interface/color-scheme'
   local handle = io.popen(cmd)
 
-  if (handle == nil) then
+  if handle == nil then
     return false
   end
 
   local theme = handle:read('*a')
   handle:close()
-  if (string.find(theme, 'dark')) then
+  if theme == "'light'\n" then
     return true
   end
 
   return false
 end
 
-if (is_dark_theme()) then
-  setup_dark()
-else
+if is_light_theme() then
   setup_light()
+else
+  setup_dark()
 end
 
 vim.cmd.colorscheme 'catppuccin'
