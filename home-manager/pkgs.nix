@@ -86,7 +86,6 @@ in
     qbittorrent
     #gnome.dconf-editor
     steam-run
-    nixpkgs-fmt
     wl-clipboard-x11
 
     # cargo

@@ -82,6 +82,7 @@ in
       fantomas # F# formatter
       marksman
       #typst-lsp
+      nixpkgs-fmt
       rust-analyzer
       fsautocomplete
       omnisharp-roslyn
