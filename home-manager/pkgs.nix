@@ -6,7 +6,6 @@ in
 {
   home.packages = with pkgs; [
     # nur
-    nur.repos.thaumy.dup-img-finder
     nur.repos.thaumy.idbuilder
     nur.repos.thaumy.microsoft-todo-electron
     nur.repos.thaumy.mojave-dyn
