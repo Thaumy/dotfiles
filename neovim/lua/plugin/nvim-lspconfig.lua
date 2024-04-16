@@ -86,9 +86,11 @@ plugin.rust_analyzer.setup {
   filetypes = { 'rust' },
   root_dir = util.root_pattern('Cargo.toml'),
   settings = {
-    ['rust_analyzer'] = {
-      cargo = {
-        allFeatures = true,
+    ['rust-analyzer'] = {
+      completion = {
+        fullFunctionSignatures = {
+          enable = true,
+        }
       }
     }
   }
