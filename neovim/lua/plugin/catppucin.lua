@@ -10,6 +10,7 @@ local function setup_dark()
     },
     custom_highlights = {
       BufferLineBufferSelected = { style = { 'bold' } },
+      CurSearch = { fg = '#FFB5DA', bg = '#6420AA' },
     },
   }
 end
@@ -24,6 +25,7 @@ local function setup_light()
     },
     custom_highlights = {
       BufferLineBufferSelected = { style = { 'bold' } },
+      CurSearch = { fg = '#6420AA', bg = '#FFB5DA' },
     },
   }
 end
