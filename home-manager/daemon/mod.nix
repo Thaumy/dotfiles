@@ -1,6 +1,6 @@
 { ... }: {
   imports = [
-    ./auto-dark.nix
+    #./auto-dark.nix
     ./clash-meta.nix
   ];
 
