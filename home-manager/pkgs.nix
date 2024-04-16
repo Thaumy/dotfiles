@@ -23,10 +23,10 @@ in
     # editor
     # TODO: pin uncommonly used apps to ng stable version
     glow
-    helix
     typst
     typstfmt
     vscode
+    neovide
     android-studio
     pkgs-23-05.jetbrains.rider
     pkgs-23-05.jetbrains.clion
@@ -83,10 +83,11 @@ in
     qrcp
     unar
     hdparm
+    alacritty
+    gammastep
     ventoy-full
     qbittorrent
     #gnome.dconf-editor
-    nixfmt
     steam-run
     nixpkgs-fmt
     wl-clipboard-x11
