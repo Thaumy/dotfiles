@@ -70,6 +70,7 @@ in
       # input helpers
       autoclose-nvim # auto close pairs and brackets
       nvim-comment # apply comment block
+      neoformat # formatter
     ];
 
     extraPackages = with pkgs; [
