@@ -1,56 +1,16 @@
-{ ... }:
+{ config, pkgs, ... }:
 let
-  cfg = ''
-    [output]
-    dedup = true
-
-    [predicate]
-    regex = [
-      "^$",
-      "^#.+",
-      "--help",
-
-      "^sr .+",
-      "^rm( -rf)? .+",
-      "^.* /nix/store/.+",
-      "^gsettings set .+ .+",
-      ''''^.* /dev/shm/tmp\..+'''',
-
-      "^docker( .+)+ .{64}",
-      "^docker logs [0-9a-z]{12,16}",
-      "^vi /var/lib/docker/containers/.+",
-      "^vi admin:///var/lib/docker/containers/.+",
-
-      "^git rm .+",
-      "^git reset .+",
-      "^git revert .+",
-      "^git remote .+",
-      "^git checkout .+",
-      "^git submodule (add|remove) .+",
-      "^git( |-)filter-repo --path .+",
-      "^git( |-)filter-repo --path-regex .+",
-
-      "^npm i .+@.+",
-      "^cargo add .+@.+",
-
-      "^ping .+",
-      "^curl .+",
-      "^wget .+",
-      "^xdg-open .+",
-      "^nix-shell -p .+",
-      "^nix-prefetch-.+ .+",
-
-      "^tokei .+",
-      "^sudo systemctl status .+",
-
-      "^adb install .+",
-      "^adb shell sh .+",
-    ]
-  '';
+  homeDir = config.home.homeDirectory;
+  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
 in
 {
-  home.file.".config/sh-history-filter/cfg.toml" = {
-    enable = true;
-    text = cfg;
+  home = {
+    packages = with pkgs; [
+      nur.repos.thaumy.sh-history-filter
+    ];
+    file.".config/sh-history-filter" = {
+      enable = true;
+      source = mkSymlink "${homeDir}/cfg/sh-history-filter";
+    };
   };
 }

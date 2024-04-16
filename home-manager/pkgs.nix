@@ -9,7 +9,6 @@ in
     nur.repos.thaumy.dup-img-finder
     nur.repos.thaumy.idbuilder
     nur.repos.thaumy.microsoft-todo-electron
-    nur.repos.thaumy.sh-history-filter
     nur.repos.thaumy.mojave-dyn
     nur.repos.thaumy.catalina-dyn
     nur.repos.thaumy.bigsur-dyn
