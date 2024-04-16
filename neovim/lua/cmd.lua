@@ -17,7 +17,10 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave' }, {
     local no_hl =
         ft == '' or
         ft == 'neo-tree' or
-        ft == 'lspinfo'
+        ft == 'lspinfo' or
+        ft == 'notify' or
+        ft == 'help' or
+        ft == 'toggleterm'
     if no_hl then
       vim.cmd('match TrailingWhitespace //')
     else
