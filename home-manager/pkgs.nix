@@ -81,7 +81,6 @@ in
     qrcp
     unar
     hdparm
-    alacritty
     gammastep
     ventoy-full
     qbittorrent
