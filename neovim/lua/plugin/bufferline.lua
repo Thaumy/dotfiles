@@ -10,6 +10,7 @@ plugin.setup {
     separator_style = { '', '' },
     left_trunc_marker = '+',
     right_trunc_marker = '+',
+    buffer_close_icon = '󰅖',
     offsets = {
       {
         filetype = 'neo-tree',
