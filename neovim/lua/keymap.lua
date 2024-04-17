@@ -33,6 +33,10 @@ map('v', 'tp', '\'_dP')
 -- go bottom
 map({ 'n', 'v' }, 'ff', 'G')
 
+-- select line/col
+map('n', 'v<Space>', 'V')
+map('n', 'vv', '<C-v>')
+
 -- scroll line up/down
 map('n', '<C-S-k>', '<C-e>')
 map('n', '<C-S-j>', '<C-y>')
