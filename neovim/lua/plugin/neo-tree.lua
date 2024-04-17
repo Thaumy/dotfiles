@@ -49,6 +49,7 @@ plugin.setup {
     },
     symlink_target = {
       enabled = true,
+      text_format = " %s",
     },
   },
 

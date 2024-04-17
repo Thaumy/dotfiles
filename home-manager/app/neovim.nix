@@ -2,7 +2,19 @@
 let
   homeDir = config.home.homeDirectory;
   mkSymlink = config.lib.file.mkOutOfStoreSymlink;
+
   pkgs-23-05 = import <nixos-23.05> { config = { allowUnfree = true; }; };
+
+  neo-tree-nvim = pkgs.vimUtils.buildVimPlugin {
+    pname = "neo-tree.nvim";
+    version = "2024-4-17";
+    src = pkgs.fetchFromGitHub {
+      owner = "Thaumy";
+      repo = "neo-tree.nvim";
+      rev = "aa14c0e3fed9cf3537e5cbfbe760c3d52fc8ea23";
+      hash = "sha256-9frD77EauIcBz96msCzEWJVULXIdYyi4kEbrbYFOtWk=";
+    };
+  };
 in
 {
   programs.neovim = {
