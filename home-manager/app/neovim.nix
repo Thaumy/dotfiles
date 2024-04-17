@@ -5,33 +5,11 @@ let
   pkgs-23-05 = import <nixos-23.05> { config = { allowUnfree = true; }; };
 in
 {
-  home.file = {
-    ".config/nvim/lua" = {
-      enable = true;
-      source = mkSymlink "${homeDir}/cfg/neovim/lua";
-    };
-    ".config/nvim/ftplugin" = {
-      enable = true;
-      source = mkSymlink "${homeDir}/cfg/neovim/ftplugin";
-    };
-  };
-
   programs.neovim = {
     enable = true;
 
     viAlias = true;
     vimAlias = true;
-
-    # TODO: config in lua
-    extraConfig = ''
-      set nocompatible
-      "set autochdir
-
-      " share system clipboard
-      set clipboard+=unnamedplus
-
-      luafile ~/cfg/neovim/init.lua
-    '';
 
     plugins = with pkgs.vimPlugins; [
       # neovim infrastructures
@@ -95,5 +73,10 @@ in
       haskellPackages.haskell-language-server
       nodePackages.vscode-langservers-extracted
     ];
+  };
+
+  home.file.".config/nvim" = {
+    enable = true;
+    source = mkSymlink "${homeDir}/cfg/neovim";
   };
 }

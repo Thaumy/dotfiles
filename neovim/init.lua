@@ -10,6 +10,9 @@ vim.filetype.add({
   }
 })
 
+-- share system clipboards
+vim.opt.clipboard = 'unnamed,unnamedplus'
+
 -- disable netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
