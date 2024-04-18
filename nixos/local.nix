@@ -1,5 +1,7 @@
 { pkgs, ... }: {
   fonts = {
+    enableDefaultPackages = false;
+
     packages = with pkgs; [
       noto-fonts-emoji
       sarasa-gothic
@@ -9,21 +11,23 @@
       (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
     ];
 
-    fontconfig.enable = true;
-    fontconfig.defaultFonts = pkgs.lib.mkForce {
-      emoji = [ "Noto Color Emoji" ];
-      serif = [
-        "Liberation Serif"
-        "Noto Color Emoji"
-      ];
-      sansSerif = [
-        "Sarasa UI SC"
-        "Noto Color Emoji"
-      ];
-      monospace = [
-        "JetBrains Mono"
-        "Noto Color Emoji"
-      ];
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        emoji = [ "Noto Color Emoji" ];
+        serif = [
+          "Liberation Serif"
+          "Noto Color Emoji"
+        ];
+        sansSerif = [
+          "Sarasa UI SC"
+          "Noto Color Emoji"
+        ];
+        monospace = [
+          "JetBrains Mono"
+          "Noto Color Emoji"
+        ];
+      };
     };
   };
 
