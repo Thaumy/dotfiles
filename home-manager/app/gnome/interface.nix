@@ -4,20 +4,23 @@ let
 in
 {
   dconf.settings. ${base ""} = {
-    #color-scheme = "prefer-dark";
-    cursor-size = 32;
-    document-font-name = "Cantarell 11";
+    font-hinting = "slight";
+    font-antialiasing = "grayscale";
+    font-name = "Sarasa UI SC 11";
+    document-font-name = "Sarasa UI SC 11";
+    monospace-font-name = "JetBrains Mono 10";
+
+    cursor-size = 22;
     enable-animations = true;
     enable-hot-corners = false;
-    font-antialiasing = "grayscale";
-    font-hinting = "slight";
-    font-name = "Cantarell 11";
-    gtk-theme = "Adwaita-dark";
-    monospace-font-name = "JetBrains Mono 10";
+
     scaling-factor = lib.hm.gvariant.mkUint32 2;
-    show-battery-percentage = true;
-    text-scaling-factor = 1.7;
+    text-scaling-factor = 1;
+
+    clock-show-seconds = false;
+    clock-show-weekday = true;
     toolkit-accessibility = false;
+    show-battery-percentage = true;
   };
 }
 
