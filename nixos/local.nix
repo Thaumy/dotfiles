@@ -1,12 +1,12 @@
 { pkgs, ... }: {
   fonts = {
     packages = with pkgs; [
-      nerdfonts
-      noto-fonts
       noto-fonts-emoji
       sarasa-gothic
       jetbrains-mono
       liberation_ttf
+      material-design-icons
+      (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
     ];
 
     fontconfig.enable = true;
