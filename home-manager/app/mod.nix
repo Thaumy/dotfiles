@@ -4,6 +4,7 @@
     ./git.nix
     ./bash.nix
     ./fish.nix
+    ./rofi.nix
     ./neovim.nix
     ./gnome/mod.nix
     ./alacritty.nix
