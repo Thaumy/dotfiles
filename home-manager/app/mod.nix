@@ -5,6 +5,7 @@
     ./bash.nix
     ./fish.nix
     ./rofi.nix
+    ./waybar.nix
     ./neovim.nix
     ./gnome/mod.nix
     ./alacritty.nix
