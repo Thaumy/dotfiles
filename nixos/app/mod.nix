@@ -6,6 +6,7 @@
   ./yubikey.nix
   #./tomcat.nix
   #./waydroid.nix
+  ./hyprland.nix
   ./blueman.nix
   ./power-profiles-daemon.nix
 

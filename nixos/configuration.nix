@@ -29,7 +29,7 @@
       QT_STYLE_OVERRIDE = "kvantum";
     };
     sessionVariables = {
-      #NIXOS_OZONE_WL = "1";
+      NIXOS_OZONE_WL = "1";
       DOTNET_ROOT = "${pkgs.dotnet-sdk_7}";
       LIBCLANG_PATH = "${pkgs.libclang.lib}/lib";
     };
@@ -45,13 +45,6 @@
     nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
   };
 
-  systemd.services = {
-    # Workaround for GNOME autologin:
-    # https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-    "getty@tty1".enable = false;
-    "autovt@tty1".enable = false;
-  };
-
   services = {
     xserver = {
       enable = true;
@@ -60,16 +53,7 @@
       xkb.layout = "us";
       xkb.variant = "";
 
-      # Enable the GNOME Desktop Environment.
       displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
-
-      # Enable automatic login for the user.
-      displayManager.autoLogin.enable = true;
-      displayManager.autoLogin.user = "thaumy";
-
-      # Enable touchpad support (enabled default in most desktopManager).
-      # libinput.enable = true;
 
       dpi = 180;
       videoDrivers = [ "nvidia" ];

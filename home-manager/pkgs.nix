@@ -41,9 +41,6 @@ in
     tdesktop
     element-desktop
 
-    # gnome ext
-    gnomeExtensions.tiling-assistant
-    gnomeExtensions.internet-speed-monitor
 
     # git
     gh

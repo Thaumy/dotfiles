@@ -7,6 +7,7 @@
     ./rofi.nix
     ./waybar.nix
     ./neovim.nix
+    ./hyprland.nix
     ./gnome/mod.nix
     ./alacritty.nix
     ./dup-img-finder.nix

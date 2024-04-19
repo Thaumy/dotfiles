@@ -22,6 +22,12 @@
       # for perf-event-rs build
       LINUX_HEADERS_PATH = "/etc/sdk-homes/linux-headers";
     };
+    pointerCursor = {
+      gtk.enable = true;
+      package = pkgs.gnome.adwaita-icon-theme;
+      name = "Adwaita";
+      size = 22;
+    };
   };
 
   nixpkgs.config = {
