@@ -96,8 +96,6 @@ end
 map('n', 'qq', fmt)
 -- go def
 map('n', '<M-d>', function() vim.lsp.buf.definition() end)
--- show def
-map('n', '<M-a>', function() vim.lsp.buf.hover() end)
 -- quick fix in cursor line
 map('n', '<M-q>', function() vim.lsp.buf.code_action() end)
 
