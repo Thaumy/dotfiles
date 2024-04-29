@@ -39,17 +39,6 @@ vim.api.nvim_create_autocmd('CursorHold', {
   end
 })
 
--- show def
-map('n', '<M-a>', function()
-  hover_on = true
-  vim.lsp.buf.hover()
-  -- close diagnostic buf when show def
-  if diagnostic_buf ~= nil and vim.api.nvim_buf_is_valid(diagnostic_buf) then
-    vim.api.nvim_buf_delete(diagnostic_buf, {})
-    diagnostic_buf = nil
-  end
-end)
-
 -- hl refs on hover
 local function buf_lsp_client_has(provider)
   local clients = vim.lsp.buf_get_clients()
@@ -71,3 +60,28 @@ vim.api.nvim_create_autocmd('CursorMoved', {
     end
   end
 })
+
+-- show def
+map('n', '<M-a>', function()
+  hover_on = true
+  vim.lsp.buf.hover()
+  -- close diagnostic buf when show def
+  if diagnostic_buf ~= nil and vim.api.nvim_buf_is_valid(diagnostic_buf) then
+    vim.api.nvim_buf_delete(diagnostic_buf, {})
+    diagnostic_buf = nil
+  end
+end)
+-- fmt
+map('n', 'qq', function()
+  local buf = vim.api.nvim_get_current_buf()
+  local ft = vim.api.nvim_buf_get_option(buf, 'filetype')
+  if ft == 'markdown' then
+    vim.cmd('Neoformat denofmt')
+  else
+    vim.lsp.buf.format { sync = true }
+  end
+end)
+-- go def
+map('n', '<M-d>', function() vim.lsp.buf.definition() end)
+-- quick fix in cursor line
+map('n', '<M-q>', function() vim.lsp.buf.code_action() end)
