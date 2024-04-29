@@ -110,7 +110,6 @@ let
     qrencode
     yarn2nix
     neofetch
-    chromium
     distrobox
     wireshark
     clash-meta
