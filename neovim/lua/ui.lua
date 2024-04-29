@@ -19,29 +19,29 @@ vim.diagnostic.config {
 
 -- show diagnostic on hover
 vim.o.updatetime = 300
-local is_cursor_moved = true
+local cursor_moved = true
 local diagnostic_buf = nil
-local is_hover_on = false
+local hover_on = false
 vim.api.nvim_create_autocmd('CursorMoved', {
   callback = function()
-    is_cursor_moved = true
-    is_hover_on = false
+    cursor_moved = true
+    hover_on = false
   end
 })
 vim.api.nvim_create_autocmd('CursorHold', {
   callback = function()
-    if is_hover_on then return end
+    if hover_on then return end
     -- only open diagnostic after cursor moved
-    if not is_cursor_moved then return end
+    if not cursor_moved then return end
     if (require 'cmp').visible() then return end
-    is_cursor_moved = false
+    cursor_moved = false
     diagnostic_buf, _ = vim.diagnostic.open_float({ scope = 'cursor' })
   end
 })
 
 -- show def
 map('n', '<M-a>', function()
-  is_hover_on = true
+  hover_on = true
   vim.lsp.buf.hover()
   -- close diagnostic buf when show def
   if diagnostic_buf ~= nil and vim.api.nvim_buf_is_valid(diagnostic_buf) then
