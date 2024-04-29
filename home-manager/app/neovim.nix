@@ -58,6 +58,7 @@ in
       Ionide-vim # F# lsp support
 
       # input helpers
+      luasnip # snippet
       autoclose-nvim # auto close pairs and brackets
       nvim-comment # apply comment block
       neoformat # formatter

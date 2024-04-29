@@ -14,7 +14,12 @@ plugin.setup {
   ),
   completion = {
     completeopt = 'menu,menuone,noinsert'
-  }
+  },
+  snippet = {
+    expand = function(args)
+      (require 'luasnip').lsp_expand(args.body)
+    end,
+  },
 }
 
 plugin.setup.cmdline('/', {
