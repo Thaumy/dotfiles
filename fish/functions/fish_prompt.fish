@@ -22,7 +22,7 @@ function fish_prompt
     printf '%s┌' (set_color brwhite)
 
     printf '%s%s %s%s%s%s %s%s%s%s ' \
-      (set_color e9aa43) (fish_git_prompt) \
+      (set_color bryellow) (fish_git_prompt) \
       (set_color brblue) $USER '@' (prompt_hostname) \
       (set_color $fish_color_cwd) $(polish_pwd $PWD) ' ' $pipestatus_string
 
