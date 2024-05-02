@@ -63,6 +63,7 @@ let
     eza
     git
     bat
+    glib
     nmap
     zbar
     lsof
@@ -70,6 +71,7 @@ let
     wget
     qemu
     tree
+    lshw
     htop
     bluez
     whois
@@ -85,9 +87,11 @@ let
     evtest
     psmisc
     screen
+    pamixer
     du-dust
     numactl
     sysstat
+    usbutils
     pciutils
     patchelf
     cdrtools
@@ -112,6 +116,7 @@ let
     neofetch
     distrobox
     wireshark
+    exfatprogs
     clash-meta
     cryptsetup
     obs-studio

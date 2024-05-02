@@ -23,7 +23,6 @@ in
     glow
     typst
     typstfmt
-    vscode
     neovide
     android-studio
     pkgs-23-05.jetbrains.rider
@@ -41,6 +40,11 @@ in
     tdesktop
     element-desktop
 
+    # gnome
+    whitesur-gtk-theme
+    gnome.gnome-tweaks
+    gnome.nautilus
+    gnome.eog
 
     # git
     gh
@@ -57,10 +61,11 @@ in
     wasm-pack
     wasm-tools
     wit-bindgen
+    rust-script
     wasm-bindgen-cli
     #pkgs-23-05.postman
-    blackbox-terminal
     github-desktop
+    nodePackages.ts-node
 
     # blockchain
     xmrig
@@ -72,12 +77,18 @@ in
     aircrack-ng
     wirelesstools
 
+    # connectivity
+    blueman
+    networkmanagerapplet
+
     # etc
     zip
     gimp
     qrcp
     unar
     hdparm
+    bottom
+    udiskie
     gammastep
     ventoy-full
     qbittorrent

@@ -1,10 +1,8 @@
 { pkgs, ... }: {
   environment = {
     systemPackages = with pkgs; [
-      gnome.mutter
       gnome.gnome-boxes
       gnome.gnome-tweaks
-      gnome.gnome-terminal
     ];
 
     gnome.excludePackages = with pkgs;[
