@@ -17,5 +17,6 @@
   #./memcached.nix
   #./kafka.nix
   #./docker.nix
+  ./udisks2.nix
   ./virt-manager.nix
 ]
