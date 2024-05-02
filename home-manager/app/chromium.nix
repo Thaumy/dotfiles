@@ -13,7 +13,7 @@ let
   '';
   chromium-wrapped = pkgs.symlinkJoin {
     name = "chromium";
-    paths = [ pkgs.chromium wrapper-script ];
+    paths = [ pkgs.ungoogled-chromium wrapper-script ];
     postBuild = ''
       cd $out/bin
       mv wrapper-script chromium
