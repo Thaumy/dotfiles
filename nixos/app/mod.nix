@@ -7,6 +7,7 @@
   #./tomcat.nix
   #./waydroid.nix
   ./blueman.nix
+  ./power-profiles-daemon.nix
 
   #./mysql.nix
   ./postgres.nix
