@@ -6,6 +6,7 @@
   ./yubikey.nix
   #./tomcat.nix
   #./waydroid.nix
+  ./blueman.nix
 
   #./mysql.nix
   ./postgres.nix
