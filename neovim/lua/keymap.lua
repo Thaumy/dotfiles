@@ -57,6 +57,22 @@ map({ 'n', 'v' }, '<C-l>', '8l')
 map({ 'n', 'v' }, '<C-k>', '6k')
 map({ 'n', 'v' }, '<C-j>', '6j')
 
+-- reduce/increase indent
+map('v', 'h', function()
+  if vim.api.nvim_get_mode().mode == 'V' then
+    vim.api.nvim_feedkeys('<gv', 'n', false)
+  else
+    vim.api.nvim_feedkeys('h', 'n', false)
+  end
+end)
+map('v', 'l', function()
+  if vim.api.nvim_get_mode().mode == 'V' then
+    vim.api.nvim_feedkeys('>gv', 'n', false)
+  else
+    vim.api.nvim_feedkeys('l', 'n', false)
+  end
+end)
+
 -- terminal to normal
 map('t', '<M-n>', '<C-\\><C-n>')
 
