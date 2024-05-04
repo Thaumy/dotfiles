@@ -11,6 +11,7 @@ local function setup_dark()
     custom_highlights = {
       BufferLineBufferSelected = { style = { 'bold' } },
       CurSearch = { fg = '#FFB5DA', bg = '#6420AA' },
+      CursorLine = { bg = '#252636' },
     },
   }
 end

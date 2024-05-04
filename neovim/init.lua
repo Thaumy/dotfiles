@@ -22,6 +22,9 @@ vim.o.cmdheight = 0
 -- single status line
 vim.opt.laststatus = 3
 
+-- hl current line
+vim.opt.cursorline = true
+
 -- share system clipboards
 vim.opt.clipboard = 'unnamed,unnamedplus'
 
