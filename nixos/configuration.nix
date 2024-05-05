@@ -7,6 +7,7 @@
     ./pkgs.nix
     ./local.nix
     ./nixpkgs.nix
+    ./hardware.nix
     ./networking.nix
     ./hardware-configuration.nix
 
@@ -38,14 +39,6 @@
   };
 
   #users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
-
-  hardware = {
-    bluetooth.enable = true;
-    bluetooth.powerOnBoot = true;
-    opengl.enable = true;
-    nvidia.modesetting.enable = true;
-    nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
-  };
 
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
