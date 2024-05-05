@@ -1,12 +1,11 @@
-{ config, pkgs, ... }:
-
-{
+{ pkgs, ... }: {
   manual.manpages.enable = false;
 
   imports = [
     ./sh.nix
     ./pkgs.nix
     ./app/mod.nix
+    ./nixpkgs.nix
     ./symlinks.nix
     ./daemon/mod.nix
   ];
@@ -30,22 +29,4 @@
       size = 22;
     };
   };
-
-  nixpkgs.config = {
-
-    allowUnfree = true;
-    packageOverrides = pkgs: {
-      nur = import
-        (builtins.fetchTarball
-          "https://github.com/nix-community/NUR/archive/master.tar.gz")
-        {
-          inherit pkgs;
-        };
-    };
-    permittedInsecurePackages = [
-      "nix-2.16.2"
-    ];
-
-  };
-
 }

@@ -92,7 +92,6 @@ in
     gammastep
     ventoy-full
     qbittorrent
-    #gnome.dconf-editor
     steam-run
     wl-clipboard-x11
 

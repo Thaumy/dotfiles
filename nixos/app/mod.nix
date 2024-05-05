@@ -1,23 +1,26 @@
 [
   ./fish.nix
-  ./gnome.nix
-  #./steam.nix
-  ./openssh.nix
   ./yubikey.nix
+  #./steam.nix
   #./tomcat.nix
   #./waydroid.nix
-  ./hyprland.nix
+  ./openssh.nix
+  ./udisks2.nix
+
+  ./gnome.nix
+  ./xserver.nix
   ./blueman.nix
+  ./pipewire.nix
+  ./hyprland.nix
   ./power-profiles-daemon.nix
 
   #./mysql.nix
+  #./kafka.nix
+  #./redis.nix
   ./postgres.nix
   #./mongodb.nix
-
-  #./redis.nix
   #./memcached.nix
-  #./kafka.nix
+
   #./docker.nix
-  ./udisks2.nix
   ./virt-manager.nix
 ]

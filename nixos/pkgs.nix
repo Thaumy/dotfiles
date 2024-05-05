@@ -1,7 +1,5 @@
 { pkgs, ... }:
 let
-  pkgs-22-11 = import <nixos-22.11> { config = { allowUnfree = true; }; };
-  pkgs-23-05 = import <nixos-23.05> { config = { allowUnfree = true; }; };
   pkgs-23-11 = import <nixos-23.11> { config = { allowUnfree = true; }; };
 
   rust = (pkgs.rust-bin.nightly."2024-01-01".default.override {
@@ -141,7 +139,6 @@ in
       "sdk-homes/jdk-17".source = jdk17;
       "sdk-homes/gcc-10".source = gcc10;
       "sdk-homes/gcc-13".source = gcc13;
-      "sdk-homes/tomcat".source = tomcat10;
       "sdk-homes/dotnet".source = dotnet-sdk_7;
       "sdk-homes/linux-headers".source = linuxHeaders;
       "sdk-homes/llvm".source = llvmPackages_15.libllvm;
@@ -149,11 +146,6 @@ in
 
       "app-homes/firefox".source = firefox;
       "app-homes/chromium".source = chromium;
-      "app-homes/mysql".source = mysql80;
-      #"app-homes/mongodb".source = mongodb;
-      "app-homes/pgsql".source = postgresql_15;
-      "app-homes/redis".source = redis;
-      "app-homes/kafka".source = apacheKafka_3_2;
     };
   };
 }
