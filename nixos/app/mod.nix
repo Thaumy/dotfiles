@@ -7,7 +7,6 @@
   ./openssh.nix
   ./udisks2.nix
 
-  ./gnome.nix
   ./xserver.nix
   ./blueman.nix
   ./pipewire.nix

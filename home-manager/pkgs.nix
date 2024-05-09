@@ -41,10 +41,11 @@ in
     element-desktop
 
     # gnome
-    whitesur-gtk-theme
-    gnome.gnome-tweaks
-    gnome.nautilus
     gnome.eog
+    gnome.nautilus
+    gnome.gnome-boxes
+    gnome.gnome-tweaks
+    whitesur-gtk-theme
 
     # git
     gh
