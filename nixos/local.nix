@@ -38,7 +38,13 @@
     {
       inputMethod = {
         enabled = "fcitx5";
-        fcitx5.addons = [ pkgs.fcitx5-chinese-addons ];
+        fcitx5 = {
+          waylandFrontend = true;
+          addons = with pkgs; [
+            fcitx5-gtk
+            fcitx5-chinese-addons
+          ];
+        };
       };
 
       defaultLocale = locale;
