@@ -31,36 +31,32 @@
     };
   };
 
-  i18n =
-    let
-      locale = "en_US.UTF-8";
-    in
-    {
-      inputMethod = {
-        enabled = "fcitx5";
-        fcitx5 = {
-          waylandFrontend = true;
-          addons = with pkgs; [
-            fcitx5-gtk
-            fcitx5-chinese-addons
-          ];
-        };
-      };
-
-      defaultLocale = locale;
-
-      extraLocaleSettings = {
-        LC_NAME = locale;
-        LC_TIME = locale;
-        LC_PAPER = locale;
-        LC_NUMERIC = locale;
-        LC_ADDRESS = locale;
-        LC_MONETARY = locale;
-        LC_TELEPHONE = locale;
-        LC_MEASUREMENT = locale;
-        LC_IDENTIFICATION = locale;
+  i18n = rec {
+    inputMethod = {
+      enabled = "fcitx5";
+      fcitx5 = {
+        waylandFrontend = true;
+        addons = with pkgs; [
+          fcitx5-gtk
+          fcitx5-chinese-addons
+        ];
       };
     };
+
+    defaultLocale = "en_US.UTF-8";
+
+    extraLocaleSettings = {
+      LC_NAME = defaultLocale;
+      LC_TIME = defaultLocale;
+      LC_PAPER = defaultLocale;
+      LC_NUMERIC = defaultLocale;
+      LC_ADDRESS = defaultLocale;
+      LC_MONETARY = defaultLocale;
+      LC_TELEPHONE = defaultLocale;
+      LC_MEASUREMENT = defaultLocale;
+      LC_IDENTIFICATION = defaultLocale;
+    };
+  };
 
   time.timeZone = "Asia/Shanghai";
 }

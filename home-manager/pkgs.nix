@@ -35,38 +35,38 @@ in
     pkgs-22-11.jetbrains.idea-ultimate
     pkgs-22-11.jetbrains.pycharm-professional
 
-    # im
+    # IM
     feishu
     tdesktop
     element-desktop
 
-    # gnome
+    # GNOME
     gnome.eog
     gnome.nautilus
     gnome.gnome-boxes
     gnome.gnome-tweaks
     gnome.gnome-font-viewer
-    whitesur-gtk-theme
 
-    # git
+    # WM
+    wl-clipboard-x11
+    whitesur-gtk-theme
+    networkmanagerapplet
+
+    # VCS
     gh
     git-lfs
+    gitoxide
+    github-desktop
     git-filter-repo
 
-    # dev
-    fio
-    gitoxide
-    binaryen
+    # wasm dev
     wasmer
+    binaryen
     wasmtime
     wasm-pack
     wasm-tools
     wit-bindgen
-    rust-script
     wasm-bindgen-cli
-    #pkgs-23-05.postman
-    github-desktop
-    nodePackages.ts-node
 
     # blockchain
     xmrig
@@ -82,9 +82,9 @@ in
 
     # connectivity
     blueman
-    networkmanagerapplet
 
     # etc
+    fio
     mpv
     zip
     gimp
@@ -94,10 +94,12 @@ in
     bottom
     udiskie
     gammastep
+    steam-run
     ventoy-full
     qbittorrent
-    steam-run
-    wl-clipboard-x11
+    rust-script
+    #pkgs-23-05.postman
+    nodePackages.ts-node
 
     # cargo
     grcov

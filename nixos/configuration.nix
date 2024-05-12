@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ pkgs, ... }: {
   imports = [
     ./nix.nix
     ./sec.nix
@@ -7,11 +7,11 @@
     ./pkgs.nix
     ./local.nix
     ./nixpkgs.nix
+    ./app/mod.nix
     ./hardware.nix
     ./networking.nix
     ./hardware-configuration.nix
-
-  ] ++ (import ./app/mod.nix);
+  ];
 
   virtualisation = {
     #lxd.enable = true;

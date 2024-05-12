@@ -1,26 +1,28 @@
-[
-  ./fish.nix
-  #./netdata.nix
-  ./yubikey.nix
-  #./steam.nix
-  #./tomcat.nix
-  #./waydroid.nix
-  ./openssh.nix
-  ./udisks2.nix
+{ ... }: {
+  imports = [
+    ./fish.nix
+    #./netdata.nix
+    ./yubikey.nix
+    #./steam.nix
+    #./tomcat.nix
+    #./waydroid.nix
+    ./openssh.nix
+    ./udisks2.nix
 
-  ./xserver.nix
-  ./blueman.nix
-  ./pipewire.nix
-  ./hyprland.nix
-  ./power-profiles-daemon.nix
+    ./xserver.nix
+    ./blueman.nix
+    ./pipewire.nix
+    ./hyprland.nix
+    ./power-profiles-daemon.nix
 
-  #./mysql.nix
-  #./kafka.nix
-  #./redis.nix
-  ./postgres.nix
-  #./mongodb.nix
-  #./memcached.nix
+    #./mysql.nix
+    #./kafka.nix
+    #./redis.nix
+    ./postgres.nix
+    #./mongodb.nix
+    #./memcached.nix
 
-  #./docker.nix
-  ./virt-manager.nix
-]
+    #./docker.nix
+    ./virt-manager.nix
+  ];
+}

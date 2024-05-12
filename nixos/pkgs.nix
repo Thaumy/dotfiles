@@ -1,7 +1,5 @@
 { pkgs, ... }:
 let
-  pkgs-23-11 = import <nixos-23.11> { config = { allowUnfree = true; }; };
-
   rust = (pkgs.rust-bin.nightly."2024-05-01".default.override {
     extensions = [ "rust-src" ];
     targets = [
@@ -20,9 +18,9 @@ let
   sdk = with pkgs;[
     go
     jdk8
+    rust
     jdk11
     jdk17
-    rust
     gcc10
     gcc13
     ocaml

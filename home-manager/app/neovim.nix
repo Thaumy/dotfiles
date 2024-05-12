@@ -3,8 +3,6 @@ let
   homeDir = config.home.homeDirectory;
   mkSymlink = config.lib.file.mkOutOfStoreSymlink;
 
-  pkgs-23-05 = import <nixos-23.05> { config = { allowUnfree = true; }; };
-
   neo-tree-nvim = pkgs.vimUtils.buildVimPlugin {
     pname = "neo-tree.nvim";
     version = "2024-4-17";

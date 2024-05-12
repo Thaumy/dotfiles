@@ -1,4 +1,4 @@
-[
+{ ... }: [
   (import ./rust.nix)
   #(import ./vscode.nix)
   #(import ./neovim.nix)
