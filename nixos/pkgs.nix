@@ -101,10 +101,10 @@ let
     smartmontools
     docker-compose
     nix-prefetch-github
+    nix-prefetch-scripts
   ];
 
   etc = with pkgs;[
-    vlc
     vsftpd
     gparted
     firefox

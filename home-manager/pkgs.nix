@@ -45,6 +45,7 @@ in
     gnome.nautilus
     gnome.gnome-boxes
     gnome.gnome-tweaks
+    gnome.gnome-font-viewer
     whitesur-gtk-theme
 
     # git
@@ -54,7 +55,6 @@ in
 
     # dev
     fio
-    netdata
     gitoxide
     binaryen
     wasmer
@@ -74,8 +74,10 @@ in
 
     # penetration
     mdk4
+    crunch
     macchanger
     aircrack-ng
+    netdiscover
     wirelesstools
 
     # connectivity
@@ -83,6 +85,7 @@ in
     networkmanagerapplet
 
     # etc
+    mpv
     zip
     gimp
     qrcp
