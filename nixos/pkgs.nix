@@ -2,7 +2,7 @@
 let
   pkgs-23-11 = import <nixos-23.11> { config = { allowUnfree = true; }; };
 
-  rust = (pkgs.rust-bin.nightly."2024-01-01".default.override {
+  rust = (pkgs.rust-bin.nightly."2024-05-01".default.override {
     extensions = [ "rust-src" ];
     targets = [
       "aarch64-apple-darwin"
