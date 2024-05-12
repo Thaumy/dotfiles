@@ -1,5 +1,6 @@
 [
   ./fish.nix
+  #./netdata.nix
   ./yubikey.nix
   #./steam.nix
   #./tomcat.nix
