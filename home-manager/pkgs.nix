@@ -1,8 +1,4 @@
-{ pkgs, ... }:
-let
-  pkgs-22-11 = import <nixos-22.11> { config = { allowUnfree = true; }; };
-  pkgs-23-05 = import <nixos-23.05> { config = { allowUnfree = true; }; };
-in
+{ pkgs, pkgs-22-11, pkgs-23-05, ... }:
 {
   home.packages = with pkgs; [
     # nur
