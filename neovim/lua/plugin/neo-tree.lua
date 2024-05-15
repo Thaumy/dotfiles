@@ -66,6 +66,7 @@ plugin.setup {
 
   window = {
     mappings = {
+      ['m'] = '',
       ['s'] = '',
       ['o'] = '',
       ['t'] = '',
