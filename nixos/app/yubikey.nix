@@ -8,4 +8,7 @@
     udev.packages = [ pkgs.yubikey-personalization ];
     pcscd.enable = true;
   };
+
+  # fix pinentry-gnome3 in non-GNOME systems
+  services.dbus.packages = [ pkgs.gcr ];
 }
