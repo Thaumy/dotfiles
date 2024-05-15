@@ -14,7 +14,6 @@ args@{ ... }: {
           };
       };
       permittedInsecurePackages = [
-        "openssl-1.1.1u"
       ];
     };
     overlays = (import ./overlay/mod.nix) args;
