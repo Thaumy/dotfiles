@@ -60,6 +60,7 @@ in
       autoclose-nvim # auto close pairs and brackets
       nvim-comment # apply comment block
       neoformat # formatter
+      fcitx-vim # input method auto switch
     ];
 
     extraPackages = with pkgs; [
