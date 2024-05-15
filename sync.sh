@@ -20,3 +20,4 @@ cp -r  "$home/cfg/nixos" "$repo/nixos"
 # Home Manager
 rm -rf "$repo/home-manager"
 cp -r  "$home/cfg/home-manager" "$repo/home-manager"
+rm -rf "$repo/home-manager/sh"
