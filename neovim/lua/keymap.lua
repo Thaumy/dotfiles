@@ -105,10 +105,6 @@ map_cmd('n', '<M-S-;>', 'BufferLineCyclePrev')
 -- close buffer
 map_cmd('n', '<M-x>', 'BufDel')
 
--- neo-tree:
--- toggle
-map_cmd('n', 'e', 'Neotree action=show toggle=true')
-
 -- nvim-ufo:
 -- fold code block
 map('n', '<M-k>', 'za')

@@ -104,6 +104,8 @@ vim.api.nvim_create_autocmd('VimEnter', {
   end
 })
 
+local auto_toggle = true
+
 -- auto show/close neo-tree when window resized
 local function is_neotree_visible()
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
@@ -126,6 +128,9 @@ local function neotree_close()
 end
 vim.api.nvim_create_autocmd('VimResized', {
   callback = function()
+    if not auto_toggle then
+      return
+    end
     local term_width = vim.go.columns
     if term_width > 120 then
       neotree_show()
@@ -134,3 +139,19 @@ vim.api.nvim_create_autocmd('VimResized', {
     end
   end
 })
+
+-- toggle
+local map_opts = { noremap = true, silent = true }
+local function unmap(modes, lhs)
+  vim.keymap.set(modes, lhs, '<nop>', map_opts)
+end
+local function map(modes, lhs, rhs)
+  vim.keymap.set(modes, lhs, rhs, map_opts)
+  if type(rhs) == 'string' then
+    unmap(modes, rhs) -- unmap original
+  end
+end
+map('n', 'e', function()
+  auto_toggle = false
+  vim.cmd 'Neotree action=show toggle=true'
+end)
