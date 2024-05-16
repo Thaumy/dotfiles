@@ -1,3 +1,5 @@
+local ui = require 'infra.ui'
+local k = require 'infra.keymap'
 local plugin = require 'neo-tree'
 
 vim.go.fillchars = 'vert:▎,vertleft:▎,vertright:▎,verthoriz:─,horiz:─,horizup:─,horizdown:─'
@@ -108,13 +110,7 @@ local auto_toggle = true
 
 -- auto show/close neo-tree when window resized
 local function is_neotree_visible()
-  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-    local ft = vim.api.nvim_get_option_value('filetype', { buf = buf })
-    if ft == 'neo-tree' then
-      return true
-    end
-  end
-  return false
+  return ui.any_buf_ft('neo-tree')
 end
 local function neotree_show()
   if not is_neotree_visible() then
@@ -141,17 +137,7 @@ vim.api.nvim_create_autocmd('VimResized', {
 })
 
 -- toggle
-local map_opts = { noremap = true, silent = true }
-local function unmap(modes, lhs)
-  vim.keymap.set(modes, lhs, '<nop>', map_opts)
-end
-local function map(modes, lhs, rhs)
-  vim.keymap.set(modes, lhs, rhs, map_opts)
-  if type(rhs) == 'string' then
-    unmap(modes, rhs) -- unmap original
-  end
-end
-map('n', 'e', function()
+k.map('n', 'e', function()
   auto_toggle = false
   vim.cmd 'Neotree action=show toggle=true'
 end)

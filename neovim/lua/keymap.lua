@@ -1,20 +1,8 @@
-local map_opts = { noremap = true, silent = true }
+local ui = require 'infra.ui'
+local k = require 'infra.keymap'
 
-local function unmap(modes, lhs)
-  vim.keymap.set(modes, lhs, '<nop>', map_opts)
-end
-
-local function map(modes, lhs, rhs)
-  vim.keymap.set(modes, lhs, rhs, map_opts)
-  if type(rhs) == 'string' then
-    unmap(modes, rhs) -- unmap original
-  end
-end
-
-local function map_cmd(mode, lhs, cmd_rhs)
-  local rhs = string.format(':%s<CR>', cmd_rhs)
-  vim.keymap.set(mode, lhs, rhs, map_opts)
-end
+local unmap = k.unmap
+local map = k.map
 
 -- disable
 unmap({ 'v', 'i' }, '<C-k>') -- key chord
@@ -76,12 +64,6 @@ end)
 -- terminal to normal
 map('t', '<M-n>', '<C-\\><C-n>')
 
-local function win_ft(win)
-  local win_current_buf = vim.api.nvim_win_get_buf(win)
-  local ft = vim.api.nvim_buf_get_option(win_current_buf, 'filetype')
-  return ft
-end
-
 -- cycle wins
 map('n', ';', function()
   local wins = vim.api.nvim_list_wins()
@@ -89,7 +71,7 @@ map('n', ';', function()
   for _, win in ipairs(wins) do
     local can_switch =
         win ~= current_win and
-        win_ft(win) ~= 'notify'
+        ui.win_ft(win) ~= 'notify'
 
     if can_switch then
       vim.api.nvim_set_current_win(win)
@@ -97,25 +79,3 @@ map('n', ';', function()
     end
   end
 end)
-
--- bufferline:
--- cycle buffer R/L
-map_cmd('n', '<M-;>', 'BufferLineCycleNext')
-map_cmd('n', '<M-S-;>', 'BufferLineCyclePrev')
--- close buffer
-map_cmd('n', '<M-x>', 'BufDel')
-
--- nvim-ufo:
--- fold code block
-map('n', '<M-k>', 'za')
--- expand code block
-map('n', '<M-j>', 'zo')
-
--- toggleterm:
--- toggle
-map_cmd('n', 't', 'ToggleTerm')
-map('t', '<Esc>', '<cmd>ToggleTerm<CR>')
-
--- nvim-comment:
--- toggle comment
-map_cmd('v', 'm', 'CommentToggle')

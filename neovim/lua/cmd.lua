@@ -1,3 +1,5 @@
+local ui = require 'infra.ui'
+
 -- use `Q` to force exit (`qa!`)
 vim.api.nvim_create_user_command('Q', 'qa!', {})
 
@@ -12,8 +14,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 vim.cmd('highlight TrailingWhitespace guibg=#ffdd00')
 vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave' }, {
   callback = function()
-    local buf = vim.api.nvim_get_current_buf()
-    local ft = vim.api.nvim_buf_get_option(buf, 'filetype')
+    local ft = ui.curr_buf_ft()
     local no_hl =
         ft == '' or
         ft == 'neo-tree' or

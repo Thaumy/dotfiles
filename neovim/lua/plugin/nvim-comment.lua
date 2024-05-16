@@ -1,3 +1,4 @@
+local k = require 'infra.keymap'
 local plugin = require 'nvim_comment'
 
 plugin.setup {
@@ -24,3 +25,7 @@ plugin.setup {
     end
   end
 }
+
+-- nvim-comment:
+-- toggle comment
+k.map_cmd('v', 'm', 'CommentToggle')

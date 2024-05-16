@@ -1,3 +1,4 @@
+local k = require 'infra.keymap'
 local plugin = require 'bufferline'
 
 local neotree_modified_icon_color = string.format('#%x',
@@ -32,3 +33,9 @@ plugin.setup {
     },
   }
 }
+
+-- cycle buffer R/L
+k.map_cmd('n', '<M-;>', 'BufferLineCycleNext')
+k.map_cmd('n', '<M-S-;>', 'BufferLineCyclePrev')
+-- close buffer
+k.map_cmd('n', '<M-x>', 'BufDel')

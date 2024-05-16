@@ -1,3 +1,4 @@
+local k = require 'infra.keymap'
 local plugin = require 'toggleterm'
 
 local border_color = string.format('#%x',
@@ -12,3 +13,8 @@ plugin.setup {
     },
   }
 }
+
+-- toggleterm:
+-- toggle
+k.map_cmd('n', 't', 'ToggleTerm')
+k.map('t', '<Esc>', '<cmd>ToggleTerm<CR>')
