@@ -13,6 +13,8 @@
     ./hardware-configuration.nix
   ];
 
+  powerManagement.enable = true;
+
   virtualisation = {
     #lxd.enable = true;
     podman = {

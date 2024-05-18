@@ -4,6 +4,7 @@ let
 in
 {
   hardware = {
+    enableAllFirmware = true;
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
     opengl.enable = true;
@@ -26,7 +27,9 @@ in
       };
 
       powerManagement = {
-        enable = true;
+        # suspend/hibernate will fail if `enable = true;`
+        # See: https://github.com/NixOS/nixpkgs/issues/254614
+        enable = false;
         finegrained = true;
       };
     } else { };
