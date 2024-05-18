@@ -71,7 +71,7 @@ in
       taplo # TOML
       fantomas # F# formatter
       marksman
-      #typst-lsp
+      typst-lsp
       nixpkgs-fmt
       rust-analyzer
       fsautocomplete
