@@ -79,3 +79,12 @@ map('n', ';', function()
     end
   end
 end)
+
+-- docs preview
+map('n', '<C-p>', function()
+  local ft = ui.curr_buf_ft()
+  if ft == 'markdown' then
+    vim.cmd 'MarkdownPreview'
+    return
+  end
+end)
