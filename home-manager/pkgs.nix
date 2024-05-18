@@ -37,6 +37,7 @@
     element-desktop
 
     # GNOME
+    evince # docs reader
     gnome.eog
     gnome.nautilus
     gnome.gnome-boxes
@@ -86,6 +87,7 @@
     gimp
     qrcp
     unar
+    grim # screenshot
     hdparm
     bottom
     udiskie

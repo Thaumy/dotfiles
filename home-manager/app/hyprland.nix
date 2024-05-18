@@ -8,6 +8,7 @@ in
     packages = with pkgs; [
       hypridle
       hyprlock
+      hyprshot
       hyprpaper
       hyprpicker
     ];
