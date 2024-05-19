@@ -15,6 +15,9 @@ vim.opt.expandtab = true
 vim.opt.termguicolors = true
 vim.bo.softtabstop = 2
 
+-- extra characters in viw
+vim.opt.iskeyword:append({ '-', '#' })
+
 -- show line numbers
 vim.wo.number = true
 vim.o.cmdheight = 0
