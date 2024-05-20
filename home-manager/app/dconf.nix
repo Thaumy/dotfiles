@@ -1,9 +1,5 @@
-{ lib, ... }:
-let
-  base = path: "org/gnome/desktop/interface${path}";
-in
-{
-  dconf.settings. ${base ""} = {
+{ lib, ... }: {
+  dconf.settings."org/gnome/desktop/interface" = {
     font-hinting = "slight";
     font-antialiasing = "grayscale";
     font-name = "Sarasa UI SC 11";
