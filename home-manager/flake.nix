@@ -5,10 +5,13 @@
     pkgs-23-05.url = "github:nixos/nixpkgs/nixos-23.05";
     pkgs-23-11.url = "github:nixos/nixpkgs/nixos-23.11";
     pkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "pkgs-unstable";
     };
+
+    hyprland.url = "git+https://github.com/hyprwm/hyprland?submodules=1";
   };
 
   outputs =

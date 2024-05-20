@@ -1,9 +1,14 @@
-{ config, pkgs, ... }:
-let
-  homeDir = config.home.homeDirectory;
-  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-in
+{ inputs, pkgs, ... }:
 {
+  imports = [ inputs.hyprland.homeManagerModules.default ];
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+
+    extraConfig = "source = ~/cfg/hypr/hyprland/hyprland.conf";
+  };
+
   home = {
     packages = with pkgs; [
       hypridle
@@ -12,9 +17,5 @@ in
       hyprpaper
       hyprpicker
     ];
-    file.".config/hypr" = {
-      enable = true;
-      source = mkSymlink "${homeDir}/cfg/hypr";
-    };
   };
 }
