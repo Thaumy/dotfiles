@@ -23,7 +23,7 @@ in
 
     plugins = with pkgs.vimPlugins; [
       # neovim infrastructures
-      plenary-nvim # async lib
+      plenary-nvim # common utils
       nvim-bufdel # better buffer delete
 
       # colorizers or signs
@@ -41,7 +41,7 @@ in
       lualine-nvim # status line
       neo-tree-nvim # file explorer
       bufferline-nvim # buffer tabs
-      nvim-notify # notify boxes, [noice-nvim:dep]
+      nvim-notify # notify boxes, [depof: noice-nvim]
       noice-nvim # notice
       toggleterm-nvim # terminal
 

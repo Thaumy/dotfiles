@@ -1,9 +1,9 @@
 { inputs, pkgs, ... }: {
+  imports = [ inputs.hyprland.nixosModules.default ];
+
   programs.hyprland = {
     enable = true;
   };
-
-  imports = [ inputs.hyprland.nixosModules.default ];
 
   services.gvfs.enable = true;
 
