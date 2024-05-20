@@ -51,7 +51,7 @@ plugin.setup {
     },
     symlink_target = {
       enabled = true,
-      text_format = " %s",
+      text_format = ' %s',
     },
   },
 
@@ -74,9 +74,9 @@ plugin.setup {
       ['t'] = '',
       ['<'] = '',
       ['>'] = '',
-      ['<Bs>'] = '',
       ['h'] = 'prev_source',
       ['l'] = 'next_source',
+      ['<Bs>'] = '',
       ['<M-j>'] = 'open',
       ['<M-k>'] = 'close_node',
       ['<Esc>'] = 'navigate_up',

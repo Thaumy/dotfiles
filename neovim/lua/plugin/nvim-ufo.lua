@@ -8,7 +8,6 @@ vim.o.foldenable = true
 
 plugin.setup()
 
--- nvim-ufo:
 -- fold code block
 k.map('n', '<M-k>', 'za')
 -- expand code block

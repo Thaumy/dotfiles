@@ -19,7 +19,7 @@ plugin.nil_ls.setup { -- Nix
   settings = {
     ['nil'] = {
       formatting = {
-        command = { "nixpkgs-fmt" },
+        command = { 'nixpkgs-fmt' },
       },
     },
   },

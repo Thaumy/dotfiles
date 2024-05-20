@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 -- show trailing whitespace
-vim.cmd('highlight TrailingWhitespace guibg=#ffdd00')
+vim.cmd 'highlight TrailingWhitespace guibg=#ffdd00'
 vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave' }, {
   callback = function()
     local ft = ui.curr_buf_ft()

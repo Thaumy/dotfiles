@@ -65,7 +65,7 @@ end)
 -- fmt
 k.map('n', 'qq', function()
   if ui.curr_buf_ft() == 'markdown' then
-    vim.cmd('Neoformat denofmt')
+    vim.cmd 'Neoformat denofmt'
   else
     vim.lsp.buf.format { sync = true }
   end
