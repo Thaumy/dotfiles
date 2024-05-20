@@ -69,13 +69,14 @@ plugin.setup {
   window = {
     mappings = {
       ['m'] = '',
-      ['s'] = '',
+      ['f'] = '',
       ['o'] = '',
       ['t'] = '',
       ['<'] = '',
       ['>'] = '',
       ['h'] = 'prev_source',
       ['l'] = 'next_source',
+      ['s'] = 'fuzzy_finder',
       ['<Bs>'] = '',
       ['<M-j>'] = 'open',
       ['<M-k>'] = 'close_node',
