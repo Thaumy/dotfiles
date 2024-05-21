@@ -1,3 +1,5 @@
+vim.loader.enable()
+
 require 'keymap'
 require 'cmd'
 require 'lsp'
