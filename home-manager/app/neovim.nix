@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 let
   homeDir = config.home.homeDirectory;
   mkSymlink = config.lib.file.mkOutOfStoreSymlink;
@@ -15,6 +15,8 @@ let
   };
 in
 {
+  nixpkgs.overlays = [ inputs.nvim-nightly-overlay.overlay ];
+
   programs.neovim = {
     enable = true;
 

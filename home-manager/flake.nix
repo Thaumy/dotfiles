@@ -12,6 +12,8 @@
     };
 
     hyprland.url = "git+https://github.com/hyprwm/hyprland?submodules=1";
+
+    nvim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
   outputs =
