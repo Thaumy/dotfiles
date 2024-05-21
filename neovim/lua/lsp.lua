@@ -2,6 +2,12 @@ local cmp = require 'cmp'
 local ui = require 'infra.ui'
 local k = require 'infra.keymap'
 
+vim.api.nvim_create_autocmd('LspProgress', {
+  callback = function()
+    vim.lsp.inlay_hint.enable()
+  end
+})
+
 vim.diagnostic.config {
   virtual_text = false,
   signs = false,
