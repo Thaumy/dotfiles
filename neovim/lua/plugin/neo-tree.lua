@@ -98,11 +98,14 @@ plugin.setup {
   }
 }
 
+local show_cmd = 'Neotree action=show toggle=true'
+local close_cmd = 'Neotree action=close toggle=true'
+
 vim.api.nvim_create_autocmd('VimEnter', {
   callback = function()
     local term_width = vim.go.columns
     if term_width > 120 then
-      vim.cmd 'Neotree show'
+      vim.cmd(show_cmd)
     end
   end
 })
@@ -115,12 +118,12 @@ local function is_neotree_visible()
 end
 local function neotree_show()
   if not is_neotree_visible() then
-    vim.cmd 'Neotree show'
+    vim.cmd(show_cmd)
   end
 end
 local function neotree_close()
   if is_neotree_visible() then
-    vim.cmd 'Neotree close'
+    vim.cmd(close_cmd)
   end
 end
 vim.api.nvim_create_autocmd('VimResized', {
@@ -140,5 +143,5 @@ vim.api.nvim_create_autocmd('VimResized', {
 -- toggle
 k.map('n', 'e', function()
   auto_toggle = false
-  vim.cmd 'Neotree action=show toggle=true'
+  vim.cmd(show_cmd)
 end)
