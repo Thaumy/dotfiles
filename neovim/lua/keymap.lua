@@ -21,6 +21,9 @@ map('v', 'tp', '\'_dP')
 -- go bottom
 map({ 'n', 'v' }, 'ff', 'G')
 
+-- go prev buf
+map('n', 'b', '<C-^>')
+
 -- select line/col
 map('n', 'v<Space>', 'V')
 map('n', 'vv', '<C-v>')
