@@ -77,6 +77,9 @@ plugin.lua_ls.setup {
     Lua = {
       diagnostics = {
         globals = { 'vim' }
+      },
+      hint = {
+        enable = true
       }
     }
   }
