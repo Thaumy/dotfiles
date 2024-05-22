@@ -25,6 +25,8 @@ in
 
     plugins = with pkgs.vimPlugins; [
       # neovim infrastructures
+      nui-nvim # ui components
+      promise-async # promise and async for lua, [depof: nvim-ufo]
       plenary-nvim # common utils
       nvim-bufdel # better buffer delete
 
