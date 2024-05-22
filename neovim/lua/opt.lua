@@ -21,9 +21,5 @@ vim.opt.cursorline = true
 -- share system clipboards
 vim.opt.clipboard = 'unnamed,unnamedplus'
 
--- disable netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 -- disable swap file
 vim.opt.swapfile = false

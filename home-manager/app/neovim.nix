@@ -26,6 +26,7 @@ in
     plugins = with pkgs.vimPlugins; [
       # infrastructures
       nui-nvim # ui components
+      lazy-nvim # lazy plugin loader
       nvim-bufdel # better buffer delete
       plenary-nvim # common utils
       promise-async # promise & async
@@ -91,8 +92,31 @@ in
     ];
   };
 
-  home.file.".config/nvim" = {
-    enable = true;
-    source = mkSymlink "${homeDir}/cfg/neovim";
+  home.file = {
+    ".config/nvim" = {
+      enable = true;
+      source = mkSymlink "${homeDir}/cfg/neovim";
+    };
+
+    ".config/nvim-plugins" =
+      let
+        packDir = pkgs.vimUtils.packDir config.programs.neovim.finalPackage.passthru.packpathDirs;
+      in
+      {
+        enable = true;
+        source = mkSymlink "${packDir}/pack/myNeovimPackages/start";
+      };
+
+    ".config/nvim-treesitter-parsers" =
+      let
+        nvim-treesitter-parsers = pkgs.symlinkJoin {
+          name = "nvim-treesitter-parsers";
+          paths = pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
+        };
+      in
+      {
+        enable = true;
+        source = mkSymlink nvim-treesitter-parsers;
+      };
   };
 }

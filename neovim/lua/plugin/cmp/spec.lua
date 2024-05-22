@@ -1,0 +1,23 @@
+return {
+  'hrsh7th/nvim-cmp',
+  dev = true,
+
+  dependencies = {
+    require 'plugin.luasnip.spec',
+    { 'hrsh7th/cmp-path',     dev = true },
+    { 'hrsh7th/cmp-buffer',   dev = true },
+    { 'hrsh7th/cmp-cmdline',  dev = true },
+    { 'hrsh7th/cmp-nvim-lsp', dev = true },
+  },
+
+  keys = {
+    { mode = 'n', ':' },
+    { mode = 'n', '/' },
+    { mode = 'n', '?' },
+  },
+  event = 'InsertEnter',
+
+  config = function()
+    require 'plugin.cmp.cfg'
+  end,
+}
