@@ -1,35 +1,22 @@
 local plugin = require 'catppuccin'
 
-local function setup_dark()
-  plugin.setup {
-    flavour = 'mocha',
-    color_overrides = {
-      all = {
-        --surface1 = '#313240',
-      },
-    },
-    custom_highlights = {
-      BufferLineBufferSelected = { style = { 'bold' } },
-      CurSearch = { fg = '#FFB5DA', bg = '#6420AA' },
-      CursorLine = { bg = '#252636' },
-    },
-  }
-end
+local dark = {
+  flavour = 'mocha',
+  custom_highlights = {
+    BufferLineBufferSelected = { style = { 'bold' } },
+    CurSearch = { fg = '#FFB5DA', bg = '#6420AA' },
+    CursorLine = { bg = '#252636' },
+  },
+}
 
-local function setup_light()
-  plugin.setup {
-    flavour = 'latte',
-    color_overrides = {
-      all = {
-        --surface1 = '#dbdbdb'
-      },
-    },
-    custom_highlights = {
-      BufferLineBufferSelected = { style = { 'bold' } },
-      CurSearch = { fg = '#6420AA', bg = '#FFB5DA' },
-    },
-  }
-end
+local light = {
+  flavour = 'latte',
+  custom_highlights = {
+    BufferLineBufferSelected = { style = { 'bold' } },
+    CurSearch = { fg = '#6420AA', bg = '#FFB5DA' },
+    CursorLine = { bg = '#fafafa' },
+  },
+}
 
 local function is_light_theme()
   local cmd = 'dconf read /org/gnome/desktop/interface/color-scheme'
@@ -49,9 +36,9 @@ local function is_light_theme()
 end
 
 if is_light_theme() then
-  setup_light()
+  plugin.setup(light)
 else
-  setup_dark()
+  plugin.setup(dark)
 end
 
 vim.cmd.colorscheme 'catppuccin'
