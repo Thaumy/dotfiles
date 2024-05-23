@@ -10,6 +10,7 @@ vim.opt.iskeyword:append({ '-', '#' })
 -- show line numbers
 vim.wo.number = true
 vim.o.cmdheight = 0
+vim.opt.numberwidth = 1
 
 -- single status line
 vim.opt.laststatus = 3
