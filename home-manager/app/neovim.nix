@@ -24,47 +24,47 @@ in
     vimAlias = true;
 
     plugins = with pkgs.vimPlugins; [
-      # neovim infrastructures
+      # infrastructures
       nui-nvim # ui components
-      promise-async # promise and async for lua, [depof: nvim-ufo]
-      plenary-nvim # common utils
       nvim-bufdel # better buffer delete
+      plenary-nvim # common utils
+      promise-async # promise & async
 
       # colorizers or signs
-      nvim-web-devicons # icons
-      catppuccin-nvim # color scheme
-      rainbow-delimiters-nvim # colorful delimiters
-      indent-blankline-nvim # indent lines
-      nvim-colorizer-lua # color text hl
-      todo-comments-nvim # TODOs hl
+      nvim-ufo # code block folding, [deps: promise-async]
       gitsigns-nvim # gutter git signs
-      nvim-ufo # code block folding
+      catppuccin-nvim # color scheme
+      nvim-web-devicons # icons
+      nvim-colorizer-lua # color text hl
+      todo-comments-nvim # TODOs hl, [deps: plenary-nvim]
+      indent-blankline-nvim # indent lines
+      rainbow-delimiters-nvim # colorful delimiters
 
       # user interfaces
-      markdown-preview-nvim # markdown renderer
+      noice-nvim # notice, [deps: nvim-notify, nui-nvim]
+      nvim-notify # notify boxes
       lualine-nvim # status line
-      neo-tree-nvim # file explorer
+      neo-tree-nvim # file explorer, [deps: plenary-nvim, nvim-web-devicons, nui-nvim]
       bufferline-nvim # buffer tabs
-      nvim-notify # notify boxes, [depof: noice-nvim]
-      noice-nvim # notice
       toggleterm-nvim # terminal
+      markdown-preview-nvim # markdown renderer
 
       # analyzers
-      nvim-cmp # code completion
+      nvim-cmp # code completion, [deps: cmp-path, cmp-buffer, cmp-cmdline, cmp-nvim-lsp, luasnip, nvim-lspconfig]
       cmp-path # path completion source
       cmp-buffer # buffer completion source
+      Ionide-vim # F# lsp support
       cmp-cmdline # cmdline completion source
       cmp-nvim-lsp # lsp completion source
-      nvim-treesitter.withAllGrammars # language parser
       nvim-lspconfig # lsp support
-      Ionide-vim # F# lsp support
+      nvim-treesitter.withAllGrammars # language parser
 
       # input helpers
       luasnip # snippet
-      autoclose-nvim # auto close pairs and brackets
-      nvim-comment # apply comment block
       neoformat # formatter
       fcitx-vim # input method auto switch
+      nvim-comment # apply comment block
+      autoclose-nvim # auto close pairs and brackets
     ];
 
     extraPackages = with pkgs; [

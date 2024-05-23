@@ -3,10 +3,10 @@
     enableDefaultPackages = false;
 
     packages = with pkgs; [
-      noto-fonts-emoji
       sarasa-gothic
       jetbrains-mono
       liberation_ttf
+      noto-fonts-emoji
       material-design-icons
       (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
     ];
