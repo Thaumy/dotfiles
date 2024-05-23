@@ -59,29 +59,118 @@ plugin.setup {
     hide_dotfiles = false,
   },
 
+  window = {
+    mappings = {
+      ['P']             = '',
+      ['l']             = '',
+      ['S']             = '',
+      ['s']             = '',
+      ['t']             = '',
+      ['w']             = '',
+      ['C']             = '',
+      ['z']             = '',
+      ['a']             = '',
+      ['A']             = '',
+      ['d']             = '',
+      ['r']             = '',
+      ['y']             = '',
+      ['x']             = '',
+      ['c']             = '',
+      ['m']             = '',
+      ['q']             = '',
+      ['R']             = '',
+      ['?']             = '',
+      ['<']             = '',
+      ['>']             = '',
+
+      ['i']             = 'show_file_details',
+      ['p']             = { 'toggle_preview', config = { use_float = false, use_image_nvim = false } },
+      ['<Cr>']          = 'open',
+      ['<M-j>']         = 'open',
+      ['<M-k>']         = 'close_node',
+      ['<M-;>']         = 'next_source',
+      ['<Esc>']         = 'cancel',
+      ['<Tab>']         = 'refresh',
+      ['<Space>']       = { 'toggle_node', nowait = false },
+      ['<2-LeftMouse>'] = 'open',
+    },
+  },
+
   filesystem = {
     follow_current_file = {
       enabled = true,
     },
     hijack_netrw_behavior = 'open_current',
+    window = {
+      mappings = {
+        ['.']     = '',
+        ['f']     = '',
+        ['H']     = '',
+        ['D']     = '',
+        ['#']     = '',
+        ['[g']    = '',
+        [']g']    = '',
+        ['o']     = '',
+        ['oc']    = '',
+        ['od']    = '',
+        ['og']    = '',
+        ['om']    = '',
+        ['on']    = '',
+        ['os']    = '',
+        ['ot']    = '',
+        ['<Bs>']  = '',
+        ['<C-x>'] = '',
+
+        ['a']     = { 'add', config = { show_path = 'none' } },
+        ['d']     = 'delete',
+        ['r']     = 'rename',
+        ['/']     = 'fuzzy_finder',
+        ['c']     = 'copy',
+        ['1']     = 'navigate_up',
+        ['2']     = 'set_root',
+        ['e']     = 'close_window',
+      }
+    }
   },
 
-  window = {
-    mappings = {
-      ['m'] = '',
-      ['f'] = '',
-      ['o'] = '',
-      ['t'] = '',
-      ['<'] = '',
-      ['>'] = '',
-      ['h'] = 'prev_source',
-      ['l'] = 'next_source',
-      ['s'] = 'fuzzy_finder',
-      ['<Bs>'] = '',
-      ['<M-j>'] = 'open',
-      ['<M-k>'] = 'close_node',
-      ['<Esc>'] = 'navigate_up',
-      ['<Space>'] = { 'toggle_preview', config = { use_float = false } },
+  buffers = {
+    window = {
+      mappings = {
+        ['.']    = '',
+        ['o']    = '',
+        ['oc']   = '',
+        ['od']   = '',
+        ['om']   = '',
+        ['on']   = '',
+        ['os']   = '',
+        ['ot']   = '',
+        ['bd']   = '',
+        ['<Bs>'] = '',
+
+        ['q']    = 'buffer_delete',
+        ['/']    = 'fuzzy_finder',
+      }
+    }
+  },
+
+  git_status = {
+    window = {
+      mappings = {
+        ['o']  = '',
+        ['A']  = '',
+        ['gu'] = '',
+        ['ga'] = '',
+        ['gr'] = '',
+        ['gc'] = '',
+        ['gp'] = '',
+        ['gg'] = '',
+        ['oc'] = '',
+        ['od'] = '',
+        ['om'] = '',
+        ['on'] = '',
+        ['os'] = '',
+        ['ot'] = '',
+      }
     }
   },
 
