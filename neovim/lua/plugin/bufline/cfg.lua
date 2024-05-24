@@ -1,4 +1,4 @@
-local k = require 'infra.keymap'
+local k = require 'infra.key'
 local plugin = require 'bufferline'
 
 local neotree_modified_icon_color = string.format('#%x',

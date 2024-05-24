@@ -1,4 +1,4 @@
-local k = require 'infra.keymap'
+local k = require 'infra.key'
 local plugin = require 'nvim_comment'
 
 plugin.setup {

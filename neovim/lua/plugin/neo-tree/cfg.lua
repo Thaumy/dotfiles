@@ -1,5 +1,5 @@
 local ui = require 'infra.ui'
-local k = require 'infra.keymap'
+local k = require 'infra.key'
 local plugin = require 'neo-tree'
 
 vim.go.fillchars = 'vert:▎,vertleft:▎,vertright:▎,verthoriz:─,horiz:─,horizup:─,horizdown:─'

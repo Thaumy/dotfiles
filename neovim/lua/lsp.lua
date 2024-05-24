@@ -1,6 +1,6 @@
 local cmp = require 'cmp'
 local ui = require 'infra.ui'
-local k = require 'infra.keymap'
+local k = require 'infra.key'
 
 vim.api.nvim_create_autocmd('LspProgress', {
   callback = function()

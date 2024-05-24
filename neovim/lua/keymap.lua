@@ -1,5 +1,5 @@
 local ui = require 'infra.ui'
-local k = require 'infra.keymap'
+local k = require 'infra.key'
 
 local map = k.map
 local unmap = k.unmap
