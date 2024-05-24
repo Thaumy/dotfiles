@@ -34,6 +34,12 @@ map('n', 'wq', function()
   vim.cmd 'BufDel'
 end)
 
+-- win nav
+map('n', 'wh', '<C-w>h')
+map('n', 'wj', '<C-w>j')
+map('n', 'wk', '<C-w>k')
+map('n', 'wl', '<C-w>l')
+
 -- redo
 map('n', 'U', '<C-R>')
 -- override but not write register
