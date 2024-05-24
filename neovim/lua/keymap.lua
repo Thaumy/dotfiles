@@ -11,8 +11,12 @@ unmap({ 'n', 'v' }, '<C-m>') -- down
 unmap({ 'n', 'v' }, '<C-p>') -- up
 unmap({ 'n', 'v' }, 'H')     -- go page start
 unmap({ 'n', 'v' }, 'L')     -- go page end
-unmap({ 'n', 'v' }, 'q:')    -- command history display
-unmap('c', '<C-f>')          -- command history display
+
+-- disable history list
+unmap('c', '<C-f>')
+unmap({ 'n', 'v' }, 'q:')
+unmap({ 'n', 'v' }, 'q/')
+unmap({ 'n', 'v' }, 'q?')
 
 -- buf
 map_cmd('n', 'ww', 'w')
