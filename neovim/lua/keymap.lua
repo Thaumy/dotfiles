@@ -1,8 +1,9 @@
 local ui = require 'infra.ui'
 local k = require 'infra.keymap'
 
-local unmap = k.unmap
 local map = k.map
+local unmap = k.unmap
+local map_cmd = k.map_cmd
 
 -- disable
 unmap({ 'v', 'i' }, '<C-k>') -- key chord
@@ -12,6 +13,22 @@ unmap({ 'n', 'v' }, 'H')     -- go page start
 unmap({ 'n', 'v' }, 'L')     -- go page end
 unmap({ 'n', 'v' }, 'q:')    -- command history display
 unmap('c', '<C-f>')          -- command history display
+
+-- buf
+map_cmd('n', 'ww', 'w')
+map_cmd('n', 'wa', 'wa')
+map('n', 'qq', function()
+  if vim.bo.bt == '' then
+    vim.cmd 'BufDel'
+  else
+    vim.cmd 'q'
+  end
+end)
+map_cmd('n', 'qa', 'qa!')
+map('n', 'wq', function()
+  vim.cmd 'w'
+  vim.cmd 'BufDel'
+end)
 
 -- redo
 map('n', 'U', '<C-R>')
