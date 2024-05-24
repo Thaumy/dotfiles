@@ -16,11 +16,11 @@ plugin.setup {
   -- committed blame
   current_line_blame_formatter    = function(_, info, opts)
     local fmt = info.author .. '(<author_time:%y-%m-%d>): <summary>'
-    local text = require('gitsigns.util').expand_format(fmt, info, opts.relative_time)
+    local text = require 'gitsigns.util'.expand_format(fmt, info, opts.relative_time)
     return { { text, 'GitSignsCurrentLineBlame' } }
   end,
   -- not committed blame
   current_line_blame_formatter_nc = function()
     return { { '', 'GitSignsCurrentLineBlame' } }
-  end
+  end,
 }

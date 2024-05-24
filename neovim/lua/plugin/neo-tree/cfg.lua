@@ -16,7 +16,7 @@ plugin.setup {
       last_indent_marker = '🮡',
     },
     modified = {
-      symbol = '● '
+      symbol = '● ',
     },
     icon = {
       folder_closed = '󰉋',
@@ -129,8 +129,8 @@ plugin.setup {
         ['1']     = 'navigate_up',
         ['2']     = 'set_root',
         ['e']     = 'close_window',
-      }
-    }
+      },
+    },
   },
 
   buffers = {
@@ -149,8 +149,8 @@ plugin.setup {
 
         ['q']    = 'buffer_delete',
         ['/']    = 'fuzzy_finder',
-      }
-    }
+      },
+    },
   },
 
   git_status = {
@@ -170,8 +170,8 @@ plugin.setup {
         ['on'] = '',
         ['os'] = '',
         ['ot'] = '',
-      }
-    }
+      },
+    },
   },
 
   event_handlers = {
@@ -187,7 +187,7 @@ plugin.setup {
         vim.cmd.setlocal 'winhighlight=Normal:NeoTreeNormal,NormalNC:NeoTreeNormalNC,SignColumn:NeoTreeSignColumn,CursorLine:NeoTreeCursorLine,FloatBorder:NeoTreeFloatBorder,StatusLine:NeoTreeStatusLine,StatusLineNC:NeoTreeStatusLineNC,VertSplit:NeoTreeVertSplit,EndOfBuffer:NeoTreeEndOfBuffer,WinSeparator:NeoTreeWinSeparator'
       end,
     },
-  }
+  },
 }
 
 local show_cmd = 'Neotree action=show'
@@ -201,13 +201,13 @@ end
 -- auto show/close neo-tree when window resized
 local auto_toggle = vim.api.nvim_create_autocmd('VimResized', {
   callback = function()
-    local visible = ui.any_buf_ft('neo-tree')
+    local visible = ui.any_buf_ft 'neo-tree'
     if vim.go.columns < 120 and visible then
       vim.cmd(close_cmd)
     elseif vim.go.columns >= 120 and (not visible) then
       vim.cmd(show_cmd)
     end
-  end
+  end,
 })
 
 -- toggle
@@ -216,5 +216,5 @@ k.map('n', 'e', function()
     vim.api.nvim_del_autocmd(auto_toggle)
     auto_toggle = nil
   end
-  vim.cmd('Neotree action=show toggle=true')
+  vim.cmd 'Neotree action=show toggle=true'
 end)

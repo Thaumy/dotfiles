@@ -5,7 +5,7 @@ local k = require 'infra.key'
 vim.api.nvim_create_autocmd('LspProgress', {
   callback = function()
     vim.lsp.inlay_hint.enable()
-  end
+  end,
 })
 
 vim.diagnostic.config {
@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd('CursorMoved', {
   callback = function()
     cursor_moved = true
     hover_on = false
-  end
+  end,
 })
 vim.api.nvim_create_autocmd('CursorHold', {
   callback = function()
@@ -32,8 +32,8 @@ vim.api.nvim_create_autocmd('CursorHold', {
     if not cursor_moved then return end
     if cmp.visible() then return end
     cursor_moved = false
-    diagnostic_buf, _ = vim.diagnostic.open_float({ scope = 'cursor' })
-  end
+    diagnostic_buf, _ = vim.diagnostic.open_float { scope = 'cursor' }
+  end,
 })
 
 -- hl refs on hover
@@ -45,17 +45,17 @@ local function buf_lsp_client_has(provider)
 end
 vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
   callback = function()
-    if buf_lsp_client_has('documentHighlightProvider') then
+    if buf_lsp_client_has 'documentHighlightProvider' then
       vim.lsp.buf.document_highlight()
     end
-  end
+  end,
 })
 vim.api.nvim_create_autocmd('CursorMoved', {
   callback = function()
-    if buf_lsp_client_has('documentHighlightProvider') then
+    if buf_lsp_client_has 'documentHighlightProvider' then
       vim.lsp.buf.clear_references()
     end
-  end
+  end,
 })
 
 -- show def

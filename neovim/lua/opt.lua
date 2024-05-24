@@ -5,7 +5,7 @@ vim.opt.expandtab = true
 vim.opt.termguicolors = true
 
 -- extra characters in viw
-vim.opt.iskeyword:append({ '-', '#' })
+vim.opt.iskeyword:append { '-', '#' }
 
 -- show line numbers
 vim.wo.number = true

@@ -1,7 +1,7 @@
 local ui = require 'infra.ui'
 
 -- disable auto comment in normal mode
-vim.api.nvim_create_autocmd("BufEnter", {
+vim.api.nvim_create_autocmd('BufEnter', {
   callback = function()
     vim.opt.formatoptions:remove { 'o' }
   end,
@@ -20,14 +20,14 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave' }, {
         ft == 'help' or
         ft == 'toggleterm'
     if no_hl then
-      vim.cmd('match TrailingWhitespace //')
+      vim.cmd 'match TrailingWhitespace //'
     else
-      vim.cmd('match TrailingWhitespace /\\s\\+$/')
+      vim.cmd 'match TrailingWhitespace /\\s\\+$/'
     end
   end,
 })
 vim.api.nvim_create_autocmd({ 'TermEnter', 'InsertEnter' }, {
   callback = function()
-    vim.cmd('match TrailingWhitespace //')
+    vim.cmd 'match TrailingWhitespace //'
   end,
 })

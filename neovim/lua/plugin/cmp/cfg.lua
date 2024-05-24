@@ -1,4 +1,5 @@
 local plugin = require 'cmp'
+local luasnip = require 'luasnip'
 
 local kind_map = {
   ['Enum'] = '󰣥',
@@ -23,25 +24,25 @@ plugin.setup {
     ['<C-k>'] = plugin.mapping.scroll_docs(-3),
     ['<C-j>'] = plugin.mapping.scroll_docs(3),
     ['<Tab>'] = plugin.mapping.confirm { select = true },
-    ['<CR>'] = plugin.mapping.confirm { select = true },
+    ['<Cr>'] = plugin.mapping.confirm { select = true },
   },
-  sources = plugin.config.sources(
-    { { name = 'nvim_lsp' } },
-    { { name = 'buffer' } },
-    { { name = 'path' } }
-  ),
+  sources = {
+    { name = 'path' },
+    { name = 'buffer' },
+    { name = 'nvim_lsp' },
+  },
   completion = {
-    completeopt = 'menu,menuone,noinsert'
+    completeopt = 'menu,menuone,noinsert',
   },
   snippet = {
     expand = function(args)
-      (require 'luasnip').lsp_expand(args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
   formatting = {
     expandable_indicator = false,
     fields = { 'kind', 'abbr', 'menu' },
-    format = function(entry, it)
+    format = function(_, it)
       if it.kind ~= nil and kind_map[it.kind] ~= nil then
         it.kind = kind_map[it.kind]
       end
@@ -52,29 +53,31 @@ plugin.setup {
         it.menu = string.sub(it.menu, 1, 80)
       end
       return it
-    end
-  }
+    end,
+  },
+}
+
+local cmdline_mapping = plugin.mapping.preset.cmdline {
+  -- Use arrow keys to select command
+  ['<Up>'] = { c = plugin.mapping.select_prev_item {} },
+  ['<Down>'] = { c = plugin.mapping.select_next_item {} },
+  ['<Tab>'] = { c = plugin.mapping.confirm { select = false } },
 }
 
 plugin.setup.cmdline('/', {
-  mapping = plugin.mapping.preset.cmdline(),
+  mapping = cmdline_mapping,
   sources = {
-    { name = 'buffer' }
-  }
+    { name = 'buffer' },
+  },
 })
 
 plugin.setup.cmdline(':', {
-  mapping = plugin.mapping.preset.cmdline {
-    -- Use arrow keys to select command
-    ['<Up>'] = { c = plugin.mapping.select_prev_item {} },
-    ['<Down>'] = { c = plugin.mapping.select_next_item {} },
-    ['<Tab>'] = { c = plugin.mapping.confirm { select = false } },
+  mapping = cmdline_mapping,
+  sources = {
+    { name = 'path' },
+    { name = 'cmdline' },
   },
-  sources = plugin.config.sources(
-    { { name = 'path' } },
-    { { name = 'cmdline' } }
-  ),
   completion = {
-    completeopt = 'menu,menuone,noinsert'
-  }
+    completeopt = 'menu,menuone,noinsert',
+  },
 })

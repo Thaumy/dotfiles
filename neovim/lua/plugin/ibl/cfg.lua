@@ -15,7 +15,7 @@ plugin.setup {
   indent  = { char = '▏' },
   scope   = {
     show_start = false,
-    highlight = highlight
+    highlight = highlight,
   },
   exclude = {
     filetypes = {
@@ -33,7 +33,7 @@ plugin.setup {
       'quickfix',
       'prompt',
     },
-  }
+  },
 }
 
 local hooks = require 'ibl.hooks'

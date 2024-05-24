@@ -26,7 +26,7 @@ local function is_light_theme()
     return false
   end
 
-  local theme = handle:read('*a')
+  local theme = handle:read '*a'
   handle:close()
   if theme == "'light'\n" then
     return true

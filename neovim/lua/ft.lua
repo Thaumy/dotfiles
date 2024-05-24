@@ -1,11 +1,11 @@
-vim.filetype.add({
+vim.filetype.add {
   extension = {
-    typ = 'typst'
-  }
-})
+    typ = 'typst',
+  },
+}
 
-vim.filetype.add({
+vim.filetype.add {
   extension = {
-    conf = 'conf'
-  }
-})
+    conf = 'conf',
+  },
+}

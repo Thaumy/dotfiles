@@ -23,5 +23,5 @@ end
 return {
   any_buf_ft = any_buf_ft,
   curr_buf_ft = curr_buf_ft,
-  win_ft = win_ft
+  win_ft = win_ft,
 }

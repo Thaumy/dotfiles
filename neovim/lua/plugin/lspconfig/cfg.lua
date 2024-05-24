@@ -1,9 +1,9 @@
 local plugin = require 'lspconfig'
 
-local caps = require('cmp_nvim_lsp').default_capabilities()
+local caps = require 'cmp_nvim_lsp'.default_capabilities()
 caps.textDocument.foldingRange = {
   dynamicRegistration = false,
-  lineFoldingOnly = true
+  lineFoldingOnly = true,
 }
 
 local util = require 'lspconfig/util'
@@ -76,7 +76,7 @@ plugin.lua_ls.setup {
   settings = {
     Lua = {
       diagnostics = {
-        globals = { 'vim' }
+        globals = { 'vim' },
       },
       hint = {
         enable = true,
@@ -97,16 +97,16 @@ plugin.lua_ls.setup {
 plugin.rust_analyzer.setup {
   capabilities = caps,
   filetypes = { 'rust' },
-  root_dir = util.root_pattern('Cargo.toml'),
+  root_dir = util.root_pattern 'Cargo.toml',
   settings = {
     ['rust-analyzer'] = {
       completion = {
         fullFunctionSignatures = {
           enable = true,
-        }
-      }
-    }
-  }
+        },
+      },
+    },
+  },
 }
 plugin.fsautocomplete.setup { -- F#
   capabilities = caps,

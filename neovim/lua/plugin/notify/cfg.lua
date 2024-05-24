@@ -3,7 +3,7 @@ local notify = require 'notify'
 local static_in_fade_out = {
   function(state)
     local next_height = state.message.height + 1
-    local next_row = require('notify.stages.util').available_slot(state.open_windows, next_height, 'top_down')
+    local next_row = require 'notify.stages.util'.available_slot(state.open_windows, next_height, 'top_down')
     if not next_row then
       return nil
     end
@@ -62,5 +62,5 @@ notify.setup {
   render = 'wrapped-compact',
   stages = static_in_fade_out,
   timeout = 4000,
-  top_down = true
+  top_down = true,
 }

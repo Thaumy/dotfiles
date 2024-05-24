@@ -13,7 +13,7 @@ plugin.setup {
     right_trunc_marker = '+',
     buffer_close_icon = '󰅖',
     close_command = 'BufDel %d', -- use `BufDel` to fix weird behavior of closing active buffer
-    right_mouse_command = ''
+    right_mouse_command = '',
   },
   highlights = {
     modified = {
@@ -25,10 +25,10 @@ plugin.setup {
     modified_selected = {
       fg = neotree_modified_icon_color,
     },
-  }
+  },
 }
 
--- cycle buffer R/L
+-- cycle buf R/L
 k.map_cmd('n', '<M-;>', 'BufferLineCycleNext')
 k.map_cmd('n', '<M-S-;>', 'BufferLineCyclePrev')
 -- close buffer

@@ -41,7 +41,6 @@ map('v', 'tp', '\'_dP')
 
 -- go bottom
 map({ 'n', 'v' }, 'ff', 'G')
-
 -- go prev buf
 map('n', 'b', '<C-^>')
 
@@ -57,7 +56,7 @@ map('n', '<C-S-j>', '<C-y>')
 map({ 'n', 'v' }, 'K', '<C-b>')
 map({ 'n', 'v' }, 'J', '<C-f>')
 
--- goto line head/end
+-- go line head/end
 map({ 'n', 'v' }, 'qh', '^')
 map({ 'n', 'v' }, 'ql', '$')
 

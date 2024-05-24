@@ -19,7 +19,7 @@ plugin.setup {
       lua = false,
       help = false,
       input = false,
-    }
+    },
   },
   views = {
     confirm = {
@@ -40,6 +40,6 @@ plugin.setup {
     },
   },
   health = {
-    checker = false
+    checker = false,
   },
 }

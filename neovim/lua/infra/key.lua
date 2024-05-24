@@ -19,5 +19,5 @@ end
 return {
   unmap = unmap,
   map = map,
-  map_cmd = map_cmd
+  map_cmd = map_cmd,
 }

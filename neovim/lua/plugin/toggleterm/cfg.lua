@@ -9,9 +9,9 @@ plugin.setup {
   direction = 'float',
   highlights = {
     FloatBorder = {
-      guifg = border_color
+      guifg = border_color,
     },
-  }
+  },
 }
 
 -- toggle
