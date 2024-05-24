@@ -12,12 +12,6 @@ plugin.setup {
     left_trunc_marker = '+',
     right_trunc_marker = '+',
     buffer_close_icon = '󰅖',
-    offsets = {
-      {
-        filetype = 'neo-tree',
-        separator = ''
-      }
-    },
     close_command = 'BufDel %d', -- use `BufDel` to fix weird behavior of closing active buffer
     right_mouse_command = ''
   },
