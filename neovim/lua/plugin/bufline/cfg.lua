@@ -28,8 +28,5 @@ plugin.setup {
   },
 }
 
--- cycle buf R/L
+-- cycle bufs
 k.map_cmd('n', '<M-;>', 'BufferLineCycleNext')
-k.map_cmd('n', '<M-S-;>', 'BufferLineCyclePrev')
--- close buffer
-k.map_cmd('n', '<M-x>', 'BufDel')
