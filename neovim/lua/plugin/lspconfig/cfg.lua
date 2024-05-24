@@ -79,10 +79,20 @@ plugin.lua_ls.setup {
         globals = { 'vim' }
       },
       hint = {
-        enable = true
-      }
-    }
-  }
+        enable = true,
+      },
+      format = {
+        enable = true,
+        defaultConfig = {
+          indent_style = 'space',
+          indent_size = '2',
+          quote_style = 'single',
+          call_arg_parentheses = 'remove',
+          trailing_table_separator = 'smart',
+        },
+      },
+    },
+  },
 }
 plugin.rust_analyzer.setup {
   capabilities = caps,
