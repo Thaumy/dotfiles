@@ -96,16 +96,21 @@ map('t', '<M-n>', '<C-\\><C-n>')
 -- cycle wins
 map('n', ';', function()
   local wins = vim.api.nvim_list_wins()
+  table.sort(wins, function(l, r) return l < r end)
   local current_win = vim.api.nvim_get_current_win()
   for _, win in ipairs(wins) do
     local can_switch =
-        win ~= current_win and
-        ui.win_ft(win) ~= 'notify'
+        win > current_win and
+        ui.win_ft(win) ~= 'notify' and
+        ui.win_ft(win) ~= 'noice'
 
     if can_switch then
       vim.api.nvim_set_current_win(win)
       return
     end
+  end
+  if wins[1] ~= nil then
+    vim.api.nvim_set_current_win(wins[1])
   end
 end)
 
