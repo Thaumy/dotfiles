@@ -16,6 +16,7 @@ local specs = {
   require 'plugin.bufline.spec',
   require 'plugin.lualine.spec',
   require 'plugin.neo-tree.spec',
+  require 'plugin.telescope.spec',
   require 'plugin.toggleterm.spec',
   require 'plugin.md-preview.spec',
 

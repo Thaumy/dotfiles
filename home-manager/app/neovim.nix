@@ -46,6 +46,7 @@ in
       nvim-notify # notify boxes
       lualine-nvim # status line
       neo-tree-nvim # file explorer, [deps: plenary-nvim, nvim-web-devicons, nui-nvim]
+      telescope-nvim # fuzzy finder
       bufferline-nvim # buffer tabs
       toggleterm-nvim # terminal
       markdown-preview-nvim # markdown renderer
