@@ -22,5 +22,7 @@ plugin.setup {
   },
 }
 
+-- go def
+k.map('n', '<M-d>', plugin_builtin.lsp_definitions)
 -- go ref
 k.map('n', '<M-u>', plugin_builtin.lsp_references)

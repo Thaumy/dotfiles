@@ -76,7 +76,5 @@ k.map('n', 'm', function()
     vim.lsp.buf.format { sync = true }
   end
 end)
--- go def
-k.map('n', '<M-d>', vim.lsp.buf.definition)
 -- quick fix in cursor line
 k.map('n', '<M-q>', vim.lsp.buf.code_action)
