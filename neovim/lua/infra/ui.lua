@@ -14,6 +14,12 @@ local function curr_buf_ft()
   return ft
 end
 
+local function win_bt(win)
+  local buf = vim.api.nvim_win_get_buf(win)
+  local ft = vim.api.nvim_buf_get_option(buf, 'buftype')
+  return ft
+end
+
 local function win_ft(win)
   local buf = vim.api.nvim_win_get_buf(win)
   local ft = vim.api.nvim_buf_get_option(buf, 'filetype')
@@ -23,5 +29,6 @@ end
 return {
   any_buf_ft = any_buf_ft,
   curr_buf_ft = curr_buf_ft,
+  win_bt = win_bt,
   win_ft = win_ft,
 }
