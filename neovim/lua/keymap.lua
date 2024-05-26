@@ -34,6 +34,9 @@ map('n', 'wq', function()
   vim.cmd 'BufDel'
 end)
 
+-- clsoe search hl
+map_cmd('n', '<M-n>', 'noh')
+
 -- win nav
 map('n', 'wh', '<C-w>h')
 map('n', 'wj', '<C-w>j')
