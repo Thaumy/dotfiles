@@ -31,4 +31,14 @@ plugin.setup {
 }
 
 -- toggle comment
-k.map_cmd('v', 'm', 'CommentToggle')
+k.map('v', 'm', function()
+  local line_start = vim.fn.line 'v'
+  local line_end = vim.fn.getcurpos()[2]
+  local range
+  if line_start > line_end then
+    range = { line_end, line_start }
+  else
+    range = { line_start, line_end }
+  end
+  vim.cmd { cmd = 'CommentToggle', range = range }
+end)

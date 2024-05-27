@@ -12,8 +12,9 @@ local function map(modes, lhs, rhs)
 end
 
 local function map_cmd(mode, lhs, cmd_rhs)
-  local rhs = string.format(':%s<CR>', cmd_rhs)
-  vim.keymap.set(mode, lhs, rhs, map_opts)
+  vim.keymap.set(mode, lhs, function()
+    vim.cmd(cmd_rhs)
+  end, map_opts)
 end
 
 return {
