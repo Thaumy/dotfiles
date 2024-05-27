@@ -104,6 +104,7 @@ let
 
   etc = with pkgs;[
     vsftpd
+    ripgrep
     gparted
     firefox
     paperkey

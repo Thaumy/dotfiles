@@ -19,7 +19,6 @@
     glow
     typst
     typstfmt
-    neovide
     android-studio
     pkgs-23-05.jetbrains.rider
     pkgs-23-05.jetbrains.clion
@@ -39,6 +38,7 @@
     # GNOME
     evince # docs reader
     gnome.eog
+    gnome.sushi # file preview
     gnome.nautilus
     gnome.gnome-boxes
     gnome.gnome-tweaks
@@ -91,6 +91,7 @@
     hdparm
     bottom
     udiskie
+    xorg.xev # show key events
     gammastep
     steam-run
     ventoy-full
