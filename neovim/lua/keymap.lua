@@ -56,6 +56,9 @@ map('v', 'tp', '\'_dP')
 map({ 'n', 'v' }, 'ff', 'G')
 -- go prev buf
 map('n', 'b', '<C-^>')
+-- go prev/next position
+map('n', 'cp', '<C-o>')
+map('n', 'cn', '<C-i>')
 
 -- select line/col
 map('n', 'v<Space>', 'V')
