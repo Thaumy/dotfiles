@@ -23,6 +23,9 @@ unmap({ 'n', 'v' }, 'q?')
 map_cmd({ 'n', 'v' }, 'ww', 'w')
 map_cmd({ 'n', 'v' }, 'wa', 'wa')
 map({ 'n', 'v' }, 'qq', function()
+  if vim.bo.ft == 'neo-tree' then
+    return
+  end
   if vim.bo.bt == '' then
     vim.cmd 'BufDel'
   else
