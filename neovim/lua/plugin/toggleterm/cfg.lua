@@ -15,5 +15,5 @@ plugin.setup {
 }
 
 -- toggle
-k.map_cmd('n', 't', 'ToggleTerm')
+k.map_cmd('n', 'tt', 'ToggleTerm')
 k.map('t', '<Esc>', '<cmd>ToggleTerm<CR>')
