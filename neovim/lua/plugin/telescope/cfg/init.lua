@@ -22,6 +22,10 @@ plugin.setup {
   },
 }
 
+-- open
+k.map_cmd('n', 'tm', 'Telescope')
+-- global search
+k.map_cmd('n', 't/', 'Telescope live_grep')
 -- go def
 k.map('n', '<M-d>', plugin_builtin.lsp_definitions)
 -- go ref
