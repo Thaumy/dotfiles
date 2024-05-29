@@ -30,3 +30,5 @@ plugin.setup {
 
 -- cycle bufs
 k.map_cmd('n', '<M-;>', 'BufferLineCycleNext')
+-- close other bufs
+k.map_cmd('n', 'qo', 'BufferLineCloseOthers')
