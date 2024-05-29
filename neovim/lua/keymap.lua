@@ -20,17 +20,17 @@ unmap({ 'n', 'v' }, 'q/')
 unmap({ 'n', 'v' }, 'q?')
 
 -- buf
-map_cmd('n', 'ww', 'w')
-map_cmd('n', 'wa', 'wa')
-map('n', 'qq', function()
+map_cmd({ 'n', 'v' }, 'ww', 'w')
+map_cmd({ 'n', 'v' }, 'wa', 'wa')
+map({ 'n', 'v' }, 'qq', function()
   if vim.bo.bt == '' then
     vim.cmd 'BufDel'
   else
     vim.cmd 'q'
   end
 end)
-map_cmd('n', 'qa', 'qa!')
-map('n', 'wq', function()
+map_cmd({ 'n', 'v' }, 'qa', 'qa!')
+map({ 'n', 'v' }, 'wq', function()
   vim.cmd 'w'
   vim.cmd 'BufDel'
 end)
