@@ -42,6 +42,7 @@ in
       rainbow-delimiters-nvim # colorful delimiters
 
       # user interfaces
+      fidget-nvim # notifications
       lualine-nvim # status line
       neo-tree-nvim # file explorer, [deps: plenary-nvim, nvim-web-devicons, nui-nvim]
       telescope-nvim # fuzzy finder
