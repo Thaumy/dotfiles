@@ -2,8 +2,6 @@ local ui = require 'infra.ui'
 local k = require 'infra.key'
 local plugin = require 'neo-tree'
 
-vim.go.fillchars = 'vert:▎,vertleft:▎,vertright:▎,verthoriz:─,horiz:─,horizup:─,horizdown:─'
-
 plugin.setup {
   enable_diagnostics = false,
 
