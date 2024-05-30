@@ -26,6 +26,14 @@ plugin.setup {
         ft == 'conf'
     then
       vim.api.nvim_buf_set_option(buf, 'commentstring', '# %s')
+      return
+    end
+
+    if
+        ft == 'typst'
+    then
+      vim.api.nvim_buf_set_option(buf, 'commentstring', '// %s')
+      return
     end
   end,
 }
