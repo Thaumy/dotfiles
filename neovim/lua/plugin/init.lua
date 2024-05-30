@@ -12,7 +12,6 @@ local specs = {
   require 'plugin.todo-comments.spec',
 
   -- user interfaces
-  require 'plugin.noice.spec',
   require 'plugin.bufline.spec',
   require 'plugin.lualine.spec',
   require 'plugin.neo-tree.spec',
