@@ -7,6 +7,8 @@
       jetbrains-mono
       liberation_ttf
       noto-fonts-emoji
+      source-han-serif
+      times-newer-roman
       material-design-icons
       (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
     ];
