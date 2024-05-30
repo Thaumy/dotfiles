@@ -25,12 +25,9 @@ local light = {
 local function is_light_theme()
   local cmd = 'dconf read /org/gnome/desktop/interface/color-scheme'
   local handle = io.popen(cmd)
+  if handle == nil then return false end
 
-  if handle == nil then
-    return false
-  end
-
-  local theme = handle:read '*a'
+  local theme = handle:read 'a'
   handle:close()
   if theme == "'light'\n" then
     return true

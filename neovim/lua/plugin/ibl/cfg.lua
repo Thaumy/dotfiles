@@ -9,7 +9,6 @@ local highlight = {
   'RainbowDelimiterViolet',
   'RainbowDelimiterCyan',
 }
-vim.g.rainbow_delimiters = { highlight = highlight }
 
 plugin.setup {
   indent  = { char = '▏' },

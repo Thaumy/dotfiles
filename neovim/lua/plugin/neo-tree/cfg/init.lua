@@ -1,6 +1,7 @@
 local ui = require 'infra.ui'
 local k = require 'infra.key'
 local plugin = require 'neo-tree'
+local mappings = require 'plugin.neo-tree.cfg.mappings'
 
 plugin.setup {
   enable_diagnostics = false,
@@ -55,40 +56,7 @@ plugin.setup {
   },
 
   window = {
-    mappings = {
-      ['P']             = '',
-      ['l']             = '',
-      ['S']             = '',
-      ['s']             = '',
-      ['t']             = '',
-      ['w']             = '',
-      ['C']             = '',
-      ['z']             = '',
-      ['a']             = '',
-      ['A']             = '',
-      ['d']             = '',
-      ['r']             = '',
-      ['y']             = '',
-      ['x']             = '',
-      ['c']             = '',
-      ['m']             = '',
-      ['q']             = '',
-      ['R']             = '',
-      ['?']             = '',
-      ['<']             = '',
-      ['>']             = '',
-
-      ['i']             = 'show_file_details',
-      ['p']             = { 'toggle_preview', config = { use_float = false, use_image_nvim = false } },
-      ['<Cr>']          = 'open',
-      ['<M-j>']         = 'open',
-      ['<M-k>']         = 'close_node',
-      ['<M-;>']         = 'next_source',
-      ['<Esc>']         = 'cancel',
-      ['<Tab>']         = 'refresh',
-      ['<Space>']       = { 'toggle_node', nowait = false },
-      ['<2-LeftMouse>'] = 'open',
-    },
+    mappings = mappings.window,
   },
 
   filesystem = {
@@ -97,75 +65,19 @@ plugin.setup {
     },
     hijack_netrw_behavior = 'open_current',
     window = {
-      mappings = {
-        ['.']     = '',
-        ['f']     = '',
-        ['H']     = '',
-        ['D']     = '',
-        ['#']     = '',
-        ['[g']    = '',
-        [']g']    = '',
-        ['o']     = '',
-        ['oc']    = '',
-        ['od']    = '',
-        ['og']    = '',
-        ['om']    = '',
-        ['on']    = '',
-        ['os']    = '',
-        ['ot']    = '',
-        ['<Bs>']  = '',
-        ['<C-x>'] = '',
-
-        ['a']     = { 'add', config = { show_path = 'none' } },
-        ['d']     = 'delete',
-        ['r']     = 'rename',
-        ['/']     = 'fuzzy_finder',
-        ['c']     = 'copy',
-        ['1']     = 'navigate_up',
-        ['2']     = 'set_root',
-        ['e']     = 'close_window',
-      },
+      mappings = mappings.filesystem,
     },
   },
 
   buffers = {
     window = {
-      mappings = {
-        ['.']    = '',
-        ['o']    = '',
-        ['oc']   = '',
-        ['od']   = '',
-        ['om']   = '',
-        ['on']   = '',
-        ['os']   = '',
-        ['ot']   = '',
-        ['bd']   = '',
-        ['<Bs>'] = '',
-
-        ['q']    = 'buffer_delete',
-        ['/']    = 'fuzzy_finder',
-      },
+      mappings = mappings.buffers,
     },
   },
 
   git_status = {
     window = {
-      mappings = {
-        ['o']  = '',
-        ['A']  = '',
-        ['gu'] = '',
-        ['ga'] = '',
-        ['gr'] = '',
-        ['gc'] = '',
-        ['gp'] = '',
-        ['gg'] = '',
-        ['oc'] = '',
-        ['od'] = '',
-        ['om'] = '',
-        ['on'] = '',
-        ['os'] = '',
-        ['ot'] = '',
-      },
+      mappings = mappings.git_status,
     },
   },
 
