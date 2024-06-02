@@ -22,9 +22,6 @@ in
 
     interactiveShellInit = ''
       source ${homeDir}/cfg/fish/interactive.fish
-
-      bind \ch beginning-of-buffer
-      bind \cl end-of-buffer
     '';
   };
 
