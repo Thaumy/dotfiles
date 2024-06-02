@@ -18,6 +18,7 @@ in
     (writeBin "disable-kb" sh/disable-kb/run.sh)
     (writeBin "pic-search" sh/pic-search/run.sh)
     (writeBin "up-proxy-sub" sh/up-proxy-sub/run.sh)
+    (writeBin "nvim-profiler" sh/nvim-profiler/run.rs)
     (writeBin "symlink-localize" sh/symlink-localize/run.sh)
     (writeBin "archive-core-files" sh/archive-core-files/run.sh)
 
