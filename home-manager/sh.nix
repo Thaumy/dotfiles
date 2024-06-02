@@ -11,6 +11,7 @@ in
   home.packages = [
     (writeBin "sr" sh/safe-remove/run.sh)
     (writeBin "pwdc" sh/pwdc/run.sh)
+    (writeBin "todo" sh/todo/run.sh)
     (writeBin "memdir" sh/memdir/run.sh)
     (writeBin "backup" sh/backup/run.sh)
     (writeBin "dir-flat" sh/dir-flat/run.sh)
