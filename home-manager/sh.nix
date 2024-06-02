@@ -27,5 +27,14 @@ in
 
     (writeBin "nix-gc" sh/nix-gc/run.sh)
     (writeBin "nix-chan-up" sh/nix-chan-up/run.sh)
+
+    (writeBin "g-r" sh/git/rebase-10.sh)
+    (writeBin "g-rr" sh/git/rebase-20.sh)
+    (writeBin "g-rrr" sh/git/rebase-40.sh)
+    (writeBin "g-rrrr" sh/git/rebase-80.sh)
+    (writeBin "g-d" sh/git/discard-all-changes.sh)
+    (writeBin "g-ap" sh/git/add-p.sh)
+    (writeBin "g-cm" sh/git/commit-m.sh)
+    (writeBin "g-rc" sh/git/rebase-continue.sh)
   ];
 }
