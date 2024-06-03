@@ -1,13 +1,12 @@
 local plugin = require 'ibl'
 
 local highlight = {
-  'RainbowDelimiterRed',
-  'RainbowDelimiterYellow',
-  'RainbowDelimiterBlue',
-  'RainbowDelimiterOrange',
   'RainbowDelimiterGreen',
-  'RainbowDelimiterViolet',
+  'RainbowDelimiterBlue',
   'RainbowDelimiterCyan',
+  'RainbowDelimiterViolet',
+  'RainbowDelimiterYellow',
+  'RainbowDelimiterOrange',
 }
 
 plugin.setup {
