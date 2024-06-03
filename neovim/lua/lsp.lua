@@ -2,10 +2,14 @@ local cmp = require 'cmp'
 local ui = require 'infra.ui'
 local k = require 'infra.key'
 
+local function enable_inlay_hint()
+  vim.lsp.inlay_hint.enable()
+end
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = enable_inlay_hint,
+})
 vim.api.nvim_create_autocmd('LspProgress', {
-  callback = function()
-    vim.lsp.inlay_hint.enable()
-  end,
+  callback = enable_inlay_hint,
 })
 
 vim.diagnostic.config {
