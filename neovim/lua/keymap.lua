@@ -109,15 +109,20 @@ map('n', ';', function()
   table.sort(wins, function(l, r) return l < r end)
   local current_win = vim.api.nvim_get_current_win()
   for _, win in ipairs(wins) do
-    local can_switch =
-        win > current_win and
-        ui.win_ft(win) ~= 'notify' and
-        ui.win_ft(win) ~= 'noice'
-
-    if can_switch then
+    if win <= current_win then
+      goto continue
+    end
+    local ft = ui.win_ft(win)
+    if
+        ft == 'fidget' or
+        ft == 'notify' or
+        ft == 'noice'
+    then
+    else
       vim.api.nvim_set_current_win(win)
       return
     end
+    ::continue::
   end
   if wins[1] ~= nil then
     vim.api.nvim_set_current_win(wins[1])
