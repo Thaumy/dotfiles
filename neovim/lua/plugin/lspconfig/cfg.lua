@@ -21,6 +21,9 @@ plugin.nil_ls.setup { -- Nix
       formatting = {
         command = { 'nixpkgs-fmt' },
       },
+      nix = {
+        flake = { autoArchive = true },
+      },
     },
   },
 }
