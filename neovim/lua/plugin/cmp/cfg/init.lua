@@ -4,8 +4,8 @@ local luasnip = require 'luasnip'
 
 plugin.setup {
   mapping = plugin.mapping.preset.insert {
-    ['<C-k>'] = plugin.mapping.scroll_docs(-3),
-    ['<C-j>'] = plugin.mapping.scroll_docs(3),
+    ['<M-k>'] = plugin.mapping.scroll_docs(-3),
+    ['<M-j>'] = plugin.mapping.scroll_docs(3),
     ['<Tab>'] = plugin.mapping.confirm { select = true },
     ['<Cr>'] = plugin.mapping.confirm { select = true },
   },
