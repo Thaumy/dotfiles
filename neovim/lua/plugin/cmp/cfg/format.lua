@@ -59,12 +59,19 @@ local function format(_, it)
       it.kind = kind[index]
     end
   end
-  if it.abbr ~= nil then
-    it.abbr = string.sub(it.abbr, 1, 24)
+
+  local term_width = vim.go.columns
+
+  local max_abbr_width = term_width * 0.2
+  if it.abbr ~= nil and #it.abbr > max_abbr_width then
+    it.abbr = string.sub(it.abbr, 1, max_abbr_width) .. '󰇘'
   end
-  if it.menu ~= nil then
-    it.menu = string.sub(it.menu, 1, 80)
+
+  local max_menu_width = term_width * 0.4
+  if it.menu ~= nil and #it.menu > max_menu_width then
+    it.menu = string.sub(it.menu, 1, max_menu_width) .. '󰇘'
   end
+
   return it
 end
 
