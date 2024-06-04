@@ -26,7 +26,7 @@ local window = {
   ['<Cr>']          = 'open',
   ['<M-j>']         = 'open',
   ['<M-k>']         = 'close_node',
-  ['<M-;>']         = 'next_source',
+  ['<C-;>']         = 'next_source',
   ['<Esc>']         = 'cancel',
   ['<Tab>']         = 'refresh',
   ['<Space>']       = { 'toggle_node', nowait = false },
