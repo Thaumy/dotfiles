@@ -12,7 +12,7 @@ plugin.setup {
       last_indent_marker = '╰╴',
     },
     modified = {
-      symbol = '● ',
+      symbol = '●',
     },
     icon = {
       folder_closed = '󰉋',
