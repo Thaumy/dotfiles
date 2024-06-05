@@ -11,9 +11,8 @@ plugin.setup {
     separator_style = { '', '' },
     left_trunc_marker = '+',
     right_trunc_marker = '+',
-    buffer_close_icon = '󰅖',
-    close_command = 'BufDel %d', -- use `BufDel` to fix weird behavior of closing active buffer
-    right_mouse_command = '',
+    buffer_close_icon = '',
+    right_mouse_command = 'BufDel %d', -- use `BufDel` to fix weird behavior of closing active buffer
   },
   highlights = {
     modified = {
