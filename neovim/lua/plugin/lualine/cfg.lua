@@ -69,6 +69,12 @@ local function file_format()
   end
 end
 
+local function progress()
+  local cur = vim.fn.line '.'
+  local total = vim.fn.line '$'
+  return string.format('%3d', cur / total * 100)
+end
+
 plugin.setup {
   options = {
     icons_enabled = false,
@@ -81,7 +87,7 @@ plugin.setup {
     lualine_b = { 'branch', 'diff' },
     lualine_c = { 'filename', 'diagnostics' },
     lualine_x = { 'encoding', file_format, lsp_name },
-    lualine_y = { 'searchcount', 'progress' },
+    lualine_y = { 'searchcount', progress },
     lualine_z = { 'location' },
   },
 }
