@@ -49,6 +49,15 @@ local function mode()
   end
 end
 
+local function lsp_name()
+  local client = vim.lsp.buf_get_clients()[1]
+  if client == nil then
+    return ''
+  else
+    return '󰥛 ' .. client.messages.name
+  end
+end
+
 plugin.setup {
   options = {
     icons_enabled = false,
@@ -60,7 +69,7 @@ plugin.setup {
     lualine_a = { mode },
     lualine_b = { 'branch', 'diff' },
     lualine_c = { 'filename', 'diagnostics' },
-    lualine_x = { 'encoding', 'fileformat' },
+    lualine_x = { 'encoding', 'fileformat', lsp_name },
     lualine_y = { 'searchcount', 'progress' },
     lualine_z = { 'location' },
   },
