@@ -58,6 +58,17 @@ local function lsp_name()
   end
 end
 
+local function file_format()
+  local format = vim.bo.fileformat
+  if format == 'unix' then
+    return 'LF'
+  elseif format == 'mac' then
+    return 'CR'
+  else -- dos
+    return 'CRLF'
+  end
+end
+
 plugin.setup {
   options = {
     icons_enabled = false,
@@ -69,7 +80,7 @@ plugin.setup {
     lualine_a = { mode },
     lualine_b = { 'branch', 'diff' },
     lualine_c = { 'filename', 'diagnostics' },
-    lualine_x = { 'encoding', 'fileformat', lsp_name },
+    lualine_x = { 'encoding', file_format, lsp_name },
     lualine_y = { 'searchcount', 'progress' },
     lualine_z = { 'location' },
   },
