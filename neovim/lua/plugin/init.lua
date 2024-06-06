@@ -27,7 +27,6 @@ local specs = {
   require 'plugin.treesitter.spec',
 
   -- input helpers
-  require 'plugin.fcitx.spec',
   require 'plugin.comment.spec',
   require 'plugin.neoformat.spec',
   require 'plugin.autoclose.spec',

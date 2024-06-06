@@ -63,7 +63,6 @@ in
       # input helpers
       luasnip # snippet
       neoformat # formatter
-      fcitx-vim # input method auto switch
       nvim-comment # apply comment block
       autoclose-nvim # auto close pairs and brackets
     ];
