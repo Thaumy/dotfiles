@@ -17,7 +17,9 @@ let
 
   sdk = with pkgs;[
     go
+    gdb
     jdk8
+    lldb
     rust
     jdk11
     jdk17
@@ -98,6 +100,7 @@ let
     pkg-config
     smartmontools
     docker-compose
+    nvtopPackages.amd
     nix-prefetch-github
     nix-prefetch-scripts
   ];

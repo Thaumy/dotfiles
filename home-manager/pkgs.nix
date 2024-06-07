@@ -42,6 +42,8 @@
     gnome.nautilus
     gnome.gnome-boxes
     gnome.gnome-tweaks
+    gnome.gnome-calendar
+    gnome.gnome-calculator
     gnome.gnome-font-viewer
 
     # WM
