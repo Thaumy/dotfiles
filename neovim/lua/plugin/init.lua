@@ -9,6 +9,7 @@ local specs = {
   require 'plugin.gitsigns.spec',
   require 'plugin.colorizer.spec',
   require 'plugin.catppuccin.spec',
+  require 'plugin.illuminate.spec',
   require 'plugin.todo-comments.spec',
 
   -- user interfaces

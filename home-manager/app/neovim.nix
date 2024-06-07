@@ -34,6 +34,7 @@ in
       # colorizers or signs
       nvim-ufo # code block folding, [deps: promise-async]
       gitsigns-nvim # gutter git signs
+      vim-illuminate # similar word hl
       catppuccin-nvim # color scheme
       nvim-web-devicons # icons
       nvim-colorizer-lua # color text hl
