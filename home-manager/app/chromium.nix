@@ -19,6 +19,11 @@ let
       mv wrapper-script chromium
     '';
   };
+  overlay = final: prev: {
+    chromium = prev.chromium.override {
+      commandLineArgs = "--enable-wayland-ime";
+    };
+  };
 in
 {
   home = {
@@ -26,4 +31,6 @@ in
       chromium-wrapped
     ];
   };
+
+  nixpkgs.overlays = [ overlay ];
 }
