@@ -3,8 +3,7 @@ function polish_pwd
 end
 
 function fish_prompt
-  # save the return status of the previous command
-  set -l last_pipestatus $pipestatus
+  set -l last_pipestatus $pipestatus # save the return status of the previous command
   set -lx __fish_last_status $status # export for __fish_print_pipestatus.
 
   set -l status_color (set_color $fish_color_status)
