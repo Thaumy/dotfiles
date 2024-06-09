@@ -1,24 +1,21 @@
 local plugin = require 'catppuccin'
 
-local dark = {
-  flavour = 'mocha',
-  custom_highlights = {
-    CurSearch = { fg = '#FFB5DA', bg = '#6420AA' },
-    CursorLine = { bg = '#252636' },
-    NeoTreeGitConflict = { fg = '#ff8700' },
-    NeoTreeGitUntracked = { fg = '#83c66d' },
-    BufferLineBufferSelected = { style = { 'bold' } },
-  },
-}
-
-local light = {
-  flavour = 'latte',
-  custom_highlights = {
-    CurSearch = { fg = '#6420AA', bg = '#FFB5DA' },
-    CursorLine = { bg = '#fafafa' },
-    NeoTreeGitConflict = { fg = '#ff8700' },
-    NeoTreeGitUntracked = { fg = '#83c66d' },
-    BufferLineBufferSelected = { style = { 'bold' } },
+plugin.setup {
+  highlight_overrides = {
+    latte = {
+      CurSearch = { fg = '#6420AA', bg = '#FFB5DA' },
+      CursorLine = { bg = '#fafafa' },
+      NeoTreeGitConflict = { fg = '#ff8700' },
+      NeoTreeGitUntracked = { fg = '#83c66d' },
+      BufferLineBufferSelected = { style = { 'bold' } },
+    },
+    mocha = {
+      CurSearch = { fg = '#FFB5DA', bg = '#6420AA' },
+      CursorLine = { bg = '#252636' },
+      NeoTreeGitConflict = { fg = '#ff8700' },
+      NeoTreeGitUntracked = { fg = '#83c66d' },
+      BufferLineBufferSelected = { style = { 'bold' } },
+    },
   },
 }
 
@@ -37,9 +34,7 @@ local function is_light_theme()
 end
 
 if is_light_theme() then
-  plugin.setup(light)
+  vim.cmd.colorscheme 'catppuccin-latte'
 else
-  plugin.setup(dark)
+  vim.cmd.colorscheme 'catppuccin-mocha'
 end
-
-vim.cmd.colorscheme 'catppuccin'
