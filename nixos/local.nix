@@ -3,6 +3,7 @@
     enableDefaultPackages = false;
 
     packages = with pkgs; [
+      fira-code
       sarasa-gothic
       jetbrains-mono
       liberation_ttf
