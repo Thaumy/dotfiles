@@ -13,6 +13,16 @@ let
       hash = "sha256-9frD77EauIcBz96msCzEWJVULXIdYyi4kEbrbYFOtWk=";
     };
   };
+  catppuccin-nvim = pkgs.vimUtils.buildVimPlugin {
+    pname = "catppuccin-nvim";
+    version = "2024-6-9";
+    src = pkgs.fetchFromGitHub {
+      owner = "Thaumy";
+      repo = "catppuccin-nvim";
+      rev = "9ad2946e84e34122828ba38549134255342c2899";
+      hash = "sha256-fLn+DS+g5ONcPVwXKcN+QQXMnDCo3yQ91gObH1ucnok=";
+    };
+  };
 in
 {
   nixpkgs.overlays = [ inputs.nvim-nightly-overlay.overlay ];

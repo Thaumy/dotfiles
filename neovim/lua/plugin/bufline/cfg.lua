@@ -1,10 +1,6 @@
 local k = require 'infra.key'
 local plugin = require 'bufferline'
 
-local neotree_modified_icon_color = string.format('#%x',
-  vim.api.nvim_get_hl(0, { name = 'NeoTreeModified' }).fg
-)
-
 plugin.setup {
   options = {
     show_buffer_icons = false,
@@ -15,17 +11,7 @@ plugin.setup {
     right_mouse_command = 'BufDel %d', -- use `BufDel` to fix weird behavior of closing active buffer
     style_preset = plugin.style_preset.no_italic,
   },
-  highlights = {
-    modified = {
-      fg = neotree_modified_icon_color,
-    },
-    modified_visible = {
-      fg = neotree_modified_icon_color,
-    },
-    modified_selected = {
-      fg = neotree_modified_icon_color,
-    },
-  },
+  highlights = require 'catppuccin.groups.integrations.bufferline'.get(),
 }
 
 -- cycle bufs
