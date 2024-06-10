@@ -75,6 +75,14 @@ local function progress()
   return string.format('%3d', cur / total * 100)
 end
 
+local function readonly()
+  if vim.bo.readonly or (not vim.bo.modifiable) then
+    return 'RO'
+  else
+    return ''
+  end
+end
+
 plugin.setup {
   options = {
     icons_enabled = false,
@@ -85,7 +93,7 @@ plugin.setup {
   sections = {
     lualine_a = { mode },
     lualine_b = { 'branch', 'diff' },
-    lualine_c = { 'filename', 'diagnostics' },
+    lualine_c = { 'filename', 'diagnostics', readonly },
     lualine_x = { 'encoding', file_format, lsp_name },
     lualine_y = { 'searchcount', progress },
     lualine_z = { 'location' },
