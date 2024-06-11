@@ -30,3 +30,5 @@ k.map_cmd('n', 't/', 'Telescope live_grep')
 k.map('n', '<M-d>', plugin_builtin.lsp_definitions)
 -- go ref
 k.map('n', '<M-u>', plugin_builtin.lsp_references)
+-- go impl
+k.map('n', '<M-i>', plugin_builtin.lsp_implementations)
