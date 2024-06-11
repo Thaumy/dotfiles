@@ -4,8 +4,11 @@ local function unmap(modes, lhs)
   vim.keymap.set(modes, lhs, '<nop>', map_opts)
 end
 
-local function map(modes, lhs, rhs)
+local function map(modes, lhs, rhs, keep_rhs)
   vim.keymap.set(modes, lhs, rhs, map_opts)
+  if keep_rhs == true then
+    return
+  end
   if type(rhs) == 'string' then
     unmap(modes, rhs) -- unmap original
   end
