@@ -58,9 +58,10 @@ map('n', 'b', '<C-^>')
 map('n', 'cp', '<C-o>')
 map('n', 'cn', '<C-i>')
 
--- select line/col
+-- select line/col/all
 map('n', 'v<Space>', 'V')
 map('n', 'vv', '<C-v>')
+map('n', 'va', 'ggVG', true)
 
 -- scroll line up/down
 map('n', '<C-S-k>', '<C-e>')
