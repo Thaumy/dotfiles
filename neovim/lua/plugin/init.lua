@@ -55,4 +55,7 @@ local cfg = {
   change_detection = { enabled = false },
 }
 
+-- use <Esc> to close lazy menu
+require 'lazy.view.config'.keys.close = '<Esc>'
+
 plugin.setup(specs, cfg)
