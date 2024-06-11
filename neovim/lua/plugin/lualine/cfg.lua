@@ -83,6 +83,15 @@ local function readonly()
   end
 end
 
+local function visual_chars()
+  local wc = vim.fn.wordcount()
+  if wc.visual_chars ~= nil then
+    return wc.visual_chars
+  else
+    return ''
+  end
+end
+
 plugin.setup {
   options = {
     icons_enabled = false,
@@ -93,7 +102,7 @@ plugin.setup {
   sections = {
     lualine_a = { mode },
     lualine_b = { 'branch', 'diff' },
-    lualine_c = { 'filename', 'diagnostics', readonly },
+    lualine_c = { 'filename', 'diagnostics', readonly, visual_chars },
     lualine_x = { 'encoding', file_format, lsp_name },
     lualine_y = { 'searchcount', progress },
     lualine_z = { 'location' },
