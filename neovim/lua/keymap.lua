@@ -49,8 +49,6 @@ map('n', 'wl', '<C-w>l')
 
 -- redo
 map('n', 'U', '<C-R>')
--- override but not write register
-map('v', 'tp', '\'_dP')
 
 -- go bottom
 map({ 'n', 'v' }, 'ff', 'G')
