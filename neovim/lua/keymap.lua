@@ -76,12 +76,12 @@ map({ 'n', 'v' }, 'qh', '^')
 map({ 'n', 'v' }, 'ql', '$')
 
 -- quick L/R
-map({ 'n', 'v' }, '<C-h>', '8h')
-map({ 'n', 'v' }, '<C-l>', '8l')
+map({ 'n', 'v' }, '<C-h>', '8h', true)
+map({ 'n', 'v' }, '<C-l>', '8l', true)
 
 -- quick up/down
-map({ 'n', 'v' }, '<C-k>', '6k')
-map({ 'n', 'v' }, '<C-j>', '6j')
+map({ 'n', 'v' }, '<C-k>', '6k', true)
+map({ 'n', 'v' }, '<C-j>', '6j', true)
 
 -- reduce/increase indent
 map('v', 'h', function()
