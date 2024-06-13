@@ -37,6 +37,7 @@ in
     (writeBin "g-ap" sh/git/add-p.sh)
     (writeBin "g-cm" sh/git/commit-m.sh)
     (writeBin "g-rc" sh/git/rebase-continue.sh)
+    (writeBin "g-can" sh/git/commit-amend-noedit.sh)
 
     (writeBin "wm-lock" sh/wm/lock.rs)
     (writeBin "wm-menu" sh/wm/menu.rs)
