@@ -12,5 +12,7 @@ let
 in
 {
   security.sudo.extraRules = [ thaumy ];
+  services.passSecretService.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 }
 
