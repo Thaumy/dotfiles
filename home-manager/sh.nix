@@ -25,8 +25,8 @@ in
     (writeBin "aes-en" sh/crypto/aes-en.sh)
     (writeBin "aes-de" sh/crypto/aes-de.sh)
 
-    (writeBin "nix-gc" sh/nix-gc/run.sh)
-    (writeBin "nix-chan-up" sh/nix-chan-up/run.sh)
+    (writeBin "nix-gc" sh/nix/gc.sh)
+    (writeBin "nix-chan-up" sh/nix/chan-up.sh)
 
     (writeBin "g-r" sh/git/rebase-10.sh)
     (writeBin "g-rr" sh/git/rebase-20.sh)
