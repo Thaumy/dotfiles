@@ -84,6 +84,7 @@ in
       deno
       gopls
       taplo # TOML
+      pyright
       fantomas # F# formatter
       marksman
       typst-lsp
@@ -93,7 +94,6 @@ in
       omnisharp-roslyn
       jdt-language-server
       lua-language-server
-      nodePackages.pyright
       kotlin-language-server
       nodePackages.bash-language-server
       nodePackages.yaml-language-server
