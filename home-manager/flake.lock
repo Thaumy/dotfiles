@@ -342,22 +342,6 @@
         "type": "github"
       }
     },
-    "pkgs-22-11": {
-      "locked": {
-        "lastModified": 1688392541,
-        "narHash": "sha256-lHrKvEkCPTUO+7tPfjIcb7Trk6k31rz18vkyqmkeJfY=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "ea4c80b39be4c09702b0cb3b42eab59e2ba4f24b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-22.11",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "pkgs-23-05": {
       "locked": {
         "lastModified": 1704290814,
@@ -412,7 +396,6 @@
         "hyprland": "hyprland",
         "nur": "nur",
         "nvim-nightly-overlay": "nvim-nightly-overlay",
-        "pkgs-22-11": "pkgs-22-11",
         "pkgs-23-05": "pkgs-23-05",
         "pkgs-23-11": "pkgs-23-11",
         "pkgs-unstable": "pkgs-unstable"

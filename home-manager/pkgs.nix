@@ -1,4 +1,4 @@
-{ pkgs, pkgs-22-11, pkgs-23-05, ... }:
+{ pkgs, pkgs-23-05, ... }:
 {
   home.packages = with pkgs; [
     # nur
@@ -11,7 +11,7 @@
     #nur.repos.xddxdd.dingtalk
 
     # office
-    pkgs-22-11.wpsoffice
+    pkgs-23-05.wpsoffice
     pkgs-23-05.libreoffice
 
     # editor
@@ -22,13 +22,13 @@
     android-studio
     pkgs-23-05.jetbrains.rider
     pkgs-23-05.jetbrains.clion
-    pkgs-22-11.jetbrains.goland
+    pkgs-23-05.jetbrains.goland
     jetbrains.datagrip
     jetbrains.webstorm
     jetbrains.dataspell
     jetbrains.rust-rover
-    pkgs-22-11.jetbrains.idea-ultimate
-    pkgs-22-11.jetbrains.pycharm-professional
+    pkgs-23-05.jetbrains.idea-ultimate
+    pkgs-23-05.jetbrains.pycharm-professional
 
     # IM
     feishu
