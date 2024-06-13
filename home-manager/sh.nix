@@ -27,6 +27,7 @@ in
 
     (writeBin "nix-gc" sh/nix/gc.sh)
     (writeBin "nix-chan-up" sh/nix/chan-up.sh)
+    (writeBin "nix-flake-up" sh/nix/flake-up.sh)
 
     (writeBin "g-r" sh/git/rebase-10.sh)
     (writeBin "g-rr" sh/git/rebase-20.sh)
