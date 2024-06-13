@@ -16,6 +16,10 @@
       inputs.hyprcursor.url = "github:hyprwm/hyprcursor/57298fc4f13c807e50ada2c986a3114b7fc2e621"; # 0.1.9
       inputs.hyprwayland-scanner.url = "github:hyprwm/hyprwayland-scanner/0f30f9eca6e404130988554accbb64d1c9ec877d"; # 0.3.10
     };
+    hyprfocus = {
+      url = "github:pyt0xic/hyprfocus/aa7262d3a4564062f97b9cfdad47fd914cfb80f2"; # 24-05-30
+      inputs.hyprland.follows = "hyprland";
+    };
 
     nvim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
