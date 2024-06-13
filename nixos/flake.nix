@@ -8,7 +8,7 @@
       inputs.hyprcursor.url = "github:hyprwm/hyprcursor/57298fc4f13c807e50ada2c986a3114b7fc2e621"; # 0.1.9
       inputs.hyprwayland-scanner.url = "github:hyprwm/hyprwayland-scanner/0f30f9eca6e404130988554accbb64d1c9ec877d"; # 0.3.10
     };
-    rust-overlay.url = "github:oxalica/rust-overlay";
+    rust-overlay.url = "github:oxalica/rust-overlay/4cbc2810d1dfb5960791be92df6a5f842a79bdfb"; # 24-06-13
   };
 
   outputs = inputs@{ ... }: {
