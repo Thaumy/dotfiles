@@ -25,7 +25,7 @@ let
   };
 in
 {
-  nixpkgs.overlays = [ inputs.nvim-nightly-overlay.overlay ];
+  nixpkgs.overlays = [ inputs.nvim-nightly-overlay.overlays.default ];
 
   programs.neovim = {
     enable = true;
