@@ -3,7 +3,7 @@
     nur.url = "github:nix-community/nur";
     pkgs-23-05.url = "github:nixos/nixpkgs/nixos-23.05";
     pkgs-23-11.url = "github:nixos/nixpkgs/nixos-23.11";
-    pkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    pkgs-unstable.url = "github:NixOS/nixpkgs/8b89e34d1b10c0eb8bac6f2cc7b7a941f4acb171"; # 24-06-01
 
     home-manager = {
       url = "github:nix-community/home-manager";
