@@ -1,6 +1,6 @@
 {
   inputs = {
-    nur.url = "github:nix-community/nur";
+    nur.url = "github:nix-community/nur/9edb05163b86238999c6f6cab06c193e4de951f8"; # 24-06-12
     pkgs.url = "github:NixOS/nixpkgs/8b89e34d1b10c0eb8bac6f2cc7b7a941f4acb171"; # 24-06-01
     hyprland = {
       url = "git+https://github.com/hyprwm/hyprland?submodules=1&rev=ea2501d4556f84d3de86a4ae2f4b22a474555b9f"; # 0.41.0

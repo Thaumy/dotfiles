@@ -1,6 +1,6 @@
 {
   inputs = {
-    nur.url = "github:nix-community/nur";
+    nur.url = "github:nix-community/nur/9edb05163b86238999c6f6cab06c193e4de951f8"; # 24-06-12
     pkgs-23-05.url = "github:nixos/nixpkgs/nixos-23.05";
     pkgs-23-11.url = "github:nixos/nixpkgs/nixos-23.11";
     pkgs-unstable.url = "github:NixOS/nixpkgs/8b89e34d1b10c0eb8bac6f2cc7b7a941f4acb171"; # 24-06-01
