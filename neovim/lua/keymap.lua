@@ -41,6 +41,11 @@ end)
 -- clsoe search hl
 map_cmd('n', '<M-n>', 'noh')
 
+-- toggle wrap line
+map('n', 'wr', function()
+  vim.wo.wrap = not vim.wo.wrap
+end)
+
 -- win nav
 map('n', 'wh', '<C-w>h')
 map('n', 'wj', '<C-w>j')
