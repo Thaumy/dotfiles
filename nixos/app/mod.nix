@@ -9,6 +9,7 @@
     ./openssh.nix
     ./udisks2.nix
 
+    ./dae.nix
     ./upower.nix
     ./xserver.nix
     ./blueman.nix
