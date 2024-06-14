@@ -23,4 +23,7 @@ vim.opt.clipboard = 'unnamed,unnamedplus'
 -- disable swap file
 vim.opt.swapfile = false
 
+-- disable line wrapping when esceeding term width
+vim.wo.wrap = false
+
 vim.o.shortmess = 'ltToOcCFsSI'
