@@ -10,15 +10,11 @@ vim.api.nvim_create_autocmd('BufEnter', {
 -- show trailing whitespace
 vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave' }, {
   callback = function()
-    local ft = ui.curr_buf_ft()
-    local no_hl =
-        ft == '' or
-        ft == 'neo-tree' or
-        ft == 'lspinfo' or
-        ft == 'notify' or
-        ft == 'help' or
-        ft == 'toggleterm'
-    if no_hl then
+    if
+        vim.bo.bt ~= '' or
+        vim.bo.readonly or
+        (not vim.bo.modifiable)
+    then
       vim.cmd 'match TrailingWhitespace //'
     else
       vim.cmd 'match TrailingWhitespace /\\s\\+$/'
