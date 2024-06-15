@@ -51,7 +51,7 @@ k.map('n', '<M-a>', function()
   end
 end)
 -- fmt
-k.map('n', 'm', function()
+k.map('n', 'fm', function()
   if ui.curr_buf_ft() == 'markdown' then
     vim.cmd 'Neoformat denofmt'
   else
