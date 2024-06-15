@@ -3,6 +3,7 @@
     nur.url = "github:nix-community/nur/9edb05163b86238999c6f6cab06c193e4de951f8"; # 24-06-12
     pkgs-23-05.url = "github:nixos/nixpkgs/nixos-23.05";
     pkgs-23-11.url = "github:nixos/nixpkgs/nixos-23.11";
+    pkgs-24-05.url = "github:nixos/nixpkgs/nixos-24.05";
     pkgs.url = "github:NixOS/nixpkgs/8b89e34d1b10c0eb8bac6f2cc7b7a941f4acb171"; # 24-06-01
 
     home-manager = {
@@ -40,6 +41,7 @@
           inherit inputs;
           pkgs-23-05 = import inputs.pkgs-23-05 pkgs-cfg;
           pkgs-23-11 = import inputs.pkgs-23-11 pkgs-cfg;
+          pkgs-24-05 = import inputs.pkgs-24-05 pkgs-cfg;
         };
         modules = [
           ./home.nix

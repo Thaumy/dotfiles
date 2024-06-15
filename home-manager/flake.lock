@@ -488,6 +488,22 @@
         "type": "github"
       }
     },
+    "pkgs-24-05": {
+      "locked": {
+        "lastModified": 1718208800,
+        "narHash": "sha256-US1tAChvPxT52RV8GksWZS415tTS7PV42KTc2PNDBmc=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "cc54fb41d13736e92229c21627ea4f22199fee6b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-24.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
@@ -497,7 +513,8 @@
         "nvim-nightly-overlay": "nvim-nightly-overlay",
         "pkgs": "pkgs",
         "pkgs-23-05": "pkgs-23-05",
-        "pkgs-23-11": "pkgs-23-11"
+        "pkgs-23-11": "pkgs-23-11",
+        "pkgs-24-05": "pkgs-24-05"
       }
     },
     "systems": {

@@ -1,4 +1,4 @@
-{ pkgs, pkgs-23-05, ... }:
+{ pkgs, pkgs-23-05, pkgs-24-05, ... }:
 {
   home.packages = with pkgs; [
     # nur
