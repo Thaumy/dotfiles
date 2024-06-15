@@ -74,7 +74,7 @@ in
       # input helpers
       luasnip # snippet
       neoformat # formatter
-      nvim-comment # apply comment block
+      comment-nvim # better comment support
       autoclose-nvim # auto close pairs and brackets
     ];
 
