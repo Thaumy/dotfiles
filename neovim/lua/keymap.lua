@@ -59,7 +59,7 @@ map('n', 'U', '<C-R>')
 -- go bottom
 map({ 'n', 'v' }, 'ff', 'G')
 -- go prev buf
-map('n', 'b', '<C-^>')
+map('n', 'bb', '<C-^>')
 -- go prev/next position
 map('n', 'cp', '<C-o>')
 map('n', 'cn', '<C-i>')
