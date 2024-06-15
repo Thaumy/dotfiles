@@ -38,6 +38,7 @@
     # GNOME
     evince # docs reader
     gnome.eog
+    rhythmbox
     gnome.sushi # file preview
     gnome.nautilus
     gnome.gnome-boxes
@@ -99,7 +100,7 @@
     ventoy-full
     qbittorrent
     rust-script
-    #pkgs-23-05.postman
+    pkgs-24-05.postman
     nodePackages.ts-node
 
     # cargo

@@ -60,7 +60,6 @@ let
     jq
     eza
     git
-    bat
     glib
     nmap
     zbar
@@ -78,6 +77,7 @@ let
     spice
     broot
     tokei
+    xxHash
     dutree
     podman
     bottom
@@ -106,6 +106,7 @@ let
   ];
 
   etc = with pkgs;[
+    parted
     vsftpd
     ripgrep
     gparted
@@ -117,7 +118,6 @@ let
     distrobox
     wireshark
     exfatprogs
-    clash-meta
     cryptsetup
     obs-studio
     home-manager
