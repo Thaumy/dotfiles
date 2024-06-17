@@ -23,6 +23,16 @@ let
       hash = "sha256-fLn+DS+g5ONcPVwXKcN+QQXMnDCo3yQ91gObH1ucnok=";
     };
   };
+  nvim-web-devicons = pkgs.vimUtils.buildVimPlugin {
+    pname = "nvim-web-devicons";
+    version = "2024-6-15";
+    src = pkgs.fetchFromGitHub {
+      owner = "Thaumy";
+      repo = "nvim-web-devicons";
+      rev = "bac29f2b98757eb42dac2451e2e13403727917ac";
+      hash = "sha256-NZmbdKcSjNEwCUlHnwWaC+QS+GESt1U1mq2cBzm9Fqg=";
+    };
+  };
 in
 {
   nixpkgs.overlays = [ inputs.nvim-nightly-overlay.overlays.default ];
