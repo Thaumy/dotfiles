@@ -12,7 +12,7 @@
     };
 
     hyprland = {
-      url = "git+https://github.com/hyprwm/hyprland?submodules=1&rev=ea2501d4556f84d3de86a4ae2f4b22a474555b9f"; # 0.41.0
+      url = "git+https://github.com/hyprwm/hyprland?submodules=1&rev=d1340bd1d8eedd274283e0cb2568a3ed67b58c81"; # 24-06-17
       inputs.nixpkgs.follows = "pkgs";
       inputs.hyprcursor.url = "github:hyprwm/hyprcursor/57298fc4f13c807e50ada2c986a3114b7fc2e621"; # 0.1.9
       inputs.hyprwayland-scanner.url = "github:hyprwm/hyprwayland-scanner/0f30f9eca6e404130988554accbb64d1c9ec877d"; # 0.3.10
