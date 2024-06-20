@@ -1,5 +1,6 @@
 { ... }: {
   imports = [
+    ./xdg.nix
     ./gpg.nix
     ./git.nix
     ./bat.nix
