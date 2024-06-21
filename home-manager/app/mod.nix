@@ -2,6 +2,7 @@
   imports = [
     ./gpg.nix
     ./git.nix
+    ./bat.nix
     ./bash.nix
     ./fish.nix
     ./rofi.nix
