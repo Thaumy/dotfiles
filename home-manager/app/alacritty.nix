@@ -14,7 +14,7 @@ let
     fi
   '';
   alacritty-wrapped = pkgs.symlinkJoin {
-    name = "chromium";
+    name = "alacritty";
     paths = [ pkgs.alacritty wrapper-script ];
     postBuild = ''
       cd $out/bin
