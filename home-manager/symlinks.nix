@@ -7,7 +7,7 @@ in
   home.file = {
     "sec" = {
       enable = true;
-      source = mkSymlink "${homeDir}/Documents/sec";
+      source = mkSymlink "${homeDir}/docs/sec";
     };
   };
 }
