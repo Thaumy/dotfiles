@@ -106,7 +106,7 @@ map('v', 'l', function()
 end)
 
 -- terminal to normal
-map('t', '<M-n>', '<C-\\><C-n>')
+map('t', '<M-n>', [[<C-\><C-n>]])
 
 -- cycle wins
 map('n', ';', function()
