@@ -52,9 +52,12 @@ local function is_light_theme()
   return false
 end
 
+local rev
 if is_light_theme() then
+  rev = false
   vim.cmd.colorscheme 'catppuccin-latte'
 else
+  rev = true
   vim.cmd.colorscheme 'catppuccin-mocha'
 end
 
@@ -65,20 +68,16 @@ local colorschemes = {
   'catppuccin-macchiato',
   'catppuccin-mocha',
 }
-k.map('n', 'tl', function()
+k.map('n', 'ts', function()
   local curr = vim.g.colors_name
   for i, it in ipairs(colorschemes) do
     if curr == it then
-      vim.cmd.colorscheme(colorschemes[(i - 1) % 5])
-      return
-    end
-  end
-end)
-k.map('n', 'td', function()
-  local curr = vim.g.colors_name
-  for i, it in ipairs(colorschemes) do
-    if curr == it then
-      vim.cmd.colorscheme(colorschemes[(i + 1) % 5])
+      if i == 1 or i == 4 then rev = not rev end
+      if rev then
+        vim.cmd.colorscheme(colorschemes[i - 1])
+      else
+        vim.cmd.colorscheme(colorschemes[i + 1])
+      end
       return
     end
   end
