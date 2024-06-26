@@ -9,10 +9,6 @@
       inputs.hyprwayland-scanner.url = "github:hyprwm/hyprwayland-scanner/0f30f9eca6e404130988554accbb64d1c9ec877d"; # 0.3.10
     };
     rust-overlay.url = "github:oxalica/rust-overlay/4cbc2810d1dfb5960791be92df6a5f842a79bdfb"; # 24-06-13
-    dae = {
-      url = "github:daeuniverse/flake.nix/0ca155a907fb349e286bc0df96fcdc6c31b08844"; # 24-05-02
-      inputs.nixpkgs.follows = "pkgs";
-    };
   };
 
   outputs = inputs@{ ... }: {
