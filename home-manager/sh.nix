@@ -14,6 +14,7 @@ in
     (writeBin "todo" sh/todo/run.sh)
     (writeBin "memdir" sh/memdir/run.sh)
     (writeBin "backup" sh/backup/run.sh)
+    (writeBin "hashpwd" sh/hashpwd/run.sh)
     (writeBin "dir-flat" sh/dir-flat/run.sh)
     (writeBin "disable-kb" sh/disable-kb/run.sh)
     (writeBin "pic-search" sh/pic-search/run.sh)
