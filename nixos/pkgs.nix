@@ -105,11 +105,14 @@ let
     nix-prefetch-scripts
   ];
 
-  etc = with pkgs;[
+  fs = with pkgs;[
     parted
+    gparted
+  ];
+
+  etc = with pkgs;[
     vsftpd
     ripgrep
-    gparted
     firefox
     paperkey
     qrencode
@@ -131,6 +134,7 @@ in
       sdk ++
       lib ++
       infra ++
+      fs ++
       etc;
 
     etc = with pkgs; {
