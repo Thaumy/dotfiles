@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }:
+{ lib, inputs, config, pkgs, ... }:
 let
   homeDir = config.home.homeDirectory;
   mkSymlink = config.lib.file.mkOutOfStoreSymlink;
@@ -141,4 +141,16 @@ in
         source = mkSymlink nvim-treesitter-parsers;
       };
   };
+
+  # HACK: use `hiPrio` to override neovim wrapper
+  home.packages = [
+    (lib.hiPrio (pkgs.runCommand "better-nvim.desktop" { } ''
+      mkdir -p "$out/share/applications"
+      cd "$out/share/applications"
+      cp '${config.programs.neovim.finalPackage}/share/applications/nvim.desktop' .
+
+      # Rename `Neovim wrapper` to `Neovim`
+      sed -i 's/Name=Neovim wrapper/Name=Neovim/g' nvim.desktop
+    ''))
+  ];
 }
