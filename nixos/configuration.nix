@@ -35,7 +35,6 @@
   environment = {
     localBinInPath = true;
     variables = {
-      EDITOR = "nvim";
       QT_STYLE_OVERRIDE = "kvantum";
     };
     sessionVariables = {

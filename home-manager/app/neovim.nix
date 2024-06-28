@@ -43,6 +43,8 @@ in
     viAlias = true;
     vimAlias = true;
 
+    defaultEditor = true;
+
     plugins = with pkgs.vimPlugins; [
       # infrastructures
       nui-nvim # ui components
