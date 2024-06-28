@@ -151,6 +151,10 @@ in
 
       # Rename `Neovim wrapper` to `Neovim`
       sed -i 's/Name=Neovim wrapper/Name=Neovim/g' nvim.desktop
+
+      # Fix nvim cannot be opened by nautilus(or other apps with xdg-mime default)
+      sed -i 's/Exec=nvim %F/Exec=alacritty -e nvim %F/g' nvim.desktop
+      sed -i 's/Terminal=true/Terminal=false/g' nvim.desktop
     ''))
   ];
 }
