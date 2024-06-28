@@ -37,6 +37,7 @@ in
     (writeBin "g-d" sh/git/discard-all-changes.sh)
     (writeBin "g-ap" sh/git/add-p.sh)
     (writeBin "g-cm" sh/git/commit-m.sh)
+    (writeBin "g-ra" sh/git/rebase-abort.sh)
     (writeBin "g-rc" sh/git/rebase-continue.sh)
     (writeBin "g-can" sh/git/commit-amend-noedit.sh)
 
