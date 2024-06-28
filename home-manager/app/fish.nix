@@ -8,7 +8,7 @@ in
     enable = true;
 
     shellAliases = {
-      l = "eza -l --git -g --time-style '+%y.%m-%d %H:%M' -a --smart-group --group-directories-first";
+      l = "eza -l --git -g --time-style '+%y-%m-%d %H:%M' -a --smart-group --group-directories-first";
       ls = "eza --no-permissions --no-filesize --no-user --no-time --group-directories-first";
       du = "dust";
       ps = "procs";
