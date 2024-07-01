@@ -20,15 +20,17 @@
     typst
     typstfmt
     android-studio
-    pkgs-23-05.jetbrains.rider
-    pkgs-23-05.jetbrains.clion
-    pkgs-23-05.jetbrains.goland
-    jetbrains.datagrip
-    jetbrains.webstorm
-    jetbrains.dataspell
-    jetbrains.rust-rover
-    pkgs-23-05.jetbrains.idea-ultimate
-    pkgs-23-05.jetbrains.pycharm-professional
+
+    # JetBrains IDEs
+    pkgs-24-05.jetbrains.rider
+    pkgs-24-05.jetbrains.clion
+    pkgs-24-05.jetbrains.goland
+    pkgs-24-05.jetbrains.webstorm
+    pkgs-24-05.jetbrains.datagrip
+    pkgs-24-05.jetbrains.dataspell
+    pkgs-24-05.jetbrains.rust-rover
+    pkgs-24-05.jetbrains.idea-ultimate
+    pkgs-24-05.jetbrains.pycharm-professional
 
     # IM
     feishu
