@@ -12,4 +12,8 @@
       "thaumy.cachix.org-1:aUhbtORDWI0e/T/FcTMezJc0S7IO9mT1IE84cXHNm14="
     ];
   };
+  nix.optimise = {
+    automatic = true;
+    dates = [ "12:30" ];
+  };
 }
