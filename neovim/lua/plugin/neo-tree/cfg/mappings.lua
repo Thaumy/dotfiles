@@ -36,7 +36,6 @@ local window = {
 local filesystem = {
   ['.']     = '',
   ['f']     = '',
-  ['H']     = '',
   ['D']     = '',
   ['#']     = '',
   ['[g']    = '',
@@ -60,6 +59,7 @@ local filesystem = {
   ['1']     = 'navigate_up',
   ['2']     = 'set_root',
   ['e']     = 'close_window',
+  ['H']     = 'toggle_hidden',
 }
 
 local buffers = {
