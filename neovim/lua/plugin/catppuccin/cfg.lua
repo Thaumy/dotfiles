@@ -7,7 +7,7 @@ plugin.setup {
       CurSearch = { fg = '#6420AA', bg = '#FFB5DA' },
       CursorLine = { bg = '#fafafa' },
       NeoTreeGitConflict = { fg = '#ff8700' },
-      NeoTreeGitUntracked = { fg = '#83c66d' },
+      NeoTreeGitUntracked = { fg = '#40a02b' },
       BufferLineBufferSelected = { style = { 'bold' } },
       TrailingWhitespace = { bg = '#ffc800' },
     },
