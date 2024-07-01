@@ -7,6 +7,7 @@
     ./bash.nix
     ./fish.nix
     ./rofi.nix
+    ./mako.nix
     ./dconf.nix
     ./waybar.nix
     ./neovim.nix
