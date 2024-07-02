@@ -61,17 +61,14 @@ let
     eza
     git
     glib
-    nmap
     zbar
     lsof
     vsce
-    wget
     qemu
     tree
     lshw
     htop
     bluez
-    whois
     procs
     p7zip
     spice
@@ -94,13 +91,15 @@ let
     patchelf
     cdrtools
     win-spice
-    nix-index
-    inetutils
     dmidecode
     pkg-config
-    smartmontools
     docker-compose
     nvtopPackages.amd
+  ];
+
+  nix = with pkgs;[
+    yarn2nix
+    nix-index
     nix-prefetch-github
     nix-prefetch-scripts
   ];
@@ -108,6 +107,17 @@ let
   fs = with pkgs;[
     parted
     gparted
+    exfatprogs
+    cryptsetup
+    smartmontools
+  ];
+
+  net = with pkgs;[
+    nmap
+    wget
+    whois
+    inetutils
+    wireshark
   ];
 
   etc = with pkgs;[
@@ -116,12 +126,8 @@ let
     firefox
     paperkey
     qrencode
-    yarn2nix
     neofetch
     distrobox
-    wireshark
-    exfatprogs
-    cryptsetup
     obs-studio
     home-manager
     ffmpeg_5-full
@@ -134,6 +140,8 @@ in
       sdk ++
       lib ++
       infra ++
+      nix ++
+      net ++
       fs ++
       etc;
 
