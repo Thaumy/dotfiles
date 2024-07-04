@@ -2,6 +2,20 @@ local k = require 'infra.key'
 local plugin = require 'catppuccin'
 
 plugin.setup {
+  color_overrides = {
+    latte = {
+      maroon = '#1182a2',
+    },
+    frappe = {
+      maroon = '#16d4d1',
+    },
+    macchiato = {
+      maroon = '#16d4d1',
+    },
+    mocha = {
+      maroon = '#16d4d1',
+    },
+  },
   highlight_overrides = {
     latte = {
       CurSearch = { fg = '#6420AA', bg = '#FFB5DA' },
