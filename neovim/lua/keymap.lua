@@ -13,6 +13,7 @@ unmap({ 'n', 'v' }, 'H')     -- go page start
 unmap({ 'n', 'v' }, 'L')     -- go page end
 unmap('n', '?')              -- search backward
 unmap('v', 'b')              -- select word backward
+unmap({ 'n', 'v' }, 'q')     -- recording
 
 -- disable history list
 unmap('c', '<C-f>')
