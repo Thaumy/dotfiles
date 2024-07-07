@@ -13,6 +13,15 @@ plugin.setup {
       },
     },
     create_layout = create_layout,
+    file_ignore_patterns = {
+      'bin',
+      'obj',
+      'dist',
+      'target',
+      'node_modules',
+      [[^[^\.]*.lock$]],
+      'package-lock.json',
+    },
   },
 
   pickers = {
