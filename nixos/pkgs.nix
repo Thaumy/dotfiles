@@ -49,6 +49,7 @@ let
   ];
 
   lib = with pkgs;[
+    glibc
     openssl
     libvirt
     libinput
@@ -131,6 +132,7 @@ let
     obs-studio
     home-manager
     ffmpeg_5-full
+    systemctl-tui
     libsForQt5.qtstyleplugin-kvantum
   ];
 in

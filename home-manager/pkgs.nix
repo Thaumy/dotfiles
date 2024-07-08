@@ -1,4 +1,4 @@
-{ pkgs, pkgs-23-05, pkgs-24-05, ... }:
+{ pkgs, pkgs-23-05, pkgs-23-11, pkgs-24-05, ... }:
 {
   home.packages = with pkgs; [
     # nur
@@ -33,7 +33,7 @@
     pkgs-24-05.jetbrains.pycharm-professional
 
     # IM
-    feishu
+    pkgs-23-11.feishu
     tdesktop
     element-desktop
 
