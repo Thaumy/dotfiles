@@ -50,6 +50,7 @@ plugin.setup {
       NeoTreeGitUntracked = { fg = '#40a02b' },
       BufferLineBufferSelected = { style = { 'bold' } },
       TrailingWhitespace = { bg = '#ffc800' },
+      ['@variable.builtin'] = { fg = '#1182a2' },
     },
     frappe = {
       CurSearch = { fg = '#6420AA', bg = '#FFB5DA' },
@@ -58,6 +59,7 @@ plugin.setup {
       NeoTreeGitUntracked = { fg = '#40a02b' },
       BufferLineBufferSelected = { style = { 'bold' } },
       TrailingWhitespace = { bg = '#ffc800' },
+      ['@variable.builtin'] = { fg = '#1182a2' },
     },
     macchiato = {
       CurSearch = { fg = '#FFB5DA', bg = '#6420AA' },
@@ -66,6 +68,7 @@ plugin.setup {
       NeoTreeGitUntracked = { fg = '#83c66d' },
       BufferLineBufferSelected = { style = { 'bold' } },
       TrailingWhitespace = { bg = '#ffc800' },
+      ['@variable.builtin'] = { fg = '#16d4d1' },
     },
     mocha = {
       CurSearch = { fg = '#FFB5DA', bg = '#6420AA' },
@@ -74,6 +77,7 @@ plugin.setup {
       NeoTreeGitUntracked = { fg = '#83c66d' },
       BufferLineBufferSelected = { style = { 'bold' } },
       TrailingWhitespace = { bg = '#ffc800' },
+      ['@variable.builtin'] = { fg = '#16d4d1' },
     },
   },
 }
