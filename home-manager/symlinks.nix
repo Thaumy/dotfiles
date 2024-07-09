@@ -9,5 +9,17 @@ in
       enable = true;
       source = mkSymlink "${homeDir}/docs/sec";
     };
+    "org-repo" = {
+      enable = true;
+      source = mkSymlink "${homeDir}/dev/repo/org";
+    };
+    "thaumy-repo" = {
+      enable = true;
+      source = mkSymlink "${homeDir}/dev/repo/thaumy";
+    };
+    "lab" = {
+      enable = true;
+      source = mkSymlink "${homeDir}/dev/lab";
+    };
   };
 }
