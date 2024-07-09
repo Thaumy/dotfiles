@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  rust = (pkgs.rust-bin.nightly."2024-05-01".default.override {
+  rust = (pkgs.rust-bin.nightly."2024-06-20".complete.override {
     extensions = [ "rust-src" ];
     targets = [
       "aarch64-apple-darwin"
