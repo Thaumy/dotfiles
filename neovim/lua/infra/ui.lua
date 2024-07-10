@@ -10,20 +10,17 @@ end
 
 local function curr_buf_ft()
   local buf = vim.api.nvim_get_current_buf()
-  local ft = vim.api.nvim_buf_get_option(buf, 'filetype')
-  return ft
+  return vim.api.nvim_get_option_value('filetype', { buf = buf })
 end
 
 local function win_bt(win)
   local buf = vim.api.nvim_win_get_buf(win)
-  local ft = vim.api.nvim_buf_get_option(buf, 'buftype')
-  return ft
+  return vim.api.nvim_get_option_value('buftype', { buf = buf })
 end
 
 local function win_ft(win)
   local buf = vim.api.nvim_win_get_buf(win)
-  local ft = vim.api.nvim_buf_get_option(buf, 'filetype')
-  return ft
+  return vim.api.nvim_get_option_value('filetype', { buf = buf })
 end
 
 return {
