@@ -65,6 +65,7 @@ in
       rainbow-delimiters-nvim # colorful delimiters
 
       # user interfaces
+      nvim-bqf # better quickfix
       fidget-nvim # notifications
       lualine-nvim # status line
       neo-tree-nvim # file explorer, [deps: plenary-nvim, nvim-web-devicons, nui-nvim]
