@@ -120,9 +120,9 @@ map('n', ';', function()
     end
     local ft = ui.win_ft(win)
     if
+        ft == 'qf' or
         ft == 'fidget' or
-        ft == 'notify' or
-        ft == 'noice'
+        ft == ''
     then
     else
       vim.api.nvim_set_current_win(win)
