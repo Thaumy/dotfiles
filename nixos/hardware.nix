@@ -7,7 +7,7 @@ in
     enableAllFirmware = true;
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
-    opengl.enable = true;
+    graphics.enable = true;
   };
 
   hardware.nvidia =
