@@ -4,10 +4,9 @@
     pkgs.url = "github:NixOS/nixpkgs/55dbedb9590009e44aa4b1844754700dd5d722e4"; # 24-7-1
 
     hyprland = {
-      url = "git+https://github.com/hyprwm/hyprland?submodules=1&rev=d1340bd1d8eedd274283e0cb2568a3ed67b58c81"; # 24-6-17
+      url = "git+https://github.com/hyprwm/hyprland?submodules=1&rev=1d70962892a6e3e1cacd3663b390bbdf81426984"; # 24-6-25
       inputs.nixpkgs.follows = "pkgs";
-      inputs.hyprcursor.url = "github:hyprwm/hyprcursor/57298fc4f13c807e50ada2c986a3114b7fc2e621"; # 0.1.9
-      inputs.hyprwayland-scanner.url = "github:hyprwm/hyprwayland-scanner/0f30f9eca6e404130988554accbb64d1c9ec877d"; # 0.3.10
+      inputs.hyprutils.url = "github:hyprwm/hyprutils/6174a2a25f4e216c0f1d0c4278adc23c476b1d09"; # 24-7-10
     };
     rust-overlay.url = "github:oxalica/rust-overlay/fb8c8be0313f0e6385b3d70151a04ea1d71e4b68"; # 24-7-14
   };
