@@ -1,7 +1,8 @@
 {
   inputs = {
     nur.url = "github:nix-community/nur/9edb05163b86238999c6f6cab06c193e4de951f8"; # 24-6-12
-    pkgs.url = "github:NixOS/nixpkgs/8b89e34d1b10c0eb8bac6f2cc7b7a941f4acb171"; # 24-6-1
+    pkgs.url = "github:NixOS/nixpkgs/55dbedb9590009e44aa4b1844754700dd5d722e4"; # 24-7-1
+
     hyprland = {
       url = "git+https://github.com/hyprwm/hyprland?submodules=1&rev=d1340bd1d8eedd274283e0cb2568a3ed67b58c81"; # 24-6-17
       inputs.nixpkgs.follows = "pkgs";

@@ -4,7 +4,7 @@
     pkgs-23-05.url = "github:nixos/nixpkgs/nixos-23.05";
     pkgs-23-11.url = "github:nixos/nixpkgs/nixos-23.11";
     pkgs-24-05.url = "github:nixos/nixpkgs/nixos-24.05";
-    pkgs.url = "github:NixOS/nixpkgs/8b89e34d1b10c0eb8bac6f2cc7b7a941f4acb171"; # 24-6-1
+    pkgs.url = "github:NixOS/nixpkgs/55dbedb9590009e44aa4b1844754700dd5d722e4"; # 24-7-1
 
     home-manager = {
       url = "github:nix-community/home-manager/c085b984ff2808bf322f375b10fea5a415a9c43d"; # 24-7-11
