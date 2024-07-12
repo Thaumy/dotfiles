@@ -48,6 +48,9 @@ map('n', 'wr', function()
   vim.wo.wrap = not vim.wo.wrap
 end)
 
+-- focus on quickfix list
+map_cmd('n', 'cc', 'bo copen')
+
 -- win nav
 map('n', 'wh', '<C-w>h')
 map('n', 'wj', '<C-w>j')
