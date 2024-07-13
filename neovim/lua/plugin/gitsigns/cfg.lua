@@ -20,7 +20,5 @@ plugin.setup {
     return { { text, 'GitSignsCurrentLineBlame' } }
   end,
   -- not committed blame
-  current_line_blame_formatter_nc = function()
-    return { { '', 'GitSignsCurrentLineBlame' } }
-  end,
+  current_line_blame_formatter_nc = '',
 }

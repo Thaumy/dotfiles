@@ -1,3 +1,4 @@
+vim.o.shortmess = 'ltToOcCFsSI'
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.bo.softtabstop = 2
@@ -25,8 +26,6 @@ vim.opt.swapfile = false
 
 -- disable line wrapping when esceeding term width
 vim.wo.wrap = false
-
-vim.o.shortmess = 'ltToOcCFsSI'
 
 -- keymap expire time
 vim.o.timeoutlen = 500
