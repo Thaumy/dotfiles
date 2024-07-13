@@ -14,9 +14,9 @@ plugin.setup {
     virt_text_priority = 100,
   },
   -- committed blame
-  current_line_blame_formatter    = function(_, info, opts)
+  current_line_blame_formatter    = function(_, info)
     local fmt = info.author .. '(<author_time:%y-%m-%d>): <summary>'
-    local text = require 'gitsigns.util'.expand_format(fmt, info, opts.relative_time)
+    local text = require 'gitsigns.util'.expand_format(fmt, info)
     return { { text, 'GitSignsCurrentLineBlame' } }
   end,
   -- not committed blame
