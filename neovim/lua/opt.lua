@@ -27,3 +27,6 @@ vim.opt.swapfile = false
 vim.wo.wrap = false
 
 vim.o.shortmess = 'ltToOcCFsSI'
+
+-- keymap expire time
+vim.o.timeoutlen = 500
