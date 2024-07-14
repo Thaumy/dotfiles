@@ -28,14 +28,18 @@ local window = {
   ['<M-k>']         = 'close_node',
   ['<C-;>']         = 'next_source',
   ['<Esc>']         = 'cancel',
-  ['<Tab>']         = 'refresh',
   ['<Space>']       = { 'toggle_node', nowait = false },
   ['<2-LeftMouse>'] = 'open',
 }
 
 local filesystem = {
   ['.']     = '',
+  ['/']     = '',
+  ['a']     = '',
+  ['c']     = '',
+  ['d']     = '',
   ['f']     = '',
+  ['r']     = '',
   ['D']     = '',
   ['#']     = '',
   ['[g']    = '',
@@ -51,18 +55,20 @@ local filesystem = {
   ['<Bs>']  = '',
   ['<C-x>'] = '',
 
-  ['a']     = { 'add', config = { show_path = 'none' } },
-  ['d']     = 'delete',
-  ['r']     = 'rename',
-  ['/']     = 'fuzzy_finder',
-  ['c']     = 'copy',
   ['1']     = 'navigate_up',
   ['2']     = 'set_root',
+  ['3']     = 'refresh',
   ['e']     = 'close_window',
-  ['H']     = 'toggle_hidden',
+  ['cp']    = 'copy',
+  ['mk']    = { 'add', config = { show_path = 'none' } },
+  ['mv']    = 'rename',
+  ['rm']    = 'delete',
+  ['<Tab>'] = 'toggle_hidden',
 }
 
 local buffers = {
+  ['q']    = '',
+  ['/']    = '',
   ['.']    = '',
   ['o']    = '',
   ['oc']   = '',
@@ -74,8 +80,7 @@ local buffers = {
   ['bd']   = '',
   ['<Bs>'] = '',
 
-  ['q']    = 'buffer_delete',
-  ['/']    = 'fuzzy_finder',
+  ['rm']   = 'buffer_delete',
 }
 
 local git_status = {
