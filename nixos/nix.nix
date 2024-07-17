@@ -14,6 +14,6 @@
   };
   nix.optimise = {
     automatic = true;
-    dates = [ "12:30" ];
+    dates = [ "Mon..Fri 12:30" ];
   };
 }
