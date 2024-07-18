@@ -44,6 +44,16 @@ in
     (writeBin "g-rc" sh/git/rebase-continue.sh)
     (writeBin "g-can" sh/git/commit-amend-noedit.sh)
 
+    (writeBin "c-c" sh/cargo/clippy.sh)
+    (writeBin "c-b" sh/cargo/build.sh)
+    (writeBin "c-f" sh/cargo/fmt.sh)
+    (writeBin "c-r" sh/cargo/run.sh)
+    (writeBin "c-t" sh/cargo/test.sh)
+    (writeBin "c-br" sh/cargo/build-r.sh)
+    (writeBin "c-rr" sh/cargo/run-r.sh)
+    (writeBin "c-tr" sh/cargo/test-r.sh)
+    (writeBin "c-ct" sh/cargo/clippy-tests.sh)
+
     (writeBin "wm-lock" sh/wm/lock.rs)
     (writeBin "wm-menu" sh/wm/menu.rs)
     (writeBin "wm-switch-workspace" sh/wm/switch-workspace.rs)
