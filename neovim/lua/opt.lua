@@ -4,6 +4,7 @@ vim.opt.shiftwidth = 2
 vim.bo.softtabstop = 2
 vim.opt.expandtab = true
 vim.opt.termguicolors = true
+vim.opt.fillchars:append { eob = ' ' }
 
 -- extra characters in viw
 vim.opt.iskeyword:append { '-', '#' }
