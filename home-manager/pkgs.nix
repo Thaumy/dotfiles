@@ -43,7 +43,8 @@
     rhythmbox
     gnome.sushi # file preview
     gnome.nautilus
-    gnome.gnome-boxes
+    gnome.geary # mail
+    gnome.dconf-editor
     gnome.gnome-tweaks
     gnome.gnome-calendar
     gnome.gnome-calculator
@@ -102,6 +103,7 @@
     ventoy-full
     qbittorrent
     rust-script
+    any-nix-shell
     pkgs-24-05.postman
     nodePackages.ts-node
 
