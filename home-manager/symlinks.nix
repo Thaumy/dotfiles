@@ -17,6 +17,10 @@ in
       enable = true;
       source = mkSymlink "${homeDir}/dev/repo/thaumy";
     };
+    "fork-repo" = {
+      enable = true;
+      source = mkSymlink "${homeDir}/dev/repo/fork";
+    };
     "lab" = {
       enable = true;
       source = mkSymlink "${homeDir}/dev/lab";
