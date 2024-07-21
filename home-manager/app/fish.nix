@@ -15,6 +15,7 @@ in
       du = "dust";
       ps = "procs";
       cat = "bat --style numbers";
+      se = "sudo -E";
     };
 
     shellInit = ''
