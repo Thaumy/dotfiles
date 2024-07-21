@@ -19,8 +19,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "Thaumy";
       repo = "nvim-web-devicons";
-      rev = "8fcd5985adb99003759bc031bf2f136add1780ee";
-      hash = "sha256-2h+fAvBK2mjcncefzOhgGG3TWBXQDVhw/NHn9gp9MbE=";
+      rev = "6993d1ba4bc6c778655f488b1a02416eb7e8e2fd";
+      hash = "sha256-yNOIx7uqFM0LVYYlP4wI1kNJm19vVMmzPlpg8anyF5s=";
     };
   };
 in
