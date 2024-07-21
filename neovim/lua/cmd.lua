@@ -1,5 +1,3 @@
-local ui = require 'infra.ui'
-
 -- disable auto comment in normal mode
 vim.api.nvim_create_autocmd('BufEnter', {
   callback = function()
