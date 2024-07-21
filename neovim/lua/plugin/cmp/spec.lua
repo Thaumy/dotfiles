@@ -8,6 +8,7 @@ return {
     { 'hrsh7th/cmp-buffer',   dev = true },
     { 'hrsh7th/cmp-cmdline',  dev = true },
     { 'hrsh7th/cmp-nvim-lsp', dev = true },
+    { 'hrsh7th/cmp-nvim-lua', dev = true },
   },
 
   keys = {

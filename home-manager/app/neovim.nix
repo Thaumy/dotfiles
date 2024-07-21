@@ -71,6 +71,7 @@ in
       Ionide-vim # F# lsp support
       cmp-cmdline # cmdline completion source
       cmp-nvim-lsp # lsp completion source
+      cmp-nvim-lua # nvim lua APIs completion source
       nvim-lspconfig # lsp support
       nvim-treesitter.withAllGrammars # language parser
 

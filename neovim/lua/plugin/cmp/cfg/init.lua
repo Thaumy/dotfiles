@@ -12,6 +12,7 @@ plugin.setup {
   sources = {
     { name = 'path' },
     { name = 'nvim_lsp' },
+    { name = 'nvim_lua' },
   },
   completion = {
     completeopt = 'menu,menuone,noinsert',
