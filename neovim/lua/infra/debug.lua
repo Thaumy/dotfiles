@@ -1,3 +1,12 @@
+local function trev(t)
+  local rev = {}
+  local len = #t
+  for i = 1, len do
+    rev[i] = t[len - i + 1]
+  end
+  return rev
+end
+
 local function tdump(o)
   if type(o) == 'table' then
     local s = '{ '
@@ -12,6 +21,7 @@ local function tdump(o)
 end
 
 return {
+  trev = trev,
   tdump = tdump,
   tprint = function(o)
     vim.print(tdump(o))
