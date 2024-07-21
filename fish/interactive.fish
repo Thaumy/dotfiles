@@ -39,3 +39,5 @@ set fish_pager_color_secondary_prefix
 set fish_pager_color_secondary_background
 set fish_pager_color_secondary_completion
 set fish_pager_color_secondary_description
+
+any-nix-shell fish --info-right | source
