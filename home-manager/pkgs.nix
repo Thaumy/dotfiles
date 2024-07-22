@@ -39,8 +39,8 @@
 
     # GNOME
     evince # docs reader
-    gnome.eog
     rhythmbox
+    gnome.eog
     gnome.sushi # file preview
     gnome.nautilus
     gnome.geary # mail

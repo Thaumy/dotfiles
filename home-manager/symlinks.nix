@@ -5,25 +5,10 @@ let
 in
 {
   home.file = {
-    "sec" = {
-      enable = true;
-      source = mkSymlink "${homeDir}/docs/sec";
-    };
-    "org-repo" = {
-      enable = true;
-      source = mkSymlink "${homeDir}/dev/repo/org";
-    };
-    "thaumy-repo" = {
-      enable = true;
-      source = mkSymlink "${homeDir}/dev/repo/thaumy";
-    };
-    "fork-repo" = {
-      enable = true;
-      source = mkSymlink "${homeDir}/dev/repo/fork";
-    };
-    "lab" = {
-      enable = true;
-      source = mkSymlink "${homeDir}/dev/lab";
-    };
+    "lab".source = mkSymlink "${homeDir}/dev/lab";
+    "sec".source = mkSymlink "${homeDir}/docs/sec";
+    "org-repo".source = mkSymlink "${homeDir}/dev/repo/org";
+    "fork-repo".source = mkSymlink "${homeDir}/dev/repo/fork";
+    "thaumy-repo".source = mkSymlink "${homeDir}/dev/repo/thaumy";
   };
 }
