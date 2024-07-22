@@ -18,7 +18,6 @@
       "/home/thaumy/.dotnet/tools"
     ];
     sessionVariables = {
-      QT_SCALE_FACTOR = 1.8;
       # for perf-event-rs build
       LINUX_HEADERS_PATH = "/etc/sdk-homes/linux-headers";
     };
