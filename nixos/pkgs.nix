@@ -45,7 +45,7 @@ let
     nodePackages_latest.yo
     nodePackages_latest.webpack
     nodePackages_latest.webpack-cli
-    linuxKernel.packages.linux_6_8.perf
+    linuxKernel.packages.linux_6_9.perf
   ];
 
   lib = with pkgs;[
@@ -158,7 +158,7 @@ in
       "sdk-homes/dotnet".source = dotnet-sdk_7;
       "sdk-homes/linux-headers".source = linuxHeaders;
       "sdk-homes/llvm".source = llvmPackages_15.libllvm;
-      "sdk-homes/perf".source = linuxKernel.packages.linux_6_8.perf;
+      "sdk-homes/perf".source = linuxKernel.packages.linux_6_9.perf;
 
       "app-homes/firefox".source = firefox;
       "app-homes/chromium".source = chromium;
