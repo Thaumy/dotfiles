@@ -39,6 +39,7 @@
       DOTNET_ROOT = "${pkgs.dotnet-sdk_7}";
       SSH_AUTH_SOCK = "\${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh";
       LIBCLANG_PATH = "${pkgs.libclang.lib}/lib";
+      QT_SCALE_FACTOR = "1.6";
       QT_STYLE_OVERRIDE = "kvantum";
     };
   };
