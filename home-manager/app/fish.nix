@@ -18,10 +18,6 @@ in
       se = "sudo -E";
     };
 
-    shellInit = ''
-      export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-    '';
-
     interactiveShellInit = ''
       source ${homeDir}/cfg/fish/interactive.fish
     '';
