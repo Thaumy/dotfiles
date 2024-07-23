@@ -11,6 +11,7 @@
 
     ./dae.nix
     ./upower.nix
+    ./greetd.nix
     ./xserver.nix
     ./blueman.nix
     ./pipewire.nix
