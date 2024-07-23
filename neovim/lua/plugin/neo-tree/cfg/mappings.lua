@@ -59,10 +59,10 @@ local filesystem = {
   ['2']     = 'set_root',
   ['3']     = 'refresh',
   ['e']     = 'close_window',
-  ['cp']    = 'copy',
-  ['mk']    = { 'add', config = { show_path = 'none' } },
-  ['mv']    = 'rename',
-  ['rm']    = 'delete',
+  ['yy']    = 'copy',
+  ['to']    = { 'add', config = { show_path = 'none' } },
+  ['s']    = 'rename',
+  ['dd']    = 'delete',
   ['<Tab>'] = 'toggle_hidden',
 }
 
