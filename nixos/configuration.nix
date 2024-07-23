@@ -34,14 +34,12 @@
 
   environment = {
     localBinInPath = true;
-    variables = {
-      QT_STYLE_OVERRIDE = "kvantum";
-    };
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
       DOTNET_ROOT = "${pkgs.dotnet-sdk_7}";
       SSH_AUTH_SOCK = "\${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh";
       LIBCLANG_PATH = "${pkgs.libclang.lib}/lib";
+      QT_STYLE_OVERRIDE = "kvantum";
     };
   };
 
