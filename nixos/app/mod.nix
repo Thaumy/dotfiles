@@ -10,6 +10,7 @@
     ./udisks2.nix
 
     ./dae.nix
+    ./dconf.nix
     ./upower.nix
     ./greetd.nix
     ./xserver.nix
