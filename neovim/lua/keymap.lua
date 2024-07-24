@@ -82,7 +82,7 @@ map({ 'n', 'v' }, 'K', '<C-b>')
 map({ 'n', 'v' }, 'J', '<C-f>')
 
 -- go line head/end
-map({ 'n', 'v' }, 'qh', '^')
+map({ 'n', 'v' }, 'qh', '0')
 map({ 'n', 'v' }, 'ql', '$')
 
 -- quick L/R
