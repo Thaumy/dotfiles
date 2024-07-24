@@ -109,6 +109,13 @@ map('v', 'l', function()
   end
 end)
 
+-- yank abs path of current buf
+map('n', 'bn', function()
+  local buf = vim.api.nvim_get_current_buf()
+  local pwd = vim.api.nvim_buf_get_name(buf)
+  vim.fn.setreg('+', pwd)
+end)
+
 -- terminal to normal
 map('t', '<M-n>', [[<C-\><C-n>]])
 
