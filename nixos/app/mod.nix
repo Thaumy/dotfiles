@@ -7,12 +7,12 @@
     #./waydroid.nix
     ./openssh.nix
 
+    ./xdg.nix
     ./dae.nix
     ./upower.nix
     ./greetd.nix
     ./xserver.nix
     ./pipewire.nix
-    ./hyprland.nix
 
     #./mysql.nix
     #./kafka.nix
