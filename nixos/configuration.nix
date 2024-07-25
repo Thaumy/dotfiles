@@ -9,6 +9,7 @@
     ./nixpkgs.nix
     ./app/mod.nix
     ./hardware.nix
+    ./services.nix
     ./networking.nix
     ./hardware-configuration.nix
   ];
