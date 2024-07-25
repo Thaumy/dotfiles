@@ -1,6 +1,5 @@
 { ... }: {
   imports = [
-    ./fish.nix
     #./netdata.nix
     ./yubikey.nix
     #./steam.nix
@@ -9,7 +8,6 @@
     ./openssh.nix
 
     ./dae.nix
-    ./dconf.nix
     ./upower.nix
     ./greetd.nix
     ./xserver.nix
