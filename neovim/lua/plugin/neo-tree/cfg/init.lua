@@ -37,13 +37,13 @@ plugin.setup {
       },
     },
     file_size = {
-      required_width = 50,
+      required_width = 42,
     },
     type = {
       enabled = false,
     },
     last_modified = {
-      required_width = 70,
+      required_width = 60,
     },
     symlink_target = {
       enabled = true,
