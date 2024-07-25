@@ -104,7 +104,7 @@ plugin.setup {
     lualine_b = { 'branch', 'diff' },
     lualine_c = { 'filename', 'diagnostics', readonly, visual_chars },
     lualine_x = { 'encoding', file_format, lsp_name },
-    lualine_y = { 'searchcount', progress },
-    lualine_z = { 'location' },
+    lualine_y = { 'searchcount' },
+    lualine_z = { progress },
   },
 }
