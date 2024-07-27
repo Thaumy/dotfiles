@@ -204,7 +204,11 @@ map('n', 'bb', function()
       end
     end
   until buf_stack.len == 0 or buf ~= vim.api.nvim_get_current_buf() and listed
-  if buf == nil or (not listed) or (not vim.api.nvim_buf_is_valid(buf)) then
+  if
+      buf == nil or
+      (not listed) or
+      (not vim.api.nvim_buf_is_valid(buf))
+  then
     return
   end
 
@@ -239,7 +243,11 @@ map('n', 'B', function()
       end
     end
   until buf_stack_redo.len == 0 or buf ~= vim.api.nvim_get_current_buf() and listed
-  if buf == nil or (not listed) or (not vim.api.nvim_buf_is_valid(buf)) then
+  if
+      buf == nil or
+      (not listed) or
+      (not vim.api.nvim_buf_is_valid(buf))
+  then
     return
   end
 
