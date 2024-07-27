@@ -60,3 +60,5 @@ k.map('n', 'fm', function()
 end)
 -- quick fix in cursor line
 k.map('n', '<M-q>', vim.lsp.buf.code_action)
+-- rename
+k.map('n', 'tr', vim.lsp.buf.rename)
