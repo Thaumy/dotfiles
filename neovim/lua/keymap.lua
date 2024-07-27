@@ -78,8 +78,8 @@ map('n', '<C-S-k>', '<C-e>')
 map('n', '<C-S-j>', '<C-y>')
 
 -- scroll page up/down
-map({ 'n', 'v' }, 'K', '<C-b>')
-map({ 'n', 'v' }, 'J', '<C-f>')
+map({ 'n', 'v' }, 'K', '18k', true)
+map({ 'n', 'v' }, 'J', '18j', true)
 
 -- go line head/end
 map({ 'n', 'v' }, 'qh', '0')
