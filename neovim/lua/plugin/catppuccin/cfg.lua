@@ -46,7 +46,7 @@ plugin.setup {
     latte = {
       CurSearch = { fg = '#6420AA', bg = '#FFB5DA' },
       CursorLine = { bg = '#fafafa' },
-      NeoTreeGitConflict = { fg = '#ff8700' },
+      NeoTreeGitConflict = { fg = '#ed1b24' },
       NeoTreeGitUntracked = { fg = '#40a02b' },
       BufferLineBufferSelected = { style = { 'bold' } },
       TrailingWhitespace = { bg = '#ffc800' },
@@ -55,7 +55,7 @@ plugin.setup {
     frappe = {
       CurSearch = { fg = '#6420AA', bg = '#FFB5DA' },
       CursorLine = { bg = '#dddddd' },
-      NeoTreeGitConflict = { fg = '#ff8700' },
+      NeoTreeGitConflict = { fg = '#ed1b24' },
       NeoTreeGitUntracked = { fg = '#40a02b' },
       BufferLineBufferSelected = { style = { 'bold' } },
       TrailingWhitespace = { bg = '#ffc800' },
@@ -64,7 +64,7 @@ plugin.setup {
     macchiato = {
       CurSearch = { fg = '#FFB5DA', bg = '#6420AA' },
       CursorLine = { bg = '#2e324a' },
-      NeoTreeGitConflict = { fg = '#ff8700' },
+      NeoTreeGitConflict = { fg = '#e65d5a' },
       NeoTreeGitUntracked = { fg = '#83c66d' },
       BufferLineBufferSelected = { style = { 'bold' } },
       TrailingWhitespace = { bg = '#ffc800' },
@@ -73,7 +73,7 @@ plugin.setup {
     mocha = {
       CurSearch = { fg = '#FFB5DA', bg = '#6420AA' },
       CursorLine = { bg = '#252636' },
-      NeoTreeGitConflict = { fg = '#ff8700' },
+      NeoTreeGitConflict = { fg = '#e65d5a' },
       NeoTreeGitUntracked = { fg = '#83c66d' },
       BufferLineBufferSelected = { style = { 'bold' } },
       TrailingWhitespace = { bg = '#ffc800' },
