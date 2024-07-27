@@ -24,16 +24,16 @@ plugin.setup {
     git_status = {
       symbols = {
         -- Change type
-        added     = '+',
-        deleted   = '-',
-        modified  = '~',
-        renamed   = '↗',
+        added     = '',
+        deleted   = '',
+        modified  = '',
+        renamed   = '',
         -- Status type
         untracked = '',
         ignored   = '',
         unstaged  = '',
         staged    = '',
-        conflict  = '!',
+        conflict  = '',
       },
     },
     file_size = {
