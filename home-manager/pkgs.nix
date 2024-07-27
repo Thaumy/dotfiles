@@ -38,17 +38,17 @@
     element-desktop
 
     # GNOME
+    eog
+    sushi # file preview
+    geary # mail
     evince # docs reader
+    nautilus
     rhythmbox
-    gnome.eog
-    gnome.sushi # file preview
-    gnome.nautilus
-    gnome.geary # mail
-    gnome.dconf-editor
-    gnome.gnome-tweaks
-    gnome.gnome-calendar
-    gnome.gnome-calculator
-    gnome.gnome-font-viewer
+    dconf-editor
+    gnome-tweaks
+    gnome-calendar
+    gnome-calculator
+    gnome-font-viewer
 
     # WM
     wl-clipboard-x11
