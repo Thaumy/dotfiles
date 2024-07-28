@@ -21,7 +21,7 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    nvim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay/9822e0611d49ae70278ac20c9d7b68e4797b2fab"; # 24-7-6
+    nvim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay/4e77eaba554c3ec4763ecef358e6aa6ace41a6a3"; # 24-7-28
   };
 
   outputs =
