@@ -1,3 +1,5 @@
+local Debounce = require 'infra.debounce'
+
 -- disable auto comment in normal mode
 vim.api.nvim_create_autocmd('BufEnter', {
   callback = function()
@@ -19,9 +21,10 @@ do
 
   local ns = vim.api.nvim_create_namespace 'trailing-space-hl'
   local ext_marks = { {} }
+  local debounce = Debounce:new()
 
-  vim.api.nvim_create_autocmd({ 'BufEnter', 'TextChanged', 'InsertLeave' }, {
-    callback = function(args)
+  local cb = function(args)
+    debounce:schedule(200, function()
       if
           vim.api.nvim_get_option_value('readonly', { buf = args.buf }) or
           (not vim.api.nvim_get_option_value('modifiable', { buf = args.buf })) or
@@ -49,8 +52,10 @@ do
           )
         end
       end
-    end,
-  })
+    end)
+  end
+
+  vim.api.nvim_create_autocmd({ 'BufEnter', 'TextChanged', 'InsertLeave' }, { callback = cb })
 end
 
 -- auto switch fcitx
