@@ -2,6 +2,7 @@ local ui = require 'infra.ui'
 local k = require 'infra.key'
 local plugin = require 'neo-tree'
 local mappings = require 'plugin.neo-tree.cfg.mappings'
+local Debounce = require 'infra.debounce'
 
 plugin.setup {
   enable_diagnostics = false,
@@ -106,14 +107,17 @@ if vim.go.columns > 120 then
 end
 
 -- auto show/close neo-tree when window resized
+local debounce = Debounce:new()
 local auto_toggle = vim.api.nvim_create_autocmd('VimResized', {
   callback = function()
-    local visible = ui.any_buf_ft 'neo-tree'
-    if vim.go.columns < 120 and visible then
-      vim.cmd(close_cmd)
-    elseif vim.go.columns >= 120 and (not visible) then
-      vim.cmd(show_cmd)
-    end
+    debounce:schedule(200, function()
+      local visible = ui.any_buf_ft 'neo-tree'
+      if vim.go.columns < 120 and visible then
+        vim.cmd(close_cmd)
+      elseif vim.go.columns >= 120 and (not visible) then
+        vim.cmd(show_cmd)
+      end
+    end)
   end,
 })
 
