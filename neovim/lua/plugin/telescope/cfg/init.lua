@@ -34,7 +34,9 @@ plugin.setup {
 -- open
 k.map_cmd('n', 'tm', 'Telescope')
 -- global search
-k.map_cmd('n', 't/', 'Telescope live_grep')
+k.map('n', 't/', function()
+  plugin_builtin.live_grep { debounce = 100 }
+end)
 -- show diagnostics
 k.map('n', 'fd', plugin_builtin.diagnostics)
 -- go def
