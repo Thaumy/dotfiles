@@ -62,6 +62,7 @@ in
       telescope-nvim # fuzzy finder
       bufferline-nvim # buffer tabs
       toggleterm-nvim # terminal
+      actions-preview-nvim # code actions preview
       markdown-preview-nvim # markdown renderer
 
       # analyzers

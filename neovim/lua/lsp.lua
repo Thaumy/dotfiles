@@ -58,7 +58,5 @@ k.map('n', 'fm', function()
     vim.lsp.buf.format { sync = true }
   end
 end)
--- quick fix in cursor line
-k.map('n', '<M-q>', vim.lsp.buf.code_action)
 -- rename
 k.map('n', 'tr', vim.lsp.buf.rename)

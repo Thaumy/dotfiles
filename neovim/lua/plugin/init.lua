@@ -21,6 +21,7 @@ local specs = {
   require 'plugin.telescope.spec',
   require 'plugin.toggleterm.spec',
   require 'plugin.md-preview.spec',
+  require 'plugin.actions-preview.spec',
 
   -- analyzers
   require 'plugin.cmp.spec',
