@@ -27,6 +27,9 @@ plugin.setup {
     fields = { 'kind', 'abbr', 'menu' },
     format = format,
   },
+  experimental = {
+    ghost_text = true,
+  },
 }
 
 local cmdline_mapping = plugin.mapping.preset.cmdline {
