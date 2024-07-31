@@ -92,6 +92,11 @@ local function visual_chars()
   end
 end
 
+local function col()
+  local col = vim.api.nvim_win_get_cursor(0)[2]
+  return string.format('C%d', col)
+end
+
 plugin.setup {
   options = {
     icons_enabled = false,
@@ -103,7 +108,7 @@ plugin.setup {
     lualine_a = { mode },
     lualine_b = { 'branch', 'diff' },
     lualine_c = { 'filename', 'diagnostics', readonly, visual_chars },
-    lualine_x = { 'encoding', file_format, lsp_name },
+    lualine_x = { col, 'encoding', file_format, lsp_name },
     lualine_y = { 'searchcount' },
     lualine_z = { progress },
   },
