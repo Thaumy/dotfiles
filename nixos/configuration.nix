@@ -22,18 +22,6 @@
     HandlePowerKey=ignore
   '';
 
-  virtualisation = {
-    #lxd.enable = true;
-    podman = {
-      enable = true;
-
-      defaultNetwork.settings = {
-        dns_enabled = true;
-      };
-    };
-    #virtualbox.host.enable = true;
-  };
-
   environment = {
     localBinInPath = true;
     sessionVariables = {

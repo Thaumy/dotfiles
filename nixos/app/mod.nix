@@ -14,6 +14,7 @@
     ./xserver.nix
     ./pipewire.nix
 
+    ./podman.nix
     #./mysql.nix
     #./kafka.nix
     #./redis.nix
