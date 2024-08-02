@@ -6,6 +6,7 @@ plugin.setup {
     show_buffer_icons = false,
     separator_style = { '', '' },
     indicator = { style = 'none' },
+    modified_icon = ' 󰨓',
     left_trunc_marker = '+',
     right_trunc_marker = '+',
     buffer_close_icon = '',
