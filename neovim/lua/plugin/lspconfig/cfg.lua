@@ -38,7 +38,6 @@ plugin.taplo.setup { -- TOML
 }
 plugin.jdtls.setup {
   capabilities = caps,
-  cmd = { 'jdt-language-server' },
 }
 plugin.gopls.setup {
   capabilities = caps,
