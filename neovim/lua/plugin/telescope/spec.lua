@@ -7,7 +7,15 @@ return {
     require 'plugin.plenary.spec',
   },
 
-  event = 'VimEnter',
+  cmd = 'Telescope',
+  keys = {
+    { mode = 'n', 'tm' },
+    { mode = 'n', 't/' },
+    { mode = 'n', 'fd' },
+    { mode = 'n', '<M-d>' },
+    { mode = 'n', '<M-u>' },
+    { mode = 'n', '<M-i>' },
+  },
 
   config = function()
     require 'plugin.telescope.cfg'
