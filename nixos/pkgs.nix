@@ -81,13 +81,6 @@ let
     nvtopPackages.amd
   ];
 
-  nix = with pkgs; [
-    yarn2nix
-    nix-index
-    nix-prefetch-github
-    nix-prefetch-scripts
-  ];
-
   fs = with pkgs; [
     parted
     gparted
@@ -125,7 +118,6 @@ in
       sdk ++
       lib ++
       infra ++
-      nix ++
       net ++
       fs ++
       etc;
