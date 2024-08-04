@@ -3,10 +3,7 @@ let
   sdk = with pkgs; [
     go
     gdb
-    jdk8
     lldb
-    jdk11
-    jdk17
     gcc10
     gcc13
     ocaml
@@ -124,9 +121,6 @@ in
 
     etc = with pkgs; {
       "sdk-homes/go".source = go;
-      "sdk-homes/jdk8".source = jdk8;
-      "sdk-homes/jdk-11".source = jdk11;
-      "sdk-homes/jdk-17".source = jdk17;
       "sdk-homes/gcc-10".source = gcc10;
       "sdk-homes/gcc-13".source = gcc13;
       "sdk-homes/dotnet".source = dotnet-sdk_7;
