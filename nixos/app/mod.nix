@@ -1,7 +1,6 @@
 { ... }: {
   imports = [
     #./netdata.nix
-    ./yubikey.nix
     #./steam.nix
     #./tomcat.nix
     #./waydroid.nix
