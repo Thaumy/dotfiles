@@ -9,9 +9,21 @@ let
       }
     ];
   };
+  u2f_keys = pkgs.writeText "u2f_keys" ''
+    thaumy:Wb4JR3yJJ3CnZAZ2UCB0QmrVOLfNFXrsvSz3pPyRp/2o47Ufp0RJnU4uYqqWwkv1rW2fefMwimBn/YWMqxiXjg==,xAs8vXCAmGl2nC/cahp9YVSkJRGajuuZgRGokan040a3LC/z/s/bKjBLS8GsgDywSoPNIASR1Lfxgff1nHEtYg==,es256,+presence
+  '';
 in
 {
   security.sudo.extraRules = [ thaumy ];
+  security = {
+    pam.u2f = {
+      enable = true;
+      settings = {
+        cue = true;
+        authfile = u2f_keys;
+      };
+    };
+  };
 
   services = {
     udev.packages = [ pkgs.yubikey-personalization ];
@@ -23,6 +35,9 @@ in
   };
 
   environment.systemPackages = with pkgs; [
+    pam_u2f
+    pamtester
+    yubico-pam
     yubikey-manager
     yubikey-personalization
   ];
