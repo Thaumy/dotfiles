@@ -10,7 +10,6 @@ let
     redli
     stack
     docker
-    nodejs
     gnumake
     kafkactl
     protobuf
@@ -22,9 +21,6 @@ let
     linuxHeaders
     dotnet-sdk_7
     android-tools
-    nodePackages_latest.yo
-    nodePackages_latest.webpack
-    nodePackages_latest.webpack-cli
     linuxKernel.packages.linux_6_9.perf
   ];
 
