@@ -8,7 +8,6 @@ let
     gcc13
     ocaml
     stack
-    docker
     gnumake
     protobuf
     valgrind
@@ -67,7 +66,6 @@ let
     win-spice
     dmidecode
     pkg-config
-    docker-compose
     nvtopPackages.amd
   ];
 
