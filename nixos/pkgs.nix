@@ -1,26 +1,10 @@
 { pkgs, ... }:
 let
-  rust = (pkgs.rust-bin.nightly."2024-06-20".complete.override {
-    extensions = [ "rust-src" ];
-    targets = [
-      "aarch64-apple-darwin"
-      "aarch64-unknown-linux-gnu"
-      "aarch64-unknown-linux-musl"
-      "x86_64-apple-darwin"
-      "x86_64-pc-windows-msvc"
-      "x86_64-unknown-linux-gnu"
-      "x86_64-unknown-linux-musl"
-      "wasm32-wasi"
-      "wasm32-unknown-unknown"
-    ];
-  });
-
   sdk = with pkgs; [
     go
     gdb
     jdk8
     lldb
-    rust
     jdk11
     jdk17
     gcc10
@@ -40,7 +24,6 @@ let
     clang-tools
     linuxHeaders
     dotnet-sdk_7
-    rust-bindgen
     android-tools
     nodePackages_latest.yo
     nodePackages_latest.webpack
@@ -149,7 +132,6 @@ in
 
     etc = with pkgs; {
       "sdk-homes/go".source = go;
-      "sdk-homes/rust".source = rust;
       "sdk-homes/jdk8".source = jdk8;
       "sdk-homes/jdk-11".source = jdk11;
       "sdk-homes/jdk-17".source = jdk17;

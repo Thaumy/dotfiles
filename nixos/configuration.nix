@@ -9,6 +9,7 @@
     ./local.nix
     ./nixpkgs.nix
     ./app/mod.nix
+    ./dev/mod.nix
     ./hardware.nix
     ./programs.nix
     ./services.nix
