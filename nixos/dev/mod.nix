@@ -4,5 +4,6 @@
     ./rust.nix
     ./node.nix
     ./java.nix
+    ./dotnet.nix
   ];
 }

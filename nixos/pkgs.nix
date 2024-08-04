@@ -19,7 +19,6 @@ let
     kubernetes
     clang-tools
     linuxHeaders
-    dotnet-sdk_7
     android-tools
     linuxKernel.packages.linux_6_9.perf
   ];
@@ -119,7 +118,6 @@ in
       "sdk-homes/go".source = go;
       "sdk-homes/gcc-10".source = gcc10;
       "sdk-homes/gcc-13".source = gcc13;
-      "sdk-homes/dotnet".source = dotnet-sdk_7;
       "sdk-homes/linux-headers".source = linuxHeaders;
       "sdk-homes/llvm".source = llvmPackages_15.libllvm;
       "sdk-homes/perf".source = linuxKernel.packages.linux_6_9.perf;
