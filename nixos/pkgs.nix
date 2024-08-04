@@ -15,7 +15,7 @@ let
     ];
   });
 
-  sdk = with pkgs;[
+  sdk = with pkgs; [
     go
     gdb
     jdk8
@@ -48,7 +48,7 @@ let
     linuxKernel.packages.linux_6_9.perf
   ];
 
-  lib = with pkgs;[
+  lib = with pkgs; [
     glibc
     openssl
     libvirt
@@ -57,7 +57,7 @@ let
     llvmPackages_15.libllvm
   ];
 
-  infra = with pkgs;[
+  infra = with pkgs; [
     jq
     eza
     git
@@ -98,14 +98,14 @@ let
     nvtopPackages.amd
   ];
 
-  nix = with pkgs;[
+  nix = with pkgs; [
     yarn2nix
     nix-index
     nix-prefetch-github
     nix-prefetch-scripts
   ];
 
-  fs = with pkgs;[
+  fs = with pkgs; [
     parted
     gparted
     exfatprogs
@@ -113,7 +113,7 @@ let
     smartmontools
   ];
 
-  net = with pkgs;[
+  net = with pkgs; [
     nmap
     wget
     whois
@@ -121,7 +121,7 @@ let
     wireshark
   ];
 
-  etc = with pkgs;[
+  etc = with pkgs; [
     vsftpd
     ripgrep
     firefox
@@ -165,4 +165,3 @@ in
     };
   };
 }
-

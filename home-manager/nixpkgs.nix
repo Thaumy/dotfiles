@@ -1,10 +1,6 @@
 { inputs, ... }: {
   nixpkgs = {
-    config = {
-      allowUnfree = true;
-      permittedInsecurePackages = [
-      ];
-    };
+    config.allowUnfree = true;
     overlays = [ inputs.nur.overlay ];
   };
 }
