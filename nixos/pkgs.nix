@@ -11,7 +11,6 @@ let
     stack
     docker
     gnumake
-    kafkactl
     protobuf
     valgrind
     python311
