@@ -7,7 +7,6 @@ let
     gcc10
     gcc13
     ocaml
-    redli
     stack
     docker
     gnumake

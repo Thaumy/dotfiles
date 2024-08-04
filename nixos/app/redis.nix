@@ -5,7 +5,8 @@
     };
   };
 
-  environment.etc = {
-    "app-homes/redis".source = pkgs.redis;
+  environment = {
+    systemPackages = [ pkgs.redli ];
+    etc."app-homes/redis".source = pkgs.redis;
   };
 }
