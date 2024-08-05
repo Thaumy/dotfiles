@@ -93,8 +93,7 @@ local function visual_chars()
 end
 
 local function col()
-  local col = vim.api.nvim_win_get_cursor(0)[2]
-  return string.format('C%d', col)
+  return string.format('C%d', vim.api.nvim_win_get_cursor(0)[2])
 end
 
 plugin.setup {

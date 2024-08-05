@@ -1,5 +1,5 @@
-local ui = require 'infra.ui'
 local k = require 'infra.key'
+local ui = require 'infra.ui'
 local plugin = require 'neo-tree'
 local mappings = require 'plugin.neo-tree.cfg.mappings'
 local Debounce = require 'infra.debounce'

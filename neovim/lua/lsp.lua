@@ -1,6 +1,6 @@
-local cmp = require 'cmp'
-local ui = require 'infra.ui'
 local k = require 'infra.key'
+local ui = require 'infra.ui'
+local cmp = require 'cmp'
 
 local function enable_inlay_hint()
   vim.lsp.inlay_hint.enable()

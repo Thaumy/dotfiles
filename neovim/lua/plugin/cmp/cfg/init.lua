@@ -1,5 +1,5 @@
-local plugin = require 'cmp'
 local format = require 'plugin.cmp.cfg.format'
+local plugin = require 'cmp'
 local luasnip = require 'luasnip'
 
 plugin.setup {

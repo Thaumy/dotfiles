@@ -1,6 +1,7 @@
-local plugin           = require 'fidget'
 local fn               = require 'plugin.fidget.cfg.fn'
+local plugin           = require 'fidget'
 local notification_cfg = (require 'fidget.notification').default_config
+
 notification_cfg.icon  = '󰍧 '
 
 plugin.setup {
