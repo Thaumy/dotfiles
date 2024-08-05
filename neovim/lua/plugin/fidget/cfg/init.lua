@@ -1,8 +1,9 @@
-local fn               = require 'plugin.fidget.cfg.fn'
-local plugin           = require 'fidget'
-local notification_cfg = (require 'fidget.notification').default_config
+local k                          = require 'infra.key'
+local fn                         = require 'plugin.fidget.cfg.fn'
+local plugin                     = require 'fidget'
+local notification               = require 'fidget.notification'
 
-notification_cfg.icon  = '󰍧 '
+notification.default_config.icon = '󰍧 '
 
 plugin.setup {
   progress = {
@@ -18,7 +19,7 @@ plugin.setup {
   notification = {
     poll_rate = 20,
     override_vim_notify = true,
-    configs = { default = notification_cfg },
+    configs = { default = notification.default_config },
     view = { group_separator = '' },
     window = {
       normal_hl = 'Normal',
@@ -37,3 +38,5 @@ plugin.setup {
     ['xcodebuild-nvim'] = { enable = true },
   },
 }
+
+k.map('n', 'fc', notification.clear)
