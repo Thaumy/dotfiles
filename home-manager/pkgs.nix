@@ -113,6 +113,7 @@
     cargo-audit
     cargo-tauri
     cargo-expand
+    cargo-llvm-cov
     cargo-outdated
     cargo-generate
     cargo-component

@@ -31,8 +31,10 @@ in
 
   environment.systemPackages = with pkgs; [
     pam_u2f
+    seahorse
     pamtester
     yubico-pam
+    gnome-keyring
     yubikey-manager
     yubikey-personalization
   ];
