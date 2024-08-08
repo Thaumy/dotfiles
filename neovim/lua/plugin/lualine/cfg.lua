@@ -86,7 +86,7 @@ end
 local function visual_chars()
   local wc = vim.fn.wordcount()
   if wc.visual_chars ~= nil then
-    return string.format('V%d', wc.visual_chars)
+    return string.format('VC%d', wc.visual_chars)
   else
     return ''
   end
