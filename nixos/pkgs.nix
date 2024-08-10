@@ -95,7 +95,7 @@ let
     distrobox
     obs-studio
     home-manager
-    ffmpeg_5-full
+    ffmpeg_7-full
     systemctl-tui
     libsForQt5.qtstyleplugin-kvantum
   ];
