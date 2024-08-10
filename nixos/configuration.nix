@@ -1,6 +1,5 @@
 { pkgs, ... }: {
   imports = [
-    ./nix.nix
     ./sec.nix
     ./boot.nix
     ./user.nix
