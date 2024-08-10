@@ -21,6 +21,10 @@ unmap({ 'n', 'v' }, 'q:')
 unmap({ 'n', 'v' }, 'q/')
 unmap({ 'n', 'v' }, 'q?')
 
+-- case switching
+map({ 'v' }, 'uj', 'u')
+map({ 'v' }, 'uk', 'U')
+
 -- buf
 map_cmd({ 'n', 'v' }, 'ww', 'w')
 map_cmd({ 'n', 'v' }, 'wa', 'wa')
