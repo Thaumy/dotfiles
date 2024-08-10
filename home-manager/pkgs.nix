@@ -19,7 +19,7 @@
     glow
     typst
     typstfmt
-    android-studio
+    pkgs-24-05.android-studio
 
     # JetBrains IDEs
     pkgs-24-05.jetbrains.rider
