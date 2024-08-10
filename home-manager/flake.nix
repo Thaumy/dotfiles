@@ -12,9 +12,9 @@
     };
 
     hyprland = {
-      url = "git+https://github.com/hyprwm/hyprland?submodules=1&rev=1d70962892a6e3e1cacd3663b390bbdf81426984"; # 24-6-25
+      url = "git+https://github.com/hyprwm/hyprland?submodules=1&rev=9a09eac79b85c846e3a865a9078a3f8ff65a9259"; # 24-8-8(0.42.0)
       inputs.nixpkgs.follows = "pkgs";
-      inputs.hyprutils.url = "github:hyprwm/hyprutils/5dcbbc1e3de40b2cecfd2007434d86e924468f1f"; # 24-7-28
+      inputs.hyprwayland-scanner.url = "github:hyprwm/hyprwayland-scanner/a048a6cb015340bd82f97c1f40a4b595ca85cc30"; # 24-7-19
     };
     hyprfocus = {
       url = "github:pyt0xic/hyprfocus/aa7262d3a4564062f97b9cfdad47fd914cfb80f2"; # 24-5-30
