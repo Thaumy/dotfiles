@@ -10,9 +10,7 @@
     nixosConfigurations."nixos" = inputs.pkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
-      modules = [
-        ./configuration.nix
-      ];
+      modules = [ ./configuration.nix ];
     };
   };
 }

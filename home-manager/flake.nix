@@ -42,9 +42,7 @@
           pkgs-23-11 = import inputs.pkgs-23-11 pkgs-cfg;
           pkgs-24-05 = import inputs.pkgs-24-05 pkgs-cfg;
         };
-        modules = [
-          ./home.nix
-        ];
+        modules = [ ./home.nix ];
       };
       defaultPackage.x86_64-darwin = hm.defaultPackage.x86_64-darwin;
     };
