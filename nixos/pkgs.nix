@@ -17,7 +17,7 @@ let
     clang-tools
     linuxHeaders
     android-tools
-    linuxKernel.packages.linux_6_9.perf
+    linuxKernel.packages.linux_6_10.perf
   ];
 
   lib = with pkgs; [
@@ -116,7 +116,7 @@ in
       "sdk-homes/gcc-13".source = gcc13;
       "sdk-homes/linux-headers".source = linuxHeaders;
       "sdk-homes/llvm".source = llvmPackages_15.libllvm;
-      "sdk-homes/perf".source = linuxKernel.packages.linux_6_9.perf;
+      "sdk-homes/perf".source = linuxKernel.packages.linux_6_10.perf;
 
       "app-homes/firefox".source = firefox;
       "app-homes/chromium".source = chromium;
