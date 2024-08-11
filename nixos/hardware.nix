@@ -11,7 +11,7 @@ in
   };
 
   hardware.nvidia = lib.mkIf (!enable_nvidia_vfio) {
-    open = true;
+    open = false;
     nvidiaSettings = true;
     modesetting.enable = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
