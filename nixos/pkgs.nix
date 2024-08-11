@@ -66,7 +66,9 @@ let
     win-spice
     dmidecode
     pkg-config
-    nvtopPackages.amd
+    unixtools.xxd
+    nvtopPackages.full
+    (btop.override { cudaSupport = true; rocmSupport = true; })
   ];
 
   fs = with pkgs; [
@@ -94,6 +96,7 @@ let
     neofetch
     distrobox
     obs-studio
+    imagemagick
     home-manager
     ffmpeg_7-full
     systemctl-tui

@@ -19,6 +19,7 @@ in
   environment = {
     systemPackages = with pkgs; [
       toolchain
+      diesel-cli
       rust-bindgen
     ];
 

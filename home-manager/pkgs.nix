@@ -63,7 +63,6 @@
     git-filter-repo
 
     # wasm dev
-    wasmer
     binaryen
     wasmtime
     wasm-pack
@@ -95,7 +94,6 @@
     unar
     grim # screenshot
     hdparm
-    bottom
     udiskie
     xorg.xev # show key events
     gammastep
@@ -110,6 +108,7 @@
     # cargo
     grcov
     cargo-edit
+    cargo-udeps
     cargo-audit
     cargo-tauri
     cargo-expand
