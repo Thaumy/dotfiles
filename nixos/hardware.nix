@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 let
   enable_nvidia_vfio = false;
 in
@@ -33,15 +33,25 @@ in
     };
   };
 
-  boot = lib.mkIf enable_nvidia_vfio {
-    kernelModules = [
-      "vfio"
-      "vfio_pci"
-      "vfio_virqfd"
-      "vfio_iommu_type1"
-    ];
-    kernelParams = [ "amd_iommu=on" ];
-    blacklistedKernelModules = [ "nvidia" "nouveau" ];
-    extraModprobeConfig = "options vfio-pci ids=10de:2560,10de:228e";
+  boot = lib.mkMerge [
+    # HACK: load nvidia kernel modules before login to fix display conflict with amd gpu
+    { blacklistedKernelModules = [ "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" ]; }
+    (lib.mkIf enable_nvidia_vfio {
+      kernelModules = [
+        "vfio"
+        "vfio_pci"
+        "vfio_virqfd"
+        "vfio_iommu_type1"
+      ];
+      kernelParams = [ "amd_iommu=on" ];
+      extraModprobeConfig = "options vfio-pci ids=10de:2560,10de:228e";
+    })
+  ];
+
+  # HACK: load nvidia kernel modules before login to fix display conflict with amd gpu
+  systemd.services.load-nvidia-kernel-modules = {
+    enable = !enable_nvidia_vfio;
+    script = "${pkgs.kmod}/bin/modprobe nvidia";
+    wantedBy = [ "multi-user.target" ];
   };
 }
