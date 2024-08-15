@@ -20,7 +20,7 @@
     ./postgres.nix
     #./mongodb.nix
 
-    #./docker.nix
+    ./docker.nix
     ./virt-manager.nix
   ];
 }
