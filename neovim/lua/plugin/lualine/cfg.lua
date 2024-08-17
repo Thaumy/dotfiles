@@ -54,7 +54,7 @@ local function lsp_name()
   if client == nil then
     return ''
   else
-    return '󰥛 ' .. client.messages.name
+    return '[' .. client.messages.name .. ']'
   end
 end
 
