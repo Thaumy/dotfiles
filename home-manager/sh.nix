@@ -52,6 +52,7 @@ in
     (writeBin "c-tr" sh/cargo/test-r.sh)
     (writeBin "c-ct" sh/cargo/clippy-tests.sh)
 
+    (writeBin "wm-apps" sh/wm/apps.rs)
     (writeBin "wm-lock" sh/wm/lock.rs)
     (writeBin "wm-menu" sh/wm/menu.rs)
     (writeBin "wm-switch-ws" sh/wm/switch-ws.rs)
