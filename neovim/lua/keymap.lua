@@ -161,19 +161,30 @@ local navi_by_motion = false
 
 vim.api.nvim_create_autocmd('BufLeave', {
   callback = function(args)
-    if navi_by_motion then
-      navi_by_motion = false
-      return
-    end
+    vim.schedule(function()
+      if navi_by_motion then
+        navi_by_motion = false
+        return
+      end
 
-    local ft = vim.api.nvim_get_option_value('filetype', { buf = args.buf })
-    if ft == 'neo-tree' then
-      return
-    end
+      local info = vim.fn.getbufinfo(args.buf)[1]
+      if info == nil or info.listed == 0 then
+        return
+      end
 
-    if buf_stack:top() ~= args.buf then
-      buf_stack:push(args.buf)
-    end
+      local ft = vim.api.nvim_get_option_value('filetype', { buf = args.buf })
+      if
+          ft == 'neo-tree' or
+          ft == 'toggleterm'
+      then
+        return
+      end
+
+      if buf_stack:top() ~= args.buf then
+        vim.print(args.buf)
+        buf_stack:push(args.buf)
+      end
+    end)
   end,
 })
 
