@@ -120,6 +120,24 @@ plugin.setup {
       maroon = '#16d4d1',
     },
   },
+  integrations = {
+    native_lsp = {
+      virtual_text = {
+        ok = {},
+        hints = {},
+        errors = {},
+        warnings = {},
+        information = {},
+      },
+      underlines = {
+        ok = { 'undercurl' },
+        hints = { 'undercurl' },
+        errors = { 'undercurl' },
+        warnings = { 'undercurl' },
+        information = { 'undercurl' },
+      },
+    },
+  },
 }
 
 local function is_light_theme()
