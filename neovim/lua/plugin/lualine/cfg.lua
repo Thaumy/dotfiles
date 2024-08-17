@@ -96,6 +96,10 @@ local function col()
   return string.format('C%d', vim.api.nvim_win_get_cursor(0)[2])
 end
 
+local function relative_path()
+  return vim.fn.expand '%:.'
+end
+
 plugin.setup {
   options = {
     icons_enabled = false,
@@ -106,7 +110,7 @@ plugin.setup {
   sections = {
     lualine_a = { mode },
     lualine_b = { 'branch', 'diff' },
-    lualine_c = { 'filename', 'diagnostics', readonly, visual_chars },
+    lualine_c = { relative_path, 'diagnostics', readonly, visual_chars },
     lualine_x = { col, 'encoding', file_format, lsp_name },
     lualine_y = { 'searchcount' },
     lualine_z = { progress },
