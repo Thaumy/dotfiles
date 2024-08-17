@@ -1,8 +1,8 @@
 local plugin = require 'gitsigns'
 
 plugin.setup {
-  signcolumn                      = false,
   numhl                           = true,
+  signcolumn                      = false,
   auto_attach                     = true,
   attach_to_untracked             = false,
   current_line_blame              = true,
