@@ -26,9 +26,9 @@ in
     };
 
     powerManagement = {
-      # suspend/hibernate will fail if `enable = true;`
+      # suspend/hibernate may fail if `enable = true;`
       # See: https://github.com/NixOS/nixpkgs/issues/254614
-      enable = false;
+      enable = true;
       finegrained = true;
     };
   };
