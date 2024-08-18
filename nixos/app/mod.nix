@@ -2,6 +2,7 @@
   imports = [
     #./netdata.nix
     #./steam.nix
+    ./direnv.nix
     #./tomcat.nix
     #./waydroid.nix
     ./openssh.nix
