@@ -49,6 +49,7 @@
     gnome-calendar
     gnome-calculator
     gnome-font-viewer
+    gnome-disk-utility
 
     # WM
     wl-clipboard-x11

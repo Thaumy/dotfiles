@@ -4,10 +4,10 @@ let
     go
     gdb
     lldb
-    gcc10
-    gcc13
     ocaml
     stack
+    gcc14
+    libllvm
     gnumake
     protobuf
     valgrind
@@ -21,11 +21,9 @@ let
   ];
 
   lib = with pkgs; [
-    glibc
     libvirt
     libinput
     libiconv
-    llvmPackages_15.libllvm
   ];
 
   infra = with pkgs; [
@@ -35,7 +33,6 @@ let
     glib
     zbar
     lsof
-    vsce
     qemu
     tree
     lshw
@@ -65,7 +62,6 @@ let
     cdrtools
     win-spice
     dmidecode
-    pkg-config
     unixtools.xxd
     nvtopPackages.full
     (btop.override { cudaSupport = true; rocmSupport = true; })
@@ -115,10 +111,9 @@ in
 
     etc = with pkgs; {
       "sdk-homes/go".source = go;
-      "sdk-homes/llvm".source = llvmPackages_15.libllvm;
+      "sdk-homes/gcc".source = gcc14;
+      "sdk-homes/llvm".source = libllvm;
       "sdk-homes/perf".source = linuxKernel.packages.linux_6_10.perf;
-      "sdk-homes/gcc-10".source = gcc10;
-      "sdk-homes/gcc-13".source = gcc13;
       "sdk-homes/linux-headers".source = linuxHeaders;
 
       "app-homes/firefox".source = firefox;
