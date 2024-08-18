@@ -22,7 +22,6 @@ let
 
   lib = with pkgs; [
     glibc
-    openssl
     libvirt
     libinput
     libiconv
@@ -55,6 +54,7 @@ let
     evtest
     psmisc
     screen
+    openssl
     pamixer
     du-dust
     numactl
@@ -106,20 +106,20 @@ in
 {
   environment = {
     systemPackages =
-      sdk ++
-      lib ++
-      infra ++
-      net ++
       fs ++
-      etc;
+      lib ++
+      etc ++
+      net ++
+      sdk ++
+      infra;
 
     etc = with pkgs; {
       "sdk-homes/go".source = go;
+      "sdk-homes/llvm".source = llvmPackages_15.libllvm;
+      "sdk-homes/perf".source = linuxKernel.packages.linux_6_10.perf;
       "sdk-homes/gcc-10".source = gcc10;
       "sdk-homes/gcc-13".source = gcc13;
       "sdk-homes/linux-headers".source = linuxHeaders;
-      "sdk-homes/llvm".source = llvmPackages_15.libllvm;
-      "sdk-homes/perf".source = linuxKernel.packages.linux_6_10.perf;
 
       "app-homes/firefox".source = firefox;
       "app-homes/chromium".source = chromium;

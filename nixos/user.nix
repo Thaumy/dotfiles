@@ -4,10 +4,10 @@
     shell = pkgs.fish;
 
     extraGroups = [
-      "networkmanager"
       "wheel"
       "docker"
       "libvirtd"
+      "networkmanager"
     ];
   };
 }

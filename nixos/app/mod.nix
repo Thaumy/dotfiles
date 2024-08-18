@@ -1,11 +1,11 @@
 { ... }: {
   imports = [
-    #./netdata.nix
     #./steam.nix
     ./direnv.nix
     #./tomcat.nix
-    #./waydroid.nix
+    #./netdata.nix
     ./openssh.nix
+    #./waydroid.nix
 
     ./xdg.nix
     ./dae.nix
@@ -14,12 +14,12 @@
     ./xserver.nix
     ./pipewire.nix
 
-    ./podman.nix
     #./mysql.nix
     #./kafka.nix
     #./redis.nix
-    ./postgres.nix
+    ./podman.nix
     #./mongodb.nix
+    ./postgres.nix
 
     ./docker.nix
     ./virt-manager.nix
