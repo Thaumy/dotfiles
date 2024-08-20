@@ -85,6 +85,7 @@ in
 
     extraPackages = with pkgs; [
       nil
+      ruff # python formatter
       sqls
       deno
       gopls
