@@ -54,7 +54,7 @@ in
 
     (writeBin "wm-lock" sh/wm/lock.rs)
     (writeBin "wm-menu" sh/wm/menu.rs)
-    (writeBin "wm-switch-workspace" sh/wm/switch-workspace.rs)
-    (writeBin "wm-win-to-workspace" sh/wm/win-to-workspace.rs)
+    (writeBin "wm-switch-ws" sh/wm/switch-ws.rs)
+    (writeBin "wm-win-to-ws" sh/wm/win-to-ws.rs)
   ];
 }
