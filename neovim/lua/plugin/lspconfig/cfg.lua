@@ -98,8 +98,6 @@ plugin.lua_ls.setup {
 }
 plugin.rust_analyzer.setup {
   capabilities = caps,
-  filetypes = { 'rust' },
-  root_dir = util.root_pattern 'Cargo.toml',
   settings = {
     ['rust-analyzer'] = {
       completion = {
