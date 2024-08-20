@@ -20,7 +20,6 @@ in
     (writeBin "pic-search" sh/pic-search/run.sh)
     (writeBin "nvim-profiler" sh/nvim-profiler/run.rs)
     (writeBin "symlink-localize" sh/symlink-localize/run.sh)
-    (writeBin "archive-core-files" sh/archive-core-files/run.sh)
 
     (writeBin "aes-en" sh/crypto/aes-en.sh)
     (writeBin "aes-de" sh/crypto/aes-de.sh)
