@@ -1,6 +1,9 @@
 { pkgs, ... }: {
   nix = {
     settings = {
+      max-jobs = "auto";
+      keep-going = true;
+      keep-outputs = true;
       substituters = [
         "https://cache.nixos.org"
         "https://nix-community.cachix.org"
