@@ -3,6 +3,7 @@ local plugin = require 'telescope'
 local path_display = require 'plugin.telescope.cfg.path_display'
 local create_layout = require 'plugin.telescope.cfg.create_layout'
 local plugin_builtin = require 'telescope.builtin'
+local plugin_actions = require 'telescope.actions'
 
 plugin.setup {
   defaults = {
@@ -21,6 +22,12 @@ plugin.setup {
       'node_modules',
       [[^[^\.]*.lock$]],
       'package-lock.json',
+    },
+    mappings = {
+      i = {
+        ['<M-k>'] = plugin_actions.cycle_history_prev,
+        ['<M-j>'] = plugin_actions.cycle_history_next,
+      },
     },
   },
 
