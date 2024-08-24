@@ -31,4 +31,6 @@ function fish_user_key_bindings
     bind \ea beginning-of-buffer # M-a
     bind \ed end-of-buffer # M-d
     bind \e\x7F kill-whole-line # M-Bs
+    bind \eh prevd-or-backward-word # M-h
+    bind \el nextd-or-forward-word # M-l
 end
