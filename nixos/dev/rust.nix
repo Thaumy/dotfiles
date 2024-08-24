@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 let
   toolchain = (pkgs.rust-bin.nightly."2024-06-20".complete.override {
     extensions = [ "rust-src" ];
@@ -16,6 +16,8 @@ let
   });
 in
 {
+  nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
+
   environment = {
     systemPackages = with pkgs; [
       toolchain

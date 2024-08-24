@@ -1,6 +1,6 @@
-args@{ ... }: {
+{ inputs, ... }: {
   nixpkgs = {
     config.allowUnfree = true;
-    overlays = (import ./overlay/mod.nix) args;
+    overlays = [ inputs.nur.overlay ];
   };
 }
