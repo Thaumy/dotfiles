@@ -45,7 +45,6 @@ let
     tokei
     xxHash
     dutree
-    podman
     bottom
     pstree
     evtest
