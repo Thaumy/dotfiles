@@ -28,7 +28,7 @@ function fish_user_key_bindings
       forward-char \
       forward-char \
       forward-char
-    bind \eh beginning-of-buffer # C-h
-    bind \el end-of-buffer # C-l
+    bind \ea beginning-of-buffer # M-a
+    bind \ed end-of-buffer # M-d
     bind \e\x7F kill-whole-line # M-Bs
 end
