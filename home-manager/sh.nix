@@ -52,6 +52,7 @@ in
     (writeBin "c-f" sh/cargo/fmt.sh)
     (writeBin "c-r" sh/cargo/run.sh)
     (writeBin "c-t" sh/cargo/test.sh)
+    (writeBin "c-qc" sh/cargo/qc.sh)
     (writeBin "c-br" sh/cargo/build-r.sh)
     (writeBin "c-rr" sh/cargo/run-r.sh)
     (writeBin "c-tr" sh/cargo/test-r.sh)
