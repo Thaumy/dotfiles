@@ -12,6 +12,7 @@ in
     (writeBin "sr" sh/safe-remove/run.sh)
     (writeBin "pwdc" sh/pwdc/run.sh)
     (writeBin "todo" sh/todo/run.sh)
+    (writeBin "dimf" sh/dimf/run.sh)
     (writeBin "memdir" sh/memdir/run.sh)
     (writeBin "backup" sh/backup/run.sh)
     (writeBin "hashpwd" sh/hashpwd/run.sh)
