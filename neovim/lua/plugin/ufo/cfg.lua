@@ -39,6 +39,16 @@ plugin.setup {
 }
 
 -- fold code block
-k.map('n', '<M-k>', 'za')
+k.map('n', '<M-k>', function()
+  if vim.bo.ft == 'TelescopePrompt' then
+    return
+  end
+  vim.api.nvim_feedkeys('za', 'n', true)
+end)
 -- expand code block
-k.map('n', '<M-j>', 'zo')
+k.map('n', '<M-j>', function()
+  if vim.bo.ft == 'TelescopePrompt' then
+    return
+  end
+  vim.api.nvim_feedkeys('zo', 'n', true)
+end)
