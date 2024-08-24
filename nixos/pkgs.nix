@@ -20,23 +20,29 @@ let
     linuxKernel.packages.linux_6_10.perf
   ];
 
-  lib = with pkgs; [
-    libvirt
-    libinput
-    libiconv
-  ];
-
   infra = with pkgs; [
     jq
+    qrencode
+    libiconv
+    unixtools.xxd
+
+    tree
+    dutree
+    pstree
+    du-dust
+
+    htop
+    bottom
+    nvtopPackages.full
+    (btop.override { cudaSupport = true; rocmSupport = true; })
+
     eza
     git
     glib
     zbar
     lsof
     qemu
-    tree
     lshw
-    htop
     bluez
     procs
     p7zip
@@ -44,26 +50,22 @@ let
     broot
     tokei
     xxHash
-    dutree
-    bottom
-    pstree
     evtest
     psmisc
     screen
+    ripgrep
+    libvirt
     openssl
     pamixer
-    du-dust
     numactl
     sysstat
     usbutils
     pciutils
     patchelf
+    libinput
     cdrtools
     win-spice
     dmidecode
-    unixtools.xxd
-    nvtopPackages.full
-    (btop.override { cudaSupport = true; rocmSupport = true; })
   ];
 
   fs = with pkgs; [
@@ -84,10 +86,8 @@ let
 
   etc = with pkgs; [
     vsftpd
-    ripgrep
     firefox
     paperkey
-    qrencode
     neofetch
     distrobox
     obs-studio
@@ -102,7 +102,6 @@ in
   environment = {
     systemPackages =
       fs ++
-      lib ++
       etc ++
       net ++
       sdk ++
