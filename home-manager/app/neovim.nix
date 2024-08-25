@@ -23,6 +23,16 @@ let
       hash = "sha256-yNOIx7uqFM0LVYYlP4wI1kNJm19vVMmzPlpg8anyF5s=";
     };
   };
+  crates-nvim = pkgs.vimUtils.buildVimPlugin {
+    pname = "crates.nvim";
+    version = "2024-8-9";
+    src = pkgs.fetchFromGitHub {
+      owner = "saecki";
+      repo = "crates.nvim";
+      rev = "cd670ecc862469557b12d12e7116d7afd2fd9c0f";
+      hash = "sha256-3wbqRj9hbAow+qSrY/qY5H/jXI6wsHUxxjsW0ze3ezM=";
+    };
+  };
 in
 {
   nixpkgs.overlays = [ inputs.nvim-nightly-overlay.overlays.default ];
@@ -79,6 +89,7 @@ in
       # input helpers
       luasnip # snippet
       neoformat # formatter
+      crates-nvim # crate.io cmp
       comment-nvim # better comment support
       autoclose-nvim # auto close pairs and brackets
     ];

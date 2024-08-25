@@ -30,6 +30,7 @@ local specs = {
 
   -- input helpers
   require 'plugin.cmp.spec',
+  require 'plugin.crates.spec',
   require 'plugin.comment.spec',
   require 'plugin.neoformat.spec',
   require 'plugin.autoclose.spec',
