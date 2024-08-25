@@ -2,7 +2,6 @@
   environment = {
     localBinInPath = true;
     sessionVariables = {
-      DOTNET_ROOT = pkgs.dotnet-sdk_7;
       SSH_AUTH_SOCK = "\${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh";
       LIBCLANG_PATH = "${pkgs.libclang.lib}/lib";
       NIXOS_OZONE_WL = "1";
