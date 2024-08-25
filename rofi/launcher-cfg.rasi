@@ -1,0 +1,210 @@
+configuration {
+  modi: "drun";
+  show-icons: true;
+  drun-display-format: "{name}";
+}
+
+* {
+  font: "Noto Sans Regular 12";
+
+  active: #98C379FF;
+  urgent: #E06C75FF;
+  selected: #61AFEFFF;
+
+  foreground: #FFFFFFFF;
+  background: #1E2127FF;
+  background-alt: #282B31FF;
+  alternate-normal-background: transparent;
+}
+
+// Main Window
+window {
+  enabled: true;
+
+  width: 760px;
+  cursor: "default";
+  anchor: center;
+  fullscreen: false;
+  transparency: "real";
+  background-color: black;
+
+  location: center;
+  x-offset: 0px;
+  y-offset: 0px;
+
+  margin: 0px;
+  padding: 0px;
+
+  border: 1px solid;
+  border-color: #555555;
+  border-radius: 12px;
+}
+
+// Main Box
+mainbox {
+  enabled: true;
+
+  spacing: 20px;
+  children: [ "inputbar", "listview"];
+  background-color: transparent;
+
+  margin: 0px;
+  padding: 20px;
+
+  border: 0px solid;
+  border-color: @selected;
+  border-radius: 0px 0px 0px 0px;
+}
+
+// Inputbar
+inputbar {
+  enabled: true;
+
+  spacing: 10px;
+  children: [ "prompt", "entry"];
+
+  margin: 0px;
+  padding: 15px;
+
+  border: 0px solid;
+  border-color: @selected;
+  border-radius: 10px;
+
+  text-color: @foreground;
+  background-color: white / 10%;
+}
+
+prompt {
+  enabled: false;
+}
+
+textbox-prompt-colon {
+  enabled: true;
+
+  str: "::";
+  expand: false;
+
+  text-color: inherit;
+  background-color: transparent;
+}
+
+entry {
+  enabled: true;
+
+  cursor: text;
+  placeholder: "Search";
+  placeholder-color: inherit;
+
+  text-color: inherit;
+  background-color: transparent;
+}
+
+// Listview
+listview {
+  enabled: true;
+
+  flow: horizontal;
+  cycle: true;
+  cursor: "default";
+  layout: vertical;
+  spacing: 0px;
+  dynamic: true;
+  reverse: false;
+  scrollbar: true;
+
+  lines: 4;
+  columns: 5;
+
+  fixed-height: true;
+  fixed-columns: false;
+
+  margin: 0px;
+  padding: 0px;
+
+  border: 0px solid;
+  border-color: @selected;
+  border-radius: 0px;
+
+  text-color: @foreground;
+  background-color: transparent;
+}
+
+scrollbar {
+  handle-width: 4px;
+  handle-color: #555555;
+}
+
+// Elements
+element {
+  enabled: true;
+
+  cursor: pointer;
+  spacing: 15px;
+  orientation: vertical;
+
+  margin: 0px;
+  padding: 20px 10px;
+
+  border: 0px solid;
+  border-color: @selected;
+  border-radius: 10px;
+
+  text-color: @foreground;
+  background-color: transparent;
+}
+
+element normal.normal {
+  text-color: @foreground;
+  background-color: transparent;
+}
+
+element normal.urgent {
+  text-color: @foreground;
+  background-color: transparent;
+}
+
+element selected.normal {
+  text-color: @foreground;
+  background-color: white / 14%;
+}
+
+element-icon {
+  size: 64px;
+  cursor: inherit;
+
+  text-color: inherit;
+  background-color: transparent;
+}
+
+element-text {
+  cursor: inherit;
+  highlight: inherit;
+
+  text-color: inherit;
+  background-color: transparent;
+
+  vertical-align: 0.5;
+  horizontal-align: 0.5;
+}
+
+// Message
+error-message {
+  padding: 15px;
+
+  border: 2px solid;
+  border-color: @selected;
+  border-radius: 10px;
+
+  text-color: @foreground;
+  background-color: black / 10%;
+}
+
+textbox {
+  highlight: none;
+
+  vertical-align: 0.5;
+  horizontal-align: 0.0;
+
+  text-color: @foreground;
+  background-color: transparent;
+}

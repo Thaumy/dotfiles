@@ -9,6 +9,10 @@ declare repo='/home/thaumy/dev/repo/thaumy/dotfiles'
 rm -rf "$repo/fish"
 cp -r  "$home/cfg/fish" "$repo/fish"
 
+# Rofi
+rm -rf "$repo/rofi"
+cp -r  "$home/cfg/rofi" "$repo/rofi"
+
 # Neovim
 rm -rf "$repo/neovim"
 cp -r  "$home/cfg/neovim" "$repo/neovim"
