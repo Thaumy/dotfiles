@@ -5,6 +5,10 @@ set -e
 declare home='/home/thaumy'
 declare repo='/home/thaumy/dev/repo/thaumy/dotfiles'
 
+# Alacritty
+rm -rf "$repo/alacritty"
+cp -r  "$home/cfg/alacritty" "$repo/alacritty"
+
 # Fish
 rm -rf "$repo/fish"
 cp -r  "$home/cfg/fish" "$repo/fish"

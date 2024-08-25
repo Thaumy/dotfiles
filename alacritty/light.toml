@@ -1,0 +1,61 @@
+[font]
+normal = { family = "JetBrains Mono", style = "Regular" }
+
+[keyboard]
+bindings = [
+  { mods = "Alt", key = "y", action = "Copy" },
+  { mods = "Alt", key = "p", action = "Paste" },
+  { mods = "Alt", key = "Escape", action = "ToggleViMode" },
+
+  { mode = "Vi", mods = "Shift", key = "h", action = "First" },
+  { mode = "Vi", mods = "Shift", key = "l", action = "Last" },
+  { mode = "Vi", mods = "Control", key = "h", action = "WordLeft" },
+  { mode = "Vi", mods = "Control", key = "l", action = "WordRight" },
+
+  { mods = "Control | Super", key = "k", action = "IncreaseFontSize" },
+  { mods = "Control | Super", key = "j", action = "DecreaseFontSize" },
+
+  # unmap
+  { mode = "Vi", key = "i", action = "ReceiveChar" },
+  { mode = "Vi", key = "w", action = "ReceiveChar" },
+  { mods = "Control", key = "+", action = "ReceiveChar" },
+  { mods = "Control", key = "=", action = "ReceiveChar" },
+  { mods = "Control", key = "-", action = "ReceiveChar" },
+]
+
+[mouse]
+bindings = [{ mouse = "Right", action = "Paste" }]
+
+[colors.primary]
+foreground = "#4c4f69"
+background = "#eff1f5"
+
+[colors.normal]
+black = "#171421"
+red = "#d20f39"
+green = "#40a02b"
+yellow = "#df8e1d"
+blue = "#2e5990"
+magenta = "#ea76cb"
+cyan = "#04a5e5"
+white = "#4c4f69"
+
+[colors.bright]
+black = "#5e5c64"
+red = "#e05555"
+green = "#40a02b"
+yellow = "#fe640b"
+blue = "#1e66f5"
+magenta = "#ea76cb"
+cyan = "#04a5e5"
+white = "#4c4f69"
+
+[colors.dim]
+black = "#0f0f0f"
+red = "#712b2b"
+green = "#5f6f3a"
+yellow = "#a17e4d"
+blue = "#456877"
+magenta = "#704d68"
+cyan = "#4d7770"
+white = "#8e8e8e"
