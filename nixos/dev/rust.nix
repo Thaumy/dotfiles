@@ -11,6 +11,7 @@ let
       "x86_64-unknown-linux-gnu"
       "x86_64-unknown-linux-musl"
       "wasm32-wasi"
+      "wasm32-wasip1"
       "wasm32-unknown-unknown"
     ];
   });
