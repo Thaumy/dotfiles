@@ -25,7 +25,7 @@
     };
 
     kernelPackages = pkgs.linuxPackages_6_10;
-    kernel.sysctl = { "vm.swappiness" = 0; };
+    kernel.sysctl = { "vm.swappiness" = 20; };
     kernelModules = [
       "v4l2loopback"
     ];
