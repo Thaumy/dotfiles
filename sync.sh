@@ -21,6 +21,10 @@ cp -r  "$home/cfg/rofi" "$repo/rofi"
 rm -rf "$repo/neovim"
 cp -r  "$home/cfg/neovim" "$repo/neovim"
 
+# Waybar
+rm -rf "$repo/waybar"
+cp -r  "$home/cfg/waybar" "$repo/waybar"
+
 # NixOS
 rm -rf "$repo/nixos"
 cp -r  "$home/cfg/nixos" "$repo/nixos"

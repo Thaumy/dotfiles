@@ -1,0 +1,106 @@
+{
+  "layer": "top",
+  "output": [
+    "eDP-1",
+    "HDMI-A-1"
+  ],
+  "position": "top",
+  "spacing": 0,
+  "height": 0,
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "tray",
+    "pulseaudio",
+    "backlight",
+    "network",
+    "battery"
+  ],
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5"
+    },
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
+    },
+    "on-scroll-up": "wm-switch-ws prev",
+    "on-scroll-down": "wm-switch-ws next"
+  },
+  "clock": {
+    "tooltip-format": "{calendar}",
+    "format-alt": "{:%b %d - %a}",
+    "format": "{:%H:%M}"
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 20
+  },
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-bluetooth": "󰂰",
+    "tooltip-format": "{volume}%",
+    "format-muted": "󰝟",
+    "format-icons": {
+      "headphone": "󰋋",
+      "default": [
+        "󰕿",
+        "󰖀",
+        "󰕾"
+      ]
+    },
+    "on-click": "pamixer -t",
+    "scroll-step": 2
+  },
+  "backlight": {
+    "interval": 1200,
+    "format": "{icon}",
+    "tooltip-format": "{percent}%",
+    "format-icons": [
+      "󰃞",
+      "󰃟",
+      "󰃠"
+    ]
+  },
+  "network": {
+    "format-wifi": "{icon}",
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰕑",
+    "tooltip-format-wifi": "{essid} 󱦳{bandwidthDownBytes} 󱦲{bandwidthUpBytes}",
+    "interval": 2
+  },
+  "battery": {
+    "format-discharging": "{capacity}<span font='10'> </span>",
+    "format-charging": "{capacity}<span color='#49f054'>󱐋</span><span font='4'> </span>",
+    "format-full": "{capacity}<span color='#49f054'>󱐋</span><span font='6'> </span>",
+    "format-not-charging": "{capacity}<span color='#49f054'>󱐋</span><span font='6'> </span>",
+    "format-discharging-warning": "{capacity}<span color='#ffdd00'>󰁻</span><span font='6'> </span>",
+    "format-discharging-critical": "{capacity}<span color='#d00000'>󰁺</span><span font='6'> </span>",
+    "interval": 2,
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "tooltip-format": "{time}"
+  }
+}

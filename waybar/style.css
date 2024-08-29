@@ -1,0 +1,53 @@
+/* remove preset styles */
+button {
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
+  background: none;
+  transition: none;
+}
+
+* {
+  font-size: 16px;
+  font-family: Material Icons, JetBrains Mono;
+}
+
+window#waybar {
+  color: #fff;
+  background: #000;
+}
+
+#workspaces {
+  padding: 0 1px;
+}
+
+#workspaces label {
+  font-size: 16px;
+}
+
+#workspaces button {
+  transition: all 0.2s ease;
+
+  color: #666;
+  margin: 0px 0px;
+  padding: 0 4px;
+  border-radius: 0px;
+}
+
+#workspaces button:hover {
+  color: #bbb;
+}
+
+#workspaces button.active {
+  color: #fff;
+  background: #000;
+  border-radius: 0px;
+}
+
+#tray,
+#pulseaudio,
+#backlight,
+#network,
+#battery {
+  padding: 0 0 0 18px;
+}
