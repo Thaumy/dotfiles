@@ -36,6 +36,7 @@ let
     nvtopPackages.full
     (btop.override { cudaSupport = true; rocmSupport = true; })
 
+    fd
     eza
     git
     glib
@@ -80,6 +81,7 @@ let
     nmap
     wget
     whois
+    grpcurl
     inetutils
     wireshark
   ];
@@ -88,7 +90,7 @@ let
     vsftpd
     firefox
     paperkey
-    neofetch
+    fastfetch
     distrobox
     obs-studio
     imagemagick
