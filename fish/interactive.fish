@@ -40,4 +40,16 @@ set fish_pager_color_secondary_background
 set fish_pager_color_secondary_completion
 set fish_pager_color_secondary_description
 
+alias q "exit"
+alias l "eza -l --git -g --time-style '+%y-%m-%d %H:%M' -a --smart-group --group-directories-first"
+alias ls "eza --no-permissions --no-filesize --no-user --no-time --group-directories-first"
+alias se "sudo -E"
+alias du "dust"
+alias ps "procs"
+alias cat "bat --style numbers"
+
+function lc
+    cd "$(command lf -print-last-dir $argv)"
+end
+
 any-nix-shell fish --info-right | source
