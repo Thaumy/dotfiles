@@ -48,6 +48,13 @@ alias du "dust"
 alias ps "procs"
 alias cat "bat --style numbers"
 
+alias c-b "cargo b"
+alias c-r "cargo r"
+alias c-f "cargo fmt"
+alias c-a "cargo audit"
+alias c-t "cargo nextest run --workspace"
+alias c-c "cargo clippy --tests --workspace"
+
 function lc
     cd "$(command lf -print-last-dir $argv)"
 end
