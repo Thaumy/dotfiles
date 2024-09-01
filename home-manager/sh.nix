@@ -38,7 +38,6 @@ in
     (writeBin "g-a" sh/git/add.sh)
     (writeBin "g-p" sh/git/push.sh)
     (writeBin "g-s" sh/git/status.sh)
-    (writeBin "g-d" sh/git/discard-all-changes.sh)
     (writeBin "g-ap" sh/git/add-p.sh)
     (writeBin "g-br" sh/git/branch.sh)
     (writeBin "g-sw" sh/git/switch.sh)
