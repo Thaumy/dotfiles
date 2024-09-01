@@ -59,4 +59,8 @@ function lc
     cd "$(command lf -print-last-dir $argv)"
 end
 
+function rm
+    printf "please use %srr%s instead, %srm%s is considered unsafe!\n" (set_color green) (set_color normal) (set_color yellow) (set_color normal)
+end
+
 any-nix-shell fish --info-right | source
