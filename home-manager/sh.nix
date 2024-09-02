@@ -9,7 +9,7 @@ let
 in
 {
   home.packages = [
-    (writeBin "sr" sh/safe-remove/run.sh)
+    (writeBin "sr" sh/safe-remove/run.rs)
     (writeBin "c-qc" sh/cargo/qc.sh)
     (writeBin "pwdc" sh/pwdc/run.sh)
     (writeBin "todo" sh/todo/run.sh)
