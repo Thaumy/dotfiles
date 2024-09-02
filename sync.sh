@@ -25,6 +25,10 @@ cp -r  "$home/cfg/neovim" "$repo/neovim"
 rm -rf "$repo/waybar"
 cp -r  "$home/cfg/waybar" "$repo/waybar"
 
+# Mako
+rm -rf "$repo/mako"
+cp -r  "$home/cfg/mako" "$repo/mako"
+
 # NixOS
 rm -rf "$repo/nixos"
 cp -r  "$home/cfg/nixos" "$repo/nixos"

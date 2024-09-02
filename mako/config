@@ -1,0 +1,17 @@
+font=Sarasa UI SC 12
+
+width=400
+height=500
+
+anchor=top-right
+background-color=#00000090
+
+border-size=1
+border-radius=10
+border-color=#555555FF
+
+ignore-timeout=1
+default-timeout=5000
+
+on-button-left=dismiss --no-history
+on-button-right=invoke-default-action
