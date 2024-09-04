@@ -47,6 +47,8 @@ alias se "sudo -E"
 alias du "dust"
 alias ps "procs"
 alias cat "bat --style numbers"
+alias svs "sudo -E systemctl-tui"
+alias sctl "systemctl"
 
 alias c-b "cargo b"
 alias c-r "cargo r"
