@@ -1,4 +1,9 @@
-{ ... }: {
+{ config, ... }:
+let
+  homeDir = config.home.homeDirectory;
+  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
+in
+{
   programs.git = {
     enable = true;
     userName = "Thaumy";
@@ -9,5 +14,10 @@
       key = "B219 D68E 1BD0 6B0A 1412  642F 0A28 E9D2 941B B233"; # V2
     };
     ignores = [ ".idea" ".vscode" ".thaumy" ];
+  };
+
+  home.file.".gitconfig" = {
+    enable = true;
+    source = mkSymlink "${homeDir}/cfg/git/.gitconfig";
   };
 }
