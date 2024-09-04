@@ -1,6 +1,8 @@
 local format = require 'plugin.cmp.cfg.format'
 local plugin = require 'cmp'
 local luasnip = require 'luasnip'
+local compare = require 'cmp.config.compare'
+local kind_compare = require 'plugin.cmp.cfg.kind_compare'
 
 plugin.setup {
   mapping = plugin.mapping.preset.insert {
@@ -16,6 +18,16 @@ plugin.setup {
   },
   completion = {
     completeopt = 'menu,menuone,noinsert',
+  },
+  sorting = {
+    comparators = {
+      compare.offset,
+      compare.exact,
+      compare.recently_used,
+      compare.score,
+      kind_compare,
+      compare.sort_text,
+    },
   },
   snippet = {
     expand = function(args)
