@@ -35,6 +35,7 @@ in
     (writeBin "g-rrr" sh/git/rebase-40.sh)
     (writeBin "g-rrrr" sh/git/rebase-80.sh)
     (writeBin "g-l" sh/git/log.sh)
+    (writeBin "g-rl" sh/git/reflog.sh)
     (writeBin "g-a" sh/git/add.sh)
     (writeBin "g-p" sh/git/push.sh)
     (writeBin "g-s" sh/git/status.sh)
@@ -46,6 +47,7 @@ in
     (writeBin "g-ra" sh/git/rebase-abort.sh)
     (writeBin "g-rc" sh/git/rebase-continue.sh)
     (writeBin "g-cpr" sh/git/checkout-pr.sh)
+    (writeBin "g-cgh" sh/git/clone-github.sh)
     (writeBin "g-can" sh/git/commit-amend-noedit.sh)
 
     (writeBin "wm-apps" sh/wm/apps.rs)
