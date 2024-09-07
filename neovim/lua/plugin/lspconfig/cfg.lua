@@ -62,7 +62,7 @@ plugin.rust_analyzer.setup {
 plugin.hls.setup { capabilities = caps }
 plugin.ruff.setup { capabilities = caps }
 plugin.html.setup { capabilities = caps }
---plugin.sqls.setup { capabilities = caps }
+plugin.sqls.setup { capabilities = caps }
 plugin.taplo.setup { capabilities = caps } -- TOML
 plugin.jdtls.setup { capabilities = caps }
 plugin.gopls.setup { capabilities = caps }
