@@ -1,3 +1,4 @@
+source ~/cfg/fish/env.fish
 source ~/cfg/fish/color-scheme.fish
 
 alias q "exit"
