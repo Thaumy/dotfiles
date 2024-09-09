@@ -30,4 +30,8 @@ function grep
     printf "please use %srg%s instead.\n" (set_color green) (set_color normal)
 end
 
+function find
+    printf "please use %sfd%s instead.\n" (set_color green) (set_color normal)
+end
+
 any-nix-shell fish --info-right | source
