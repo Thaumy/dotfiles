@@ -14,6 +14,7 @@
     ./xserver.nix
     ./pipewire.nix
 
+    ./nginx.nix
     #./mysql.nix
     #./kafka.nix
     #./redis.nix
