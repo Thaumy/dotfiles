@@ -87,6 +87,7 @@ let
   ];
 
   etc = with pkgs; [
+    devenv
     vsftpd
     firefox
     paperkey
