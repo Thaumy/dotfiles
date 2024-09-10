@@ -36,4 +36,6 @@ cp -r  "$home/cfg/nixos" "$repo/nixos"
 # Home Manager
 rm -rf "$repo/home-manager"
 cp -r  "$home/cfg/home-manager" "$repo/home-manager"
-rm -rf "$repo/home-manager/sh"
+find "$repo/home-manager/sh" -maxdepth 1 -mindepth 1 \
+  | grep -v "mod.nix" \
+  | xargs rm -rf

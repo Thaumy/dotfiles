@@ -2,8 +2,8 @@
   manual.manpages.enable = false;
 
   imports = [
-    ./sh.nix
     ./pkgs.nix
+    ./sh/mod.nix
     ./app/mod.nix
     ./nixpkgs.nix
     ./symlinks.nix
