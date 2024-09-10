@@ -4,6 +4,7 @@
       max-jobs = "auto";
       keep-going = true;
       keep-outputs = true;
+
       substituters = [
         "https://cache.nixos.org"
         "https://devenv.cachix.org"
@@ -25,6 +26,7 @@
       dates = [ "Mon..Fri 12:30" ];
     };
   };
+
   environment.systemPackages = with pkgs; [
     yarn2nix
     nix-index
