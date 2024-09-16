@@ -44,6 +44,12 @@
     "format": "{:%H:%M}",
     "format-alt": "{:%b %d - %a}",
     "tooltip-format": "{calendar}",
+    "calendar": {
+      "format": {
+        "weekdays": "<span underline_color='#bbb'><u>{}</u></span>",
+        "today": "<span color='#87ff00'><b><u>{}</u></b></span>"
+      }
+    }
   },
   "tray": {
     "icon-size": 16,
