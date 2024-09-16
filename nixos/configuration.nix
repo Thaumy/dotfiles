@@ -4,7 +4,7 @@
     ./sec.nix
     ./boot.nix
     ./user.nix
-    ./docs.nix
+    #./docs.nix
     ./pkgs.nix
     ./local.nix
     ./nixpkgs.nix
