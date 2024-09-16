@@ -50,6 +50,7 @@ let
     spice
     broot
     tokei
+    cmake
     xxHash
     evtest
     psmisc
