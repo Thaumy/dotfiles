@@ -12,6 +12,13 @@ button {
   font-family: Material Icons, JetBrains Mono;
 }
 
+tooltip,
+tooltip * {
+  padding: 0;
+  color: #fff;
+  background-color: #333;
+}
+
 window#waybar {
   color: #fff;
   background: #000;
