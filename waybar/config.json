@@ -41,9 +41,9 @@
     "on-scroll-down": "wm-switch-ws next"
   },
   "clock": {
-    "tooltip-format": "{calendar}",
+    "format": "{:%H:%M}",
     "format-alt": "{:%b %d - %a}",
-    "format": "{:%H:%M}"
+    "tooltip-format": "{calendar}",
   },
   "tray": {
     "icon-size": 16,
