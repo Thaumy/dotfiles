@@ -10,6 +10,7 @@ in
 {
   home.packages = [
     (writeBin "rr" safe-remove/run.rs)
+    (writeBin "cfg" cfg/run.sh)
     (writeBin "c-qc" cargo/qc.sh)
     (writeBin "pwdc" pwdc/run.sh)
     (writeBin "todo" todo/run.sh)
@@ -20,6 +21,7 @@ in
     (writeBin "dir-flat" dir-flat/run.sh)
     (writeBin "disable-kb" disable-kb/run.sh)
     (writeBin "pic-search" pic-search/run.sh)
+    (writeBin "cp-dirs-only" cp-dirs-only/run.sh)
     (writeBin "nvim-profiler" nvim-profiler/run.rs)
     (writeBin "symlink-localize" symlink-localize/run.sh)
 
