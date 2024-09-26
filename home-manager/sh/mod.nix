@@ -25,6 +25,9 @@ in
     (writeBin "nvim-profiler" nvim-profiler/run.rs)
     (writeBin "symlink-localize" symlink-localize/run.sh)
 
+    (writeBin "huh" beep/huh.sh)
+    (writeBin "bruh" beep/bruh.sh)
+
     (writeBin "aes-en" crypto/aes-en.sh)
     (writeBin "aes-de" crypto/aes-de.sh)
 
