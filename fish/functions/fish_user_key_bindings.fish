@@ -1,3 +1,5 @@
+# use `fish_key_reader` to find out key sequence
+
 function fish_user_key_bindings
     # remove presets
     bind -e --preset \cA # beginning-of-line
@@ -7,6 +9,7 @@ function fish_user_key_bindings
     bind -e --preset \eu # upcase-word
     bind -e --preset \v # kill-line
     bind -e --preset \cU # backward-kill-line
+    bind -e --preset \ee # edit command in editor
 
     # C-h
     bind \b \
@@ -33,4 +36,5 @@ function fish_user_key_bindings
     bind \e\x7F kill-whole-line # M-Bs
     bind \eh prevd-or-backward-word # M-h
     bind \el nextd-or-forward-word # M-l
+    bind \ei edit_command_buffer # edit command in editor
 end
