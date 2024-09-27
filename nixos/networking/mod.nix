@@ -11,6 +11,7 @@
     # firewall.allowedTCPPorts = [ 40040 ];
     # firewall.allowedUDPPorts = [  ];
     firewall.enable = false;
+
+    hostFiles = [ ./org-hosts ];
   };
 }
-

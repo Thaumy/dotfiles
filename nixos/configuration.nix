@@ -13,7 +13,7 @@
     ./hardware.nix
     ./programs.nix
     ./services.nix
-    ./networking.nix
+    ./networking/mod.nix
     ./hardware-configuration.nix
   ];
 
