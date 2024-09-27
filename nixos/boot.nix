@@ -24,7 +24,7 @@
       };
     };
 
-    kernelPackages = pkgs.linuxPackages_6_10;
+    kernelPackages = pkgs.linuxPackages_cachyos;
     kernel.sysctl = { "vm.swappiness" = 20; };
     kernelModules = [
       "v4l2loopback"
