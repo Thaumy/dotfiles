@@ -2,6 +2,7 @@
   programs.ssh = {
     enable = true;
     forwardAgent = true;
+    serverAliveInterval = 120;
 
     includes = [
       "~/.ssh/org.conf"
