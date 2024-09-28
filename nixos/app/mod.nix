@@ -4,7 +4,7 @@
     ./direnv.nix
     #./tomcat.nix
     #./netdata.nix
-    ./openssh.nix
+    #./openssh.nix
     #./waydroid.nix
 
     ./xdg.nix
