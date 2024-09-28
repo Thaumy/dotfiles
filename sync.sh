@@ -40,6 +40,3 @@ cp -r  "$home/cfg/alacritty" "$repo/alacritty"
 # home-manager
 rm -rf "$repo/home-manager"
 cp -r  "$home/cfg/home-manager" "$repo/home-manager"
-find "$repo/home-manager/sh" -maxdepth 1 -mindepth 1 \
-  | grep -v "mod.nix" \
-  | xargs rm -rf
