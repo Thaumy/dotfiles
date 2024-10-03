@@ -12,6 +12,7 @@
   environment.systemPackages = with pkgs; [
     dive
     docker
+    lazydocker
     docker-slim
     docker-compose
   ];

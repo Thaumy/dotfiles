@@ -36,6 +36,7 @@ let
     nvtopPackages.full
     (btop.override { cudaSupport = true; rocmSupport = true; })
 
+    sd
     fd
     eza
     git
