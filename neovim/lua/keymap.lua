@@ -94,8 +94,8 @@ map({ 'n', 'v' }, '<C-h>', '8h', true)
 map({ 'n', 'v' }, '<C-l>', '8l', true)
 
 -- quick word L/R
-map({ 'n', 'v' }, '<M-h>', '<S-Left>' )
-map({ 'n', 'v' }, '<M-l>', '<S-Right>' )
+map({ 'n', 'v' }, '<M-h>', '<S-Left>')
+map({ 'n', 'v' }, '<M-l>', '<S-Right>')
 
 -- quick up/down
 map({ 'n', 'v' }, '<C-k>', '6k', true)
