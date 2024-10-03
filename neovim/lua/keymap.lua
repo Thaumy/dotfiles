@@ -120,6 +120,10 @@ end)
 
 -- terminal to normal
 map('t', '<M-n>', [[<C-\><C-n>]])
+-- open terminal in wm
+map('n', 'tw', function()
+  io.popen 'alacritty'
+end)
 
 -- cycle wins
 map('n', ';', function()
