@@ -89,10 +89,6 @@ map({ 'n', 'v' }, 'J', '18j', true)
 map({ 'n', 'v' }, 'qh', '0')
 map({ 'n', 'v' }, 'ql', '$')
 
--- quick L/R
-map({ 'n', 'v' }, '<C-h>', '8h', true)
-map({ 'n', 'v' }, '<C-l>', '8l', true)
-
 -- quick word L/R
 map({ 'n', 'v' }, '<M-h>', '<S-Left>')
 map({ 'n', 'v' }, '<M-l>', '<S-Right>')
