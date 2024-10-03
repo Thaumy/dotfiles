@@ -128,26 +128,29 @@ end)
 -- cycle wins
 map('n', ';', function()
   local wins = vim.api.nvim_list_wins()
-  table.sort(wins, function(l, r) return l < r end)
   local current_win = vim.api.nvim_get_current_win()
+  table.sort(wins, function(l, r) return l < r end)
   for _, win in ipairs(wins) do
     if win <= current_win then
       goto continue
     end
     local ft = ui.win_ft(win)
-    if
+    local not_jump =
         ft == 'qf' or
         ft == 'fidget' or
         ft == ''
-    then
-    else
-      vim.api.nvim_set_current_win(win)
+    if not not_jump then
+      vim.schedule(function()
+        vim.api.nvim_set_current_win(win)
+      end)
       return
     end
     ::continue::
   end
   if wins[1] ~= nil then
-    vim.api.nvim_set_current_win(wins[1])
+    vim.schedule(function()
+      vim.api.nvim_set_current_win(wins[1])
+    end)
   end
 end)
 
