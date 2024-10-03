@@ -81,6 +81,10 @@ map('n', 'va', 'ggVG', true)
 map('n', '<C-S-k>', '<C-e>')
 map('n', '<C-S-j>', '<C-y>')
 
+-- scroll L/R
+map('n', 'H', '10zh', true)
+map('n', 'L', '10zl', true)
+
 -- go line head/end
 map({ 'n', 'v' }, 'qh', '0')
 map({ 'n', 'v' }, 'ql', '$')
