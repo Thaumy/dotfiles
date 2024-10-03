@@ -1,5 +1,5 @@
 function polish_pwd
-  echo $argv[1] | sed -e "s;$HOME;~;"
+  echo $argv[1] | sd "$HOME" '~'
 end
 
 function fish_prompt
@@ -12,7 +12,7 @@ function fish_prompt
 
   printf '%s┌╴' (set_color brwhite)
 
-  set -l git_branch (git branch 2>/dev/null | sed -n '/\* /s///p')
+  set -l git_branch (git branch 2>/dev/null | rg '\* (.+)' -r '$1')
   if [ "$git_branch" != '' ]
     printf '%s%s ' (set_color bryellow) $git_branch
   end
