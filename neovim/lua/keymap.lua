@@ -81,10 +81,6 @@ map('n', 'va', 'ggVG', true)
 map('n', '<C-S-k>', '<C-e>')
 map('n', '<C-S-j>', '<C-y>')
 
--- scroll page up/down
-map({ 'n', 'v' }, 'K', '18k', true)
-map({ 'n', 'v' }, 'J', '18j', true)
-
 -- go line head/end
 map({ 'n', 'v' }, 'qh', '0')
 map({ 'n', 'v' }, 'ql', '$')
@@ -96,6 +92,8 @@ map({ 'n', 'v' }, '<M-l>', '<S-Right>')
 -- quick up/down
 map({ 'n', 'v' }, '<C-k>', '6k', true)
 map({ 'n', 'v' }, '<C-j>', '6j', true)
+map({ 'n', 'v' }, 'qj', '18j', true)
+map({ 'n', 'v' }, 'qk', '18k', true)
 
 -- reduce/increase indent
 map('v', 'h', function()
