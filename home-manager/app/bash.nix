@@ -3,13 +3,14 @@
     enable = true;
     initExtra = ''
       # history filter
-      declare raw_history_path="$HOME/.bash_history"
-      declare processed_history_path="/tmp/shf_bash_history-$(date +%s)"
+      declare old_history="$HOME/.bash_history"
+      declare new_history="/tmp/bak_bash_history_$(date +%s)"
       sh-history-filter \
         --shell bash \
         --pred-rev \
-        --history-path $raw_history_path > $processed_history_path \
-      && cp $processed_history_path $raw_history_path
+        --history-path $old_history > $new_history \
+      && cp $new_history $old_history \
+      && rm $new_history
     '';
   };
 }
