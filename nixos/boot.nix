@@ -3,7 +3,7 @@
     loader = {
       efi = {
         canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
+        efiSysMountPoint = "/boot";
       };
       grub = {
         devices = [ "nodev" ];
@@ -14,7 +14,7 @@
             insmod fat
             insmod search_fs_uuid
             insmod chain
-            search --fs-uuid --set=root 2017-F7EE
+            search --fs-uuid --set=root DB21-C5AF
             chainloader /EFI/Microsoft/Boot/bootmgfw.efi
           }
         '';
