@@ -1,7 +1,6 @@
 { ... }: {
   imports = [
     ./env.nix
-    ./sec.nix
     ./boot.nix
     ./user.nix
     #./docs.nix
@@ -10,6 +9,7 @@
     ./nixpkgs.nix
     ./app/mod.nix
     ./dev/mod.nix
+    ./sec/mod.nix
     ./hardware.nix
     ./programs.nix
     ./services.nix
