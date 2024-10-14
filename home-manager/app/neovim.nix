@@ -15,12 +15,12 @@ let
   };
   nvim-web-devicons = pkgs.vimUtils.buildVimPlugin {
     pname = "nvim-web-devicons";
-    version = "2024-6-15";
+    version = "2024-10-15";
     src = pkgs.fetchFromGitHub {
       owner = "Thaumy";
       repo = "nvim-web-devicons";
-      rev = "6993d1ba4bc6c778655f488b1a02416eb7e8e2fd";
-      hash = "sha256-yNOIx7uqFM0LVYYlP4wI1kNJm19vVMmzPlpg8anyF5s=";
+      rev = "d173154c3dd49336751281e4765bcee27a123cf9";
+      hash = "sha256-BLk1xKbLMHq6tpaUf79GS2LMKHlphju6lGUkaQ/DHZc=";
     };
   };
   crates-nvim = pkgs.vimUtils.buildVimPlugin {
