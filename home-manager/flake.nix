@@ -4,17 +4,18 @@
     pkgs-23-05.url = "github:nixos/nixpkgs/nixos-23.05";
     pkgs-23-11.url = "github:nixos/nixpkgs/nixos-23.11";
     pkgs-24-05.url = "github:nixos/nixpkgs/nixos-24.05";
-    pkgs.url = "github:NixOS/nixpkgs/cb39aebe37d7fdaf42011b41df7742b7b03afa95"; # 24-8-10
+    pkgs.url = "github:NixOS/nixpkgs/31d7f267cd98d54664442c59734c812ff699437b"; # 24-10-12
 
     home-manager = {
-      url = "github:nix-community/home-manager/c085b984ff2808bf322f375b10fea5a415a9c43d"; # 24-7-11
+      url = "github:nix-community/home-manager/e1aec543f5caf643ca0d94b6a633101942fd065f"; # 24-10-14
       inputs.nixpkgs.follows = "pkgs";
     };
 
     hyprland = {
-      url = "git+https://github.com/hyprwm/hyprland?submodules=1&rev=9a09eac79b85c846e3a865a9078a3f8ff65a9259"; # 24-8-8(0.42.0)
+      url = "git+https://github.com/hyprwm/hyprland?submodules=1&rev=0c7a7e2d569eeed9d6025f3eef4ea0690d90845d"; # 24-10-6(0.44.0)
       inputs.nixpkgs.follows = "pkgs";
-      inputs.hyprwayland-scanner.url = "github:hyprwm/hyprwayland-scanner/a048a6cb015340bd82f97c1f40a4b595ca85cc30"; # 24-7-19
+      inputs.aquamarine.url = "github:hyprwm/aquamarine/9874e08eec85b5542ca22494e127b0cdce46b786"; # 24-10-14
+      inputs.hyprutils.url = "github:hyprwm/hyprutils/fd4be8b9ca932f7384e454bcd923c5451ef2aa85"; # 24-10-15
     };
     hyprfocus = {
       url = "github:pyt0xic/hyprfocus/aa7262d3a4564062f97b9cfdad47fd914cfb80f2"; # 24-5-30
