@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   virtualisation.docker = {
     enable = true;
+    enableOnBoot = false;
     daemon.settings = {
       default-runtime = "crun";
       runtimes = {
