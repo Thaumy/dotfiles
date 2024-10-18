@@ -578,38 +578,6 @@
         "type": "github"
       }
     },
-    "pkgs-23-05": {
-      "locked": {
-        "lastModified": 1704290814,
-        "narHash": "sha256-LWvKHp7kGxk/GEtlrGYV68qIvPHkU9iToomNFGagixU=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "70bdadeb94ffc8806c0570eb5c2695ad29f0e421",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-23.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "pkgs-23-11": {
-      "locked": {
-        "lastModified": 1715542476,
-        "narHash": "sha256-FF593AtlzQqa8JpzrXyRws4CeKbc5W86o8tHt4nRfIg=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "44072e24566c5bcc0b7aa9178a0104f4cfffab19",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-23.11",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "pkgs-24-05": {
       "locked": {
         "lastModified": 1718208800,
@@ -634,8 +602,6 @@
         "nur": "nur",
         "nvim-nightly-overlay": "nvim-nightly-overlay",
         "pkgs": "pkgs",
-        "pkgs-23-05": "pkgs-23-05",
-        "pkgs-23-11": "pkgs-23-11",
         "pkgs-24-05": "pkgs-24-05"
       }
     },

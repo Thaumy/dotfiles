@@ -1,8 +1,6 @@
 {
   inputs = {
     nur.url = "github:nix-community/nur/64f752e6fbf6d89da13f417fa34225a8b081ce92"; # 24-7-16
-    pkgs-23-05.url = "github:nixos/nixpkgs/nixos-23.05";
-    pkgs-23-11.url = "github:nixos/nixpkgs/nixos-23.11";
     pkgs-24-05.url = "github:nixos/nixpkgs/nixos-24.05";
     pkgs.url = "github:NixOS/nixpkgs/31d7f267cd98d54664442c59734c812ff699437b"; # 24-10-12
 
@@ -39,8 +37,6 @@
         pkgs = import inputs.pkgs pkgs-cfg;
         extraSpecialArgs = {
           inherit inputs;
-          pkgs-23-05 = import inputs.pkgs-23-05 pkgs-cfg;
-          pkgs-23-11 = import inputs.pkgs-23-11 pkgs-cfg;
           pkgs-24-05 = import inputs.pkgs-24-05 pkgs-cfg;
         };
         modules = [ ./home.nix ];

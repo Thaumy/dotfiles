@@ -1,4 +1,4 @@
-{ pkgs, pkgs-23-05, pkgs-23-11, pkgs-24-05, ... }: {
+{ pkgs, pkgs-24-05, ... }: {
   home.packages = with pkgs; [
     # nur
     nur.repos.thaumy.idbuilder
@@ -10,8 +10,8 @@
     #nur.repos.xddxdd.dingtalk
 
     # office
-    pkgs-23-05.wpsoffice
-    pkgs-23-05.libreoffice
+    pkgs-24-05.wpsoffice
+    pkgs-24-05.libreoffice
 
     # editor
     # TODO: pin uncommonly used apps to ng stable version
@@ -21,7 +21,7 @@
     pkgs-24-05.android-studio
 
     # IM
-    pkgs-23-11.feishu
+    pkgs.feishu
     tdesktop
     element-desktop
 
