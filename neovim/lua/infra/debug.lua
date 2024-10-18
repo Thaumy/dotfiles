@@ -20,8 +20,13 @@ local function tdump(o)
   end
 end
 
+local function print(any)
+  vim.api.nvim_echo({ { vim.inspect(any) } }, true, {})
+end
+
 return {
   trev = trev,
+  print = print,
   tdump = tdump,
   tprint = function(o)
     vim.print(tdump(o))
