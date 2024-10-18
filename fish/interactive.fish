@@ -3,6 +3,7 @@ source ~/cfg/fish/color-scheme.fish
 
 alias q "exit"
 alias l "eza -l --git -g --time-style '+%y-%m-%d %H:%M' -a --smart-group --group-directories-first"
+alias hm "home-manager"
 alias vp "vi README.md"
 alias ls "eza --no-permissions --no-filesize --no-user --no-time --group-directories-first"
 alias se "sudo -E"
@@ -13,6 +14,12 @@ alias ps "procs"
 alias cat "bat --style numbers"
 alias svs "sudo -E systemctl-tui"
 alias sctl "systemctl"
+
+alias nrb "sudo nixos-rebuild boot"
+alias nrs "sudo nixos-rebuild switch"
+
+alias dk "docker"
+alias lzdk "lazydocker"
 
 alias c-b "cargo b"
 alias c-r "cargo r"
