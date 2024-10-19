@@ -2,6 +2,7 @@ source ~/cfg/fish/env.fish
 source ~/cfg/fish/color-scheme.fish
 
 alias q "exit"
+alias g "git"
 alias l "eza -l --git -g --time-style '+%y-%m-%d %H:%M' -a --smart-group --group-directories-first"
 alias hm "home-manager"
 alias vp "vi README.md"
