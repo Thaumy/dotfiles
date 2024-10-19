@@ -24,6 +24,7 @@ local diagnostic_buf = nil
 
 -- show diagnostic on hover
 do
+  local ns = vim.api.nvim_create_namespace 'diagnostic-hold'
   local cursor_still_hold = false
   local on_cursor_moved = nil
   vim.api.nvim_create_autocmd('CursorHold', {
@@ -41,8 +42,18 @@ do
         callback = function()
           cursor_still_hold = false
           on_cursor_moved = nil
+          vim.on_key(nil, ns)
         end,
       })
+      vim.on_key(function(key, _)
+        -- if <Esc> was pressed
+        if key == '\27' then
+          if diagnostic_buf ~= nil and vim.api.nvim_buf_is_valid(diagnostic_buf) then
+            vim.api.nvim_buf_delete(diagnostic_buf, {})
+          end
+          vim.on_key(nil, ns)
+        end
+      end, ns)
     end,
   })
 end
