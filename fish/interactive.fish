@@ -3,6 +3,7 @@ source ~/cfg/fish/color-scheme.fish
 
 alias q "exit"
 alias g "git"
+alias c "cargo"
 alias l "eza -l --git -g --time-style '+%y-%m-%d %H:%M' -a --smart-group --group-directories-first"
 alias hm "home-manager"
 alias vp "vi README.md"
@@ -21,13 +22,6 @@ alias nrs "sudo nixos-rebuild switch"
 
 alias dk "docker"
 alias lzdk "lazydocker"
-
-alias c-b "cargo b"
-alias c-r "cargo r"
-alias c-f "cargo fmt"
-alias c-a "cargo audit"
-alias c-t "cargo nextest run --workspace"
-alias c-c "cargo clippy --tests --workspace"
 
 function lc
     cd "$(command lf -print-last-dir $argv)"

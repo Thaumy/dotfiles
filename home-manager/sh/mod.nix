@@ -23,7 +23,6 @@ in
     (writeBin "nvim-profiler" etc/nvim-profiler.rs)
     (writeBin "symlink-localize" etc/symlink-localize.sh)
 
-    (writeBin "c-qc" cargo/qc.sh)
     (writeBin "backup" backup/run.sh)
 
     (writeBin "huh" beep/huh.sh)
