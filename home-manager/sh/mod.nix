@@ -41,8 +41,10 @@ in
     (writeBin "wm-switch-ws" wm/switch-ws.rs)
     (writeBin "wm-win-to-ws" wm/win-to-ws.rs)
 
-    (writeBin "dk-img-rmn" docker/images-rm-none.sh)
+    (writeBin "dk-cub" docker/compose-up-build.sh)
+    (writeBin "dk-cdv" docker/compose-down-v.sh)
+    (writeBin "dk-rmni" docker/rm-none-images.sh)
+    (writeBin "dk-rmac" docker/rm-all-containers.sh)
     (writeBin "dk-cop-rst" docker/compose-restart.sh)
-    (writeBin "dk-con-rma" docker/containers-rm-all.sh)
   ];
 }
