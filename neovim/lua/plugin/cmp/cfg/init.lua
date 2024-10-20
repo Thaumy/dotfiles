@@ -3,6 +3,7 @@ local plugin = require 'cmp'
 local luasnip = require 'luasnip'
 local compare = require 'cmp.config.compare'
 local kind_compare = require 'plugin.cmp.cfg.kind_compare'
+local crate_version_first = require 'plugin.cmp.cfg.crate_version_first'
 
 plugin.setup {
   mapping = plugin.mapping.preset.insert {
@@ -21,6 +22,7 @@ plugin.setup {
   },
   sorting = {
     comparators = {
+      crate_version_first,
       compare.offset,
       compare.exact,
       compare.recently_used,
