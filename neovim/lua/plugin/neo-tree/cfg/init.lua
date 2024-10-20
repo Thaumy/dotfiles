@@ -111,7 +111,7 @@ local debounce = Debounce:new()
 local auto_toggle = vim.api.nvim_create_autocmd('VimResized', {
   callback = function()
     debounce:schedule(200, function()
-      local visible = ui.any_buf_ft 'neo-tree'
+      local visible = ui.any_ft_buf 'neo-tree'
       if vim.go.columns < 120 and visible then
         vim.cmd(close_cmd)
       elseif vim.go.columns >= 120 and (not visible) then

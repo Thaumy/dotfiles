@@ -268,7 +268,7 @@ map('n', ';', function()
     if win <= current_win then
       goto continue
     end
-    local ft = ui.win_ft(win)
+    local ft = ui.buf_opt(ui.win_buf(win), 'filetype')
     local not_jump =
         ft == 'qf' or
         ft == 'fidget' or
@@ -290,8 +290,7 @@ end)
 
 -- docs preview
 map('n', '<C-p>', function()
-  local ft = ui.curr_buf_ft()
-  if ft == 'markdown' then
+  if vim.bo.ft == 'markdown' then
     vim.cmd 'MarkdownPreview'
     return
   end

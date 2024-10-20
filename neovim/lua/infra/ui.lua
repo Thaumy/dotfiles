@@ -1,31 +1,21 @@
-local function any_buf_ft(ft)
+local function win_buf(win)
+  return vim.api.nvim_win_get_buf(win)
+end
+
+local function buf_opt(buf, opt)
+  return vim.api.nvim_get_option_value(opt, { buf = buf })
+end
+
+local function any_ft_buf(ft)
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-    local it = vim.api.nvim_get_option_value('filetype', { buf = buf })
-    if it == ft then
-      return true
-    end
+    if buf_opt(buf, 'filetype') == ft then return true end
   end
   return false
 end
 
-local function curr_buf_ft()
-  local buf = vim.api.nvim_get_current_buf()
-  return vim.api.nvim_get_option_value('filetype', { buf = buf })
-end
-
-local function win_bt(win)
-  local buf = vim.api.nvim_win_get_buf(win)
-  return vim.api.nvim_get_option_value('buftype', { buf = buf })
-end
-
-local function win_ft(win)
-  local buf = vim.api.nvim_win_get_buf(win)
-  return vim.api.nvim_get_option_value('filetype', { buf = buf })
-end
 
 return {
-  any_buf_ft = any_buf_ft,
-  curr_buf_ft = curr_buf_ft,
-  win_bt = win_bt,
-  win_ft = win_ft,
+  win_buf = win_buf,
+  buf_opt = buf_opt,
+  any_ft_buf = any_ft_buf,
 }
