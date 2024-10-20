@@ -110,6 +110,7 @@ do
     end
   end)
 end
+
 -- fmt
 k.map('n', 'fm', function()
   if vim.bo.ft == 'markdown' then
@@ -118,5 +119,6 @@ k.map('n', 'fm', function()
     vim.lsp.buf.format { sync = true }
   end
 end)
+
 -- rename
 k.map('n', 'tr', vim.lsp.buf.rename)
