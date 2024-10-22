@@ -69,6 +69,7 @@ let
     cdrtools
     win-spice
     dmidecode
+    vulkan-tools
   ];
 
   fs = with pkgs; [
