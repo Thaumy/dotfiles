@@ -13,6 +13,7 @@ in
   home = {
     packages = with pkgs; [
       grcov
+      cargo-asm
       cargo-edit
       cargo-udeps
       cargo-audit

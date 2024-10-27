@@ -32,7 +32,9 @@ let
     du-dust
 
     htop
+    iotop
     bottom
+    bandwhich
     nvtopPackages.full
     (btop.override { cudaSupport = true; rocmSupport = true; })
 
@@ -66,10 +68,12 @@ let
     pciutils
     patchelf
     libinput
+    watchman
     cdrtools
     win-spice
     dmidecode
     vulkan-tools
+    inotify-tools
   ];
 
   fs = with pkgs; [
