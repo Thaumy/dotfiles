@@ -1,6 +1,7 @@
 local k = require 'infra.key'
 local ui = require 'infra.ui'
 local plugin = require 'neo-tree'
+local events = require 'neo-tree.events'
 local mappings = require 'plugin.neo-tree.cfg.mappings'
 local Debounce = require 'infra.debounce'
 
@@ -84,7 +85,7 @@ plugin.setup {
 
   event_handlers = {
     {
-      event = 'before_render',
+      event = events.BEFORE_RENDER,
       handler = function()
         if vim.bo.filetype ~= 'neo-tree' then
           return
@@ -93,6 +94,12 @@ plugin.setup {
         vim.cmd.setlocal 'nonumber'
         -- fix colorscheme highlight
         vim.cmd.setlocal 'winhighlight=Normal:NeoTreeNormal,NormalNC:NeoTreeNormalNC,SignColumn:NeoTreeSignColumn,CursorLine:NeoTreeCursorLine,FloatBorder:NeoTreeFloatBorder,StatusLine:NeoTreeStatusLine,StatusLineNC:NeoTreeStatusLineNC,VertSplit:NeoTreeVertSplit,EndOfBuffer:NeoTreeEndOfBuffer,WinSeparator:NeoTreeWinSeparator'
+      end,
+    },
+    {
+      event = events.NEO_TREE_BUFFER_ENTER,
+      handler = function()
+        events.fire_event(events.GIT_EVENT)
       end,
     },
   },
