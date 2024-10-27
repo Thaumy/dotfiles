@@ -1,5 +1,5 @@
 alias q "exit"
-alias g "git"
+alias g "command git"
 alias c "cargo"
 alias l "eza -l --git -g --time-style '+%y-%m-%d %H:%M' -a --smart-group --group-directories-first"
 alias hm "home-manager"
@@ -25,6 +25,10 @@ end
 
 function rm
     printf "please use %srr%s instead, %srm%s is considered unsafe!\n" (set_color green) (set_color normal) (set_color yellow) (set_color normal)
+end
+
+function git
+    printf "please use %sg%s instead.\n" (set_color green) (set_color normal)
 end
 
 function sed

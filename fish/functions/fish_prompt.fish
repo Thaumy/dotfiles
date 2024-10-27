@@ -12,7 +12,7 @@ function fish_prompt
 
   printf '%s┌╴' (set_color brwhite)
 
-  set -l git_branch (git branch 2>/dev/null | rg '\* (.+)' -r '$1')
+  set -l git_branch (command git branch 2>/dev/null | rg '\* (.+)' -r '$1')
   if [ "$git_branch" != '' ]
     printf '%s%s ' (set_color bryellow) $git_branch
   end
