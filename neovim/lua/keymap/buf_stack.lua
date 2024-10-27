@@ -27,7 +27,6 @@ vim.api.nvim_create_autocmd('BufLeave', {
       end
 
       if buf_stack:top() ~= args.buf then
-        vim.print(args.buf)
         buf_stack:push(args.buf)
       end
     end)
