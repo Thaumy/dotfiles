@@ -24,6 +24,19 @@ in
       toolchain
       diesel-cli
       rust-bindgen
+
+      grcov
+      cargo-asm
+      cargo-edit
+      cargo-udeps
+      cargo-audit
+      cargo-tauri
+      cargo-expand
+      cargo-nextest
+      cargo-llvm-cov
+      cargo-outdated
+      cargo-generate
+      cargo-component
     ];
 
     etc."sdk-homes/rust".source = toolchain;
