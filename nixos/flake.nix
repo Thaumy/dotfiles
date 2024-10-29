@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "pkgs";
     };
     rust-overlay = {
-      url = "github:oxalica/rust-overlay/8cc45e678e914a16c8e224c3237fb07cf21e5e54"; # 24-9-7
+      url = "github:oxalica/rust-overlay/17cadbc36da05e75197d082decb382a5f4208e30"; # 24-10-26
       inputs.nixpkgs.follows = "pkgs";
     };
   };

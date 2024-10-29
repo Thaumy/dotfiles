@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }:
 let
-  toolchain = (pkgs.rust-bin.nightly."2024-09-07".complete.override {
+  toolchain = (pkgs.rust-bin.nightly."2024-10-26".complete.override {
     extensions = [ "rust-src" ];
     targets = [
       "aarch64-apple-darwin"
@@ -10,8 +10,8 @@ let
       "x86_64-pc-windows-msvc"
       "x86_64-unknown-linux-gnu"
       "x86_64-unknown-linux-musl"
-      "wasm32-wasi"
       "wasm32-wasip1"
+      "wasm32-wasip2"
       "wasm32-unknown-unknown"
     ];
   });
