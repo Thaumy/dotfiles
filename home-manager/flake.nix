@@ -2,7 +2,7 @@
   inputs = {
     nur.url = "github:nix-community/nur/64f752e6fbf6d89da13f417fa34225a8b081ce92"; # 24-7-16
     pkgs-24-05.url = "github:nixos/nixpkgs/nixos-24.05";
-    pkgs.url = "github:NixOS/nixpkgs/31d7f267cd98d54664442c59734c812ff699437b"; # 24-10-12
+    pkgs.url = "github:NixOS/nixpkgs/18536bf04cd71abd345f9579158841376fdd0c5a"; # 24-10-26
 
     home-manager = {
       url = "github:nix-community/home-manager/e1aec543f5caf643ca0d94b6a633101942fd065f"; # 24-10-14
@@ -12,7 +12,7 @@
     hyprland = {
       url = "git+https://github.com/hyprwm/hyprland?submodules=1&rev=0c7a7e2d569eeed9d6025f3eef4ea0690d90845d"; # 24-10-6(0.44.0)
       inputs.nixpkgs.follows = "pkgs";
-      inputs.aquamarine.url = "github:hyprwm/aquamarine/9874e08eec85b5542ca22494e127b0cdce46b786"; # 24-10-14
+      inputs.aquamarine.url = "github:hyprwm/aquamarine/8d732fa8aff8b12ef2b1e2f00fc8153e41312b72"; # 24-10-22
       inputs.hyprutils.url = "github:hyprwm/hyprutils/fd4be8b9ca932f7384e454bcd923c5451ef2aa85"; # 24-10-15
     };
     hyprfocus = {

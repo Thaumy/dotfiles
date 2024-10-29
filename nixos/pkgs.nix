@@ -17,7 +17,7 @@ let
     clang-tools
     linuxHeaders
     android-tools
-    linuxKernel.packages.linux_6_10.perf
+    linuxKernel.packages.linux_6_11.perf
   ];
 
   infra = with pkgs; [
@@ -121,7 +121,7 @@ in
       "sdk-homes/go".source = go;
       "sdk-homes/gcc".source = gcc14;
       "sdk-homes/llvm".source = libllvm;
-      "sdk-homes/perf".source = linuxKernel.packages.linux_6_10.perf;
+      "sdk-homes/perf".source = linuxKernel.packages.linux_6_11.perf;
       "sdk-homes/linux-headers".source = linuxHeaders;
 
       "app-homes/firefox".source = firefox;
