@@ -1,3 +1,5 @@
+local ui = require 'infra.ui'
+
 require 'keymap.disabled'
 require 'keymap.indent'
 require 'keymap.buf_stack'
@@ -86,6 +88,19 @@ map({ 'n', 'v' }, '<C-k>', '6k', true)
 map({ 'n', 'v' }, '<C-j>', '6j', true)
 map({ 'n', 'v' }, 'qj', '18j', true)
 map({ 'n', 'v' }, 'qk', '18k', true)
+
+map({ 'n', 'v' }, 'rp', function()
+  if ui.any_ft_buf 'qf' then
+    vim.api.nvim_feedkeys(':cdo s/', 'n', false)
+  else
+    local mode = vim.api.nvim_get_mode().mode
+    if mode == 'n' then
+      vim.api.nvim_feedkeys(':%s/', 'n', false)
+    elseif mode == 'v' or mode == 'V' then
+      vim.api.nvim_feedkeys(':s/', 'n', false)
+    end
+  end
+end)
 
 -- yank abs path of current buf
 map('n', 'bn', function()
