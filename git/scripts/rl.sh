@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
 git reflog \
-  --all \
   --oneline \
-  --date format:'%y-%m-%d %H:%M' \
-  --pretty='%C(yellow)%h %C(green)%cd %C(cyan)%an %C(black)%s %C(auto)%(decorate)'
+  --pretty='%C(yellow)🠵 %h %>(9)%C(green)%gd %C(cyan)%an %<|(80)%C(black)%gs %C(dim green)%s %C(auto)%(decorate:prefix=[,suffix=],pointer==,tag=🏷 )'
