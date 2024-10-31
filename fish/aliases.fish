@@ -13,6 +13,7 @@ alias cat "bat --style numbers"
 alias svs "sudo -E systemctl-tui"
 alias sctl "systemctl"
 
+alias hms "home-manager switch"
 alias nrb "sudo nixos-rebuild boot"
 alias nrs "sudo nixos-rebuild switch"
 
