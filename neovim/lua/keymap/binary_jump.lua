@@ -90,7 +90,11 @@ map({ 'n', 'v' }, '<C-h>', function()
   end
   vim.api.nvim_win_set_cursor(0, { row, m })
 
-  vim.schedule(function() hl(row, range[1], m, range[2]) end)
+  vim.schedule(function()
+    if range ~= nil then
+      hl(row, range[1], m, range[2])
+    end
+  end)
 end)
 
 map({ 'n', 'v' }, '<C-l>', function()
@@ -125,5 +129,9 @@ map({ 'n', 'v' }, '<C-l>', function()
   end
   vim.api.nvim_win_set_cursor(0, { row, m })
 
-  vim.schedule(function() hl(row, range[1], m, range[2]) end)
+  vim.schedule(function()
+    if range ~= nil then
+      hl(row, range[1], m, range[2])
+    end
+  end)
 end)
