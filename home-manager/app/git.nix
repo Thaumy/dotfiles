@@ -17,6 +17,7 @@ in
     lfs.enable = true;
     ignores = [ ".idea" ".vscode" ".thaumy" ];
     includes = [
+      { path = "${homeDir}/cfg/git/config.ini"; }
       { path = "${homeDir}/cfg/git/aliases.ini"; }
     ];
   };
