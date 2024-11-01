@@ -63,7 +63,6 @@ let
     openssl
     pamixer
     numactl
-    sysstat
     usbutils
     pciutils
     patchelf

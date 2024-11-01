@@ -19,6 +19,7 @@
     #./kafka.nix
     #./redis.nix
     #./podman.nix
+    ./sysstat.nix
     #./mongodb.nix
     ./postgres.nix
 
