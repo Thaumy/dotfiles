@@ -7,28 +7,16 @@ local function trev(t)
   return rev
 end
 
-local function tdump(o)
-  if type(o) == 'table' then
-    local s = '{ '
-    for k, v in pairs(o) do
-      if type(k) ~= 'number' then k = '"' .. k .. '"' end
-      s = s .. '[' .. k .. '] = ' .. tdump(v) .. ','
-    end
-    return s .. '} '
-  else
-    return tostring(o)
-  end
-end
-
 local function print(any)
   vim.api.nvim_echo({ { vim.inspect(any) } }, true, {})
+end
+
+local function notify(any)
+  vim.notify(vim.inspect(any))
 end
 
 return {
   trev = trev,
   print = print,
-  tdump = tdump,
-  tprint = function(o)
-    vim.print(tdump(o))
-  end,
+  notify = notify,
 }
