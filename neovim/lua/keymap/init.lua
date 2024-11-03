@@ -5,6 +5,7 @@ require 'keymap.indent'
 require 'keymap.buf_stack'
 require 'keymap.cycle_wins'
 require 'keymap.binary_jump'
+require 'keymap.visual_block'
 
 local k = require 'infra.key'
 
