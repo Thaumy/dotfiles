@@ -40,9 +40,6 @@ in
   programs.neovim = {
     enable = true;
 
-    viAlias = true;
-    vimAlias = true;
-
     defaultEditor = true;
 
     plugins = with pkgs.vimPlugins; [
@@ -147,8 +144,13 @@ in
       };
   };
 
-  # HACK: use `hiPrio` to override neovim wrapper
   home.packages = [
+    (pkgs.symlinkJoin {
+      name = "nvim-alias";
+      paths = [ config.programs.neovim.finalPackage ];
+      postBuild = "ln -s $out/bin/nvim $out/bin/v";
+    })
+    # HACK: use `hiPrio` to override neovim wrapper
     (lib.hiPrio (pkgs.runCommand "better-nvim.desktop" { } ''
       mkdir -p "$out/share/applications"
       cd "$out/share/applications"
