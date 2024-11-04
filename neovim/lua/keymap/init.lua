@@ -72,6 +72,9 @@ map('n', 'v<Space>', 'V')
 map('n', 'vv', '<C-v>')
 map('n', 'va', 'ggVG', true)
 
+-- select word
+map('n', 'vw', 'viw')
+
 -- scroll line up/down
 map('n', '<C-S-k>', '<C-e>')
 map('n', '<C-S-j>', '<C-y>')
