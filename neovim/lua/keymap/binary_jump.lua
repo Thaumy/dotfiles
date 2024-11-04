@@ -62,6 +62,8 @@ local function hl(row, l, m, r)
 end
 
 map({ 'n', 'v' }, '<C-h>', function()
+  if #vim.api.nvim_get_current_line() == 0 then return end
+
   clear_hl()
 
   local pos = vim.api.nvim_win_get_cursor(0)
@@ -98,13 +100,14 @@ map({ 'n', 'v' }, '<C-h>', function()
 end)
 
 map({ 'n', 'v' }, '<C-l>', function()
+  local max = #vim.api.nvim_get_current_line() - 1
+  if max == -1 then return end
+
   clear_hl()
 
   local pos = vim.api.nvim_win_get_cursor(0)
   local row = pos[1]
   local col = pos[2]
-
-  local max = #vim.api.nvim_get_current_line() - 1
 
   local r
   if range == nil then
