@@ -16,7 +16,12 @@ map({ 'v' }, 'uj', 'u')
 map({ 'v' }, 'uk', 'U')
 
 -- buf
-map_cmd({ 'n', 'v' }, 'ww', 'w')
+map({ 'n', 'v' }, 'ww', function()
+  if vim.bo.ft == 'neo-tree' then
+    return
+  end
+  vim.cmd 'w'
+end)
 map_cmd({ 'n', 'v' }, 'wa', 'wa')
 map({ 'n', 'v' }, 'qq', function()
   if vim.bo.ft == 'neo-tree' then
