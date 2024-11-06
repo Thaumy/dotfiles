@@ -7,9 +7,10 @@ plugin.setup {
     '!neo-tree',
   },
   user_default_options = {
+    names    = false,
+    rgb_fn   = true,
+    hsl_fn   = true,
     RRGGBBAA = true,
     AARRGGBB = true,
-    rgb_fn = true,
-    hsl_fn = true,
   },
 }
