@@ -18,7 +18,14 @@ map({ 'v' }, 'uk', 'U')
 
 -- buf
 map({ 'n', 'v' }, 'ww', function()
-  if vim.bo.ft == 'neo-tree' then
+  local ft = vim.bo.ft
+  if
+      ft == 'neo-tree' or
+      ft == 'toggleterm' or
+      ft == 'TelescopePrompt' or
+      vim.bo.readonly or
+      (not vim.bo.modifiable)
+  then
     return
   end
   vim.cmd 'w'
