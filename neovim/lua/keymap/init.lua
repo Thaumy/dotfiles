@@ -47,7 +47,7 @@ map({ 'n', 'v' }, 'wq', function()
   vim.cmd 'BufDel'
 end)
 
--- clsoe search hl
+-- clear search hl
 map_cmd('n', '<M-n>', 'noh')
 
 -- toggle wrap line
