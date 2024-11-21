@@ -53,7 +53,7 @@ function mkdir
 end
 
 function pr
-    set path "$(git rev-parse --show-toplevel 2> /dev/null)"
+    set path "$(command git rev-parse --show-toplevel 2> /dev/null)"
     if test $path != ''; cd $path; return; end
 
     set path "$(cargo locate-project --workspace --message-format plain 2> /dev/null)"
