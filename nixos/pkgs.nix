@@ -4,6 +4,7 @@ let
     go
     gdb
     lldb
+    mold
     ocaml
     stack
     gcc14
@@ -17,6 +18,7 @@ let
     clang-tools
     linuxHeaders
     android-tools
+    openapi-generator-cli
     linuxKernel.packages.linux_6_11.perf
   ];
 
@@ -93,6 +95,7 @@ let
   ];
 
   etc = with pkgs; [
+    lychee
     devenv
     vsftpd
     firefox
