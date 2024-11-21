@@ -15,7 +15,7 @@ alias sctl "systemctl"
 
 alias hmb "home-manager build"
 alias hms "home-manager switch"
-alias nrb "sudo nixos-rebuild boot"
+alias nrb "sudo nixos-rebuild build"
 alias nrs "sudo nixos-rebuild switch"
 
 alias dk "docker"
