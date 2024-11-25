@@ -1,20 +1,20 @@
 { ... }: {
   imports = [
+    ./hw.nix
     ./env.nix
     ./boot.nix
     ./user.nix
     #./docs.nix
     ./pkgs.nix
     ./local.nix
+    ./hw-gen.nix
     ./nixpkgs.nix
     ./app/mod.nix
     ./dev/mod.nix
     ./sec/mod.nix
-    ./hardware.nix
     ./programs.nix
     ./services.nix
     ./networking/mod.nix
-    ./hardware-configuration.nix
   ];
 
   powerManagement.enable = true;
