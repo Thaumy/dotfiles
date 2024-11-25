@@ -61,9 +61,14 @@ local filesystem = {
   ['e']     = 'close_window',
   ['yy']    = 'copy',
   ['to']    = { 'add', config = { show_path = 'none' } },
-  ['s']    = 'rename',
+  ['s']     = 'rename',
   ['dd']    = 'delete',
   ['<Tab>'] = 'toggle_hidden',
+
+  ['yp']    = function(state)
+    local abs_path = state.tree:get_node().path
+    vim.fn.setreg('+', abs_path)
+  end,
 }
 
 local buffers = {
