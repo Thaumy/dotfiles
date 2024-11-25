@@ -50,6 +50,18 @@ end)
 -- clear search hl
 map_cmd('n', '<M-n>', 'noh')
 
+-- visual-block front/back insert
+map('v', 'i', function()
+  if vim.api.nvim_get_mode().mode == '\22' then
+    vim.api.nvim_feedkeys('I', 'n', false)
+  end
+end)
+map('v', 'a', function()
+  if vim.api.nvim_get_mode().mode == '\22' then
+    vim.api.nvim_feedkeys('A', 'n', false)
+  end
+end)
+
 -- toggle wrap line
 map('n', 'wr', function()
   vim.wo.wrap = not vim.wo.wrap
