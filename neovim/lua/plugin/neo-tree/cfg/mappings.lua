@@ -39,7 +39,6 @@ local filesystem = {
   ['c']     = '',
   ['d']     = '',
   ['f']     = '',
-  ['r']     = '',
   ['D']     = '',
   ['#']     = '',
   ['[g']    = '',
@@ -57,7 +56,7 @@ local filesystem = {
 
   ['1']     = 'navigate_up',
   ['2']     = 'set_root',
-  ['3']     = 'refresh',
+  ['r']     = 'refresh',
   ['e']     = 'close_window',
   ['yy']    = 'copy',
   ['to']    = { 'add', config = { show_path = 'none' } },

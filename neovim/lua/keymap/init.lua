@@ -152,3 +152,6 @@ map('n', '<C-p>', function()
     return
   end
 end)
+
+-- refresh buf
+map_cmd({ 'n', 'v' }, 'r', 'e')
