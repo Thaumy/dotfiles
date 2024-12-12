@@ -5,7 +5,6 @@
     geary # mail
     evince # docs reader
     nautilus
-    rhythmbox
     dconf-editor
     gnome-tweaks
     gnome-calendar

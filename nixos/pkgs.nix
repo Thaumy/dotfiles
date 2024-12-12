@@ -12,7 +12,8 @@ let
     gnumake
     protobuf
     valgrind
-    python311
+    python312
+    pax-utils
     sysfsutils
     kubernetes
     clang-tools
@@ -99,6 +100,7 @@ let
     devenv
     vsftpd
     firefox
+    lollypop
     paperkey
     fastfetch
     distrobox
