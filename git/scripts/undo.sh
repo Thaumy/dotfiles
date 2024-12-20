@@ -15,7 +15,13 @@ if [ "$1" = 'a' ] ; then
   exit
 fi
 
+if [ "$1" = 'n' ] ; then
+  git clean -df
+  exit
+fi
+
 echo 'available options:'
 echo 'c: undo commit'
 echo 'm: undo modify'
 echo 'a: undo add'
+echo 'n: undo new files'
