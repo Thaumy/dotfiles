@@ -71,7 +71,7 @@
       ]
     },
     "on-click": "pamixer -t",
-    "scroll-step": 2
+    "scroll-step": 3
   },
   "backlight": {
     "interval": 1200,
