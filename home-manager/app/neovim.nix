@@ -108,11 +108,11 @@ in
       omnisharp-roslyn
       jdt-language-server
       lua-language-server
+      bash-language-server
+      yaml-language-server
       kotlin-language-server
-      nodePackages.bash-language-server
-      nodePackages.yaml-language-server
-      haskellPackages.haskell-language-server
-      nodePackages.vscode-langservers-extracted
+      haskell-language-server
+      vscode-langservers-extracted
     ];
   };
 
