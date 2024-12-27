@@ -76,6 +76,7 @@ in
       ruff # py fmt
       sqls
       deno
+      shfmt
       gopls
       taplo # toml
       pyright

@@ -3,6 +3,7 @@ let
   sdk = with pkgs; [
     go
     gdb
+    coq
     lldb
     mold
     ocaml
@@ -35,6 +36,7 @@ let
     du-dust
 
     htop
+    dstat
     iotop
     bottom
     bandwhich
@@ -50,6 +52,7 @@ let
     lsof
     qemu
     lshw
+    alass
     bluez
     procs
     p7zip
