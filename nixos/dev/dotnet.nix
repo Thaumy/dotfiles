@@ -1,10 +1,10 @@
 { pkgs, ... }: {
   environment = {
-    systemPackages = [ pkgs.dotnet-sdk_7 ];
-    etc."sdk-homes/dotnet".source = pkgs.dotnet-sdk_7;
+    systemPackages = [ pkgs.dotnet-sdk_8 ];
+    etc."sdk-homes/dotnet".source = pkgs.dotnet-sdk_8;
 
     sessionVariables = {
-      DOTNET_ROOT = pkgs.dotnet-sdk_7;
+      DOTNET_ROOT = pkgs.dotnet-sdk_8;
     };
   };
 }
