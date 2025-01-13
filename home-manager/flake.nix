@@ -16,7 +16,7 @@
       inputs.hyprutils.url = "github:hyprwm/hyprutils/fd4be8b9ca932f7384e454bcd923c5451ef2aa85"; # 24-10-15
     };
     hyprfocus = {
-      url = "github:pyt0xic/hyprfocus/aa7262d3a4564062f97b9cfdad47fd914cfb80f2"; # 24-5-30
+      url = "github:pyt0xic/hyprfocus/bead5b77d80f222c006d1a6c6f44ee8b02021d73"; # 24-11-9
       inputs.hyprland.follows = "hyprland";
     };
 
