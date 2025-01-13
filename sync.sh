@@ -17,6 +17,11 @@ cp -r  "$home/cfg/fish" "$repo/fish"
 rm -rf "$repo/rofi"
 cp -r  "$home/cfg/rofi" "$repo/rofi"
 
+# hypr
+rm -rf "$repo/hypr"
+mkdir -p "$repo/hypr/hyprland"
+cp -r "$home/cfg/hypr/hyprland" "$repo/hypr/hyprland"
+
 # nvim
 rm -rf "$repo/neovim"
 cp -r  "$home/cfg/neovim" "$repo/neovim"
