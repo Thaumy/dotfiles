@@ -10,7 +10,7 @@
     };
 
     hyprland = {
-      url = "git+https://github.com/hyprwm/hyprland?submodules=1&rev=4520b30d498daca8079365bdb909a8dea38e8d55"; # 24-10-9(0.44.1)
+      url = "git+https://github.com/hyprwm/hyprland?submodules=1&rev=12f9a0d0b93f691d4d9923716557154d74777b0a"; # 24-11-20(0.45.2)
       inputs.nixpkgs.follows = "pkgs";
       inputs.aquamarine.url = "github:hyprwm/aquamarine/8d732fa8aff8b12ef2b1e2f00fc8153e41312b72"; # 24-10-22
       inputs.hyprutils.url = "github:hyprwm/hyprutils/fd4be8b9ca932f7384e454bcd923c5451ef2aa85"; # 24-10-15
