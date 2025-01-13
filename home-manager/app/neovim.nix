@@ -5,12 +5,12 @@ let
 
   neo-tree-nvim = pkgs.vimUtils.buildVimPlugin {
     pname = "neo-tree.nvim";
-    version = "2024-4-17";
+    version = "2025-1-4";
     src = pkgs.fetchFromGitHub {
-      owner = "Thaumy";
+      owner = "nvim-neo-tree";
       repo = "neo-tree.nvim";
-      rev = "aa14c0e3fed9cf3537e5cbfbe760c3d52fc8ea23";
-      hash = "sha256-9frD77EauIcBz96msCzEWJVULXIdYyi4kEbrbYFOtWk=";
+      rev = "e6645ecfcba3e064446a6def1c10d788c9873f51"; # 3.28
+      hash = "sha256-1eGGSm1FwZ61/KU3LDVSeiFCu6+cQDMNPDg4t2AuQVo=";
     };
   };
   nvim-web-devicons = pkgs.vimUtils.buildVimPlugin {
