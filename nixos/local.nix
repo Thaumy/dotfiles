@@ -11,7 +11,7 @@
       source-han-serif
       times-newer-roman
       material-design-icons
-      (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+      nerd-fonts.symbols-only
     ];
 
     fontconfig = {

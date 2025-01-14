@@ -3,16 +3,6 @@ let
   homeDir = config.home.homeDirectory;
   mkSymlink = config.lib.file.mkOutOfStoreSymlink;
 
-  neo-tree-nvim = pkgs.vimUtils.buildVimPlugin {
-    pname = "neo-tree.nvim";
-    version = "2025-1-4";
-    src = pkgs.fetchFromGitHub {
-      owner = "nvim-neo-tree";
-      repo = "neo-tree.nvim";
-      rev = "e6645ecfcba3e064446a6def1c10d788c9873f51"; # 3.28
-      hash = "sha256-1eGGSm1FwZ61/KU3LDVSeiFCu6+cQDMNPDg4t2AuQVo=";
-    };
-  };
   nvim-web-devicons = pkgs.vimUtils.buildVimPlugin {
     pname = "nvim-web-devicons";
     version = "2024-10-15";
@@ -21,16 +11,6 @@ let
       repo = "nvim-web-devicons";
       rev = "d173154c3dd49336751281e4765bcee27a123cf9";
       hash = "sha256-BLk1xKbLMHq6tpaUf79GS2LMKHlphju6lGUkaQ/DHZc=";
-    };
-  };
-  crates-nvim = pkgs.vimUtils.buildVimPlugin {
-    pname = "crates.nvim";
-    version = "2025-1-4";
-    src = pkgs.fetchFromGitHub {
-      owner = "saecki";
-      repo = "crates.nvim";
-      rev = "bd35b13e94a292ee6e32c351e05ca2202dc9f070";
-      hash = "sha256-dj7VXlMbS4HvSc+/WMQprtqWzrYrWaCnSEE0ygp/LcI=";
     };
   };
 in

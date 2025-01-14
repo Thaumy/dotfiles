@@ -1,7 +1,7 @@
 {
   inputs = {
     nur.url = "github:nix-community/nur/9edb05163b86238999c6f6cab06c193e4de951f8"; # 24-6-12
-    pkgs.url = "github:NixOS/nixpkgs/18536bf04cd71abd345f9579158841376fdd0c5a"; # 24-10-26
+    pkgs.url = "github:NixOS/nixpkgs/5daca2db3da901cc6c2127f50a9d5b2770d672d0"; # 25-1-6
 
     nyx = {
       url = "github:chaotic-cx/nyx/9b30ea4a39c8c5a2b6a6519f85da38f72b7f29f0"; # 24-9-26

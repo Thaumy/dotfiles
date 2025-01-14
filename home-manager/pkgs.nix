@@ -1,7 +1,7 @@
 { pkgs, pkgs-24-05, ... }: {
   home.packages = with pkgs; [
     # nur
-    nur.repos.thaumy.idbuilder
+    #nur.repos.thaumy.idbuilder
     nur.repos.thaumy.microsoft-todo-electron
     nur.repos.thaumy.mojave-dyn
     nur.repos.thaumy.catalina-dyn
@@ -50,7 +50,7 @@
     monero-gui
 
     # penetration
-    mdk4
+    #mdk4
     crunch
     macchanger
     aircrack-ng
