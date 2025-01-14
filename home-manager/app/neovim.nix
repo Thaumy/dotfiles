@@ -101,7 +101,7 @@ in
       pyright
       fantomas # F# formatter
       marksman
-      typst-lsp
+      tinymist # Typst
       nixpkgs-fmt
       rust-analyzer
       fsautocomplete

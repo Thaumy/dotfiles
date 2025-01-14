@@ -75,6 +75,6 @@ plugin.denols.setup { capabilities = caps }
 plugin.yamlls.setup { capabilities = caps }
 plugin.pyright.setup { capabilities = caps }
 plugin.marksman.setup { capabilities = caps }
-plugin.typst_lsp.setup { capabilities = caps }
+plugin.tinymist.setup { capabilities = caps }
 plugin.fsautocomplete.setup { capabilities = caps } -- F#
 plugin.kotlin_language_server.setup { capabilities = caps }
