@@ -18,7 +18,7 @@
     glow
     typst
     typstfmt
-    pkgs-24-05.android-studio
+    #pkgs-24-05.android-studio
 
     # IM
     pkgs.feishu
