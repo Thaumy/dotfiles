@@ -6,7 +6,7 @@ caps.textDocument.foldingRange = {
 local plugin = require 'lspconfig'
 
 -- for lsp names, see:
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 
 plugin.nil_ls.setup { -- Nix
   capabilities = caps,
