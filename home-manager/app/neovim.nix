@@ -25,12 +25,12 @@ let
   };
   crates-nvim = pkgs.vimUtils.buildVimPlugin {
     pname = "crates.nvim";
-    version = "2024-8-9";
+    version = "2025-1-4";
     src = pkgs.fetchFromGitHub {
       owner = "saecki";
       repo = "crates.nvim";
-      rev = "cd670ecc862469557b12d12e7116d7afd2fd9c0f";
-      hash = "sha256-3wbqRj9hbAow+qSrY/qY5H/jXI6wsHUxxjsW0ze3ezM=";
+      rev = "bd35b13e94a292ee6e32c351e05ca2202dc9f070";
+      hash = "sha256-dj7VXlMbS4HvSc+/WMQprtqWzrYrWaCnSEE0ygp/LcI=";
     };
   };
 in
