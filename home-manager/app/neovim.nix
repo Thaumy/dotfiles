@@ -72,16 +72,16 @@ in
     ];
 
     extraPackages = with pkgs; [
-      nil
-      ruff # python formatter
+      nil # nix
+      ruff # py fmt
       sqls
       deno
       gopls
-      taplo # TOML
+      taplo # toml
       pyright
-      fantomas # F# formatter
+      fantomas # fs fmt
       marksman
-      tinymist # Typst
+      tinymist # typst
       nixpkgs-fmt
       rust-analyzer
       fsautocomplete
