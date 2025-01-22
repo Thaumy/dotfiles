@@ -4,11 +4,12 @@ return {
 
   dependencies = {
     require 'plugin.luasnip.spec',
-    { 'hrsh7th/cmp-path',     dev = true },
-    { 'hrsh7th/cmp-buffer',   dev = true },
-    { 'hrsh7th/cmp-cmdline',  dev = true },
-    { 'hrsh7th/cmp-nvim-lsp', dev = true },
-    { 'hrsh7th/cmp-nvim-lua', dev = true },
+    { 'hrsh7th/cmp-path',         dev = true },
+    { 'hrsh7th/cmp-buffer',       dev = true },
+    { 'hrsh7th/cmp-cmdline',      dev = true },
+    { 'hrsh7th/cmp-nvim-lsp',     dev = true },
+    { 'hrsh7th/cmp-nvim-lua',     dev = true },
+    { 'saadparwaiz1/cmp_luasnip', dev = true },
   },
 
   keys = {
