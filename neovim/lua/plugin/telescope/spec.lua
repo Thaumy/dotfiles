@@ -10,7 +10,7 @@ return {
   cmd = 'Telescope',
   keys = {
     { mode = 'n', 'tm' },
-    { mode = 'n', 't/' },
+    { mode = 'n', 'g/' },
     { mode = 'n', 'fd' },
     { mode = 'n', '<M-d>' },
     { mode = 'n', '<M-u>' },
