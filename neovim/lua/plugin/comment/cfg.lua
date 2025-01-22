@@ -4,11 +4,11 @@ plugin.setup {
   padding = false,
   toggler = {
     line = 'm',
-    block = 'bm',
+    block = 'cm',
   },
   opleader = {
     line = 'm',
-    block = 'bm',
+    block = 'cm',
   },
   mappings = {
     basic = true,

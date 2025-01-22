@@ -4,9 +4,9 @@ return {
 
   keys = {
     { mode = 'n', 'm' },
-    { mode = 'n', 'bm' },
+    { mode = 'n', 'cm' },
     { mode = 'v', 'm' },
-    { mode = 'v', 'bm' },
+    { mode = 'v', 'cm' },
   },
 
   config = function()
