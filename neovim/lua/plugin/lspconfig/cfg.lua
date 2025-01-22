@@ -54,6 +54,38 @@ plugin.rust_analyzer.setup {
     ['rust-analyzer'] = {
       completion = {
         fullFunctionSignatures = { enable = true },
+        snippets = {
+          custom = {
+            ['let statement'] = {
+              prefix = 'lt',
+              body = 'let $0 = ;',
+            },
+            ['thread spawn'] = {
+              prefix = 'tsp',
+              scope = 'expr',
+              requires = 'std::thread',
+              body = {
+                'thread::spawn(move || {',
+                '\t$0',
+                '});',
+              },
+            },
+            ['heap box'] = {
+              prefix = 'box',
+              body = 'Box::new($0)',
+            },
+            ['reference cell'] = {
+              prefix = 'rc',
+              requires = 'std::rc::Rc',
+              body = 'Rc::new($0)',
+            },
+            ['atomic reference cell'] = {
+              prefix = 'arc',
+              requires = 'std::sync::Arc',
+              body = 'Arc::new($0)',
+            },
+          },
+        },
       },
     },
   },
