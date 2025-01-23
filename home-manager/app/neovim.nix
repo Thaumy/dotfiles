@@ -13,6 +13,17 @@ let
       hash = "sha256-BLk1xKbLMHq6tpaUf79GS2LMKHlphju6lGUkaQ/DHZc=";
     };
   };
+
+  git-messenger-vim = pkgs.vimUtils.buildVimPlugin {
+    pname = "git-messenger.vim";
+    version = "2025-01-23";
+    src = pkgs.fetchFromGitHub {
+      owner = "Thaumy";
+      repo = "git-messenger.vim";
+      rev = "566545a19c4a5b974c4dedce7fbbcf88292250a7";
+      hash = "sha256-6WG1JOr16qL6StSSinpjvaRqb6OmktlGOGLZXej6AT0=";
+    };
+  };
 in
 {
   nixpkgs.overlays = [ inputs.nvim-nightly-overlay.overlays.default ];
@@ -49,6 +60,7 @@ in
       telescope-nvim # fuzzy finder
       bufferline-nvim # buffer tabs
       toggleterm-nvim # terminal
+      git-messenger-vim # git blame popup
       actions-preview-nvim # code actions preview
       markdown-preview-nvim # markdown renderer
 
