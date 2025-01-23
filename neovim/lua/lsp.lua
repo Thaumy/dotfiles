@@ -25,7 +25,6 @@ local diagnostic_buf = nil
 do
   local ns = vim.api.nvim_create_namespace 'diagnostic-hold'
   local cursor_still_hold = false
-  local on_cursor_moved = nil
   vim.api.nvim_create_autocmd('CursorHold', {
     callback = function()
       if cursor_still_hold then return end
@@ -36,11 +35,10 @@ do
       diagnostic_buf = vim.diagnostic.open_float { scope = 'cursor' }
       cursor_still_hold = true
 
-      on_cursor_moved = vim.api.nvim_create_autocmd('CursorMoved', {
+      vim.api.nvim_create_autocmd('CursorMoved', {
         once = true,
         callback = function()
           cursor_still_hold = false
-          on_cursor_moved = nil
           vim.on_key(nil, ns)
         end,
       })
