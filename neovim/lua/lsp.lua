@@ -1,5 +1,4 @@
 local k = require 'infra.key'
-local ui = require 'infra.ui'
 local cmp = require 'cmp'
 
 local function enable_inlay_hint()
