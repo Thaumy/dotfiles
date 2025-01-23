@@ -29,10 +29,6 @@ function rm
     printf "please use %srr%s instead, %srm%s is considered unsafe!\n" (set_color green) (set_color normal) (set_color yellow) (set_color normal)
 end
 
-function git
-    printf "please use %sg%s instead.\n" (set_color green) (set_color normal)
-end
-
 function sed
     printf "please use %ssd%s instead.\n" (set_color green) (set_color normal)
 end
