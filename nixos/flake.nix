@@ -4,7 +4,7 @@
     pkgs.url = "github:NixOS/nixpkgs/5daca2db3da901cc6c2127f50a9d5b2770d672d0"; # 25-1-6
 
     nyx = {
-      url = "github:chaotic-cx/nyx/705c09ade97041ccc9d04282498af7983874fe19"; # 25-1-13
+      url = "github:chaotic-cx/nyx/e300abf0ef16528298be33f66a2f70b20b15d2fa"; # 25-1-19
       inputs.nixpkgs.follows = "pkgs";
     };
     rust-overlay = {
