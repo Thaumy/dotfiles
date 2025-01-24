@@ -50,6 +50,11 @@ end)
 -- clear search hl
 map_cmd('n', '<M-n>', 'noh')
 
+-- find git conflict mark
+map('n', 'cf', function()
+  vim.api.nvim_feedkeys('/<<<<<<< HEAD\r', 'n', false)
+end)
+
 -- visual-block front/back insert
 map('v', 'i', function()
   if vim.api.nvim_get_mode().mode == '\22' then
