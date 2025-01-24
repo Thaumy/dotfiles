@@ -5,7 +5,7 @@
     pkgs.url = "github:NixOS/nixpkgs/5daca2db3da901cc6c2127f50a9d5b2770d672d0"; # 25-1-6
 
     home-manager = {
-      url = "github:nix-community/home-manager/e1aec543f5caf643ca0d94b6a633101942fd065f"; # 24-10-14
+      url = "github:nix-community/home-manager/0db5c8bfcce78583ebbde0b2abbc95ad93445f7c"; # 25-1-23
       inputs.nixpkgs.follows = "pkgs";
     };
 
