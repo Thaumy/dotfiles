@@ -35,8 +35,8 @@ let
     pstree
     du-dust
 
+    dool
     htop
-    dstat
     iotop
     bottom
     bandwhich
@@ -52,7 +52,6 @@ let
     lsof
     qemu
     lshw
-    alass
     bluez
     procs
     p7zip
@@ -108,10 +107,12 @@ let
     fastfetch
     distrobox
     obs-studio
+    ollama-cuda
     imagemagick
     home-manager
     ffmpeg_7-full
     systemctl-tui
+    subtitleeditor
     libsForQt5.qtstyleplugin-kvantum
   ];
 in

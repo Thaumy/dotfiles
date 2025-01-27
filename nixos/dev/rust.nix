@@ -26,7 +26,6 @@ in
       rust-bindgen
 
       grcov
-      cargo-asm
       cargo-edit
       cargo-udeps
       cargo-audit
@@ -36,6 +35,7 @@ in
       cargo-llvm-cov
       cargo-outdated
       cargo-generate
+      cargo-show-asm
       cargo-component
     ];
 
