@@ -9,3 +9,9 @@ vim.filetype.add {
     conf = 'conf',
   },
 }
+
+vim.filetype.add {
+  extension = {
+    v = 'coq',
+  },
+}
