@@ -84,6 +84,11 @@ plugin.rust_analyzer.setup {
               requires = 'std::sync::Arc',
               body = 'Arc::new($0)',
             },
+            ['mutex'] = {
+              prefix = 'mtx',
+              requires = 'std::sync::Mutex',
+              body = 'Mutex::new($0)',
+            },
           },
         },
       },
