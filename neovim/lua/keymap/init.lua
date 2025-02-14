@@ -52,7 +52,7 @@ map_cmd('n', '<M-n>', 'noh')
 
 -- find git conflict mark
 map('n', 'cf', function()
-  vim.api.nvim_feedkeys('/<<<<<<< HEAD\r', 'n', false)
+  vim.api.nvim_feedkeys('/<<<<<<< \r', 'n', false)
 end)
 
 -- visual-block front/back insert
