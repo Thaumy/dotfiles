@@ -21,8 +21,8 @@
     #./podman.nix
     ./sysstat.nix
     #./mongodb.nix
-    ./postgres.nix
-    ./influxdb.nix
+    #./postgres.nix
+    #./influxdb.nix
 
     ./docker.nix
     ./virt-manager.nix
