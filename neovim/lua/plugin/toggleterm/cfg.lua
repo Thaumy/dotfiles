@@ -14,6 +14,10 @@ plugin.setup {
   },
 }
 
--- toggle
-k.map_cmd('n', 'tt', 'ToggleTerm')
+-- toggle if vim not in toggleterm
+if os.getenv 'TERM' ~= 'xterm-256color' then
+  k.map('n', 'tt', function()
+    vim.cmd 'ToggleTerm'
+  end)
+end
 k.map_cmd('t', '<Esc>', 'ToggleTerm')
