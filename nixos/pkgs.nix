@@ -98,14 +98,17 @@ let
   ];
 
   etc = with pkgs; [
+    tmux
     lychee
     devenv
     vsftpd
     firefox
     lollypop
     paperkey
+    pngcheck
     fastfetch
     distrobox
+    shellcheck
     obs-studio
     ollama-cuda
     imagemagick
