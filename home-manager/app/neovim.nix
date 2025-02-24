@@ -92,6 +92,7 @@ in
       shfmt
       gopls
       taplo # toml
+      biome # web langs
       pyright
       fantomas # fs fmt
       marksman
@@ -106,7 +107,6 @@ in
       yaml-language-server
       kotlin-language-server
       haskell-language-server
-      vscode-langservers-extracted
     ];
   };
 

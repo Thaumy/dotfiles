@@ -8,6 +8,10 @@ local plugin = require 'lspconfig'
 -- for lsp names, see:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 
+plugin.biome.setup {
+  capabilities = caps,
+  root_dir = plugin.util.root_pattern '.git' or vim.fn.getcwd(),
+}
 plugin.nil_ls.setup { -- Nix
   capabilities = caps,
   settings = {
@@ -106,7 +110,6 @@ plugin.gopls.setup { capabilities = caps }
 plugin.cssls.setup { capabilities = caps }
 plugin.texlab.setup { capabilities = caps }
 plugin.bashls.setup { capabilities = caps }
-plugin.jsonls.setup { capabilities = caps }
 plugin.clangd.setup { capabilities = caps }
 plugin.denols.setup { capabilities = caps }
 plugin.yamlls.setup { capabilities = caps }
