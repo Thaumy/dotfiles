@@ -2,8 +2,8 @@
   imports = [
     ./nix.nix
     ./coq.nix
+    ./web.nix
     ./rust.nix
-    ./node.nix
     ./java.nix
     ./dotnet.nix
   ];
