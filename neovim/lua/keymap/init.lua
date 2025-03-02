@@ -48,7 +48,7 @@ map({ 'n', 'v' }, 'wq', function()
 end)
 
 -- clear search hl
-map_cmd('n', '<M-n>', 'noh')
+map_cmd('n', '<C-n>', 'noh')
 
 -- find git conflict mark
 map('n', 'cf', function()
