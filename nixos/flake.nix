@@ -7,7 +7,7 @@
       url = "github:chaotic-cx/nyx/175a7f545d07bd08c14709f0d0849a8cddaaf460"; # 25-2-11
     };
     rust-overlay = {
-      url = "github:oxalica/rust-overlay/cf960a1938ee91200fe0d2f7b2582fde2429d562"; # 25-1-13
+      url = "github:oxalica/rust-overlay/b4270835bf43c6f80285adac6f66a26d83f0f277"; # 25-2-28
       inputs.nixpkgs.follows = "pkgs";
     };
   };
