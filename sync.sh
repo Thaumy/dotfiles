@@ -17,6 +17,10 @@ cp -r  "$home/cfg/git" "$repo/git"
 rm -rf "$repo/btop"
 cp -r  "$home/cfg/btop" "$repo/btop"
 
+# tmux
+rm -rf "$repo/tmux"
+cp -r  "$home/cfg/tmux" "$repo/tmux"
+
 # fish
 rm -rf "$repo/fish"
 cp -r  "$home/cfg/fish" "$repo/fish"

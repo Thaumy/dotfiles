@@ -7,6 +7,7 @@
     ./git.nix
     ./bat.nix
     ./btop.nix
+    ./tmux.nix
     ./bash.nix
     ./fish.nix
     ./rofi.nix
