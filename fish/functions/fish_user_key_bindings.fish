@@ -3,6 +3,7 @@
 function fish_user_key_bindings
     # remove presets
     bind -e --preset \cA # beginning-of-line
+    bind -e --preset \cD # exit
     bind -e --preset \cE # end-of-line
     bind -e --preset \cF # forward-char
     bind -e --preset \cB # backward-char
