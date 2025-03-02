@@ -23,9 +23,5 @@ let
   };
 in
 {
-  home = {
-    packages = [
-      alacritty-wrapped
-    ];
-  };
+  home.packages = [ alacritty-wrapped ];
 }

@@ -24,9 +24,5 @@ let
   };
 in
 {
-  home = {
-    packages = [
-      bat-wrapped
-    ];
-  };
+  home.packages = [ bat-wrapped ];
 }

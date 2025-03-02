@@ -4,13 +4,9 @@ let
   mkSymlink = config.lib.file.mkOutOfStoreSymlink;
 in
 {
-  home = {
-    packages = with pkgs; [
-      lf
-    ];
-    file.".config/lf" = {
-      enable = true;
-      source = mkSymlink "${homeDir}/cfg/lf";
-    };
+  home.packages = [ pkgs.lf ];
+  home.file.".config/lf" = {
+    enable = true;
+    source = mkSymlink "${homeDir}/cfg/lf";
   };
 }

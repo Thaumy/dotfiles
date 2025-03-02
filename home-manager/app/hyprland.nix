@@ -9,13 +9,11 @@
     extraConfig = "source = ~/cfg/hypr/hyprland/hyprland.conf";
   };
 
-  home = {
-    packages = with pkgs; [
-      hypridle
-      hyprlock
-      hyprshot
-      hyprpaper
-      hyprpicker
-    ];
-  };
+  home.packages = with pkgs; [
+    hypridle
+    hyprlock
+    hyprshot
+    hyprpaper
+    hyprpicker
+  ];
 }

@@ -26,11 +26,6 @@ let
   };
 in
 {
-  home = {
-    packages = [
-      chromium-wrapped
-    ];
-  };
-
+  home.packages = [ chromium-wrapped ];
   nixpkgs.overlays = [ overlay ];
 }
