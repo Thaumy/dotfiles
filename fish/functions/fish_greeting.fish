@@ -1,6 +1,5 @@
 function fish_greeting
-    # time and pid
-    echo "$(date +'%H:%M:%S') • $fish_pid"
+    echo "  $fish_pid"
 
     # history filter
     set old_history "$HOME/.local/share/fish/fish_history"
