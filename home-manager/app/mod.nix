@@ -1,6 +1,7 @@
 { ... }: {
   imports = [
     ./lf.nix
+    ./mpv.nix
     ./ssh.nix
     ./xdg.nix
     ./gpg.nix
