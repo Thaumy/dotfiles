@@ -1,17 +1,14 @@
+[env]
+TERM = "xterm-256color"
+
+[terminal]
+shell = "tmux"
+
 [font]
 normal = { family = "JetBrains Mono", style = "Regular" }
 
 [keyboard]
 bindings = [
-  { mods = "Alt", key = "y", action = "Copy" },
-  { mods = "Alt", key = "p", action = "Paste" },
-  { mods = "Alt", key = "Escape", action = "ToggleViMode" },
-
-  { mode = "Vi", mods = "Shift", key = "h", action = "First" },
-  { mode = "Vi", mods = "Shift", key = "l", action = "Last" },
-  { mode = "Vi", mods = "Control", key = "h", action = "WordLeft" },
-  { mode = "Vi", mods = "Control", key = "l", action = "WordRight" },
-
   { mods = "Control | Super", key = "k", action = "IncreaseFontSize" },
   { mods = "Control | Super", key = "j", action = "DecreaseFontSize" },
 
@@ -22,9 +19,6 @@ bindings = [
   { mods = "Control", key = "=", action = "ReceiveChar" },
   { mods = "Control", key = "-", action = "ReceiveChar" },
 ]
-
-[mouse]
-bindings = [{ mouse = "Right", action = "Paste" }]
 
 [colors.primary]
 foreground = "#d8d8d8"
