@@ -11,6 +11,7 @@ in
   home.packages = [
     (writeBin "vp" etc/vi-project.sh)
     (writeBin "rr" etc/safe-remove.rs)
+    (writeBin "vvp" etc/vi-vis-pane.sh)
     (writeBin "cfg" etc/cfg.sh)
     (writeBin "pwdc" etc/pwdc.sh)
     (writeBin "todo" etc/todo.sh)
