@@ -25,7 +25,11 @@
     };
 
     kernelPackages = pkgs.linuxPackages_cachyos;
-    kernel.sysctl = { "vm.swappiness" = 20; };
+    kernel.sysctl = {
+      "vm.swappiness" = 20;
+      "kernel.perf_event_paranoid" = -1;
+      "kernel.perf_event_max_sample_rate" = 10000;
+    };
     kernelModules = [
       "v4l2loopback"
     ];
