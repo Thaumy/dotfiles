@@ -142,11 +142,6 @@ map('n', 'bn', function()
   vim.fn.setreg('+', pwd)
 end)
 
--- open terminal in wm
-map('n', 'tw', function()
-  io.popen 'alacritty'
-end)
-
 -- docs preview
 map('n', '<C-p>', function()
   if vim.bo.ft == 'markdown' then
