@@ -20,8 +20,7 @@ vim.api.nvim_create_autocmd('BufLeave', {
 
       local ft = vim.api.nvim_get_option_value('filetype', { buf = args.buf })
       if
-          ft == 'neo-tree' or
-          ft == 'toggleterm'
+          ft == 'neo-tree'
       then
         return
       end

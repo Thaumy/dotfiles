@@ -25,8 +25,7 @@ local function gc_buffers()
   for _, buf in ipairs(bufs) do
     local ft = vim.api.nvim_get_option_value('filetype', { buf = buf })
     if
-        ft == 'neo-tree' or
-        ft == 'toggleterm'
+        ft == 'neo-tree'
     then
       goto continue
     end

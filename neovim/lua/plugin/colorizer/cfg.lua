@@ -6,7 +6,6 @@ plugin.setup {
     '!fidget',
     '!strace',
     '!neo-tree',
-    '!toggleterm',
   },
   user_default_options = {
     names    = false,

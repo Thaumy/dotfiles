@@ -59,7 +59,6 @@ in
       neo-tree-nvim # file explorer, [deps: plenary-nvim, nvim-web-devicons, nui-nvim]
       telescope-nvim # fuzzy finder
       bufferline-nvim # buffer tabs
-      toggleterm-nvim # terminal
       git-messenger-vim # git blame popup
       actions-preview-nvim # code actions preview
       markdown-preview-nvim # markdown renderer

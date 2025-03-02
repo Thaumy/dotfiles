@@ -19,7 +19,6 @@ local specs = {
   require 'plugin.lualine.spec',
   require 'plugin.neo-tree.spec',
   require 'plugin.telescope.spec',
-  require 'plugin.toggleterm.spec',
   require 'plugin.md-preview.spec',
   require 'plugin.git-messenger.spec',
   require 'plugin.actions-preview.spec',

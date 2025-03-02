@@ -97,9 +97,6 @@ end
 local debounce = Debounce:new()
 local auto_toggle = vim.api.nvim_create_autocmd('VimResized', {
   callback = function()
-    if vim.bo.ft == 'toggleterm' then
-      return
-    end
     debounce:schedule(200, function()
       if vim.go.columns < 120 then
         vim.cmd(close_cmd)

@@ -21,7 +21,6 @@ map({ 'n', 'v' }, 'ww', function()
   local ft = vim.bo.ft
   if
       ft == 'neo-tree' or
-      ft == 'toggleterm' or
       ft == 'TelescopePrompt' or
       vim.bo.readonly or
       (not vim.bo.modifiable)
@@ -143,8 +142,6 @@ map('n', 'bn', function()
   vim.fn.setreg('+', pwd)
 end)
 
--- terminal to normal
-map('t', '<M-n>', [[<C-\><C-n>]])
 -- open terminal in wm
 map('n', 'tw', function()
   io.popen 'alacritty'
