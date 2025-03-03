@@ -45,6 +45,7 @@ let
 
     sd
     fd
+    bat
     eza
     git
     glib
