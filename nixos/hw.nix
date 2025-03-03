@@ -8,7 +8,6 @@ in
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
     enableAllFirmware = true;
-    amdgpu.amdvlk.enable = true;
   };
 
   hardware.nvidia = lib.mkIf (!enable_nvidia_vfio) {
