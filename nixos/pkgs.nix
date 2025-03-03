@@ -108,6 +108,7 @@ let
     chromium
     paperkey
     pngcheck
+    alacritty
     fastfetch
     distrobox
     shellcheck
