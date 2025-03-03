@@ -3,9 +3,6 @@
     # nur
     #nur.repos.thaumy.idbuilder
     nur.repos.thaumy.microsoft-todo-electron
-    nur.repos.thaumy.mojave-dyn
-    nur.repos.thaumy.catalina-dyn
-    nur.repos.thaumy.bigsur-dyn
     nur.repos.linyinfeng.wemeet
     #nur.repos.xddxdd.dingtalk
 
