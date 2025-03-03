@@ -14,7 +14,6 @@
     ./gnome.nix
     ./waybar.nix
     ./neovim.nix
-    ./chromium.nix
     ./hyprland.nix
     ./cargo/mod.nix
     ./alacritty.nix

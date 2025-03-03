@@ -104,6 +104,7 @@ let
     vsftpd
     firefox
     lollypop
+    chromium
     paperkey
     pngcheck
     fastfetch
