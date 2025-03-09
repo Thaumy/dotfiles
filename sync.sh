@@ -13,6 +13,10 @@ cp -r  "$home/cfg/bat" "$repo/bat"
 rm -rf "$repo/git"
 cp -r  "$home/cfg/git" "$repo/git"
 
+# btop
+rm -rf "$repo/btop"
+cp -r  "$home/cfg/btop" "$repo/btop"
+
 # fish
 rm -rf "$repo/fish"
 cp -r  "$home/cfg/fish" "$repo/fish"

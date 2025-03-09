@@ -6,6 +6,7 @@
     ./gpg.nix
     ./git.nix
     ./bat.nix
+    ./btop.nix
     ./bash.nix
     ./fish.nix
     ./rofi.nix
