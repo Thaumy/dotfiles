@@ -84,28 +84,29 @@ in
     ];
 
     extraPackages = with pkgs; [
-      nil # nix
-      ruff # py fmt
-      sqls
-      deno
-      shfmt
-      gopls
-      taplo # toml
-      biome # web langs
-      pyright
-      fantomas # fs fmt
-      marksman
-      tinymist # typst
-      nixpkgs-fmt
-      rust-analyzer
-      fsautocomplete
-      omnisharp-roslyn
-      jdt-language-server
-      lua-language-server
-      bash-language-server
-      yaml-language-server
-      kotlin-language-server
-      haskell-language-server
+      nil # Nix
+      ruff # Python fmt
+      sqls # SQL
+      deno # Deno
+      shfmt # Shell fmt
+      gopls # Go
+      taplo # TOML
+      biome # Web
+      pyright # Ptyhon
+      fantomas # F# fmt
+      marksman # Markdown
+      tinymist # Typst
+      nixpkgs-fmt # Nix fmt
+      rust-analyzer # Rust
+      fsautocomplete # F#
+      omnisharp-roslyn # C#
+      vue-language-server # Vue
+      jdt-language-server # Java
+      lua-language-server # Lua
+      bash-language-server # Bash
+      yaml-language-server # YAML
+      kotlin-language-server # Kotlin
+      haskell-language-server # Haskell
     ];
   };
 
