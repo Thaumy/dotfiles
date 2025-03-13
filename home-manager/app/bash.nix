@@ -12,5 +12,8 @@
       && cp $new_history $old_history \
       && rm $new_history
     '';
+    shellAliases = {
+      q = "exit";
+    };
   };
 }
