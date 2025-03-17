@@ -5,9 +5,11 @@ let
     gdb
     coq
     mold
+    flex
     ocaml
     stack
     gcc14
+    bison
     gnumake
     protobuf
     valgrind
@@ -87,6 +89,7 @@ let
   ];
 
   net = with pkgs; [
+    hurl
     nmap
     wget
     whois

@@ -18,7 +18,6 @@
     #pkgs-24-05.android-studio
 
     # IM
-    pkgs.feishu
     tdesktop
     element-desktop
 
