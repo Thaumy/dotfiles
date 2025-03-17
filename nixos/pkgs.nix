@@ -4,12 +4,10 @@ let
     go
     gdb
     coq
-    lldb
     mold
     ocaml
     stack
     gcc14
-    libllvm
     gnumake
     protobuf
     valgrind
@@ -17,7 +15,6 @@ let
     pax-utils
     sysfsutils
     kubernetes
-    clang-tools
     linuxHeaders
     android-tools
     openapi-generator-cli
@@ -134,7 +131,6 @@ in
     etc = with pkgs; {
       "sdk-homes/go".source = go;
       "sdk-homes/gcc".source = gcc14;
-      "sdk-homes/llvm".source = libllvm;
       "sdk-homes/perf".source = linuxKernel.packages.linux_6_11.perf;
       "sdk-homes/linux-headers".source = linuxHeaders;
 

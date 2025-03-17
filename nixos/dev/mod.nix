@@ -5,6 +5,7 @@
     ./web.nix
     ./rust.nix
     ./java.nix
+    ./llvm.nix
     ./dotnet.nix
   ];
 }
