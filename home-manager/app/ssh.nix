@@ -5,8 +5,8 @@
     serverAliveInterval = 120;
 
     includes = [
-      "~/.ssh/org.conf"
-      "~/.ssh/thaumy.conf"
+      "~/cfg/ssh/org.conf"
+      "~/cfg/ssh/thaumy.conf"
     ];
 
     extraConfig = ''
