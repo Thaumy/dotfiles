@@ -8,7 +8,7 @@ local plugin = require 'lspconfig'
 -- for lsp names, see:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 
-plugin.biome.setup {
+plugin.biome.setup { -- Web
   capabilities = caps,
   root_dir = plugin.util.root_pattern '.git' or vim.fn.getcwd(),
 }
@@ -48,7 +48,7 @@ plugin.lua_ls.setup {
     },
   },
 }
-plugin.omnisharp.setup {
+plugin.omnisharp.setup { -- C#
   capabilities = caps,
   cmd = { 'OmniSharp' },
 }
@@ -100,21 +100,21 @@ plugin.rust_analyzer.setup {
   },
 }
 
-plugin.hls.setup { capabilities = caps }
-plugin.ruff.setup { capabilities = caps }
-plugin.html.setup { capabilities = caps }
-plugin.sqls.setup { capabilities = caps }
-plugin.taplo.setup { capabilities = caps } -- TOML
-plugin.jdtls.setup { capabilities = caps }
-plugin.gopls.setup { capabilities = caps }
-plugin.cssls.setup { capabilities = caps }
-plugin.texlab.setup { capabilities = caps }
-plugin.bashls.setup { capabilities = caps }
-plugin.clangd.setup { capabilities = caps }
-plugin.denols.setup { capabilities = caps }
-plugin.yamlls.setup { capabilities = caps }
-plugin.pyright.setup { capabilities = caps }
-plugin.marksman.setup { capabilities = caps }
-plugin.tinymist.setup { capabilities = caps }
-plugin.fsautocomplete.setup { capabilities = caps } -- F#
-plugin.kotlin_language_server.setup { capabilities = caps }
+plugin.hls.setup { capabilities = caps }                    -- Haskell
+plugin.ruff.setup { capabilities = caps }                   -- Python fmt
+plugin.html.setup { capabilities = caps }                   -- HTML
+plugin.sqls.setup { capabilities = caps }                   -- SQL
+plugin.taplo.setup { capabilities = caps }                  -- TOML
+plugin.jdtls.setup { capabilities = caps }                  -- Java
+plugin.gopls.setup { capabilities = caps }                  -- Go
+plugin.cssls.setup { capabilities = caps }                  -- CSS
+plugin.texlab.setup { capabilities = caps }                 -- LaTeX
+plugin.bashls.setup { capabilities = caps }                 -- bash
+plugin.clangd.setup { capabilities = caps }                 -- C/C++
+plugin.denols.setup { capabilities = caps }                 -- Deno
+plugin.yamlls.setup { capabilities = caps }                 -- YAML
+plugin.pyright.setup { capabilities = caps }                -- Python
+plugin.marksman.setup { capabilities = caps }               -- Markdown
+plugin.tinymist.setup { capabilities = caps }               -- Typst
+plugin.fsautocomplete.setup { capabilities = caps }         -- F#
+plugin.kotlin_language_server.setup { capabilities = caps } -- Kotlin
