@@ -74,6 +74,12 @@ plugin.rust_analyzer.setup {
                 '});',
               },
             },
+            ['thread sleep'] = {
+              prefix = 'tsl',
+              scope = 'expr',
+              requires = { 'std::thread', 'std::time::Duration' },
+              body = 'thread::sleep(Duration::from_millis($0));',
+            },
             ['heap box'] = {
               prefix = 'box',
               body = 'Box::new($0)',
