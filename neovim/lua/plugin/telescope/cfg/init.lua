@@ -15,13 +15,13 @@ plugin.setup {
     },
     create_layout = create_layout,
     file_ignore_patterns = {
-      'bin',
-      'obj',
-      'dist',
-      'target',
-      'node_modules',
+      [[^bin$]],
+      [[^obj$]],
+      [[^dist$]],
+      [[^target$]],
       [[^[^\.]*.lock$]],
-      'package-lock.json',
+      [[^node_modules$]],
+      [[^package-lock\.json$]],
     },
     mappings = {
       i = {
