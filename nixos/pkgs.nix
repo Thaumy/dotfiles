@@ -20,7 +20,7 @@ let
     linuxHeaders
     android-tools
     openapi-generator-cli
-    linuxKernel.packages.linux_6_11.perf
+    linuxPackages_latest.perf
   ];
 
   infra = with pkgs; [
@@ -99,6 +99,7 @@ let
   ];
 
   etc = with pkgs; [
+    nh
     tmux
     lychee
     devenv
