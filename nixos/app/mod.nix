@@ -3,6 +3,7 @@
     #./steam.nix
     ./direnv.nix
     #./tomcat.nix
+    ./systemd.nix
     #./netdata.nix
     #./openssh.nix
     #./waydroid.nix
