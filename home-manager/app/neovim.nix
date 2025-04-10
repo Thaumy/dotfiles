@@ -92,7 +92,7 @@ in
       gopls # Go
       taplo # TOML
       biome # Web
-      pyright # Ptyhon
+      pyright # Python
       fantomas # F# fmt
       marksman # Markdown
       tinymist # Typst
