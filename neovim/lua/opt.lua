@@ -29,3 +29,6 @@ vim.wo.wrap = false
 
 -- keymap expire time
 vim.o.timeoutlen = 500
+
+-- disable deprecation warnings
+vim.deprecate = function() end
