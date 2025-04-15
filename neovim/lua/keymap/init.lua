@@ -74,6 +74,28 @@ end)
 -- focus on quickfix list
 map_cmd('n', 'cc', 'bo copen')
 
+-- delete quickfix row
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'qf',
+  callback = function(ctx)
+    vim.keymap.set('n', 'dd', function()
+        local lines = vim.fn.getqflist()
+        local row = vim.api.nvim_win_get_cursor(0)[1]
+        table.remove(lines, row)
+        vim.fn.setqflist(lines, 'r')
+
+        local max_row = #lines
+        if row < max_row then
+          vim.api.nvim_win_set_cursor(0, { row, 0 })
+        elseif max_row ~= 0 then
+          vim.api.nvim_win_set_cursor(0, { max_row, 0 })
+        end
+      end,
+      { buffer = true }
+    )
+  end,
+})
+
 -- win nav
 map('n', 'wh', '<C-w>h')
 map('n', 'wj', '<C-w>j')
