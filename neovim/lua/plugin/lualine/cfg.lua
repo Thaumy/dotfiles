@@ -50,7 +50,7 @@ local function mode()
 end
 
 local function lsp_name()
-  local client = vim.lsp.buf_get_clients()[1]
+  local client = vim.lsp.get_clients()[1]
   if client == nil then
     return ''
   else
