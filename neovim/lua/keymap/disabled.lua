@@ -9,6 +9,12 @@ unmap('n', '?')              -- search backward
 unmap('v', 'b')              -- select word backward
 unmap({ 'n', 'v' }, 'q')     -- recording
 
+-- delete combo
+unmap('n', 'dh')
+unmap('n', 'dj')
+unmap('n', 'dk')
+unmap('n', 'dl')
+
 -- history list
 unmap('c', '<C-f>')
 unmap({ 'n', 'v' }, 'q:')
