@@ -54,6 +54,7 @@ local cfg = {
     },
   },
   dev = { path = '~/.config/nvim-plugins' },
+  rocks = { enabled = false },
   install = { missing = false },
   change_detection = { enabled = false },
 }
