@@ -1,6 +1,6 @@
 {
   inputs = {
-    nur.url = "github:nix-community/nur/9edb05163b86238999c6f6cab06c193e4de951f8"; # 24-6-12
+    nur.url = "github:nix-community/nur/9ea0c40c52673079dfe50e82ddbb78679723be05"; # 25-4-17
     pkgs.url = "github:NixOS/nixpkgs/caea1cba7d888e70ffc85b041a5aef36febc50e4"; # 25-4-17
 
     rust-overlay = {
