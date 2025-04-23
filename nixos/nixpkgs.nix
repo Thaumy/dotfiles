@@ -1,6 +1,6 @@
 { inputs, ... }: {
   nixpkgs = {
     config.allowUnfree = true;
-    overlays = [ inputs.nur.overlay ];
+    overlays = [ inputs.nur.overlays.default ];
   };
 }
