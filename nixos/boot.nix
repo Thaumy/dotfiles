@@ -24,7 +24,7 @@
       };
     };
 
-    kernelPackages = pkgs.linuxPackages_6_12;
+    kernelPackages = pkgs.linuxPackages_6_14;
     kernel.sysctl = {
       "vm.swappiness" = 20;
       "kernel.perf_event_paranoid" = -1;
