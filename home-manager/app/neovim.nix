@@ -5,12 +5,12 @@ let
 
   nvim-web-devicons = pkgs.vimUtils.buildVimPlugin {
     pname = "nvim-web-devicons";
-    version = "2024-10-15";
+    version = "2025-04-24";
     src = pkgs.fetchFromGitHub {
       owner = "Thaumy";
       repo = "nvim-web-devicons";
-      rev = "d173154c3dd49336751281e4765bcee27a123cf9";
-      hash = "sha256-BLk1xKbLMHq6tpaUf79GS2LMKHlphju6lGUkaQ/DHZc=";
+      rev = "2847eb1c0ab861c65da205e31a94bcc80e65d70d";
+      hash = "sha256-puA/8O8VAF/D5D2OQ4KWAwoe2JV6o38aOgarUi98PVM=";
     };
   };
 
