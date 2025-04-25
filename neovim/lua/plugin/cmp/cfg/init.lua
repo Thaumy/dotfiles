@@ -42,6 +42,11 @@ plugin.setup {
     fields = { 'kind', 'abbr', 'menu' },
     format = format,
   },
+  window = {
+    completion = {
+      winhighlight = 'Normal:StatusLineNC',
+    },
+  },
   experimental = {
     ghost_text = true,
   },

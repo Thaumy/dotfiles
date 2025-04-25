@@ -52,7 +52,7 @@ local kind = {
 }
 vim.lsp.protocol.CompletionItemKind = kind
 
-local function format(_, it)
+local function format(entry, it)
   if it.kind ~= nil then
     local index = kind[it.kind]
     if index ~= nil then
@@ -60,16 +60,24 @@ local function format(_, it)
     end
   end
 
+  local hl = require 'colorful-menu'.cmp_highlights(entry)
+  if hl ~= nil then
+    it.menu = nil
+    it.abbr_hl_group = hl.highlights
+    it.abbr = hl.text
+    return it
+  end
+
   local term_width = vim.go.columns
 
   local max_abbr_width = term_width * 0.2
   if it.abbr ~= nil and #it.abbr > max_abbr_width then
-    it.abbr = string.sub(it.abbr, 1, max_abbr_width) .. '󰇘'
+    it.abbr = string.sub(it.abbr, 1, max_abbr_width) .. '…'
   end
 
   local max_menu_width = term_width * 0.4
   if it.menu ~= nil and #it.menu > max_menu_width then
-    it.menu = string.sub(it.menu, 1, max_menu_width) .. '󰇘'
+    it.menu = string.sub(it.menu, 1, max_menu_width) .. '…'
   end
 
   return it

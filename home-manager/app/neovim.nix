@@ -24,6 +24,18 @@ let
       hash = "sha256-6WG1JOr16qL6StSSinpjvaRqb6OmktlGOGLZXej6AT0=";
     };
   };
+
+  colorful-menu-nvim = pkgs.vimUtils.buildVimPlugin {
+    pname = "colorful-menu.nvim";
+    version = "2025-04-24";
+    src = pkgs.fetchFromGitHub {
+      owner = "Thaumy";
+      repo = "colorful-menu.nvim";
+      rev = "baed2c5c4b6a534276cba753e1cc9dd56bb1a42c";
+      hash = "sha256-VnvsF8YrvWSSykkK5rIeTtqI8ndWk2CNFPspokTDy+4=";
+    };
+    doCheck = false;
+  };
 in
 {
   nixpkgs.overlays = [ inputs.nvim-nightly-overlay.overlays.default ];
@@ -60,6 +72,7 @@ in
       telescope-nvim # fuzzy finder
       bufferline-nvim # buffer tabs
       git-messenger-vim # git blame popup
+      colorful-menu-nvim # hl for code completion menu
       actions-preview-nvim # code actions preview
       markdown-preview-nvim # markdown renderer
 

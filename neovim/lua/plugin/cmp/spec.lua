@@ -4,6 +4,7 @@ return {
 
   dependencies = {
     require 'plugin.luasnip.spec',
+    require 'plugin.colorful-menu.spec',
     { 'hrsh7th/cmp-path',         dev = true },
     { 'hrsh7th/cmp-buffer',       dev = true },
     { 'hrsh7th/cmp-cmdline',      dev = true },
