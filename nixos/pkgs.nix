@@ -133,10 +133,7 @@ in
       infra;
 
     etc = with pkgs; {
-      "sdk-homes/go".source = go;
       "sdk-homes/gcc".source = gcc14;
-      "sdk-homes/perf".source = linuxKernel.packages.linux_6_11.perf;
-      "sdk-homes/linux-headers".source = linuxHeaders;
 
       "app-homes/firefox".source = firefox;
       "app-homes/chromium".source = chromium;
