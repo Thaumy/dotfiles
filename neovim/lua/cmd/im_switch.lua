@@ -1,5 +1,8 @@
 -- auto switch fcitx
 
+-- fcitx5 dbus is broken under root user
+if vim.env.USER == 'root' then return end
+
 local fcitx_state = nil
 
 vim.api.nvim_create_autocmd('InsertEnter', {
