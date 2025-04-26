@@ -76,8 +76,12 @@ let
     cdrtools
     win-spice
     dmidecode
+    tree-sitter
     vulkan-tools
     inotify-tools
+    uutils-findutils
+    uutils-diffutils
+    uutils-coreutils-noprefix
   ];
 
   fs = with pkgs; [
@@ -112,6 +116,7 @@ let
     alacritty
     fastfetch
     distrobox
+    solana-cli
     shellcheck
     obs-studio
     ollama-cuda
