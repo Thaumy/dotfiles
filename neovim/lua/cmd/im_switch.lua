@@ -3,22 +3,20 @@
 -- fcitx5 dbus is broken under root user
 if vim.env.USER == 'root' then return end
 
-local fcitx_state = nil
+local activate_next = false
 
 vim.api.nvim_create_autocmd('InsertEnter', {
   callback = function()
-    if fcitx_state == '2\n' then
-      os.execute 'fcitx5-remote -o'
+    if activate_next then
+      vim.system { 'fcitx5-remote', '-o' }
     end
   end,
 })
 
 vim.api.nvim_create_autocmd('InsertLeave', {
   callback = function()
-    local handle = io.popen 'fcitx5-remote'
-    if handle == nil then return end
-    fcitx_state = handle:read 'a'
-    handle:close()
-    os.execute 'fcitx5-remote -c'
+    local obj = vim.system({ 'fcitx5-remote' }, { text = true }):wait()
+    activate_next = obj.stdout == '2\n'
+    vim.system { 'fcitx5-remote', '-c' }
   end,
 })
