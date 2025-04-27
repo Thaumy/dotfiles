@@ -2,7 +2,7 @@
   inputs = {
     nur.url = "github:nix-community/nur/9ea0c40c52673079dfe50e82ddbb78679723be05"; # 25-4-17
     pkgs-24-05.url = "github:nixos/nixpkgs/nixos-24.05";
-    pkgs.url = "github:NixOS/nixpkgs/caea1cba7d888e70ffc85b041a5aef36febc50e4"; # 25-4-17
+    pkgs.url = "github:NixOS/nixpkgs/e6432339227b3d0ef009501dcacf3b27d29dd831"; # 25-4-24
 
     home-manager = {
       url = "github:nix-community/home-manager/2c71aae678c03a39c2542e136b87bd040ae1b3cb"; # 25-4-17
