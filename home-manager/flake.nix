@@ -27,7 +27,6 @@
         extraSpecialArgs = {
           inherit inputs;
           pkgs-24-05 = import inputs.pkgs-24-05 pkgs-cfg;
-          pkgs-25-01-28 = import inputs.pkgs-25-01-28 pkgs-cfg;
         };
         modules = [ ./home.nix ];
       };
