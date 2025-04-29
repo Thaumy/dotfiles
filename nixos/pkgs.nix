@@ -120,21 +120,15 @@ let
     devenv
     vsftpd
     zoom-us
-    lollypop
     paperkey
-    pngcheck
     alacritty
     fastfetch
     distrobox
     solana-cli
     shellcheck
-    obs-studio
     ollama-cuda
-    imagemagick
     home-manager
-    ffmpeg_7-full
     systemctl-tui
-    subtitleeditor
     libsForQt5.qtstyleplugin-kvantum
   ];
 in

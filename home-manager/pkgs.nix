@@ -50,9 +50,7 @@
 
     # etc
     fio
-    mpv
     zip
-    gimp
     qrcp
     unar
     grim # screenshot
