@@ -33,10 +33,6 @@
     github-desktop
     git-filter-repo
 
-    # blockchain
-    xmrig
-    monero-gui
-
     # penetration
     #mdk4
     crunch

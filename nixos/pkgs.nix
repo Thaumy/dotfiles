@@ -124,7 +124,6 @@ let
     alacritty
     fastfetch
     distrobox
-    solana-cli
     shellcheck
     ollama-cuda
     home-manager
