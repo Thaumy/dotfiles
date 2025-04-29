@@ -17,10 +17,6 @@
     typstfmt
     #pkgs-24-05.android-studio
 
-    # IM
-    tdesktop
-    element-desktop
-
     # WM
     wl-clipboard-x11
     whitesur-gtk-theme
