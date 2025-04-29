@@ -22,13 +22,6 @@
     whitesur-gtk-theme
     networkmanagerapplet
 
-    # VCS
-    gh
-    git-lfs
-    gitoxide
-    github-desktop
-    git-filter-repo
-
     # penetration
     #mdk4
     crunch

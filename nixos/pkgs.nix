@@ -56,7 +56,6 @@ let
     fd
     bat
     eza
-    git
     glib
     zbar
     lsof
