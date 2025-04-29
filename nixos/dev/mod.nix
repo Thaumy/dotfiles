@@ -6,6 +6,7 @@
     ./rust.nix
     ./java.nix
     ./llvm.nix
+    ./wasm.nix
     ./dotnet.nix
   ];
 }

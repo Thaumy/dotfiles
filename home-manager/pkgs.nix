@@ -33,14 +33,6 @@
     github-desktop
     git-filter-repo
 
-    # wasm dev
-    binaryen
-    wasmtime
-    wasm-pack
-    wasm-tools
-    wit-bindgen
-    wasm-bindgen-cli
-
     # blockchain
     xmrig
     monero-gui
