@@ -120,9 +120,7 @@ let
     devenv
     vsftpd
     zoom-us
-    firefox
     lollypop
-    chromium
     paperkey
     pngcheck
     alacritty
