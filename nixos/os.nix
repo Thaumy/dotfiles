@@ -8,10 +8,10 @@
     ./pkgs.nix
     ./local.nix
     ./hw-gen.nix
-    ./nixpkgs.nix
     ./app/mod.nix
     ./dev/mod.nix
     ./sec/mod.nix
+    ./pkgs/mod.nix
     ./programs.nix
     ./services.nix
     ./networking/mod.nix
