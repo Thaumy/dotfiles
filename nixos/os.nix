@@ -19,11 +19,6 @@
 
   powerManagement.enable = true;
 
-  services.logind.extraConfig = ''
-    # don’t shutdown when power button is short-pressed
-    HandlePowerKey=ignore
-  '';
-
   #users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
 
   # Before changing this value read the documentation for this option
