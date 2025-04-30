@@ -30,7 +30,6 @@ let
     kubernetes
     linuxHeaders
     android-tools
-    openapi-generator-cli
     config.boot.kernelPackages.perf
   ];
 
