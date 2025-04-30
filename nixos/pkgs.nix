@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   sdk = with pkgs; [
     go
@@ -20,7 +20,7 @@ let
     linuxHeaders
     android-tools
     openapi-generator-cli
-    linuxPackages_latest.perf
+    config.boot.kernelPackages.perf
   ];
 
   infra = with pkgs; [
