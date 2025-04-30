@@ -6,7 +6,7 @@
     ./user.nix
     #./docs.nix
     ./pkgs.nix
-    ./local.nix
+    ./locale.nix
     ./hw-gen.nix
     ./app/mod.nix
     ./dev/mod.nix
