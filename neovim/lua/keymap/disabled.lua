@@ -8,6 +8,8 @@ unmap({ 'n', 'v' }, 'L')     -- go page end
 unmap('n', '?')              -- search backward
 unmap('v', 'b')              -- select word backward
 unmap({ 'n', 'v' }, 'q')     -- recording
+unmap({ 'n', 'v' }, '0')     -- go line head
+unmap({ 'n', 'v' }, '$')     -- go line end
 
 -- delete combo
 unmap('n', 'dh')

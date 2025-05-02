@@ -133,9 +133,43 @@ map('n', '<C-S-j>', '<C-y>')
 map('n', 'H', '10zh', true)
 map('n', 'L', '10zl', true)
 
+local function prefix_spaces_len(line)
+  local spaces = 0
+  for i = 1, #line do
+    if line:byte(i) == 32 then
+      spaces = spaces + 1
+    else
+      break
+    end
+  end
+  return spaces
+end
+
 -- go line head/end
-map({ 'n', 'v' }, 'qh', '0')
-map({ 'n', 'v' }, 'ql', '$')
+map({ 'n', 'v' }, 'qh', function()
+  local line = vim.api.nvim_get_current_line()
+  local spaces = prefix_spaces_len(line)
+
+  local pos = vim.api.nvim_win_get_cursor(0)
+  if spaces < pos[2] then
+    pos[2] = spaces
+  else
+    pos[2] = 0
+  end
+  vim.api.nvim_win_set_cursor(0, pos)
+end)
+map({ 'n', 'v' }, 'ql', function()
+  local line = vim.api.nvim_get_current_line()
+  local spaces = prefix_spaces_len(line)
+
+  local pos = vim.api.nvim_win_get_cursor(0)
+  if spaces > pos[2] then
+    pos[2] = spaces
+  else
+    pos[2] = #line
+  end
+  vim.api.nvim_win_set_cursor(0, pos)
+end)
 
 -- quick word L/R
 map({ 'n', 'v' }, '<M-h>', '<S-Left>')
