@@ -17,7 +17,6 @@ let
     pax-utils
     sysfsutils
     kubernetes
-    linuxHeaders
     android-tools
     config.boot.kernelPackages.perf
   ];
@@ -104,11 +103,9 @@ let
     nh
     tmux
     devenv
-    vsftpd
     paperkey
     alacritty
     fastfetch
-    distrobox
     shellcheck
     ollama-cuda
     home-manager
