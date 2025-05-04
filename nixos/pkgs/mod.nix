@@ -9,6 +9,7 @@
     ./git.nix
     ./media.nix
     ./browser.nix
+    ./meeting.nix
     ./blockchain.nix
   ]);
 }

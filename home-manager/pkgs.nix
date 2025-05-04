@@ -3,7 +3,6 @@
     # nur
     #nur.repos.thaumy.idbuilder
     nur.repos.thaumy.microsoft-todo-electron
-    nur.repos.novel2430.wemeet-bin-bwrap-wayland-screenshare
     #nur.repos.xddxdd.dingtalk
 
     # office
