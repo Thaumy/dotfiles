@@ -5,17 +5,6 @@
     nur.repos.thaumy.microsoft-todo-electron
     #nur.repos.xddxdd.dingtalk
 
-    # office
-    pkgs-24-05.wpsoffice
-    pkgs-24-05.libreoffice
-
-    # editor
-    # TODO: pin uncommonly used apps to ng stable version
-    glow
-    typst
-    typstfmt
-    #pkgs-24-05.android-studio
-
     # WM
     wl-clipboard-x11
     whitesur-gtk-theme

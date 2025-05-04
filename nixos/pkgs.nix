@@ -103,7 +103,6 @@ let
   etc = with pkgs; [
     nh
     tmux
-    lychee
     devenv
     vsftpd
     paperkey
