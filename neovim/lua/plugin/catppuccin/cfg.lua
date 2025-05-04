@@ -4,7 +4,7 @@ local plugin = require 'catppuccin'
 plugin.setup {
   highlight_overrides = {
     latte = {
-      CurSearch = { fg = '#6420AA', bg = '#FFB5DA' },
+      CurSearch = { fg = '#6420aa', bg = '#ffb5da' },
       CursorLine = { bg = '#fafafa' },
       TodoFgNote = { fg = '#40a02b' },
       TodoBgNote = { fg = '#eff1f5', bg = '#40a02b', bold = true },
@@ -17,7 +17,7 @@ plugin.setup {
       TrailingSpace = { bg = '#ffc800' },
       BinaryJumpMid = { link = 'ErrorMsg' },
       BinaryJumpRange = { link = 'DiagnosticVirtualTextOk' },
-      CmpItemAbbrMatch = { fg = '#6420AA', style = {} },
+      CmpItemAbbrMatch = { fg = '#6420aa', style = {} },
       CmpItemAbbrMatchFuzzy = { link = 'CmpItemAbbrMatch' },
       NeoTreeGitConflict = { fg = '#ed1b24' },
       NeoTreeGitUntracked = { fg = '#40a02b' },
@@ -27,7 +27,7 @@ plugin.setup {
       ['@variable.builtin'] = { fg = '#1182a2' },
     },
     frappe = {
-      CurSearch = { fg = '#6420AA', bg = '#FFB5DA' },
+      CurSearch = { fg = '#6420aa', bg = '#ffb5da' },
       CursorLine = { bg = '#dddddd' },
       TodoFgNote = { fg = '#40a02b' },
       TodoBgNote = { fg = '#eff1f5', bg = '#40a02b', bold = true },
@@ -40,7 +40,7 @@ plugin.setup {
       TrailingSpace = { bg = '#ffc800' },
       BinaryJumpMid = { link = 'ErrorMsg' },
       BinaryJumpRange = { link = 'DiagnosticVirtualTextOk' },
-      CmpItemAbbrMatch = { fg = '#6420AA', style = {} },
+      CmpItemAbbrMatch = { fg = '#6420aa', style = {} },
       CmpItemAbbrMatchFuzzy = { link = 'CmpItemAbbrMatch' },
       NeoTreeGitConflict = { fg = '#ed1b24' },
       NeoTreeGitUntracked = { fg = '#40a02b' },
@@ -50,7 +50,7 @@ plugin.setup {
       ['@variable.builtin'] = { fg = '#1182a2' },
     },
     macchiato = {
-      CurSearch = { fg = '#FFB5DA', bg = '#6420AA' },
+      CurSearch = { fg = '#ffb5da', bg = '#6420aa' },
       CursorLine = { bg = '#2e324a' },
       TodoFgNote = { fg = '#83c66d' },
       TodoBgNote = { fg = '#24273a', bg = '#83c66d', bold = true },
@@ -63,7 +63,7 @@ plugin.setup {
       TrailingSpace = { bg = '#ffc800' },
       BinaryJumpMid = { link = 'ErrorMsg' },
       BinaryJumpRange = { link = 'DiagnosticVirtualTextOk' },
-      CmpItemAbbrMatch = { fg = '#FFB5DA', style = {} },
+      CmpItemAbbrMatch = { fg = '#ffb5da', style = {} },
       CmpItemAbbrMatchFuzzy = { link = 'CmpItemAbbrMatch' },
       NeoTreeGitConflict = { fg = '#e65d5a' },
       NeoTreeGitUntracked = { fg = '#83c66d' },
@@ -73,7 +73,7 @@ plugin.setup {
       ['@variable.builtin'] = { fg = '#16d4d1' },
     },
     mocha = {
-      CurSearch = { fg = '#FFB5DA', bg = '#6420AA' },
+      CurSearch = { fg = '#ffb5da', bg = '#6420aa' },
       CursorLine = { bg = '#252636' },
       TodoFgNote = { fg = '#83c66d' },
       TodoBgNote = { fg = '#1e1e2e', bg = '#83c66d', bold = true },
@@ -86,7 +86,7 @@ plugin.setup {
       TrailingSpace = { bg = '#ffc800' },
       BinaryJumpMid = { link = 'ErrorMsg' },
       BinaryJumpRange = { link = 'DiagnosticVirtualTextOk' },
-      CmpItemAbbrMatch = { fg = '#FFB5DA', style = {} },
+      CmpItemAbbrMatch = { fg = '#ffb5da', style = {} },
       CmpItemAbbrMatchFuzzy = { link = 'CmpItemAbbrMatch' },
       NeoTreeGitConflict = { fg = '#e65d5a' },
       NeoTreeGitUntracked = { fg = '#83c66d' },
