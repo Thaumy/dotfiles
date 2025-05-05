@@ -3,7 +3,6 @@ let
   sdk = with pkgs; [
     go
     gdb
-    coq
     mold
     flex
     ocaml
