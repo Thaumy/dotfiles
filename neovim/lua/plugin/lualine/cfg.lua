@@ -54,7 +54,7 @@ local function lsp_name()
   if client == nil then
     return ''
   else
-    return '[' .. client.messages.name .. ']'
+    return client.messages.name
   end
 end
 
@@ -67,12 +67,6 @@ local function file_format()
   else -- dos
     return 'CRLF'
   end
-end
-
-local function progress()
-  local cur = vim.fn.line '.'
-  local total = vim.fn.line '$'
-  return string.format('%3d', cur / total * 100)
 end
 
 local function readonly()
@@ -109,10 +103,10 @@ plugin.setup {
   },
   sections = {
     lualine_a = { mode },
-    lualine_b = { 'branch', 'diff' },
+    lualine_b = { { 'branch', color = { fg = '#4C4F69', bg = '#d3d7e0' } } },
     lualine_c = { relative_path, 'diagnostics', readonly, visual_chars },
-    lualine_x = { col, 'encoding', file_format, lsp_name },
-    lualine_y = { 'searchcount' },
-    lualine_z = { progress },
+    lualine_x = { 'searchcount', col, 'encoding', file_format },
+    lualine_y = { { lsp_name, color = { fg = '#4C4F69', bg = '#d3d7e0' } } },
+    lualine_z = {},
   },
 }
