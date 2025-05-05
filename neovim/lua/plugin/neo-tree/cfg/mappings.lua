@@ -21,12 +21,12 @@ local window = {
   ['<']             = '',
   ['>']             = '',
 
+  ['n']             = 'next_source',
   ['i']             = 'show_file_details',
   ['p']             = { 'toggle_preview', config = { use_float = false, use_image_nvim = false } },
   ['<Cr>']          = 'open',
   ['<M-j>']         = 'open',
   ['<M-k>']         = 'close_node',
-  ['<C-;>']         = 'next_source',
   ['<Esc>']         = 'cancel',
   ['<Space>']       = { 'toggle_node', nowait = false },
   ['<2-LeftMouse>'] = 'open',
