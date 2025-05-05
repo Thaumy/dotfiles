@@ -4,6 +4,7 @@ local plugin = require 'catppuccin'
 plugin.setup {
   highlight_overrides = {
     latte = {
+      ErrorMsg = { fg = '#d20f39', style = {} },
       CurSearch = { fg = '#6420aa', bg = '#ffb5da' },
       CursorLine = { bg = '#fafafa' },
       TodoFgNote = { fg = '#40a02b' },
@@ -27,6 +28,7 @@ plugin.setup {
       ['@variable.builtin'] = { fg = '#1182a2' },
     },
     frappe = {
+      ErrorMsg = { fg = '#d20f39', style = {} },
       CurSearch = { fg = '#6420aa', bg = '#ffb5da' },
       CursorLine = { bg = '#dddddd' },
       TodoFgNote = { fg = '#40a02b' },
@@ -50,6 +52,7 @@ plugin.setup {
       ['@variable.builtin'] = { fg = '#1182a2' },
     },
     macchiato = {
+      ErrorMsg = { fg = '#ed8796', style = {} },
       CurSearch = { fg = '#ffb5da', bg = '#6420aa' },
       CursorLine = { bg = '#2e324a' },
       TodoFgNote = { fg = '#83c66d' },
@@ -73,6 +76,7 @@ plugin.setup {
       ['@variable.builtin'] = { fg = '#16d4d1' },
     },
     mocha = {
+      ErrorMsg = { fg = '#f38ba8', style = {} },
       CurSearch = { fg = '#ffb5da', bg = '#6420aa' },
       CursorLine = { bg = '#252636' },
       TodoFgNote = { fg = '#83c66d' },
