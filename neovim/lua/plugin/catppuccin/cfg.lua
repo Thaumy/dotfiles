@@ -24,7 +24,6 @@ plugin.setup {
       NeoTreeGitUntracked = { fg = '#40a02b' },
       GitConflictSepMark = { fg = '#19b9e7', bg = '#dcf4fb' },
       GitConflictBoundMark = { fg = '#ed1b24', bg = '#fbd1d3' },
-      BufferLineBufferSelected = { style = { 'bold' } },
       ['@variable.builtin'] = { fg = '#1182a2' },
     },
     frappe = {
@@ -48,7 +47,6 @@ plugin.setup {
       NeoTreeGitUntracked = { fg = '#40a02b' },
       GitConflictSepMark = { fg = '#19b9e7', bg = '#dcf4fb' },
       GitConflictBoundMark = { fg = '#ed1b24', bg = '#fbd1d3' },
-      BufferLineBufferSelected = { style = { 'bold' } },
       ['@variable.builtin'] = { fg = '#1182a2' },
     },
     macchiato = {
@@ -72,7 +70,6 @@ plugin.setup {
       NeoTreeGitUntracked = { fg = '#83c66d' },
       GitConflictSepMark = { fg = '#16abd6', bg = '#041d24' },
       GitConflictBoundMark = { fg = '#e65d5a', bg = '#270706' },
-      BufferLineBufferSelected = { style = { 'bold' } },
       ['@variable.builtin'] = { fg = '#16d4d1' },
     },
     mocha = {
@@ -96,7 +93,6 @@ plugin.setup {
       NeoTreeGitUntracked = { fg = '#83c66d' },
       GitConflictSepMark = { fg = '#16abd6', bg = '#020f13' },
       GitConflictBoundMark = { fg = '#e65d5a', bg = '#160403' },
-      BufferLineBufferSelected = { style = { 'bold' } },
       ['@variable.builtin'] = { fg = '#16d4d1' },
     },
   },

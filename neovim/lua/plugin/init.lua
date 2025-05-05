@@ -15,7 +15,6 @@ local specs = {
   -- user interfaces
   require 'plugin.bqf.spec',
   require 'plugin.fidget.spec',
-  require 'plugin.bufline.spec',
   require 'plugin.lualine.spec',
   require 'plugin.neo-tree.spec',
   require 'plugin.telescope.spec',
