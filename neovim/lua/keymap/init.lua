@@ -92,7 +92,7 @@ end)
 -- delete quickfix row
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'qf',
-  callback = function(ctx)
+  callback = function()
     vim.keymap.set('n', 'dd', function()
         local lines = vim.fn.getqflist()
         local row = vim.api.nvim_win_get_cursor(0)[1]
@@ -104,6 +104,8 @@ vim.api.nvim_create_autocmd('FileType', {
           vim.api.nvim_win_set_cursor(0, { row, 0 })
         elseif max_row ~= 0 then
           vim.api.nvim_win_set_cursor(0, { max_row, 0 })
+        else
+          vim.cmd 'q'
         end
       end,
       { buffer = true }
