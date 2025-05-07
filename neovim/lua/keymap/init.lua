@@ -81,7 +81,13 @@ map('n', 'wr', function()
 end)
 
 -- focus on quickfix list
-map_cmd('n', 'cc', 'bo copen')
+map('n', 'cc', function()
+  if #vim.fn.getqflist() == 0 then
+    vim.print 'qf list is empty'
+  else
+    vim.cmd 'bo copen'
+  end
+end)
 
 -- delete quickfix row
 vim.api.nvim_create_autocmd('FileType', {
