@@ -13,8 +13,8 @@ local map = k.map
 local map_cmd = k.map_cmd
 
 -- case switching
-map({ 'v' }, 'uj', 'u')
-map({ 'v' }, 'uk', 'U')
+map('v', 'uj', 'u')
+map('v', 'uk', 'U')
 
 -- buf
 map({ 'n', 'v' }, 'ww', function()
