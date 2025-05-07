@@ -11,6 +11,11 @@ unmap({ 'n', 'v' }, 'q')     -- recording
 unmap({ 'n', 'v' }, '0')     -- go line head
 unmap({ 'n', 'v' }, '$')     -- go line end
 
+-- right click combo
+unmap({ 'n', 'v', 'i' }, '<2-RightMouse>')
+unmap({ 'n', 'v', 'i' }, '<3-RightMouse>')
+unmap({ 'n', 'v', 'i' }, '<4-RightMouse>')
+
 -- delete combo
 unmap('n', 'dh')
 unmap('n', 'dj')

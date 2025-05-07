@@ -12,6 +12,12 @@ local k = require 'infra.key'
 local map = k.map
 local map_cmd = k.map_cmd
 
+-- mouse yank/paste
+map('n', '<RightMouse>', 'p', true)
+map('v', '<RightMouse>', 'y', true)
+map('v', '<MiddleMouse>', 'd', true)
+map('i', '<RightMouse>', '<C-r>+', true)
+
 -- case switching
 map('v', 'uj', 'u')
 map('v', 'uk', 'U')
