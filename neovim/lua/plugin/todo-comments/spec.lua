@@ -6,7 +6,7 @@ return {
     require 'plugin.plenary.spec',
   },
 
-  event = 'BufRead',
+  event = 'VeryLazy',
 
   config = function()
     require 'plugin.todo-comments.cfg'

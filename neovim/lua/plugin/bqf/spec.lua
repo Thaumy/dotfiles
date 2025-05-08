@@ -2,7 +2,7 @@ return {
   'kevinhwang91/nvim-bqf',
   dev = true,
 
-  event = 'VimEnter',
+  ft = 'qf',
 
   config = function()
     require 'plugin.bqf.cfg'

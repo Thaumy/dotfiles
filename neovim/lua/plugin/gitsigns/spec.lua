@@ -2,7 +2,7 @@ return {
   'lewis6991/gitsigns.nvim',
   dev = true,
 
-  event = 'BufRead',
+  event = 'VeryLazy',
 
   config = function()
     require 'plugin.gitsigns.cfg'
