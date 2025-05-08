@@ -10,7 +10,10 @@ let
 in
 {
   security = {
-    sudo.extraRules = [ thaumy ];
+    sudo.enable = false;
+    sudo-rs.enable = true;
+    sudo-rs.extraRules = [ thaumy ];
+
     pam.u2f = {
       enable = true;
       settings = {
