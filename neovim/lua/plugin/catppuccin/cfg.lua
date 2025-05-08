@@ -156,22 +156,9 @@ plugin.setup {
   },
 }
 
-local function is_light_theme()
-  local cmd = 'dconf read /org/gnome/desktop/interface/color-scheme'
-  local handle = io.popen(cmd)
-  if handle == nil then return false end
-
-  local theme = handle:read 'a'
-  handle:close()
-  if theme == "'light'\n" then
-    return true
-  end
-
-  return false
-end
-
 local rev
-if is_light_theme() then
+local obj = vim.system({ 'dconf', 'read', '/org/gnome/desktop/interface/color-scheme' }, { text = true }):wait()
+if obj.stdout == "'light'\n" then
   rev = false
   vim.cmd.colorscheme 'catppuccin-latte'
 else
