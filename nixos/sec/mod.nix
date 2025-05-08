@@ -18,9 +18,6 @@ in
         authfile = u2f_keys;
       };
     };
-    pki.certificateFiles = [
-      ./dev-CA.crt
-    ];
   };
 
   services = {
