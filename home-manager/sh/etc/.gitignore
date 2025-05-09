@@ -1,0 +1,7 @@
+*.*
+!.gitignore
+
+!pwdc.sh
+!todo.sh
+!memdir.sh
+!safe-remove.rs
