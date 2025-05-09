@@ -68,6 +68,9 @@ plugin.setup {
     window = {
       mappings = mappings.filesystem,
     },
+    filtered_items = {
+      always_show = { '.gitignore' },
+    },
   },
 
   buffers = {
