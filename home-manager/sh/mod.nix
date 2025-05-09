@@ -22,7 +22,6 @@ in
     (writeBin "disable-kb" etc/disable-kb.sh)
     (writeBin "pic-search" etc/pic-search.sh)
     (writeBin "cp-dirs-only" etc/cp-dirs-only.sh)
-    (writeBin "nvim-profiler" etc/nvim-profiler.rs)
     (writeBin "symlink-localize" etc/symlink-localize.sh)
 
     (writeBin "backup" backup/run.sh)
