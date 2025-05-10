@@ -9,7 +9,8 @@ unmap({ 'n', 'v' }, 'q')
 -- key chord
 unmap({ 'v', 'i' }, '<C-k>')
 
--- move cursor up/down
+-- move cursor left/up/down
+unmap({ 'n', 'v' }, '<Bs>')
 unmap({ 'n', 'v' }, '<C-p>')
 unmap({ 'n', 'v' }, '<C-m>')
 
