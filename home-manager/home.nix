@@ -17,10 +17,6 @@
     sessionPath = [
       "/home/thaumy/.dotnet/tools"
     ];
-    sessionVariables = {
-      # for perf-event-rs build
-      LINUX_HEADERS_PATH = "/etc/sdk-homes/linux-headers";
-    };
     pointerCursor = {
       gtk.enable = true;
       package = pkgs.adwaita-icon-theme;
