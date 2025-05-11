@@ -2,7 +2,7 @@ return {
   'nvim-lualine/lualine.nvim',
   dev = true,
 
-  event = 'VimEnter',
+  lazy = false,
 
   config = function()
     require 'plugin.lualine.cfg'

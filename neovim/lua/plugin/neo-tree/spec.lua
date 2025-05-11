@@ -8,8 +8,7 @@ return {
     require 'plugin.web-devicons.spec',
   },
 
-  cmd = 'Neotree',
-  event = 'VimEnter',
+  lazy = false,
 
   config = function()
     require 'plugin.neo-tree.cfg'
