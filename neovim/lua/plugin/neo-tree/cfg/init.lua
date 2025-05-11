@@ -88,12 +88,11 @@ plugin.setup {
   event_handlers = event_handlers,
 }
 
-local show_cmd = 'Neotree action=show'
-local close_cmd = 'Neotree action=close'
+local neotree_cmd = require 'neo-tree.command'.execute
 
 -- show on plugin loaded if term width > 120
 if vim.go.columns > 120 then
-  vim.cmd(show_cmd)
+  neotree_cmd { action = 'show' }
 end
 
 -- auto show/close neo-tree when window resized
@@ -102,9 +101,9 @@ local auto_toggle = vim.api.nvim_create_autocmd('VimResized', {
   callback = function()
     debounce:schedule(200, function()
       if vim.go.columns < 120 then
-        vim.cmd(close_cmd)
+        neotree_cmd { action = 'close' }
       elseif vim.go.columns >= 120 then
-        vim.cmd(show_cmd)
+        neotree_cmd { action = 'show' }
       end
     end)
   end,
@@ -116,5 +115,5 @@ k.map('n', 'e', function()
     vim.api.nvim_del_autocmd(auto_toggle)
     auto_toggle = nil
   end
-  vim.cmd 'Neotree action=show toggle=true'
+  neotree_cmd { action = 'show', toggle = true }
 end)
