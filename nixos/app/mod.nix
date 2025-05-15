@@ -11,6 +11,7 @@
 
     ./xdg.nix
     ./dae.nix
+    ./hypr.nix
     ./upower.nix
     ./greetd.nix
     ./xserver.nix

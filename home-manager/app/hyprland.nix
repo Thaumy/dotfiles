@@ -1,20 +1,11 @@
-{ pkgs, ... }: {
-  wayland.windowManager.hyprland = {
+{ config, ... }:
+let
+  homeDir = config.home.homeDirectory;
+  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
+in
+{
+  home.file.".config/hypr/hyprland.conf" = {
     enable = true;
-
-    package = pkgs.hyprland;
-
-    plugins = [
-    ];
-
-    extraConfig = "source = ~/cfg/hypr/hyprland/hyprland.conf";
+    source = mkSymlink "${homeDir}/cfg/hypr/hyprland/hyprland.conf";
   };
-
-  home.packages = with pkgs; [
-    hypridle
-    hyprlock
-    hyprshot
-    hyprpaper
-    hyprpicker
-  ];
 }
