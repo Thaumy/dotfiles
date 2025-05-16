@@ -50,8 +50,8 @@ local function find_r(line, from)
     for i, v in ipairs(bounds) do
       if c == v[2] then ty = i end
     end
-
     if ty ~= nil then return from, ty end
+
     from = from + 1
   end
   return nil, nil
