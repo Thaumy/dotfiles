@@ -1,5 +1,4 @@
 local k = require 'infra.key'
-local cmp = require 'cmp'
 
 local enable_inlay_hint = true
 
@@ -33,9 +32,13 @@ do
   vim.api.nvim_create_autocmd('CursorHold', {
     callback = function()
       if cursor_still_hold then return end
-      if hover_buf ~= nil and vim.api.nvim_buf_is_valid(hover_buf) then return end
-      if cmp.visible() then return end
-      if diagnostic_buf ~= nil and vim.api.nvim_buf_is_valid(diagnostic_buf) then return end
+
+      -- return if any floating window
+      for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
+        if vim.api.nvim_win_get_config(winid).zindex ~= nil then
+          return
+        end
+      end
 
       diagnostic_buf = vim.diagnostic.open_float { scope = 'cursor' }
       cursor_still_hold = true
