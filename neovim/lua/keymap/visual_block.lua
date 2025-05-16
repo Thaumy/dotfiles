@@ -99,8 +99,8 @@ map('n', 'vb', function()
   local r_pair = find_r_pair(line, l - 1, r_ty)
 
   if l_pair ~= nil and r_pair ~= nil then
-    local d_l = math.abs((l + l_pair) / 2 - col)
-    local d_r = math.abs((r + r_pair) / 2 - col)
+    local d_l = math.min(col - l, l_pair - col)
+    local d_r = math.min(r - col, col - r_pair)
     if d_l > d_r then
       select(row, r_pair, r)
     else
