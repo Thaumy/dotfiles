@@ -1,4 +1,5 @@
 local map = require 'infra.key'.map
+local Stack = require 'infra.stack'
 
 local bounds = {
   { 034, 034 }, -- ""
@@ -16,14 +17,26 @@ local function at(str, col)
 end
 
 local function find_l(line, from)
+  local stack_r = Stack:new()
+  local moved = false
   while from >= 0 do
     local c = at(line, from)
 
     for ty, v in ipairs(bounds) do
-      if c == v[1] then return from, ty end
+      if moved and c == v[1] then
+        -- is left bound and no more pending right bound
+        if stack_r.len == 0 then
+          return from, ty -- return left bound type
+        elseif stack_r:top() == v[2] then
+          stack_r:pop()   -- pop matched right bound
+        end
+      elseif c == v[2] then
+        stack_r:push(c)
+      end
     end
 
     from = from - 1
+    moved = true
   end
   return nil, nil
 end
@@ -40,15 +53,27 @@ local function find_l_pair(line, from, ty)
 end
 
 local function find_r(line, from)
+  local stack_l = Stack:new()
+  local moved = false
   local max = #line
   while from < max do
     local c = at(line, from)
 
     for ty, v in ipairs(bounds) do
-      if c == v[2] then return from, ty end
+      if moved and c == v[2] then
+        -- is right bound and no more pending left bound
+        if stack_l.len == 0 then
+          return from, ty -- return right bound type
+        elseif stack_l:top() == v[1] then
+          stack_l:pop()   -- pop matched left bound
+        end
+      elseif c == v[1] then
+        stack_l:push(c)
+      end
     end
 
     from = from + 1
+    moved = true
   end
   return nil, nil
 end
@@ -63,10 +88,16 @@ local function find_r_pair(line, from, ty)
   return nil
 end
 
-local function select(row, l, r)
-  vim.api.nvim_win_set_cursor(0, { row, l + 1 })
+local function select(row, col, l, r)
+  local from, to = nil, nil
+  if col - l > r - col then
+    from, to = l + 1, r - 1
+  else
+    from, to = r - 1, l + 1
+  end
+  vim.api.nvim_win_set_cursor(0, { row, from })
   vim.cmd [[execute "normal! \v"]]
-  vim.api.nvim_win_set_cursor(0, { row, r - 1 })
+  vim.api.nvim_win_set_cursor(0, { row, to })
 end
 
 map('n', 'vb', function()
@@ -75,21 +106,27 @@ map('n', 'vb', function()
   local col     = pos[2]
 
   local line    = vim.api.nvim_get_current_line()
-  local l, l_ty = col - 1, nil
-  local r, r_ty = col + 1, nil
+  local l, l_ty = nil, nil
+  local r, r_ty = nil, nil
 
   ::next::
 
-  l, l_ty = find_l(line, l)
-  if l == nil then return end
+  -- serach from `col` and `moved` above handles the
+  -- situation when bound is under the cursor
+  --              |                    |
+  -- examples: '(<(), foo>)', '<(Vec<()>, i32)>'
+  l, l_ty = find_l(line, col)
+  if l == nil then return end -- no more left bound
 
-  r, r_ty = find_r(line, r)
-  if r == nil then return end
+  r, r_ty = find_r(line, col)
+  if r == nil then return end -- no more right bound
 
   if l_ty == r_ty then
-    select(row, l, r)
+    select(row, col, l, r)
     return
   end
+
+  -- handle broken bounds, like '<(foo, bar>)'
 
   local l_pair = find_l_pair(line, r + 1, l_ty)
   local r_pair = find_r_pair(line, l - 1, r_ty)
@@ -97,16 +134,20 @@ map('n', 'vb', function()
   if l_pair ~= nil and r_pair ~= nil then
     local d_l = math.min(col - l, l_pair - col)
     local d_r = math.min(r - col, col - r_pair)
+    -- select the pair close to the cursor
     if d_l > d_r then
-      select(row, r_pair, r)
+      select(row, col, r_pair, r)
     else
-      select(row, l, l_pair)
+      select(row, col, l, l_pair)
     end
   elseif l_pair == nil and r_pair ~= nil then
-    select(row, r_pair, r)
+    select(row, col, r_pair, r)
   elseif l_pair ~= nil and r_pair == nil then
-    select(row, l, l_pair)
+    select(row, col, l, l_pair)
   else
+    -- no matched pair found, try to search next valid pair
+    --                 l        r
+    -- for example: '[ <foo, bar) ]'
     l = l - 1
     r = r + 1
     goto next
