@@ -19,11 +19,9 @@ local function find_l(line, from)
   while from >= 0 do
     local c = at(line, from)
 
-    local ty = nil
-    for i, v in ipairs(bounds) do
-      if c == v[1] then ty = i end
+    for ty, v in ipairs(bounds) do
+      if c == v[1] then return from, ty end
     end
-    if ty ~= nil then return from, ty end
 
     from = from - 1
   end
@@ -46,11 +44,9 @@ local function find_r(line, from)
   while from < max do
     local c = at(line, from)
 
-    local ty = nil
-    for i, v in ipairs(bounds) do
-      if c == v[2] then ty = i end
+    for ty, v in ipairs(bounds) do
+      if c == v[2] then return from, ty end
     end
-    if ty ~= nil then return from, ty end
 
     from = from + 1
   end
