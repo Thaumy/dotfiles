@@ -106,7 +106,12 @@ do
   end
 
   k.map('n', '<M-a>', function()
-    vim.lsp.buf.hover()
+    local client = vim.lsp.get_clients()[1]
+    if client == nil then
+      vim.notify 'no LSP'
+      return
+    end
+    client:request('textDocument/hover', vim.lsp.util.make_position_params(0, client.offset_encoding))
 
     -- close diagnostic buf when show def
     if diagnostic_buf ~= nil and vim.api.nvim_buf_is_valid(diagnostic_buf) then
