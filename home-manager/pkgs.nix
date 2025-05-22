@@ -32,7 +32,6 @@
     xorg.xev # show key events
     gammastep
     steam-run
-    ventoy-full
     qbittorrent
     rust-script
     any-nix-shell
