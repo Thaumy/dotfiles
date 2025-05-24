@@ -25,42 +25,35 @@ vim.o.updatetime = 300
 local hover_buf = nil
 local diagnostic_buf = nil
 
--- show diagnostic on hover
+-- show diagnostic
 do
-  local ns = vim.api.nvim_create_namespace 'diagnostic-hold'
-  local cursor_still_hold = false
-  vim.api.nvim_create_autocmd('CursorHold', {
-    callback = function()
-      if cursor_still_hold then return end
+  local ns = vim.api.nvim_create_namespace 'diagnostic-win'
+  local on_cursor_moved = nil
+  k.map('n', '<M-w>', function()
+    diagnostic_buf = vim.diagnostic.open_float { scope = 'cursor' }
 
-      -- return if any floating window
-      for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
-        if vim.api.nvim_win_get_config(winid).zindex ~= nil then
-          return
+    on_cursor_moved = vim.api.nvim_create_autocmd('CursorMoved', {
+      once = true,
+      callback = function()
+        on_cursor_moved = nil
+        vim.on_key(nil, ns)
+      end,
+    })
+    vim.on_key(function(key, _)
+      -- if <Esc> was pressed
+      if key == '\27' then
+        if diagnostic_buf ~= nil and vim.api.nvim_buf_is_valid(diagnostic_buf) then
+          vim.api.nvim_buf_delete(diagnostic_buf, {})
         end
+        if on_cursor_moved ~= nil then
+          vim.api.nvim_del_autocmd(on_cursor_moved)
+          on_cursor_moved = nil
+        end
+        vim.on_key(nil, ns)
       end
-
-      diagnostic_buf = vim.diagnostic.open_float { scope = 'cursor' }
-      cursor_still_hold = true
-
-      vim.api.nvim_create_autocmd('CursorMoved', {
-        once = true,
-        callback = function()
-          cursor_still_hold = false
-          vim.on_key(nil, ns)
-        end,
-      })
-      vim.on_key(function(key, _)
-        -- if <Esc> was pressed
-        if key == '\27' then
-          if diagnostic_buf ~= nil and vim.api.nvim_buf_is_valid(diagnostic_buf) then
-            vim.api.nvim_buf_delete(diagnostic_buf, {})
-          end
-          vim.on_key(nil, ns)
-        end
-      end, ns)
-    end,
-  })
+    end, ns)
+  end
+  )
 end
 
 -- show def
