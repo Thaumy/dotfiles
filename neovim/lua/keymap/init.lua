@@ -174,13 +174,15 @@ map({ 'n', 'v' }, 'qh', function()
 end)
 map({ 'n', 'v' }, 'ql', function()
   local line = vim.api.nvim_get_current_line()
+  if #line == 0 then return end
+
   local spaces = prefix_spaces_len(line)
 
   local pos = vim.api.nvim_win_get_cursor(0)
   if spaces > pos[2] then
     pos[2] = spaces
   else
-    pos[2] = #line
+    pos[2] = #line - 1
   end
   vim.api.nvim_win_set_cursor(0, pos)
 end)
