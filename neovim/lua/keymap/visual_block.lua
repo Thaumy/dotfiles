@@ -106,8 +106,8 @@ map('n', 'vb', function()
   local col     = pos[2]
 
   local line    = vim.api.nvim_get_current_line()
-  local l, l_ty = nil, nil
-  local r, r_ty = nil, nil
+  local l, l_ty = col, nil
+  local r, r_ty = col, nil
 
   ::next::
 
@@ -115,11 +115,11 @@ map('n', 'vb', function()
   -- situation when bound is under the cursor
   --              |                    |
   -- examples: '(<(), foo>)', '<(Vec<()>, i32)>'
-  l, l_ty = find_l(line, col)
-  if l == nil then return end -- no more left bound
+  l, l_ty = find_l(line, l)
+  if l_ty == nil then return end -- no more left bound
 
-  r, r_ty = find_r(line, col)
-  if r == nil then return end -- no more right bound
+  r, r_ty = find_r(line, r)
+  if r_ty == nil then return end -- no more right bound
 
   if l_ty == r_ty then
     select(row, col, l, r)
