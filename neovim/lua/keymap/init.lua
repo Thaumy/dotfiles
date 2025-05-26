@@ -12,6 +12,34 @@ local k = require 'infra.key'
 local map = k.map
 local map_cmd = k.map_cmd
 
+map('v', 'y', function()
+  local from = vim.fn.getpos 'v'
+  local to = vim.fn.getpos '.'
+  local mode = vim.fn.mode()
+
+  local selected = vim.fn.getregion(from, to, { type = mode })
+  local text = table.concat(selected, '\n')
+
+  if mode == 'v' or mode == '\22' then
+    -- visual or visual block
+    local line = vim.api.nvim_get_current_line()
+    -- if the last line break is selected
+    if to[3] - 1 == #line then
+      text = text .. '\n'
+    end
+  elseif mode == 'V' then
+    -- visual line
+    -- add line break to the head for the
+    -- same behavior as normal yank (yy)
+    text = '\n' .. text
+  end
+
+  vim.fn.setreg('+', text)
+
+  -- feed <Esc> to exit
+  vim.api.nvim_feedkeys('\27', 'v', false)
+end)
+
 -- mouse yank/paste
 map('n', '<RightMouse>', 'p', true)
 map('v', '<RightMouse>', 'y', true)
