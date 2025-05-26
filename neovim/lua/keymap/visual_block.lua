@@ -18,26 +18,38 @@ end
 
 local function find_l(line, from)
   local stack_r = Stack:new()
-  local moved = false
-  while from >= 0 do
-    local c = at(line, from)
 
-    for ty, v in ipairs(bounds) do
-      if moved and c == v[1] then
-        -- is left bound and no more pending right bound
-        if stack_r.len == 0 then
-          return from, ty -- return left bound type
-        elseif stack_r:top() == v[2] then
-          stack_r:pop()   -- pop matched right bound
+  while from >= 0 do
+    local col = from
+    local moved = false
+
+    while col >= 0 do
+      local c = at(line, col)
+
+      for ty, v in ipairs(bounds) do
+        if moved and c == v[1] then
+          -- is left bound and no more pending right bound
+          if stack_r.len == 0 then
+            return col, ty -- return left bound type
+          elseif stack_r:top() == v[2] then
+            stack_r:pop()  -- pop matched right bound
+          end
+        elseif c == v[2] then
+          stack_r:push(c)
         end
-      elseif c == v[2] then
-        stack_r:push(c)
       end
+
+      col = col - 1
+      moved = true
     end
 
+    -- if bounds on the left are broken, the stack will
+    -- prevent us from finding the potential bound, move
+    -- left and try again to ignore the broken bound
+    stack_r:clear()
     from = from - 1
-    moved = true
   end
+
   return nil, nil
 end
 
@@ -53,28 +65,40 @@ local function find_l_pair(line, from, ty)
 end
 
 local function find_r(line, from)
-  local stack_l = Stack:new()
-  local moved = false
   local max = #line
-  while from < max do
-    local c = at(line, from)
+  local stack_l = Stack:new()
 
-    for ty, v in ipairs(bounds) do
-      if moved and c == v[2] then
-        -- is right bound and no more pending left bound
-        if stack_l.len == 0 then
-          return from, ty -- return right bound type
-        elseif stack_l:top() == v[1] then
-          stack_l:pop()   -- pop matched left bound
+  while from < max do
+    local col = from
+    local moved = false
+
+    while col < max do
+      local c = at(line, col)
+
+      for ty, v in ipairs(bounds) do
+        if moved and c == v[2] then
+          -- is right bound and no more pending left bound
+          if stack_l.len == 0 then
+            return col, ty -- return right bound type
+          elseif stack_l:top() == v[1] then
+            stack_l:pop()  -- pop matched left bound
+          end
+        elseif c == v[1] then
+          stack_l:push(c)
         end
-      elseif c == v[1] then
-        stack_l:push(c)
       end
+
+      col = col + 1
+      moved = true
     end
 
+    -- if bounds on the left are broken, the stack will
+    -- prevent us from finding the potential bound, move
+    -- right and try again to ignore the broken bound
+    stack_l:clear()
     from = from + 1
-    moved = true
   end
+
   return nil, nil
 end
 
