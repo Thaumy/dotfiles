@@ -57,11 +57,11 @@ local filesystem = {
   ['1']     = 'navigate_up',
   ['2']     = 'set_root',
   ['r']     = 'refresh',
-  ['e']     = 'close_window',
   ['yy']    = 'copy',
   ['to']    = { 'add', config = { show_path = 'none' } },
   ['s']     = 'rename',
   ['dd']    = 'delete',
+  ['<M-e>'] = 'close_window',
   ['<Tab>'] = 'toggle_hidden',
 
   ['yp']    = function(state)

@@ -110,7 +110,7 @@ local auto_toggle = vim.api.nvim_create_autocmd('VimResized', {
 })
 
 -- toggle
-k.map('n', 'e', function()
+k.map('n', '<M-e>', function()
   if auto_toggle ~= nil then
     vim.api.nvim_del_autocmd(auto_toggle)
     auto_toggle = nil
