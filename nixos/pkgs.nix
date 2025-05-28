@@ -41,13 +41,17 @@ let
 
     sd
     fd
+    fio
     bat
     eza
+    zip
+    unar
     glib
     zbar
     lsof
     qemu
     lshw
+    qrcp
     bluez
     procs
     p7zip
@@ -55,10 +59,12 @@ let
     broot
     tokei
     cmake
+    crunch
     xxHash
     evtest
     psmisc
     screen
+    hdparm
     ripgrep
     libvirt
     openssl
@@ -70,6 +76,7 @@ let
     libinput
     watchman
     cdrtools
+    steam-run
     win-spice
     dmidecode
     tree-sitter
@@ -96,19 +103,34 @@ let
     grpcurl
     inetutils
     wireshark
+    macchanger
+    netdiscover
+    aircrack-ng
+    wirelesstools
   ];
 
   etc = with pkgs; [
     nh
     tmux
+    grim
     devenv
+    udiskie
+    blueman
     paperkey
+    xorg.xev
+    gammastep
     alacritty
     fastfetch
     shellcheck
+    qbittorrent
+    rust-script
     ollama-cuda
     home-manager
+    any-nix-shell
     systemctl-tui
+    whitesur-gtk-theme
+    nodePackages.ts-node
+    networkmanagerapplet
     libsForQt5.qtstyleplugin-kvantum
   ];
 in

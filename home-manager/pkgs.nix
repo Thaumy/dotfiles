@@ -7,35 +7,10 @@
 
     # WM
     wl-clipboard-x11
-    whitesur-gtk-theme
-    networkmanagerapplet
-
     # penetration
     #mdk4
-    crunch
-    macchanger
-    aircrack-ng
-    netdiscover
-    wirelesstools
-
-    # connectivity
-    blueman
 
     # etc
-    fio
-    zip
-    qrcp
-    unar
-    grim # screenshot
-    hdparm
-    udiskie
-    xorg.xev # show key events
-    gammastep
-    steam-run
-    qbittorrent
-    rust-script
-    any-nix-shell
     pkgs-24-05.postman
-    nodePackages.ts-node
   ];
 }
