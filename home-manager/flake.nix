@@ -30,6 +30,5 @@
         };
         modules = [ ./home.nix ];
       };
-      defaultPackage.x86_64-darwin = hm.defaultPackage.x86_64-darwin;
     };
 }
