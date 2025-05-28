@@ -128,6 +128,7 @@ let
     home-manager
     any-nix-shell
     systemctl-tui
+    wl-clipboard-rs
     whitesur-gtk-theme
     nodePackages.ts-node
     networkmanagerapplet
