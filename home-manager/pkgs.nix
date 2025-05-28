@@ -5,8 +5,6 @@
     nur.repos.thaumy.microsoft-todo-electron
     #nur.repos.xddxdd.dingtalk
 
-    # WM
-    wl-clipboard-x11
     # penetration
     #mdk4
 
