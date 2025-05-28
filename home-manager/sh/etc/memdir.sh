@@ -3,7 +3,7 @@
 if [ "$1" = '-c' ]; then
   declare dir
   dir=$(mktemp -d -p /dev/shm/)
-  echo -n "$dir" | xsel -b
+  echo -n "$dir" | wl-copy
 else
   declare dir
   dir=$(mktemp -d -p /dev/shm/)
