@@ -126,6 +126,8 @@ in
   home.file = {
     ".config/nvim".source = mkSymlink "${homeDir}/cfg/neovim";
 
+    ".config/libnvimcfg.so".source = "${inputs.libnvimcfg.packages.${pkgs.system}.default}/lib/libnvimcfg.so";
+
     ".config/nvim-plugins".source =
       let
         packDir = pkgs.vimUtils.packDir config.programs.neovim.finalPackage.passthru.packpathDirs;
