@@ -5,8 +5,5 @@ let
 in
 {
   home.packages = [ pkgs.rofi-wayland ];
-  home.file.".config/rofi" = {
-    enable = true;
-    source = mkSymlink "${homeDir}/cfg/rofi";
-  };
+  home.file.".config/rofi".source = mkSymlink "${homeDir}/cfg/rofi";
 }

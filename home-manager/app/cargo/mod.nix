@@ -15,9 +15,6 @@ in
       (writeBin "cargo-qc" ./qc.sh)
     ];
 
-    file.".cargo/config.toml" = {
-      enable = true;
-      source = mkSymlink "${homeDir}/cfg/cargo/config.toml";
-    };
+    file.".cargo/config.toml".source = mkSymlink "${homeDir}/cfg/cargo/config.toml";
   };
 }
