@@ -4,8 +4,5 @@ let
   mkSymlink = config.lib.file.mkOutOfStoreSymlink;
 in
 {
-  home.file.".tmux.conf" = {
-    enable = true;
-    source = mkSymlink "${homeDir}/cfg/tmux/tmux.conf";
-  };
+  home.file.".tmux.conf".source = mkSymlink "${homeDir}/cfg/tmux/tmux.conf";
 }

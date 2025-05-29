@@ -124,31 +124,22 @@ in
   };
 
   home.file = {
-    ".config/nvim" = {
-      enable = true;
-      source = mkSymlink "${homeDir}/cfg/neovim";
-    };
+    ".config/nvim".source = mkSymlink "${homeDir}/cfg/neovim";
 
-    ".config/nvim-plugins" =
+    ".config/nvim-plugins".source =
       let
         packDir = pkgs.vimUtils.packDir config.programs.neovim.finalPackage.passthru.packpathDirs;
       in
-      {
-        enable = true;
-        source = mkSymlink "${packDir}/pack/myNeovimPackages/start";
-      };
+      mkSymlink "${packDir}/pack/myNeovimPackages/start";
 
-    ".config/nvim-treesitter-parsers" =
+    ".config/nvim-treesitter-parsers".source =
       let
         nvim-treesitter-parsers = pkgs.symlinkJoin {
           name = "nvim-treesitter-parsers";
           paths = pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
         };
       in
-      {
-        enable = true;
-        source = mkSymlink nvim-treesitter-parsers;
-      };
+      mkSymlink nvim-treesitter-parsers;
   };
 
   home.packages = [
