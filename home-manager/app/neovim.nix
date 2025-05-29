@@ -148,6 +148,7 @@ in
       paths = [ config.programs.neovim.finalPackage ];
       postBuild = "ln -s $out/bin/nvim $out/bin/v";
     })
+
     # HACK: use `hiPrio` to override neovim wrapper
     (lib.hiPrio (pkgs.runCommand "better-nvim.desktop" { } ''
       mkdir -p "$out/share/applications"
