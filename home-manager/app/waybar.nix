@@ -8,8 +8,5 @@ in
     enable = true;
   };
 
-  home.file.".config/waybar" = {
-    enable = true;
-    source = mkSymlink "${homeDir}/cfg/waybar";
-  };
+  home.file.".config/waybar".source = mkSymlink "${homeDir}/cfg/waybar";
 }

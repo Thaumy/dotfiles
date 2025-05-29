@@ -8,8 +8,5 @@ in
     mako
     libnotify
   ];
-  home.file.".config/mako" = {
-    enable = true;
-    source = mkSymlink "${homeDir}/cfg/mako";
-  };
+  home.file.".config/mako".source = mkSymlink "${homeDir}/cfg/mako";
 }

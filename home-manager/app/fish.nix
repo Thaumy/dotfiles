@@ -12,8 +12,5 @@ in
     '';
   };
 
-  home.file.".config/fish/functions" = {
-    enable = true;
-    source = mkSymlink "${homeDir}/cfg/fish/functions";
-  };
+  home.file.".config/fish/functions".source = mkSymlink "${homeDir}/cfg/fish/functions";
 }

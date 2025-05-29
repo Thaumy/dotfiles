@@ -5,8 +5,5 @@ let
 in
 {
   home.packages = [ pkgs.nur.repos.thaumy.dup-img-finder ];
-  home.file.".config/dup-img-finder" = {
-    enable = true;
-    source = mkSymlink "${homeDir}/cfg/dup-img-finder";
-  };
+  home.file.".config/dup-img-finder".source = mkSymlink "${homeDir}/cfg/dup-img-finder";
 }

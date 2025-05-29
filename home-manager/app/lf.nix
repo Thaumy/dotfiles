@@ -5,8 +5,5 @@ let
 in
 {
   home.packages = [ pkgs.lf ];
-  home.file.".config/lf" = {
-    enable = true;
-    source = mkSymlink "${homeDir}/cfg/lf";
-  };
+  home.file.".config/lf".source = mkSymlink "${homeDir}/cfg/lf";
 }
