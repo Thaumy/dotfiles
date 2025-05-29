@@ -33,8 +33,6 @@ in
     (writeBin "aes-de" crypto/aes-de.sh)
 
     (writeBin "nix-gc" nix/gc.sh)
-    (writeBin "nix-chan-up" nix/chan-up.sh)
-    (writeBin "nix-flake-up" nix/flake-up.sh)
 
     (writeBin "wm-apps" wm/apps.rs)
     (writeBin "wm-lock" wm/lock.rs)
