@@ -1,0 +1,14 @@
+[net]
+git-fetch-with-cli = true
+
+[alias]
+n = 'new --offline'
+f = 'fmt'
+d = "doc --offline"
+b = 'build --offline'
+t = 'nextest run --workspace'
+tnc = 'nextest run --workspace --no-capture'
+c = 'clippy --tests --workspace'
+clr = 'clean'
+au = 'audit'
+gl = 'generate-lockfile'
