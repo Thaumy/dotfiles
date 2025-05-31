@@ -1,7 +1,12 @@
 *.*
 !.gitignore
 
+!cfg.sh
 !pwdc.sh
 !todo.sh
 !memdir.sh
+!hashpwd.sh
+!vi-project.sh
+!vi-vis-pane.sh
 !safe-remove.rs
+!symlink-localize.sh
