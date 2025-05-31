@@ -1,0 +1,52 @@
+include {
+  sec.dae
+}
+
+global {
+  wan_interface: auto
+  lan_interface: docker0
+
+  log_level: warn
+  allow_insecure: false
+  auto_config_kernel_parameter: true
+
+  tcp_check_url: 'http://cp.cloudflare.com,1.1.1.1,2606:4700:4700::1111'
+}
+
+dns {
+  upstream {
+    googledns: 'tcp+udp://dns.google.com:53'
+    alidns: 'udp://dns.alidns.com:53'
+  }
+  routing {
+    request {
+      fallback: alidns
+    }
+    response {
+      upstream(googledns) -> accept
+      ip(geoip:private) && !qname(geosite:cn) -> googledns
+      fallback: accept
+    }
+  }
+}
+
+group {
+  proxy {
+    policy: min_moving_avg
+  }
+}
+
+routing {
+  dscp(4) -> must_direct # BT
+  domain(geosite:cn) -> direct
+  l4proto(udp) && dport(443) -> block
+
+  pname(dnsmasq) -> must_direct
+  pname(NetworkManager) -> direct
+
+  dip(geoip:cn) -> direct
+  dip(geoip:private) -> direct
+  dip(224.0.0.0/3, 'ff00::/8') -> direct
+
+  fallback: proxy
+}
