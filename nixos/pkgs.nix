@@ -3,7 +3,6 @@ let
   sdk = with pkgs; [
     go
     gdb
-    mold
     flex
     ocaml
     stack
@@ -15,7 +14,6 @@ let
     python312
     pax-utils
     sysfsutils
-    kubernetes
     android-tools
     config.boot.kernelPackages.perf
   ];
@@ -41,21 +39,16 @@ let
 
     sd
     fd
-    fio
     bat
     eza
     zip
-    unar
     glib
-    zbar
     lsof
     qemu
     lshw
-    qrcp
     bluez
     procs
     p7zip
-    spice
     broot
     tokei
     cmake
@@ -63,7 +56,6 @@ let
     xxHash
     evtest
     psmisc
-    screen
     hdparm
     ripgrep
     libvirt
@@ -74,10 +66,8 @@ let
     pciutils
     patchelf
     libinput
-    watchman
     cdrtools
     steam-run
-    win-spice
     dmidecode
     tree-sitter
     vulkan-tools
@@ -99,6 +89,7 @@ let
     hurl
     nmap
     wget
+    mdk4
     whois
     grpcurl
     inetutils
@@ -110,7 +101,6 @@ let
   ];
 
   etc = with pkgs; [
-    nh
     tmux
     grim
     devenv
