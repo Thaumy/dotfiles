@@ -101,7 +101,7 @@
     "format-discharging": "{capacity}<span font='10'> </span>",
     "format-charging": "{capacity}<span color='#49f054'>󱐋</span><span font='4'> </span>",
     "format-full": "{capacity}<span color='#49f054'>󱐋</span><span font='6'> </span>",
-    "format-not-charging": "{capacity}<span color='#49f054'>󱐋</span><span font='6'> </span>",
+    "format-plugged": "{capacity}<span color='#49f054'>󱐋</span><span font='6'> </span>",
     "format-discharging-warning": "{capacity}<span color='#ffdd00'>󰁻</span><span font='6'> </span>",
     "format-discharging-critical": "{capacity}<span color='#d00000'>󰁺</span><span font='6'> </span>",
     "interval": 2,
