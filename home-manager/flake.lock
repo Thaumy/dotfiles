@@ -209,8 +209,8 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1748526742,
-        "narHash": "sha256-uKMnt3QTncGS1o7D9h3vlJjMTnQY2aRvg4rbNqnSjc8=",
+        "lastModified": 1749057858,
+        "narHash": "sha256-ilgLRpWbZ1aqWgF1cxLy0vDCE7TgRskYC7m5rvknXD0=",
         "path": "/home/thaumy/cfg/neovim/lib",
         "type": "path"
       },
