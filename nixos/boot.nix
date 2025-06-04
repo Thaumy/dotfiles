@@ -47,4 +47,3 @@
       [ v4l2loopback.out ];
   };
 }
-

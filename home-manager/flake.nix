@@ -13,17 +13,15 @@
     libnvimcfg.url = "path:///home/thaumy/cfg/neovim/lib";
   };
 
-  outputs =
-    inputs:
+  outputs = inputs:
     let
-      hm = inputs.home-manager;
       pkgs-cfg = {
         system = "x86_64-linux";
         config.allowUnfree = true;
       };
     in
     {
-      homeConfigurations."thaumy" = hm.lib.homeManagerConfiguration {
+      homeConfigurations."thaumy" = inputs.home-manager.lib.homeManagerConfiguration {
         pkgs = import inputs.pkgs pkgs-cfg;
         extraSpecialArgs = {
           inherit inputs;

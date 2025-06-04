@@ -6,7 +6,7 @@ _: {
     printing.enable = true;
     #memcached.enable = true;
     pulseaudio.enable = false;
-    gnome.localsearch.enable =true;
+    gnome.localsearch.enable = true;
     power-profiles-daemon.enable = true;
   };
 }

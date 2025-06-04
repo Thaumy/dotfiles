@@ -42,4 +42,3 @@ in
     yubikey-personalization
   ];
 }
-

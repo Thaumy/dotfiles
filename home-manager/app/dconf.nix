@@ -19,4 +19,3 @@
     show-battery-percentage = true;
   };
 }
-

@@ -8,13 +8,14 @@
     flake-utils.url = "github:numtide/flake-utils/11707dc2f618dd54ca8739b309ec4fc024de578b"; # 24-11-14
   };
 
-  outputs = inputs@{ ... }: inputs.flake-utils.lib.eachSystem [ "x86_64-linux" ] (system:
+  outputs = inputs: inputs.flake-utils.lib.eachSystem [ "x86_64-linux" ] (system:
     let
+      name = "nvimcfg";
+
       pkgs = import inputs.pkgs {
         inherit system;
         overlays = [ (import inputs.rust-overlay) ];
       };
-      name = "nvimcfg";
 
       rust-toolchain = channel: version:
         pkgs.rust-bin."${channel}"."${version}".complete.override {
