@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   imports = [
     ./hw.nix
     ./env.nix
