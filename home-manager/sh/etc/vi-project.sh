@@ -24,4 +24,8 @@ if [ -f 'main.c' ]; then
   exec nvim 'main.c'
 fi
 
+if [ -f 'flake.nix' ]; then
+  exec nvim 'flake.nix'
+fi
+
 echo 'unknown entrypoint'
