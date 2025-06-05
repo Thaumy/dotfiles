@@ -1,7 +1,6 @@
 _: {
   imports = [
     #./steam.nix
-    ./direnv.nix
     #./tomcat.nix
     ./logind.nix
     ./systemd.nix
