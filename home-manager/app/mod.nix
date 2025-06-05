@@ -17,6 +17,7 @@ _: {
     ./gnome.nix
     ./waybar.nix
     ./neovim.nix
+    ./direnv.nix
     ./hyprland.nix
     ./cargo/mod.nix
     ./alacritty.nix
