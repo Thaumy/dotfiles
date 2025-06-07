@@ -1,10 +1,7 @@
 _: {
   imports = [
-    #./steam.nix
-    #./tomcat.nix
     ./logind.nix
     ./systemd.nix
-    #./netdata.nix
     #./openssh.nix
     #./waydroid.nix
 
@@ -17,12 +14,10 @@ _: {
     ./pipewire.nix
 
     #./nginx.nix
-    #./mysql.nix
     #./kafka.nix
     #./redis.nix
     #./podman.nix
     ./sysstat.nix
-    #./mongodb.nix
     #./postgres.nix
     #./influxdb.nix
 
