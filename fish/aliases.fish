@@ -18,9 +18,9 @@ alias s "sudo"
 alias sc "sudo -u $USER"
 alias su "sudo su"
 
-alias hmb "home-manager build --flake path:$HOME/cfg/home-manager --cores 6"
+alias hmb "home-manager build --flake path:$HOME/cfg/home-manager --cores 6 --no-out-link"
 alias hms "home-manager switch --flake path:$HOME/cfg/home-manager"
-alias nrb "sudo nixos-rebuild build --flake path:$HOME/cfg/nixos --cores 6"
+alias nrb "nixos-rebuild build --flake path:$HOME/cfg/nixos --cores 6 && command rm -f result"
 alias nrs "sudo nixos-rebuild switch --flake path:$HOME/cfg/nixos"
 
 alias dk "docker"
