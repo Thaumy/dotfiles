@@ -5,7 +5,8 @@
 //! fd-lock = "4.0.2"
 //! ```
 
-use std::{fs::File, process::Command};
+use std::fs::File;
+use std::process::Command;
 
 use fd_lock::RwLock;
 

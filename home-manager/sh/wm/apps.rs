@@ -6,14 +6,12 @@
 //! fd-lock = "4.0.2"
 //! ```
 
-use std::{
-    env,
-    fs::File,
-    process::{Command, Stdio},
-    sync::mpsc::channel,
-    thread,
-    time::Duration,
-};
+
+use std::fs::File;
+use std::process::{Command, Stdio};
+use std::sync::mpsc::channel;
+use std::time::Duration;
+use std::{env, thread};
 
 use fd_lock::RwLock;
 use libc::SIGTERM;
@@ -37,7 +35,12 @@ fn main() {
     let timeout = str::parse(&args[1]).unwrap();
 
     let mut rofi = Command::new("rofi")
-        .args(["-show", "drun", "-config", "/home/thaumy/cfg/rofi/wm-apps.rasi"])
+        .args([
+            "-show",
+            "drun",
+            "-config",
+            "/home/thaumy/cfg/rofi/wm-apps.rasi",
+        ])
         .stdin(Stdio::null())
         .stdout(Stdio::null())
         .spawn()
