@@ -37,7 +37,10 @@ fn raw() -> Result<Vec<PathBuf>> {
 
     let paths: Result<Vec<PathBuf>> = env::args()
         .skip(1)
-        .map(|path_string| {
+        .map(|mut path_string| {
+            if path_string.ends_with('/') {
+                path_string.pop();
+            }
             let path = Path::new(&path_string);
             let path = if path.is_symlink() {
                 path.to_owned()
