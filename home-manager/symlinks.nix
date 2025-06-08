@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 let
   homeDir = config.home.homeDirectory;
   mkSymlink = config.lib.file.mkOutOfStoreSymlink;
@@ -10,5 +10,13 @@ in
     "org-repo".source = mkSymlink "${homeDir}/dev/repo/org";
     "fork-repo".source = mkSymlink "${homeDir}/dev/repo/fork";
     "thaumy-repo".source = mkSymlink "${homeDir}/dev/repo/thaumy";
+
+    ".config/nixpkgs/config.nix" = {
+      source = pkgs.writeTextFile {
+        name = "config.nix";
+        text = "{ allowUnfree = true; }";
+      };
+      recursive = true;
+    };
   };
 }
