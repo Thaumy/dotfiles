@@ -7,8 +7,7 @@
 
 use std::env;
 use std::fs::File;
-use std::process::Command;
-use std::process::Stdio;
+use std::process::{Command, Stdio};
 
 use fd_lock::RwLock;
 
