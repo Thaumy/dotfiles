@@ -6,11 +6,10 @@
 //! anyhow = "1.0.86"
 //! ```
 
+use std::env::{self, current_dir};
+use std::path::{Path, PathBuf};
+
 use anyhow::{bail, Context, Result};
-use std::{
-    env::{self, current_dir},
-    path::{Path, PathBuf},
-};
 
 fn main() {
     match raw() {
