@@ -155,7 +155,7 @@ pub extern "C" fn visual_block(
     let mut from_col_r = col;
 
     loop {
-        // serach from `col` and `moved` above handles the
+        // search from `col` and `moved` above handles the
         // situation when bound is under the cursor
         //            cursor               cursor
         //              |                    |
