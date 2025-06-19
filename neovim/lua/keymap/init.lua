@@ -12,7 +12,7 @@ local k = require 'infra.key'
 local map = k.map
 local map_cmd = k.map_cmd
 
-map('v', 'y', function()
+map('x', 'y', function()
   local from = vim.fn.getpos 'v'
   local to = vim.fn.getpos '.'
   local mode = vim.fn.mode()
@@ -42,16 +42,16 @@ end)
 
 -- mouse yank/paste
 map('n', '<RightMouse>', 'p', true)
-map('v', '<RightMouse>', 'y', true)
-map('v', '<MiddleMouse>', 'd', true)
+map('x', '<RightMouse>', 'y', true)
+map('x', '<MiddleMouse>', 'd', true)
 map('i', '<RightMouse>', '<C-r>+', true)
 
 -- case switching
-map('v', 'uj', 'u')
-map('v', 'uk', 'U')
+map('x', 'uj', 'u')
+map('x', 'uk', 'U')
 
 -- buf
-map({ 'n', 'v' }, 'ww', function()
+map({ 'n', 'x' }, 'ww', function()
   local ft = vim.bo.ft
   if
       ft == 'neo-tree' or
@@ -63,8 +63,8 @@ map({ 'n', 'v' }, 'ww', function()
   end
   vim.cmd 'w'
 end)
-map_cmd({ 'n', 'v' }, 'wa', 'wa')
-map({ 'n', 'v' }, 'qq', function()
+map_cmd({ 'n', 'x' }, 'wa', 'wa')
+map({ 'n', 'x' }, 'qq', function()
   if vim.bo.ft == 'neo-tree' then
     return
   end
@@ -74,8 +74,8 @@ map({ 'n', 'v' }, 'qq', function()
     vim.cmd 'q'
   end
 end)
-map_cmd({ 'n', 'v' }, 'qa', 'qa!')
-map({ 'n', 'v' }, 'wq', function()
+map_cmd({ 'n', 'x' }, 'qa', 'qa!')
+map({ 'n', 'x' }, 'wq', function()
   if vim.bo.ft == 'neo-tree' then
     return
   end
@@ -92,12 +92,12 @@ map('n', 'cf', function()
 end)
 
 -- visual-block front/back insert
-map('v', 'i', function()
+map('x', 'i', function()
   if vim.api.nvim_get_mode().mode == '\22' then
     vim.api.nvim_feedkeys('I', 'n', false)
   end
 end)
-map('v', 'a', function()
+map('x', 'a', function()
   if vim.api.nvim_get_mode().mode == '\22' then
     vim.api.nvim_feedkeys('A', 'n', false)
   end
@@ -151,7 +151,7 @@ map('n', 'wl', '<C-w>l')
 map('n', 'U', '<C-R>')
 
 -- go bottom
-map({ 'n', 'v' }, 'ff', 'G')
+map({ 'n', 'x' }, 'ff', 'G')
 -- go prev buf
 map('n', 'bp', '<C-^>')
 -- go prev/next position
@@ -188,7 +188,7 @@ local function prefix_spaces_len(line)
 end
 
 -- go line head/end
-map({ 'n', 'v' }, 'qh', function()
+map({ 'n', 'x' }, 'qh', function()
   local line = vim.api.nvim_get_current_line()
   local spaces = prefix_spaces_len(line)
 
@@ -200,7 +200,7 @@ map({ 'n', 'v' }, 'qh', function()
   end
   vim.api.nvim_win_set_cursor(0, pos)
 end)
-map({ 'n', 'v' }, 'ql', function()
+map({ 'n', 'x' }, 'ql', function()
   local line = vim.api.nvim_get_current_line()
   if #line == 0 then return end
 
@@ -216,16 +216,16 @@ map({ 'n', 'v' }, 'ql', function()
 end)
 
 -- quick word L/R
-map({ 'n', 'v' }, '<M-h>', '<S-Left>')
-map({ 'n', 'v' }, '<M-l>', '<S-Right>')
+map({ 'n', 'x' }, '<M-h>', '<S-Left>')
+map({ 'n', 'x' }, '<M-l>', '<S-Right>')
 
 -- quick up/down
-map({ 'n', 'v' }, '<C-k>', '6k', true)
-map({ 'n', 'v' }, '<C-j>', '6j', true)
-map({ 'n', 'v' }, 'qj', '18j', true)
-map({ 'n', 'v' }, 'qk', '18k', true)
+map({ 'n', 'x' }, '<C-k>', '6k', true)
+map({ 'n', 'x' }, '<C-j>', '6j', true)
+map({ 'n', 'x' }, 'qj', '18j', true)
+map({ 'n', 'x' }, 'qk', '18k', true)
 
-map({ 'n', 'v' }, 'rp', function()
+map({ 'n', 'x' }, 'rp', function()
   local curr_buf = vim.api.nvim_get_current_buf()
   local curr_buf_ft = vim.api.nvim_get_option_value('ft', { buf = curr_buf })
   if curr_buf_ft == 'qf' then
@@ -257,4 +257,4 @@ map('n', '<C-p>', function()
 end)
 
 -- refresh buf
-map_cmd({ 'n', 'v' }, 'r', 'e')
+map_cmd({ 'n', 'x' }, 'r', 'e')

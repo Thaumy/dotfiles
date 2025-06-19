@@ -61,7 +61,7 @@ local function hl(row, l, m, r)
   end
 end
 
-map({ 'n', 'v' }, '<C-h>', function()
+map({ 'n', 'x' }, '<C-h>', function()
   if #vim.api.nvim_get_current_line() == 0 then return end
 
   clear_hl()
@@ -99,7 +99,7 @@ map({ 'n', 'v' }, '<C-h>', function()
   end)
 end)
 
-map({ 'n', 'v' }, '<C-l>', function()
+map({ 'n', 'x' }, '<C-l>', function()
   local max = #vim.api.nvim_get_current_line() - 1
   if max == -1 then return end
 

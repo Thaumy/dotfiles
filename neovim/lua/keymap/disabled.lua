@@ -3,29 +3,29 @@ local unmap = require 'infra.key'.unmap
 -- search backward
 unmap('n', '?')
 -- select word backward
-unmap('v', 'b')
+unmap('x', 'b')
 -- recording
-unmap({ 'n', 'v' }, 'q')
+unmap({ 'n', 'x' }, 'q')
 -- key chord
-unmap({ 'v', 'i' }, '<C-k>')
+unmap({ 'x', 'i' }, '<C-k>')
 
 -- move cursor left/up/down
-unmap({ 'n', 'v' }, '<Bs>')
-unmap({ 'n', 'v' }, '<C-p>')
-unmap({ 'n', 'v' }, '<C-m>')
+unmap({ 'n', 'x' }, '<Bs>')
+unmap({ 'n', 'x' }, '<C-p>')
+unmap({ 'n', 'x' }, '<C-m>')
 
 -- go page head/end
-unmap({ 'n', 'v' }, 'H')
-unmap({ 'n', 'v' }, 'L')
+unmap({ 'n', 'x' }, 'H')
+unmap({ 'n', 'x' }, 'L')
 
 -- go line head/end
-unmap({ 'n', 'v' }, '0')
-unmap({ 'n', 'v' }, '$')
+unmap({ 'n', 'x' }, '0')
+unmap({ 'n', 'x' }, '$')
 
 -- right click combo
-unmap({ 'n', 'v', 'i' }, '<2-RightMouse>')
-unmap({ 'n', 'v', 'i' }, '<3-RightMouse>')
-unmap({ 'n', 'v', 'i' }, '<4-RightMouse>')
+unmap({ 'n', 'x', 'i' }, '<2-RightMouse>')
+unmap({ 'n', 'x', 'i' }, '<3-RightMouse>')
+unmap({ 'n', 'x', 'i' }, '<4-RightMouse>')
 
 -- delete combo
 unmap('n', 'dh')
@@ -35,6 +35,6 @@ unmap('n', 'dl')
 
 -- history list
 unmap('c', '<C-f>')
-unmap({ 'n', 'v' }, 'q:')
-unmap({ 'n', 'v' }, 'q/')
-unmap({ 'n', 'v' }, 'q?')
+unmap({ 'n', 'x' }, 'q:')
+unmap({ 'n', 'x' }, 'q/')
+unmap({ 'n', 'x' }, 'q?')
