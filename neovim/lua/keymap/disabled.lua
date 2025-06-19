@@ -20,6 +20,7 @@ unmap({ 'n', 'v' }, 'L')
 
 -- go line head/end
 unmap({ 'n', 'v' }, '0')
+vim.keymap.del('s', '0') -- HACK: restore `0` key in select mode
 unmap({ 'n', 'v' }, '$')
 
 -- right click combo
