@@ -5,8 +5,8 @@ return {
   keys = {
     { mode = 'n', 'm' },
     { mode = 'n', 'cm' },
-    { mode = 'v', 'm' },
-    { mode = 'v', 'cm' },
+    { mode = 'x', 'm' },
+    { mode = 'x', 'cm' },
   },
 
   config = function()
