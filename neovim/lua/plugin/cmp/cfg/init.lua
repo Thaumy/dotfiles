@@ -44,7 +44,7 @@ plugin.setup {
   },
   window = {
     completion = {
-      winhighlight = 'Normal:StatusLineNC',
+      winhighlight = 'Normal:Normal,CursorLine:CmpMenuCursorLine',
     },
   },
   experimental = {
