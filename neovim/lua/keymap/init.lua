@@ -226,15 +226,18 @@ map({ 'n', 'v' }, 'qj', '18j', true)
 map({ 'n', 'v' }, 'qk', '18k', true)
 
 map({ 'n', 'v' }, 'rp', function()
-  if ui.any_ft_buf 'qf' then
+  local curr_buf = vim.api.nvim_get_current_buf()
+  local curr_buf_ft = vim.api.nvim_get_option_value('ft', { buf = curr_buf })
+  if curr_buf_ft == 'qf' then
     vim.api.nvim_feedkeys(':cdo s/', 'n', false)
-  else
-    local mode = vim.api.nvim_get_mode().mode
-    if mode == 'n' then
-      vim.api.nvim_feedkeys(':%s/', 'n', false)
-    elseif mode == 'v' or mode == 'V' then
-      vim.api.nvim_feedkeys(':s/', 'n', false)
-    end
+    return
+  end
+
+  local mode = vim.api.nvim_get_mode().mode
+  if mode == 'n' then
+    vim.api.nvim_feedkeys(':%s/', 'n', false)
+  elseif mode == 'v' or mode == 'V' then
+    vim.api.nvim_feedkeys(':s/', 'n', false)
   end
 end)
 
