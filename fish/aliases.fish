@@ -1,4 +1,3 @@
-alias q "exit"
 alias g "command git"
 alias c "cargo"
 alias n "tmux new-window -ad"
@@ -13,6 +12,9 @@ alias clr "clear"
 alias svs "sudo systemctl-tui"
 alias sctl "systemctl"
 alias hibernate "systemctl hibernate"
+
+alias q "exit"
+alias qa "tmux kill-session"
 
 alias s "sudo"
 alias sc "sudo -u $USER"
