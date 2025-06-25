@@ -38,7 +38,7 @@ plugin.setup {
       },
     },
     file_size = {
-      required_width = 42,
+      required_width = 40,
     },
     type = {
       enabled = false,
