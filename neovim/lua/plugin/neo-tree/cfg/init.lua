@@ -57,6 +57,7 @@ plugin.setup {
   },
 
   window = {
+    width = 36,
     mappings = mappings.window,
   },
 
