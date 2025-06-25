@@ -5,7 +5,8 @@ TERM = "xterm-256color"
 shell = "tmux"
 
 [font]
-normal = { family = "JetBrains Mono", style = "Regular" }
+size = 12.1
+normal = { family = "JetBrains Mono", style = "Medium" }
 
 [keyboard]
 bindings = [
