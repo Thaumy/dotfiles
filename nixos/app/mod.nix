@@ -1,5 +1,6 @@
 _: {
   imports = [
+    ./ccache.nix
     ./logind.nix
     ./systemd.nix
     #./openssh.nix
