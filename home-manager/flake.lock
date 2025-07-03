@@ -181,7 +181,7 @@
         "type": "github"
       }
     },
-    "home-manager": {
+    "hm": {
       "inputs": {
         "nixpkgs": [
           "pkgs"
@@ -363,7 +363,7 @@
     },
     "root": {
       "inputs": {
-        "home-manager": "home-manager",
+        "hm": "hm",
         "libnvimcfg": "libnvimcfg",
         "nur": "nur",
         "nvim-nightly-overlay": "nvim-nightly-overlay",
