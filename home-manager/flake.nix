@@ -4,7 +4,7 @@
     pkgs-24-05.url = "github:nixos/nixpkgs/nixos-24.05";
     pkgs.url = "github:NixOS/nixpkgs/bfa53c7c01b04dc908c87697779394186b10b7bd"; # 25-7-1
 
-    home-manager = {
+    hm = {
       url = "github:nix-community/home-manager/479f8889675770881033878a1c114fbfc6de7a4d"; # 25-7-1
       inputs.nixpkgs.follows = "pkgs";
     };
@@ -21,7 +21,7 @@
       };
     in
     {
-      homeConfigurations."thaumy" = inputs.home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."thaumy" = inputs.hm.lib.homeManagerConfiguration {
         pkgs = import inputs.pkgs pkgs-cfg;
         extraSpecialArgs = {
           inherit inputs;
