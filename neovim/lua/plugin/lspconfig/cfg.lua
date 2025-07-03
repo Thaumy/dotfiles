@@ -1,19 +1,13 @@
-local caps = require 'cmp_nvim_lsp'.default_capabilities()
-caps.textDocument.foldingRange = {
-  dynamicRegistration = false,
-  lineFoldingOnly = true,
-}
 local plugin = require 'lspconfig'
 
 -- for lsp names, see:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 
-plugin.biome.setup { -- Web
-  capabilities = caps,
+vim.lsp.enable('biome', {
   root_dir = plugin.util.root_pattern '.git' or vim.fn.getcwd(),
-}
-plugin.nil_ls.setup { -- Nix
-  capabilities = caps,
+})
+
+vim.lsp.config('nil_ls', {
   settings = {
     ['nil'] = {
       formatting = {
@@ -24,9 +18,9 @@ plugin.nil_ls.setup { -- Nix
       },
     },
   },
-}
-plugin.lua_ls.setup {
-  capabilities = caps,
+})
+
+vim.lsp.config('lua_ls', {
   settings = {
     Lua = {
       diagnostics = {
@@ -47,13 +41,13 @@ plugin.lua_ls.setup {
       },
     },
   },
-}
-plugin.omnisharp.setup { -- C#
-  capabilities = caps,
+})
+
+vim.lsp.config('omnisharp', {
   cmd = { 'OmniSharp' },
-}
-plugin.rust_analyzer.setup {
-  capabilities = caps,
+})
+
+vim.lsp.config('rust_analyzer', {
   settings = {
     ['rust-analyzer'] = {
       completion = {
@@ -104,23 +98,30 @@ plugin.rust_analyzer.setup {
       },
     },
   },
-}
+})
 
-plugin.hls.setup { capabilities = caps }                    -- Haskell
-plugin.ruff.setup { capabilities = caps }                   -- Python fmt
-plugin.html.setup { capabilities = caps }                   -- HTML
-plugin.sqls.setup { capabilities = caps }                   -- SQL
-plugin.taplo.setup { capabilities = caps }                  -- TOML
-plugin.jdtls.setup { capabilities = caps }                  -- Java
-plugin.gopls.setup { capabilities = caps }                  -- Go
-plugin.cssls.setup { capabilities = caps }                  -- CSS
-plugin.texlab.setup { capabilities = caps }                 -- LaTeX
-plugin.bashls.setup { capabilities = caps }                 -- bash
-plugin.clangd.setup { capabilities = caps }                 -- C/C++
-plugin.denols.setup { capabilities = caps }                 -- Deno
-plugin.yamlls.setup { capabilities = caps }                 -- YAML
-plugin.pyright.setup { capabilities = caps }                -- Python
-plugin.marksman.setup { capabilities = caps }               -- Markdown
-plugin.tinymist.setup { capabilities = caps }               -- Typst
-plugin.fsautocomplete.setup { capabilities = caps }         -- F#
-plugin.kotlin_language_server.setup { capabilities = caps } -- Kotlin
+vim.lsp.enable {
+  'hls',                    -- Haskell
+  'ruff',                   -- Python fmt
+  'html',                   -- HTML
+  'sqls',                   -- SQL
+  'taplo',                  -- TOML
+  'jdtls',                  -- Java
+  'gopls',                  -- Go
+  'cssls',                  -- CSS
+  'biome',                  -- Web FE langs
+  'lua_ls',                 -- Lua
+  'texlab',                 -- LaTeX
+  'bashls',                 -- bash
+  'clangd',                 -- C/C++
+  'denols',                 -- Deno
+  'nil_ls',                 -- Nix
+  'yamlls',                 -- YAML
+  'pyright',                -- Python
+  'marksman',               -- Markdown
+  'tinymist',               -- Typst
+  'omnisharp',              -- C#
+  'rust_analyzer',          -- Rust
+  'fsautocomplete',         -- F#
+  'kotlin_language_server', -- Kotlin
+}
