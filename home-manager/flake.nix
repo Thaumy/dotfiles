@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "pkgs";
     };
 
-    nvim-nightly.url = "github:nix-community/neovim-nightly-overlay/a666b0a2cc977c586cebd60e7cb8735dcffd09ae"; # 25-4-10
+    nvim-nightly.url = "github:nix-community/neovim-nightly-overlay/d23aed1e00bf4e133f582fbd435eac02199db22c"; # 25-7-4
     libnvimcfg.url = "path:///home/thaumy/cfg/neovim/lib";
   };
 
