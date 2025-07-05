@@ -12,6 +12,16 @@ local k = require 'infra.key'
 local map = k.map
 local map_cmd = k.map_cmd
 
+-- remap `textDocument/selectionRange`
+vim.keymap.del('x', 'in')
+map('x', '1', function()
+  vim.lsp.buf.selection_range(1)
+end)
+vim.keymap.del('x', 'an')
+map('x', '2', function()
+  vim.lsp.buf.selection_range(-1)
+end)
+
 map('x', 'y', function()
   local from = vim.fn.getpos 'v'
   local to = vim.fn.getpos '.'
