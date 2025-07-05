@@ -1,3 +1,3 @@
 # dotfiles
 
-My configuration collection
+My configuration collection.
