@@ -12,7 +12,6 @@ _: {
     ./dev/mod.nix
     ./sec/mod.nix
     ./pkgs/mod.nix
-    ./programs.nix
     ./services.nix
     ./networking/mod.nix
   ];

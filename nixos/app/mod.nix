@@ -1,6 +1,8 @@
 _: {
   imports = [
+    ./fish.nix
     ./ccache.nix
+
     ./logind.nix
     ./systemd.nix
     #./openssh.nix
@@ -9,6 +11,7 @@ _: {
     ./xdg.nix
     ./dae.nix
     ./hypr.nix
+    ./dconf.nix
     ./upower.nix
     ./greetd.nix
     ./xserver.nix
