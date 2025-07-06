@@ -2,7 +2,6 @@
   home.packages = with pkgs; [
     # nur
     #nur.repos.thaumy.idbuilder
-    nur.repos.thaumy.microsoft-todo-electron
     #nur.repos.xddxdd.dingtalk
 
     # penetration

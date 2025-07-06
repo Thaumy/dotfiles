@@ -25,14 +25,11 @@ let
     unixtools.xxd
 
     tree
-    dutree
     pstree
     du-dust
 
     dool
-    htop
     iotop
-    bottom
     bandwhich
     nvtopPackages.full
     (btop.override { cudaSupport = true; rocmSupport = true; })
@@ -49,7 +46,6 @@ let
     bluez
     procs
     p7zip
-    broot
     tokei
     cmake
     crunch
@@ -101,6 +97,7 @@ let
   ];
 
   etc = with pkgs; [
+    mutt
     tmux
     grim
     devenv
