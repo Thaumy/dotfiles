@@ -5,7 +5,7 @@ _: {
 
     ./logind.nix
     ./systemd.nix
-    #./openssh.nix
+    ./openssh.nix
     #./waydroid.nix
 
     ./xdg.nix
