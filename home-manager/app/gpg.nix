@@ -7,6 +7,8 @@
     enable = true;
     enableSshSupport = true;
     pinentry.package = pkgs.pinentry-gnome3;
-    sshKeys = [ "DC0374AB5EFF87F3CD894A20B09E5DBB1A89F1B5" ];
+    sshKeys = [
+      "F1A98CC89BCC1AA9888895EDC2E2A1C80812978A" # v3 [A]
+    ];
   };
 }
