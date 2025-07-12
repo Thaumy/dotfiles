@@ -15,35 +15,36 @@ local ext_marks = { {} }
 local debounce = require 'infra.debounce':new()
 
 local cb = function(args)
+  local buf = args.buf
   debounce:schedule(200, function()
     if
-        vim.api.nvim_get_option_value('readonly', { buf = args.buf }) or
-        (not vim.api.nvim_get_option_value('modifiable', { buf = args.buf })) or
-        vim.api.nvim_get_option_value('buftype', { buf = args.buf }) ~= '' -- abnormal buffer
+        vim.api.nvim_get_option_value('readonly', { buf = buf }) or
+        (not vim.api.nvim_get_option_value('modifiable', { buf = buf })) or
+        vim.api.nvim_get_option_value('buftype', { buf = buf }) ~= '' -- abnormal buffer
     then
       return
     end
 
-    if ext_marks[args.buf] == nil then
-      ext_marks[args.buf] = {}
+    if ext_marks[buf] == nil then
+      ext_marks[buf] = {}
     end
 
-    local lines = vim.api.nvim_buf_get_lines(args.buf, 0, -1, false)
+    local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
     local insert_mode = vim.api.nvim_get_mode().mode == 'i'
     local curr_row = vim.api.nvim_win_get_cursor(0)[1]
 
     for row, line in ipairs(lines) do
-      if ext_marks[args.buf][row] ~= nil then
-        vim.api.nvim_buf_del_extmark(args.buf, ns, ext_marks[args.buf][row])
-        ext_marks[args.buf][row] = nil
+      if ext_marks[buf][row] ~= nil then
+        vim.api.nvim_buf_del_extmark(buf, ns, ext_marks[buf][row])
+        ext_marks[buf][row] = nil
       end
       if row == curr_row and insert_mode then
         goto continue
       end
       if line:byte(-1) == 32 then -- space char
         local len = #line
-        ext_marks[args.buf][row] = vim.api.nvim_buf_set_extmark(
-          args.buf, ns,
+        ext_marks[buf][row] = vim.api.nvim_buf_set_extmark(
+          buf, ns,
           row - 1, len - trailing_spaces_len(line),
           { end_col = len, hl_group = 'TrailingSpace' }
         )
