@@ -9,4 +9,5 @@
 !vi-project.sh
 !vi-vis-pane.sh
 !safe-remove.rs
+!gpg-gen-keys.sh
 !symlink-localize.sh
