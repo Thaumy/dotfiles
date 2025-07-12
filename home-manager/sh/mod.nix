@@ -22,6 +22,7 @@ in
     (writeBin "disable-kb" etc/disable-kb.sh)
     (writeBin "pic-search" etc/pic-search.sh)
     (writeBin "cp-dirs-only" etc/cp-dirs-only.sh)
+    (writeBin "gpg-gen-keys" etc/gpg-gen-keys.sh)
     (writeBin "symlink-localize" etc/symlink-localize.sh)
 
     (writeBin "backup" backup/run.sh)
