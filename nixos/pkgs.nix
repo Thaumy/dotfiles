@@ -130,6 +130,16 @@ let
     nodePackages.ts-node
     networkmanagerapplet
     libsForQt5.qtstyleplugin-kvantum
+
+    (pkgs.callPackage
+      (pkgs.fetchFromGitHub {
+        owner = "nixos";
+        repo = "nixpkgs";
+        rev = "nixos-24.05";
+        hash = "sha256-OnSAY7XDSx7CtDoqNh8jwVwh4xNL/2HaJxGjryLWzX8=";
+      })
+      { }
+    ).jetbrains.datagrip
   ];
 in
 {
