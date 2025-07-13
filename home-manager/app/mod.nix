@@ -21,7 +21,6 @@ _: {
     ./hyprland.nix
     ./cargo/mod.nix
     ./alacritty.nix
-    ./jetbrains.nix
     ./dup-img-finder.nix
     ./sh-history-filter.nix
   ];
