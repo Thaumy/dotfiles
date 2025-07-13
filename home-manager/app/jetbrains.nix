@@ -4,7 +4,6 @@
     #jetbrains.clion
     #jetbrains.goland
     #jetbrains.webstorm
-    jetbrains.datagrip
     #jetbrains.dataspell
     #jetbrains.rust-rover
     #jetbrains.idea-ultimate
