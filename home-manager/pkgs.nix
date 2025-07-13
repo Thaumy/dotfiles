@@ -1,4 +1,4 @@
-{ pkgs, pkgs-24-05, ... }: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     # nur
     #nur.repos.thaumy.idbuilder
@@ -6,8 +6,5 @@
 
     # penetration
     #mdk4
-
-    # etc
-    pkgs-24-05.postman
   ];
 }
