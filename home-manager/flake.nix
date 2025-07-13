@@ -1,7 +1,6 @@
 {
   inputs = {
     nur.url = "github:nix-community/nur/9ea0c40c52673079dfe50e82ddbb78679723be05"; # 25-4-17
-    pkgs-24-05.url = "github:nixos/nixpkgs/nixos-24.05";
     pkgs.url = "github:NixOS/nixpkgs/bfa53c7c01b04dc908c87697779394186b10b7bd"; # 25-7-1
 
     hm = {
@@ -13,21 +12,14 @@
     libnvimcfg.url = "path:///home/thaumy/cfg/neovim/lib";
   };
 
-  outputs = inputs:
-    let
-      pkgs-cfg = {
+  outputs = inputs: {
+    homeConfigurations."thaumy" = inputs.hm.lib.homeManagerConfiguration {
+      pkgs = import inputs.pkgs {
         system = "x86_64-linux";
         config.allowUnfree = true;
       };
-    in
-    {
-      homeConfigurations."thaumy" = inputs.hm.lib.homeManagerConfiguration {
-        pkgs = import inputs.pkgs pkgs-cfg;
-        extraSpecialArgs = {
-          inherit inputs;
-          pkgs-24-05 = import inputs.pkgs-24-05 pkgs-cfg;
-        };
-        modules = [ ./home.nix ];
-      };
+      extraSpecialArgs = { inherit inputs; };
+      modules = [ ./home.nix ];
     };
+  };
 }
