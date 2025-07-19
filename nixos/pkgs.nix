@@ -15,6 +15,7 @@ let
     pax-utils
     sysfsutils
     android-tools
+    universal-ctags
     config.boot.kernelPackages.perf
   ];
 
