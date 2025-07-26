@@ -41,26 +41,6 @@ function rm
     printf "please use %srr%s instead, %srm%s is considered unsafe!\n" (set_color green) (set_color normal) (set_color yellow) (set_color normal)
 end
 
-function sed
-    printf "please use %ssd%s instead.\n" (set_color green) (set_color normal)
-end
-
-function grep
-    printf "please use %srg%s instead.\n" (set_color green) (set_color normal)
-end
-
-function find
-    printf "please use %sfd%s instead.\n" (set_color green) (set_color normal)
-end
-
-function touch
-    printf "please use %sto%s instead.\n" (set_color green) (set_color normal)
-end
-
-function mkdir
-    printf "please use %smd%s instead.\n" (set_color green) (set_color normal)
-end
-
 function pr
     set path "$(command git rev-parse --show-toplevel 2> /dev/null)"
     if test $path != ''; cd $path; return; end
