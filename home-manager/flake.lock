@@ -209,8 +209,8 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1749057858,
-        "narHash": "sha256-ilgLRpWbZ1aqWgF1cxLy0vDCE7TgRskYC7m5rvknXD0=",
+        "lastModified": 1753552038,
+        "narHash": "sha256-IUI7+pvPD+DLIs3nQiHM5ZHbqBHssVUW+o5m2jWSlgY=",
         "path": "/home/thaumy/cfg/neovim/lib",
         "type": "path"
       },
@@ -315,33 +315,33 @@
     },
     "pkgs": {
       "locked": {
-        "lastModified": 1747670378,
-        "narHash": "sha256-/i53gvowxEJ1p81jGwgKg3r1dhSX+i74ffLbcRNjVPc=",
+        "lastModified": 1753544923,
+        "narHash": "sha256-HBQYEV8kclUfS4NsBzuGJ07txTn8p3U/A9s3K82EkBA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e84598116e49651c1be6836fab2a38511ace723d",
+        "rev": "0a9e4b8f21ef750df60b9b9670e48fc6d0263fd1",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e84598116e49651c1be6836fab2a38511ace723d",
+        "rev": "0a9e4b8f21ef750df60b9b9670e48fc6d0263fd1",
         "type": "github"
       }
     },
     "pkgs_2": {
       "locked": {
-        "lastModified": 1751385223,
-        "narHash": "sha256-auzO/v93IBnuWsdGn2uWtKB9in36fpL8kyNcItPE9dE=",
+        "lastModified": 1753544923,
+        "narHash": "sha256-HBQYEV8kclUfS4NsBzuGJ07txTn8p3U/A9s3K82EkBA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "bfa53c7c01b04dc908c87697779394186b10b7bd",
+        "rev": "0a9e4b8f21ef750df60b9b9670e48fc6d0263fd1",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "bfa53c7c01b04dc908c87697779394186b10b7bd",
+        "rev": "0a9e4b8f21ef750df60b9b9670e48fc6d0263fd1",
         "type": "github"
       }
     },
