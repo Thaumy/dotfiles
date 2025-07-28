@@ -6,5 +6,4 @@
   obs-studio
   imagemagick
   ffmpeg_7-full
-  subtitleeditor
 ]
