@@ -10,5 +10,6 @@
     hyprshot
     hyprpaper
     hyprpicker
+    hyprpolkitagent
   ];
 }
