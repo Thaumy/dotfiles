@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 git log \
-  --all \
   --graph \
   --oneline \
   --date format:'%y-%m-%d %H:%M' \
