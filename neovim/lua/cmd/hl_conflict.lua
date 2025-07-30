@@ -18,6 +18,7 @@ local cb = function(args)
   local buf = args.buf
   debounce:schedule(200, function()
     if
+        (not vim.api.nvim_buf_is_valid(buf)) or
         vim.api.nvim_get_option_value('readonly', { buf = buf }) or
         (not vim.api.nvim_get_option_value('modifiable', { buf = buf })) or
         vim.api.nvim_get_option_value('buftype', { buf = buf }) ~= '' -- abnormal buffer
