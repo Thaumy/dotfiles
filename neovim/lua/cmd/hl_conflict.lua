@@ -15,34 +15,35 @@ local ext_marks = { {} }
 local debounce = require 'infra.debounce':new()
 
 local cb = function(args)
+  local buf = args.buf
   debounce:schedule(200, function()
     if
-        vim.api.nvim_get_option_value('readonly', { buf = args.buf }) or
-        (not vim.api.nvim_get_option_value('modifiable', { buf = args.buf })) or
-        vim.api.nvim_get_option_value('buftype', { buf = args.buf }) ~= '' -- abnormal buffer
+        vim.api.nvim_get_option_value('readonly', { buf = buf }) or
+        (not vim.api.nvim_get_option_value('modifiable', { buf = buf })) or
+        vim.api.nvim_get_option_value('buftype', { buf = buf }) ~= '' -- abnormal buffer
     then
       return
     end
 
-    if ext_marks[args.buf] == nil then
-      ext_marks[args.buf] = {}
+    if ext_marks[buf] == nil then
+      ext_marks[buf] = {}
     end
 
-    local lines = vim.api.nvim_buf_get_lines(args.buf, 0, -1, false)
+    local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
     for index, line in ipairs(lines) do
-      if ext_marks[args.buf][index] ~= nil then
-        vim.api.nvim_buf_del_extmark(args.buf, ns, ext_marks[args.buf][index])
-        ext_marks[args.buf][index] = nil
+      if ext_marks[buf][index] ~= nil then
+        vim.api.nvim_buf_del_extmark(buf, ns, ext_marks[buf][index])
+        ext_marks[buf][index] = nil
       end
       if match_bound_mark(line) then
-        ext_marks[args.buf][index] = vim.api.nvim_buf_set_extmark(
-          args.buf, ns,
+        ext_marks[buf][index] = vim.api.nvim_buf_set_extmark(
+          buf, ns,
           index - 1, 0,
           { end_col = #line, hl_group = 'GitConflictBoundMark' }
         )
       elseif #line == 7 and line == '=======' then
-        ext_marks[args.buf][index] = vim.api.nvim_buf_set_extmark(
-          args.buf, ns,
+        ext_marks[buf][index] = vim.api.nvim_buf_set_extmark(
+          buf, ns,
           index - 1, 0,
           { end_col = #line, hl_group = 'GitConflictSepMark' }
         )
