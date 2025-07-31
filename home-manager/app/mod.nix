@@ -15,6 +15,7 @@ _: {
     ./mako.nix
     ./dconf.nix
     ./gnome.nix
+    ./rsbin.nix
     ./waybar.nix
     ./neovim.nix
     ./direnv.nix

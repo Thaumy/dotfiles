@@ -14,6 +14,7 @@
       url = "github:oxalica/rust-overlay/08ff39bf869cadca3102b39824f4c7025186b7dc"; # 25-8-2
       inputs.nixpkgs.follows = "pkgs";
     };
+    rsbin.url = "path:./rsbin";
 
     nvim-nightly.url = "github:nix-community/neovim-nightly-overlay/d23aed1e00bf4e133f582fbd435eac02199db22c"; # 25-7-4
     libnvimcfg.url = "path:./neovim/lib";
