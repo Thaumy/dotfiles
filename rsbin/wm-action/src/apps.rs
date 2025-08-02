@@ -1,38 +1,17 @@
-#!/usr/bin/env rust-script
-
-//! ```cargo
-//! [dependencies]
-//! libc = "0.2.155"
-//! fd-lock = "4.0.2"
-//! ```
-
-
-use std::fs::File;
 use std::process::{Command, Stdio};
 use std::sync::mpsc::channel;
+use std::thread;
 use std::time::Duration;
-use std::{env, thread};
 
-use fd_lock::RwLock;
 use libc::SIGTERM;
-
-const LOCK_FILE: &str = "/home/thaumy/cfg/home-manager/sh/wm/wm.lock";
 
 enum Event {
     Timeout,
     Selected,
 }
 
-fn main() {
-    let mut lock_file = RwLock::new(File::open(LOCK_FILE).unwrap());
-    // held the lock
-    let _lock = match lock_file.try_write() {
-        Ok(guard) => guard,
-        Err(_) => return,
-    };
-
-    let args: Vec<String> = env::args().collect();
-    let timeout = str::parse(&args[1]).unwrap();
+pub fn run(args: &[String]) {
+    let timeout = str::parse(&args[2]).unwrap();
 
     let mut rofi = Command::new("rofi")
         .args([

@@ -33,12 +33,6 @@ in
 
     (writeBin "nix-gc" nix/gc.sh)
 
-    (writeBin "wm-apps" wm/apps.rs)
-    (writeBin "wm-lock" wm/lock.rs)
-    (writeBin "wm-menu" wm/menu.rs)
-    (writeBin "wm-switch-ws" wm/switch-ws.rs)
-    (writeBin "wm-win-to-ws" wm/win-to-ws.rs)
-
     (writeBin "dk-cub" docker/compose-up-build.sh)
     (writeBin "dk-cdv" docker/compose-down-v.sh)
     (writeBin "dk-rmni" docker/rm-none-images.sh)
