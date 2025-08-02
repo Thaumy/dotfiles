@@ -20,6 +20,10 @@ if [ "$1" = 'hm' ]; then
   fi
 fi
 
+if [ "$1" = 'flake' ]; then
+  exec nvim --cmd 'cd ~/cfg' ~/cfg/flake.nix
+fi
+
 if [ "$1" = 'mx' ]; then
   exec nvim --cmd 'cd ~/cfg/tmux' ~/cfg/tmux/tmux.conf
 fi
