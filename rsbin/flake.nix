@@ -63,6 +63,7 @@
         packages = {
           edit-config = build-pkg "edit-config";
           safe-remove = build-pkg "safe-remove";
+          wm-action = build-pkg "wm-action";
         };
       });
 }

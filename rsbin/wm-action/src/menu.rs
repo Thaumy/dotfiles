@@ -1,22 +1,10 @@
-#!/usr/bin/env rust-script
-
-//! ```cargo
-//! [dependencies]
-//! libc = "0.2.155"
-//! fd-lock = "4.0.2"
-//! ```
-
-use std::fs::File;
 use std::io::Write;
 use std::process::{Command, Stdio};
 use std::sync::mpsc::channel;
 use std::time::Duration;
 use std::{env, thread};
 
-use fd_lock::RwLock;
 use libc::SIGTERM;
-
-const LOCK_FILE: &str = "/home/thaumy/cfg/home-manager/sh/wm/wm.lock";
 
 fn new_cmd<const N: usize>(cmd: [&str; N]) -> Command {
     let mut c = Command::new(cmd[0]);
@@ -32,14 +20,7 @@ fn wait_cmd<const N: usize>(cmd: [&str; N]) {
     new_cmd(cmd).status().unwrap();
 }
 
-fn main() {
-    let mut lock_file = RwLock::new(File::open(LOCK_FILE).unwrap());
-    // held the lock
-    let _lock = match lock_file.try_write() {
-        Ok(guard) => guard,
-        Err(_) => return,
-    };
-
+pub fn run(args: &[String]) {
     let color_scheme = {
         let stdout = new_cmd(["dconf", "read", "/org/gnome/desktop/interface/color-scheme"])
             .output()
@@ -74,8 +55,7 @@ fn main() {
         color_scheme_icon, power_profie_icon, kb_icon
     );
 
-    let args: Vec<String> = env::args().collect();
-    let timeout = str::parse(&args[1]).unwrap();
+    let timeout = str::parse(&args[2]).unwrap();
 
     let selection = {
         let mut rofi = new_cmd([
