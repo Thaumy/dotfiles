@@ -1,0 +1,24 @@
+v.'' = '~/cfg/neovim/init.lua'
+v.n = '~/cfg/home-manager/app/neovim.nix'
+
+hm.'' = '~/cfg/home-manager/mod.nix'
+hm.sh = '~/cfg/home-manager/sh/mod.nix'
+
+git.'' = '~/cfg/git/config.ini'
+git.n = '~/cfg/home-manager/app/git.nix'
+
+os = '~/cfg/nixos/mod.nix'
+mx = '~/cfg/tmux/tmux.conf'
+bat = '~/cfg/bat/config'
+ssh = '~/cfg/ssh/thaumy.conf'
+cfg = '~/cfg/rsbin/edit-config/config.toml'
+mpv = '~/cfg/mpv/input.conf'
+dae = '~/cfg/dae/cfg.dae'
+shf = '~/cfg/sh-history-filter/cfg.toml'
+fish = '~/cfg/fish/interactive.fish'
+dimf = '~/cfg/dup-img-finder/cfg.toml'
+hypr = { cd = '~/cfg/hypr', vi = '~/cfg/hypr/hyprland/hyprland.conf' }
+flake = '~/cfg/flake.nix'
+cargo = '~/cfg/cargo/config.toml'
+waybar = '~/cfg/waybar/config.json'
+alacritty = '~/cfg/alacritty/config.toml'
