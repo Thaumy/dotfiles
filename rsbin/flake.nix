@@ -59,5 +59,9 @@
             (rust-toolchain "stable" "1.88.0")
           ];
         };
+
+        packages = {
+          edit-config = build-pkg "edit-config";
+        };
       });
 }
