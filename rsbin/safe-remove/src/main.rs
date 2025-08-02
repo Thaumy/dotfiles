@@ -1,15 +1,7 @@
-#!/usr/bin/env rust-script
-
-//! ```cargo
-//! [dependencies]
-//! trash = "5.1.0"
-//! anyhow = "1.0.86"
-//! ```
-
 use std::env::{self, current_dir};
 use std::path::{Path, PathBuf};
 
-use anyhow::{bail, Context, Result};
+use anyhow::{Context, Result, bail};
 
 fn main() {
     match raw() {

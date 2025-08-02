@@ -7,6 +7,7 @@ in
 {
   home.packages = with rsbin; [
     (edit-config "cfg")
+    (safe-remove "rr")
   ];
 
   home.file.".config/rsbin/edit-config/config.toml".source = mkSymlink "${homeDir}/cfg/rsbin/edit-config/config.toml";
