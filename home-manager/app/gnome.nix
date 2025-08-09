@@ -5,6 +5,7 @@
     geary # mail
     evince # docs reader
     nautilus
+    file-roller # archive
     dconf-editor
     gnome-tweaks
     gnome-calendar
