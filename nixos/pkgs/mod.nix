@@ -10,6 +10,7 @@
     ./docs.nix
     ./media.nix
     ./browser.nix
+    ./archive.nix
     ./meeting.nix
     ./blockchain.nix
   ]);
