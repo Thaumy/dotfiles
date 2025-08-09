@@ -39,14 +39,12 @@ let
     fd
     bat
     eza
-    zip
     glib
     lsof
     qemu
     lshw
     bluez
     procs
-    p7zip
     tokei
     cmake
     crunch
