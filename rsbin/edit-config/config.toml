@@ -19,6 +19,7 @@ fish = '~/cfg/fish/interactive.fish'
 dimf = '~/cfg/dup-img-finder/cfg.toml'
 hypr = { cd = '~/cfg/hypr', vi = '~/cfg/hypr/hyprland/hyprland.conf' }
 flake = '~/cfg/flake.nix'
+rsbin = '~/cfg/rsbin/flake.nix'
 cargo = '~/cfg/cargo/config.toml'
 waybar = '~/cfg/waybar/config.json'
 alacritty = '~/cfg/alacritty/config.toml'
