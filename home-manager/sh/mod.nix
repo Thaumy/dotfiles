@@ -13,7 +13,7 @@ in
     (writeBin "vvp" etc/vi-vis-pane.sh)
     (writeBin "pwdc" etc/pwdc.sh)
     (writeBin "todo" etc/todo.sh)
-    (writeBin "dimf" etc/dimf.sh)
+    (writeBin "pdif" etc/pdif.sh)
     (writeBin "memdir" etc/memdir.sh)
     (writeBin "hashpwd" etc/hashpwd.sh)
     (writeBin "dir-flat" etc/dir-flat.sh)
