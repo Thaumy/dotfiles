@@ -4,7 +4,7 @@ function fish_greeting
     # history filter
     set old_history "$HOME/.local/share/fish/fish_history"
     set new_history "/tmp/shf_fish_history-$(date +%s)"
-    sh-history-filter \
+    shf \
       --shell fish \
       --pred-rev \
       --history-path $old_history > $new_history
