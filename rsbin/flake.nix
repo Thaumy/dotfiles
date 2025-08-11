@@ -70,6 +70,13 @@
               hash = "sha256-rjp3mONHWAJY043rxPckrvoRg5W5a7WQOLod1qF2aW4=";
             }) "dup-img-finder";
           safe-remove = build-pkg ./safe-remove "safe-remove";
+          sh-history-filter = build-pkg
+            (pkgs.fetchFromGitHub {
+              owner = "Thaumy";
+              repo = "sh-history-filter";
+              rev = "v0.0.5";
+              hash = "sha256-+r3S84KQEESPoSA86glyjZK/QSpoF2ujyQ1DwZaUNYw=";
+            }) "sh-history-filter";
           wm-action = build-pkg ./wm-action "wm-action";
         };
       });

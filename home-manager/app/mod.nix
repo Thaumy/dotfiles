@@ -22,6 +22,5 @@ _: {
     ./hyprland.nix
     ./cargo/mod.nix
     ./alacritty.nix
-    ./sh-history-filter.nix
   ];
 }
