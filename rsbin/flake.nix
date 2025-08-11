@@ -22,17 +22,17 @@
             extensions = [ "rust-src" ];
           };
 
-        build-pkg = name: bin-name: pkgs.rustPlatform.buildRustPackage {
-          inherit name;
+        build-pkg = src: bin-name: bin-rename: pkgs.rustPlatform.buildRustPackage {
+          inherit src;
+
+          name = bin-name;
 
           nativeBuildInputs = [
             (rust-toolchain "stable" "1.88.0")
           ];
 
-          src = ./. + "/${name}";
-
           cargoLock = {
-            lockFile = ./. + "/${name}/Cargo.lock";
+            lockFile = "${src}/Cargo.lock";
             allowBuiltinFetchGit = true;
           };
 
@@ -44,7 +44,7 @@
 
           installPhase = ''
             mkdir -p $out/bin
-            cp target/release/${name} $out/bin/${bin-name}
+            cp target/release/${bin-name} $out/bin/${bin-rename}
           '';
         };
       in
@@ -61,9 +61,9 @@
         };
 
         packages = {
-          edit-config = build-pkg "edit-config";
-          safe-remove = build-pkg "safe-remove";
-          wm-action = build-pkg "wm-action";
+          edit-config = build-pkg ./edit-config "edit-config";
+          safe-remove = build-pkg ./safe-remove "safe-remove";
+          wm-action = build-pkg ./wm-action "wm-action";
         };
       });
 }
