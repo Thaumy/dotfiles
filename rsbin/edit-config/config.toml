@@ -7,7 +7,7 @@ hm.sh = '~/cfg/home-manager/sh/mod.nix'
 git.'' = '~/cfg/git/config.ini'
 git.n = '~/cfg/home-manager/app/git.nix'
 
-os = '~/cfg/nixos/mod.nix'
+os = '~/cfg/os/mod.nix'
 mx = '~/cfg/tmux/tmux.conf'
 bat = '~/cfg/bat/config'
 ssh = '~/cfg/ssh/thaumy.conf'
