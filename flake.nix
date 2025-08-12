@@ -32,7 +32,7 @@
         config.allowUnfree = true;
       };
       extraSpecialArgs = { inherit inputs; };
-      modules = [ ./home-manager/mod.nix ];
+      modules = [ ./hm/mod.nix ];
     };
   };
 }
