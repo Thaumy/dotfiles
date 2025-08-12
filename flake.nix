@@ -22,7 +22,7 @@
 
   outputs = inputs: {
     nixosConfigurations."nixos" = inputs.pkgs.lib.nixosSystem {
-      modules = [ ./nixos/mod.nix ];
+      modules = [ ./os/mod.nix ];
       specialArgs = { inherit inputs; };
     };
 
