@@ -1,11 +1,11 @@
 v.'' = '~/cfg/neovim/init.lua'
-v.n = '~/cfg/home-manager/app/neovim.nix'
+v.n = '~/cfg/hm/app/neovim.nix'
 
-hm.'' = '~/cfg/home-manager/mod.nix'
-hm.sh = '~/cfg/home-manager/sh/mod.nix'
+hm.'' = '~/cfg/hm/mod.nix'
+hm.sh = '~/cfg/hm/sh/mod.nix'
 
 git.'' = '~/cfg/git/config.ini'
-git.n = '~/cfg/home-manager/app/git.nix'
+git.n = '~/cfg/hm/app/git.nix'
 
 os = '~/cfg/os/mod.nix'
 mx = '~/cfg/tmux/tmux.conf'
