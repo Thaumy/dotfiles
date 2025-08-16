@@ -4,6 +4,7 @@
     bison
     gcc14
     gnumake
+    linux-scripts
     universal-ctags
     config.boot.kernelPackages.perf
   ];
