@@ -15,6 +15,7 @@ cfg = '~/cfg/rsbin/edit-config/config.toml'
 mpv = '~/cfg/mpv/input.conf'
 dae = '~/cfg/dae/cfg.dae'
 shf = '~/cfg/sh-history-filter/cfg.toml'
+btop = '~/cfg/btop/btop.conf'
 fish = '~/cfg/fish/interactive.fish'
 dimf = '~/cfg/dup-img-finder/cfg.toml'
 hypr = { cd = '~/cfg/hypr', vi = '~/cfg/hypr/hyprland/hyprland.conf' }
