@@ -1,5 +1,6 @@
 _: {
   imports = [
+    ./lk.nix
     ./nix.nix
     ./coq.nix
     ./web.nix

@@ -3,20 +3,14 @@ let
   sdk = with pkgs; [
     go
     gdb
-    flex
     ocaml
     stack
-    gcc14
-    bison
-    gnumake
     protobuf
     valgrind
     python312
     pax-utils
     sysfsutils
     android-tools
-    universal-ctags
-    config.boot.kernelPackages.perf
   ];
 
   infra = with pkgs; [
