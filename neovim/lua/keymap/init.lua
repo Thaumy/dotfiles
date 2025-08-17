@@ -47,7 +47,7 @@ map('x', 'y', function()
   vim.fn.setreg('+', text)
 
   -- feed <Esc> to exit
-  vim.api.nvim_feedkeys('\27', 'v', false)
+  vim.api.nvim_feedkeys('\27', 'x', false)
 end)
 
 -- mouse yank/paste
