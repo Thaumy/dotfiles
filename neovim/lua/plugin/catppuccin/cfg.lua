@@ -26,6 +26,7 @@ plugin.setup {
       GitConflictSepMark = { fg = '#19b9e7', bg = '#dcf4fb' },
       GitConflictBoundMark = { fg = '#ed1b24', bg = '#fbd1d3' },
       ['@variable.builtin'] = { fg = '#1182a2' },
+      ['@lsp.type.enumMember'] = { link = '@constant.builtin' },
     },
     frappe = {
       ErrorMsg = { fg = '#d20f39', style = {} },
@@ -50,6 +51,7 @@ plugin.setup {
       GitConflictSepMark = { fg = '#19b9e7', bg = '#dcf4fb' },
       GitConflictBoundMark = { fg = '#ed1b24', bg = '#fbd1d3' },
       ['@variable.builtin'] = { fg = '#1182a2' },
+      ['@lsp.type.enumMember'] = { link = '@constant.builtin' },
     },
     macchiato = {
       ErrorMsg = { fg = '#ed8796', style = {} },
@@ -74,6 +76,7 @@ plugin.setup {
       GitConflictSepMark = { fg = '#16abd6', bg = '#041d24' },
       GitConflictBoundMark = { fg = '#e65d5a', bg = '#270706' },
       ['@variable.builtin'] = { fg = '#16d4d1' },
+      ['@lsp.type.enumMember'] = { link = '@constant.builtin' },
     },
     mocha = {
       ErrorMsg = { fg = '#f38ba8', style = {} },
@@ -98,6 +101,7 @@ plugin.setup {
       GitConflictSepMark = { fg = '#16abd6', bg = '#020f13' },
       GitConflictBoundMark = { fg = '#e65d5a', bg = '#160403' },
       ['@variable.builtin'] = { fg = '#16d4d1' },
+      ['@lsp.type.enumMember'] = { link = '@constant.builtin' },
     },
   },
   color_overrides = {
