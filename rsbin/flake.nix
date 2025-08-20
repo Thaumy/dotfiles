@@ -77,6 +77,7 @@
               rev = "v0.0.5";
               hash = "sha256-+r3S84KQEESPoSA86glyjZK/QSpoF2ujyQ1DwZaUNYw=";
             }) "sh-history-filter";
+          vi-project = build-pkg ./vi-project "vi-project";
           wm-action = build-pkg ./wm-action "wm-action";
         };
       });

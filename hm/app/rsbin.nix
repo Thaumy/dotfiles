@@ -9,6 +9,7 @@ in
     (edit-config "cfg")
     (dup-img-finder "dif")
     (safe-remove "rr")
+    (vi-project "vp")
     (wm-action "wm")
     (sh-history-filter "shf")
   ];

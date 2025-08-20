@@ -9,7 +9,6 @@ let
 in
 {
   home.packages = [
-    (writeBin "vp" etc/vi-project.sh)
     (writeBin "vvp" etc/vi-vis-pane.sh)
     (writeBin "pwdc" etc/pwdc.sh)
     (writeBin "todo" etc/todo.sh)
