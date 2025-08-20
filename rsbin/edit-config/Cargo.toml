@@ -3,6 +3,9 @@ name = "edit-config"
 version = "0.1.0"
 edition = "2024"
 
+[profile.release]
+lto = "fat"
+
 [dependencies]
 serde = { version = "1.0", features = ["derive"] }
 toml = "0.9"

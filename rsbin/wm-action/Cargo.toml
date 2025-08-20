@@ -3,6 +3,9 @@ name = "wm-action"
 version = "0.1.0"
 edition = "2024"
 
+[profile.release]
+lto = "fat"
+
 [dependencies]
 libc = "0.2"
 fd-lock = "4.0"
