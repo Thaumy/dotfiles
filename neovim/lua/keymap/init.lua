@@ -44,7 +44,7 @@ map('x', 'y', function()
     text = '\n' .. text
   end
 
-  vim.fn.setreg('+', text)
+  vim.fn.setreg('+', text, mode)
 
   -- feed <Esc> to exit
   vim.api.nvim_feedkeys('\27', 'x', false)
