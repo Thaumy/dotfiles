@@ -137,13 +137,14 @@ vim.api.nvim_create_autocmd('FileType', {
         table.remove(lines, row)
         vim.fn.setqflist(lines, 'r')
 
+        -- cursor relocation
         local max_row = #lines
         if row < max_row then
           vim.api.nvim_win_set_cursor(0, { row, 0 })
         elseif max_row ~= 0 then
           vim.api.nvim_win_set_cursor(0, { max_row, 0 })
         else
-          vim.cmd 'q'
+          vim.cmd 'q' -- quit if empty
         end
       end,
       { buffer = true }
