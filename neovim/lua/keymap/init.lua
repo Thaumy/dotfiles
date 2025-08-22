@@ -12,6 +12,15 @@ local k = require 'infra.key'
 local map = k.map
 local map_cmd = k.map_cmd
 
+-- zz with horizontal relocation
+map('n', 'zz', function()
+  local pos = vim.api.nvim_win_get_cursor(0)
+  vim.api.nvim_win_set_cursor(0, { pos[1], 0 })
+  vim.api.nvim_win_set_cursor(0, pos)
+
+  vim.api.nvim_feedkeys('zz', 'n', false)
+end)
+
 -- remap `textDocument/selectionRange`
 vim.keymap.del('x', 'in')
 map('x', '1', function()
