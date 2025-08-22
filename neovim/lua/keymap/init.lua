@@ -158,6 +158,37 @@ vim.api.nvim_create_autocmd('FileType', {
       end,
       { buffer = true }
     )
+    vim.keymap.set('x', 'd', function()
+        local from = (vim.fn.getpos 'v')[2]
+        local to = (vim.fn.getpos '.')[2]
+
+        local lines = vim.fn.getqflist()
+        local len = #lines
+        local new_len = len - (math.abs(to - from) + 1)
+
+        local tail_start = math.max(from, to) + 1
+        local tail_new_start = math.min(from, to)
+        table.move(lines, tail_start, len, tail_new_start, lines)
+        for i = new_len + 1, len do lines[i] = nil end
+        vim.fn.setqflist(lines, 'r')
+
+        -- feed <Esc> to exit visual mode
+        vim.api.nvim_feedkeys('\27', 'x', false)
+
+        -- cursor relocation
+        local max_row = new_len
+        if from < max_row then
+          vim.print(from)
+          vim.api.nvim_win_set_cursor(0, { from, 0 })
+        elseif max_row ~= 0 then
+          vim.print(max_row)
+          vim.api.nvim_win_set_cursor(0, { max_row, 0 })
+        else
+          vim.cmd 'q' -- quit if empty
+        end
+      end,
+      { buffer = true }
+    )
   end,
 })
 
