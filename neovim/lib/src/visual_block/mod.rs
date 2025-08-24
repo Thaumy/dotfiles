@@ -142,7 +142,7 @@ fn select(col: usize, col_l: usize, col_r: usize, sel_from: &mut u32, sel_to: &m
 }
 
 #[unsafe(no_mangle)]
-pub extern "C" fn visual_block(
+pub unsafe extern "C" fn visual_block(
     line: *const i8,
     col: u32,
     sel_from: &mut u32,
