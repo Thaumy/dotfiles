@@ -127,11 +127,7 @@ fn find_r_pair(line: &[u8], mut col: usize, ty: usize) -> Option<usize> {
     None
 }
 
-fn select(col: usize, col_l: usize, col_r: usize, sel_from: &mut u32, sel_to: &mut u32) {
-    let col = col as u32;
-    let col_l = col_l as u32;
-    let col_r = col_r as u32;
-
+fn select(col: usize, col_l: usize, col_r: usize, sel_from: &mut usize, sel_to: &mut usize) {
     if col - col_l > col_r - col {
         *sel_from = col_l + 1;
         *sel_to = col_r - 1;
@@ -144,10 +140,13 @@ fn select(col: usize, col_l: usize, col_r: usize, sel_from: &mut u32, sel_to: &m
 #[unsafe(no_mangle)]
 pub unsafe extern "C" fn visual_block(
     line: *const i8,
-    col: u32,
-    sel_from: &mut u32,
-    sel_to: &mut u32,
+    col: usize,
+    sel_from: *mut usize,
+    sel_to: *mut usize,
 ) -> bool {
+    let sel_from = unsafe { &mut *sel_from };
+    let sel_to = unsafe { &mut *sel_to };
+
     let col = col as usize;
     let line = unsafe { CStr::from_ptr(line) }.to_bytes();
 
