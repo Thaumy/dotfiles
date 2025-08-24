@@ -168,15 +168,8 @@ plugin.setup {
   },
 }
 
-local rev
-local obj = vim.system({ 'dconf', 'read', '/org/gnome/desktop/interface/color-scheme' }, { text = true }):wait()
-if obj.stdout == "'light'\n" then
-  rev = false
-  vim.cmd.colorscheme 'catppuccin-latte'
-else
-  rev = true
-  vim.cmd.colorscheme 'catppuccin-mocha'
-end
+local rev = false
+vim.cmd.colorscheme 'catppuccin-latte'
 
 -- cycle colorscheme
 local colorschemes = {
