@@ -28,7 +28,7 @@ fn find_l(line: &[u8], mut from: usize) -> Option<(usize, usize)> {
             for (ty, (l, r)) in BOUNDS.iter().cloned().enumerate() {
                 if moved && c == l {
                     // is left bound and no more pending right bound
-                    if stack_r.len() == 0 {
+                    if stack_r.is_empty() {
                         // return left bound type
                         return Some((col, ty));
                     } else if stack_r.last().cloned() == Some(r) {
@@ -87,7 +87,7 @@ fn find_r(line: &[u8], mut from: usize) -> Option<(usize, usize)> {
             for (ty, (l, r)) in BOUNDS.iter().cloned().enumerate() {
                 if moved && c == r {
                     // is right bound and no more pending left bound
-                    if stack_l.len() == 0 {
+                    if stack_l.is_empty() {
                         // return right bound type
                         return Some((col, ty));
                     } else if stack_l.last().cloned() == Some(l) {
