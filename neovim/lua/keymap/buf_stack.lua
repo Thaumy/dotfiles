@@ -1,8 +1,8 @@
 local map = require 'infra.key'.map
 
-local Stack = require 'infra.stack'
-local buf_stack = Stack:new()
-local buf_stack_redo = Stack:new()
+local U32Stack = require 'infra.u32_stack'
+local buf_stack = U32Stack:new()
+local buf_stack_redo = U32Stack:new()
 local navi_by_motion = false
 
 vim.api.nvim_create_autocmd('BufLeave', {
@@ -59,7 +59,7 @@ map('n', 'bb', function()
         listed = info.listed == 1
       end
     end
-  until buf_stack.len == 0 or buf ~= vim.api.nvim_get_current_buf() and listed
+  until buf_stack:len() == 0 or buf ~= vim.api.nvim_get_current_buf() and listed
   if
       buf == nil or
       (not listed) or
@@ -98,7 +98,7 @@ map('n', 'B', function()
         listed = info.listed == 1
       end
     end
-  until buf_stack_redo.len == 0 or buf ~= vim.api.nvim_get_current_buf() and listed
+  until buf_stack_redo:len() == 0 or buf ~= vim.api.nvim_get_current_buf() and listed
   if
       buf == nil or
       (not listed) or
