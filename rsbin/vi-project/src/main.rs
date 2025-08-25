@@ -3,11 +3,12 @@ use std::os::unix::process::CommandExt;
 use std::path::Path;
 use std::process::Command;
 
-const ENTRYPOINTS: [&str; 6] = [
+const ENTRYPOINTS: [&str; 7] = [
     "src/lib.rs",
     "src/main.rs",
     "README.md",
     "README",
+    "Cargo.toml",
     "main.c",
     "flake.nix",
 ];
