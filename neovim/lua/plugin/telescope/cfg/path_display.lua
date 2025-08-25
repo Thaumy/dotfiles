@@ -8,7 +8,7 @@ local function path_display(_, path)
     return name
   end
 
-  if string.start_with(parent, './') then
+  if string.starts_with(parent, './') then
     parent = string.skip(parent, 3)
   end
 
