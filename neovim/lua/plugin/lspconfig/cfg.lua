@@ -50,6 +50,9 @@ vim.lsp.config('omnisharp', {
 vim.lsp.config('rust_analyzer', {
   settings = {
     ['rust-analyzer'] = {
+      cargo = {
+        features = 'all',
+      },
       completion = {
         fullFunctionSignatures = { enable = true },
         snippets = {
