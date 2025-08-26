@@ -4,7 +4,7 @@ git-fetch-with-cli = true
 [alias]
 u = 'update'
 n = 'new --offline'
-f = 'fmt'
+f = 'fmt --all'
 d = "doc --offline"
 b = 'build --offline'
 bu = 'build'
