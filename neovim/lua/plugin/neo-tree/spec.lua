@@ -8,7 +8,7 @@ return {
     require 'plugin.web-devicons.spec',
   },
 
-  lazy = false,
+  event = 'VimEnter',
 
   config = function()
     require 'plugin.neo-tree.cfg'
