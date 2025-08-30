@@ -22,12 +22,6 @@ let
     pstree
     du-dust
 
-    dool
-    iotop
-    bandwhich
-    nvtopPackages.full
-    (btop.override { cudaSupport = true; rocmSupport = true; })
-
     fd
     bat
     eza

@@ -7,6 +7,7 @@
   environment.systemPackages = lib.flatten (map (path: pkgs.callPackage path { }) [
     ./im.nix
     ./git.nix
+    ./top.nix
     ./docs.nix
     ./text.nix
     ./media.nix
