@@ -1,6 +1,7 @@
 alias g "command git"
 alias c "cargo"
 alias n "tmux new-window -ad"
+alias nvp "tmux new-window -ad && vp"
 alias hm "home-manager"
 alias to "command touch"
 alias md "command mkdir"
