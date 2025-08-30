@@ -1,6 +1,9 @@
 [net]
 git-fetch-with-cli = true
 
+[build]
+rustc-wrapper = "sccache"
+
 [alias]
 u = 'update'
 n = 'new --offline'

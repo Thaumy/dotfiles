@@ -47,6 +47,7 @@ let
     psmisc
     hdparm
     ripgrep
+    sccache
     libvirt
     openssl
     pamixer
