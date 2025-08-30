@@ -18,10 +18,6 @@ let
     libiconv
     unixtools.xxd
 
-    tree
-    pstree
-    du-dust
-
     fd
     bat
     eza
