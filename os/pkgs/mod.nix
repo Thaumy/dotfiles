@@ -8,6 +8,7 @@
     ./im.nix
     ./git.nix
     ./docs.nix
+    ./text.nix
     ./media.nix
     ./browser.nix
     ./archive.nix

@@ -14,7 +14,6 @@ let
   ];
 
   infra = with pkgs; [
-    jq
     qrencode
     libiconv
     unixtools.xxd
@@ -29,7 +28,6 @@ let
     nvtopPackages.full
     (btop.override { cudaSupport = true; rocmSupport = true; })
 
-    sd
     fd
     bat
     eza
@@ -39,14 +37,12 @@ let
     lshw
     bluez
     procs
-    tokei
     cmake
     crunch
     xxHash
     evtest
     psmisc
     hdparm
-    ripgrep
     sccache
     libvirt
     openssl
@@ -59,7 +55,6 @@ let
     cdrtools
     steam-run
     dmidecode
-    tree-sitter
     vulkan-tools
     inotify-tools
     uutils-findutils
