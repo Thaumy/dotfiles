@@ -2,6 +2,7 @@
   jq
   sd
   tokei
+  taplo
   ripgrep
   tree-sitter
 ]

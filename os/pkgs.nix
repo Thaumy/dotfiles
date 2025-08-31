@@ -99,7 +99,6 @@ let
     fastfetch
     shellcheck
     qbittorrent
-    rust-script
     ollama-cuda
     home-manager
     any-nix-shell
