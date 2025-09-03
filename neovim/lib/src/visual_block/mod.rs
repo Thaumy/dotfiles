@@ -1,7 +1,14 @@
+use std::ffi::CStr;
+
+use find_bound::{find_l_bound, find_r_bound};
+use pair_bound::{pair_l_bound, pair_r_bound};
+
+#[cfg(debug_assertions)]
+mod debug;
+mod find_bound;
+mod pair_bound;
 #[cfg(test)]
 mod test;
-
-use std::ffi::CStr;
 
 const BOUNDS: [(u8, u8); 7] = [
     (b'"', b'"'),
@@ -13,198 +20,162 @@ const BOUNDS: [(u8, u8); 7] = [
     (b'{', b'}'),
 ];
 
-const DEFAULT_CAP: usize = 16;
-
-fn find_l(line: &[u8], mut from: usize) -> Option<(usize, usize)> {
-    let mut stack_r = Vec::with_capacity(DEFAULT_CAP);
-
-    loop {
-        let mut col = from;
-        let mut moved = false;
-
-        loop {
-            let c = *line.get(col)?;
-
-            for (ty, (l, r)) in BOUNDS.iter().cloned().enumerate() {
-                if moved && c == l {
-                    // is left bound and no more pending right bound
-                    if stack_r.is_empty() {
-                        // return left bound type
-                        return Some((col, ty));
-                    } else if stack_r.last().cloned() == Some(r) {
-                        // pop matched right bound
-                        stack_r.pop();
-                    }
-                } else if c == r {
-                    stack_r.push(c);
-                }
-            }
-
-            if col == 0 {
-                break;
-            } else {
-                col -= 1;
-                moved = true;
-            }
-        }
-
-        if from == 0 {
-            break;
-        } else {
-            // if bounds on the left are broken, the stack will
-            // prevent us from finding the potential bound, move
-            // left and try again to ignore the broken bound
-            stack_r.clear();
-            from -= 1;
-        }
-    }
-
-    None
-}
-
-fn find_l_pair(line: &[u8], mut col: usize, ty: usize) -> Option<usize> {
-    let max = line.len();
-    while col < max {
-        if line[col] == BOUNDS[ty].1 {
-            return Some(col);
-        }
-        col += 1;
-    }
-    None
-}
-
-fn find_r(line: &[u8], mut from: usize) -> Option<(usize, usize)> {
-    let max = line.len();
-    let mut stack_l = Vec::with_capacity(DEFAULT_CAP);
-
-    while from < max {
-        let mut col = from;
-        let mut moved = false;
-
-        while col < max {
-            let c = *line.get(col)?;
-
-            for (ty, (l, r)) in BOUNDS.iter().cloned().enumerate() {
-                if moved && c == r {
-                    // is right bound and no more pending left bound
-                    if stack_l.is_empty() {
-                        // return right bound type
-                        return Some((col, ty));
-                    } else if stack_l.last().cloned() == Some(l) {
-                        // pop matched left bound
-                        stack_l.pop();
-                    }
-                } else if c == l {
-                    stack_l.push(c);
-                }
-            }
-
-            col += 1;
-            moved = true;
-        }
-
-        // if bounds on the left are broken, the stack will
-        // prevent us from finding the potential bound, move
-        // right and try again to ignore the broken bound
-        stack_l.clear();
-        from += 1;
-    }
-
-    None
-}
-
-fn find_r_pair(line: &[u8], mut col: usize, ty: usize) -> Option<usize> {
-    loop {
-        if line[col] == BOUNDS[ty].1 {
-            return Some(col);
-        }
-        if col == 0 {
-            break;
-        } else {
-            col -= 1;
-        }
-    }
-    None
-}
-
-fn select(col: usize, col_l: usize, col_r: usize, sel_from: &mut usize, sel_to: &mut usize) {
-    if col - col_l > col_r - col {
-        *sel_from = col_l + 1;
-        *sel_to = col_r - 1;
-    } else {
-        *sel_from = col_r - 1;
-        *sel_to = col_l + 1;
-    }
-}
-
 #[unsafe(no_mangle)]
-pub unsafe extern "C" fn visual_block(
+pub unsafe extern "C" fn visual_block_select(
+    pre_alloc: *mut PreAlloc,
     line: *const i8,
-    col: usize,
+    cursor_col: usize,
     sel_from: *mut usize,
     sel_to: *mut usize,
 ) -> bool {
+    let pre_alloc = unsafe { &mut *pre_alloc };
+    let line = unsafe { CStr::from_ptr(line) }.to_bytes();
+    let len = line.len();
     let sel_from = unsafe { &mut *sel_from };
     let sel_to = unsafe { &mut *sel_to };
 
-    let col = col as usize;
-    let line = unsafe { CStr::from_ptr(line) }.to_bytes();
+    #[cfg(debug_assertions)]
+    {
+        let mut spaces = String::new();
+        for _ in 0..cursor_col {
+            spaces.push(' ');
+        }
+        println!("cursor   {}|", spaces);
 
-    let mut from_col_l = col;
-    let mut from_col_r = col;
+        println!("haystack {}", String::from_utf8_lossy(line));
+
+        let mut indexes = String::new();
+        for i in 0..line.len() {
+            indexes.push_str(&(i % 10).to_string());
+        }
+        println!("index    {}\n", indexes);
+    }
+
+    // Find from the col to establish the correct char stack if
+    // the current col is a bound.
+    let mut l_from = cursor_col;
+    let mut r_from = cursor_col;
 
     loop {
-        // search from `col` and `moved` above handles the
-        // situation when bound is under the cursor
-        //            cursor               cursor
-        //              |                    |
-        // examples: '(<(), foo>)', '<(Vec<()>, i32)>'
-        let Some((col_l, ty_l)) = find_l(line, from_col_l) else {
-            break false; // no more left bound
+        let Some((lb_col, lb_ty)) = find_l_bound(&mut pre_alloc.bound_stack, line, l_from) else {
+            break false; // No more left bound.
         };
-        let Some((col_r, ty_r)) = find_r(line, from_col_r) else {
-            break false; // no more right bound
+        let Some((rb_col, rb_ty)) = find_r_bound(&mut pre_alloc.bound_stack, line, r_from) else {
+            break false; // No more right bound.
         };
 
-        if ty_l == ty_r {
-            select(col, col_l, col_r, sel_from, sel_to);
+        macro_rules! debug_selection {
+            () => {
+                #[cfg(debug_assertions)]
+                print_selection(line, *sel_from, *sel_to);
+            };
+        }
+
+        if lb_ty == rb_ty {
+            select(cursor_col, lb_col, rb_col, sel_from, sel_to);
+            debug_selection!();
             break true;
         }
 
-        // handle broken bounds, like '<(foo, bar>)'
+        let lb_pair_col = if rb_col < len {
+            pair_l_bound(&mut pre_alloc.bound_stack, line, lb_col + 1, lb_ty)
+        } else {
+            None
+        };
+        let rb_pair_col = if lb_col > 0 {
+            pair_r_bound(&mut pre_alloc.bound_stack, line, rb_col - 1, rb_ty)
+        } else {
+            None
+        };
 
-        let col_l_pair = find_l_pair(line, col_r + 1, ty_l);
-        let col_r_pair = find_r_pair(line, col_l - 1, ty_r);
+        match (lb_pair_col, rb_pair_col) {
+            (Some(lb_pair_col), Some(rb_pair_col)) => {
+                // Select the superset.
+                if lb_col < rb_pair_col && rb_col < lb_pair_col {
+                    select(cursor_col, lb_col, lb_pair_col, sel_from, sel_to);
+                    debug_selection!();
+                    break true;
+                } else if rb_pair_col < lb_col && lb_pair_col < rb_col {
+                    select(cursor_col, rb_pair_col, rb_col, sel_from, sel_to);
+                    debug_selection!();
+                    break true;
+                }
 
-        match (col_l_pair, col_r_pair) {
-            (Some(col_l_pair), Some(col_r_pair)) => {
-                let d_l = (col - col_l).min(col_l_pair - col);
-                let d_r = (col_r - col).min(col - col_r_pair);
-                // select the pair close to the cursor
+                // Select bounds that is closer to the cursor.
+                let d_l = (cursor_col - lb_col).min(lb_pair_col - cursor_col);
+                let d_r = (rb_col - cursor_col).min(cursor_col - rb_pair_col);
                 if d_l < d_r {
-                    select(col, col_l, col_l_pair, sel_from, sel_to);
+                    select(cursor_col, lb_col, lb_pair_col, sel_from, sel_to);
+                    debug_selection!();
                     break true;
                 } else {
-                    select(col, col_r_pair, col_r, sel_from, sel_to);
+                    select(cursor_col, rb_pair_col, rb_col, sel_from, sel_to);
+                    debug_selection!();
                     break true;
                 }
             }
-            (Some(col_l_pair), None) => {
-                select(col, col_l, col_l_pair, sel_from, sel_to);
+            (Some(lb_pair_col), None) => {
+                select(cursor_col, lb_col, lb_pair_col, sel_from, sel_to);
+                debug_selection!();
                 break true;
             }
-            (None, Some(col_r_pair)) => {
-                select(col, col_r_pair, col_r, sel_from, sel_to);
+            (None, Some(rb_pair_col)) => {
+                select(cursor_col, rb_pair_col, rb_col, sel_from, sel_to);
+                debug_selection!();
                 break true;
             }
             (None, None) => {
-                // no matched pair found, try to search next valid pair
-                //               col_l    col_r
-                //                 |        |
-                // for example: '[ <foo, bar) ]'
-                from_col_l = col_l - 1;
-                from_col_r = col_r + 1;
+                // No matched bounds found, expand the range to retry, e.g.:
+                // <- lb_col   rb_col ->
+                //      |        |
+                //   '[ <foo, bar) ]'
+                if lb_col > 0 && rb_col < len {
+                    l_from = lb_col - 1;
+                    r_from = rb_col + 1;
+                } else {
+                    break false;
+                }
             }
         }
     }
+}
+
+pub struct PreAlloc {
+    bound_stack: Vec<u8>,
+}
+
+#[unsafe(no_mangle)]
+pub extern "C" fn visual_block_pre_alloc() -> *mut PreAlloc {
+    let pre_alloc = PreAlloc {
+        bound_stack: Vec::with_capacity(128),
+    };
+    Box::into_raw(Box::new(pre_alloc))
+}
+
+fn select(
+    cursor_col: usize,
+    lb_col: usize,
+    rb_col: usize,
+    sel_from: &mut usize,
+    sel_to: &mut usize,
+) {
+    #[cfg(debug_assertions)]
+    println!("interval [{}, {}]", lb_col + 1, rb_col - 1);
+    if cursor_col - lb_col > rb_col - cursor_col {
+        // cursor near right bound
+        *sel_from = lb_col + 1;
+        *sel_to = rb_col - 1;
+    } else {
+        // cursor near left bound
+        *sel_from = rb_col - 1;
+        *sel_to = lb_col + 1;
+    }
+}
+
+#[cfg(debug_assertions)]
+fn print_selection(line: &[u8], sel_from: usize, sel_to: usize) {
+    let line = String::from_utf8_lossy(line).to_string();
+    let lo = sel_to.min(sel_from);
+    let hi = sel_to.max(sel_from);
+    println!("selection {}", &line[lo..=hi]);
 }

@@ -1,100 +1,128 @@
-use super::visual_block;
+use std::ffi::CString;
 
-#[test]
-fn case1() {
-    //                        [        |  ]
-    // Option<Box<UnsafeCell<((), AtomicPtr)>>>
-    let line = c"Option<Box<UnsafeCell<((), AtomicPtr)>>>";
+use super::{visual_block_pre_alloc, visual_block_select};
+
+fn new_case(cursor: &str, line: &str, interval: &str) {
+    let cursor_col = cursor.find('|').unwrap();
+
+    let interval_l = interval.find('[').unwrap();
+    let interval_r = interval.find(']').unwrap();
+    let (expect_sel_from, expect_sel_to) = if cursor_col - interval_l < interval_r - cursor_col {
+        (interval_r, interval_l)
+    } else {
+        (interval_l, interval_r)
+    };
+
+    let line = CString::new(line).unwrap();
+    let line_ptr = line.as_ptr();
+
+    let pre_alloc = visual_block_pre_alloc();
     let mut sel_from = 0;
     let mut sel_to = 0;
+    let success =
+        unsafe { visual_block_select(pre_alloc, line_ptr, cursor_col, &mut sel_from, &mut sel_to) };
+    assert!(success);
 
-    unsafe { visual_block(line.as_ptr(), 32, &mut sel_from, &mut sel_to) };
-
-    assert_eq!(sel_from, 23);
-    assert_eq!(sel_to, 35);
+    assert_eq!(sel_from, expect_sel_from);
+    assert_eq!(sel_to, expect_sel_to);
 }
 
-#[test]
-fn case2() {
-    //            [  |                      ]
-    // Option<Box<UnsafeCell<((), AtomicPtr)>>>
-    let line = c"Option<Box<UnsafeCell<((), AtomicPtr)>>>";
-    let mut sel_from = 0;
-    let mut sel_to = 0;
-
-    unsafe { visual_block(line.as_ptr(), 14, &mut sel_from, &mut sel_to) };
-
-    assert_eq!(sel_from, 37);
-    assert_eq!(sel_to, 11);
+macro_rules! test {
+    { $name:ident $cursor:literal $line: literal $interval: literal } => {
+        #[test]
+        fn $name() {
+            new_case($cursor, $line, $interval)
+        }
+    };
 }
 
-#[test]
-fn case3() {
-    //   |
-    //   [     ]
-    // (<(), foo>)
-    let line = c"(<(), foo>)";
-    let mut sel_from = 0;
-    let mut sel_to = 0;
-
-    unsafe { visual_block(line.as_ptr(), 2, &mut sel_from, &mut sel_to) };
-
-    assert_eq!(sel_from, 8);
-    assert_eq!(sel_to, 2);
+test! {
+    case1
+    "                                 |      "
+    "Option<Box<UnsafeCell<((), AtomicPtr)>>>"
+    "                       [           ]    "
 }
 
-#[test]
-fn case4() {
-    //   [     |    ]
-    // <(Vec<()>, i32)>
-    let line = c"<(Vec<()>, i32)>";
-    let mut sel_from = 0;
-    let mut sel_to = 0;
-
-    unsafe { visual_block(line.as_ptr(), 8, &mut sel_from, &mut sel_to) };
-
-    assert_eq!(sel_from, 2);
-    assert_eq!(sel_to, 13);
+test! {
+    case2
+    "             |                          "
+    "Option<Box<UnsafeCell<((), AtomicPtr)>>>"
+    "           [                         ]  "
 }
 
-#[test]
-fn case5() {
-    //   [|      ]
-    // <(foo, bar>)
-    let line = c"<(foo, bar>)";
-    let mut sel_from = 0;
-    let mut sel_to = 0;
-
-    unsafe { visual_block(line.as_ptr(), 3, &mut sel_from, &mut sel_to) };
-
-    assert_eq!(sel_from, 10);
-    assert_eq!(sel_to, 2);
+test! {
+    case3
+    "  |        "
+    "(<(), foo>)"
+    "  [     ]  "
 }
 
-#[test]
-fn case6() {
-    //   [     |]
-    // <(foo, bar>)
-    let line = c"<(foo, bar>)";
-    let mut sel_from = 0;
-    let mut sel_to = 0;
-
-    unsafe { visual_block(line.as_ptr(), 8, &mut sel_from, &mut sel_to) };
-
-    assert_eq!(sel_from, 2);
-    assert_eq!(sel_to, 10);
+test! {
+    case4
+    "        |       "
+    "<(Vec<()>, i32)>"
+    "  [          ]  "
 }
 
-#[test]
-fn case7() {
-    //  [  |       ]
-    // [ <foo, bar) ]
-    let line = c"[ <foo, bar) ]";
-    let mut sel_from = 0;
-    let mut sel_to = 0;
+test! {
+    case5
+    "   |        "
+    "<(foo, bar>)"
+    "  [       ] "
+}
 
-    unsafe { visual_block(line.as_ptr(), 4, &mut sel_from, &mut sel_to) };
+test! {
+    case6
+    "        |   "
+    "<(foo, bar>)"
+    " [       ]  "
+}
 
-    assert_eq!(sel_from, 12);
-    assert_eq!(sel_to, 1);
+test! {
+    case7
+    "    |         "
+    "[ <foo, bar) ]"
+    " [          ] "
+}
+
+test! {
+    case8
+    " |        "
+  r#"("123456")"#
+    " [      ] "
+}
+
+test! {
+    case9
+    "        | "
+  r#"("123456")"#
+    " [      ] "
+}
+
+test! {
+    case10
+    " |            "
+  r#"["123", "abc"]"#
+    " [          ] "
+}
+
+test! {
+    case11
+    "            | "
+  r#"["123", "abc"]"#
+    " [          ] "
+}
+
+test! {
+    case12
+    "  |      "
+    "<[>123<]>"
+    "  [   ]  "
+}
+
+test! {
+    case13
+    "   |       "
+  r#""<[>123<]>""#
+    "   [   ]   "
 }

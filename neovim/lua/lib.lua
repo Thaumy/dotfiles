@@ -1,7 +1,14 @@
 local ffi = require 'ffi'
 
 ffi.cdef [[
-  bool visual_block(int8_t* line, size_t col, size_t* sel_from, size_t* sel_to);
+  void* visual_block_pre_alloc();
+  bool visual_block_select(
+    void* pre_alloc,
+    int8_t* line,
+    size_t cursor_col,
+    size_t* sel_from,
+    size_t* sel_to
+  );
 
   void* u32_stack_new();
   void u32_stack_push(void* ptr, uint32_t value);
