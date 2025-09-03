@@ -1,8 +1,12 @@
 _: {
   programs.ssh = {
     enable = true;
-    forwardAgent = true;
-    serverAliveInterval = 120;
+    enableDefaultConfig = false;
+
+    matchBlocks."*" = {
+      forwardAgent = true;
+      serverAliveInterval = 120;
+    };
 
     includes = [
       "~/cfg/ssh/org.conf"
