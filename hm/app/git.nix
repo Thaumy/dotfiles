@@ -7,7 +7,7 @@ in
     enable = true;
 
     userName = "Thaumy Cheng";
-    userEmail = "thaumy@outlook.com";
+    userEmail = "thaumy.love@gmail.com";
     signing = {
       signByDefault = true;
       key = "0x6A8A3AE9A7A59845"; # v3 [S]
