@@ -1,7 +1,7 @@
 {
   inputs = {
     nur.url = "github:nix-community/nur/9ea0c40c52673079dfe50e82ddbb78679723be05"; # 25-4-17
-    pkgs.url = "github:NixOS/nixpkgs/34ea16dab521dc5648ab5078040ead131b50f27b"; # 25-8-15
+    pkgs.url = "github:NixOS/nixpkgs/6ada30eca4f5df9a61abe5e2c9c2de6a00f50252"; # 25-9-1
 
     hm = {
       url = "github:nix-community/home-manager/29ab63bbb3d9eee4a491f7ce701b189becd34068"; # 25-9-1

@@ -43,7 +43,7 @@
         addons = with pkgs; [
           fcitx5-gtk
           fcitx5-chinese-addons
-          libsForQt5.fcitx5-with-addons
+          kdePackages.fcitx5-qt
         ];
       };
     };
