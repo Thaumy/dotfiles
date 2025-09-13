@@ -53,6 +53,9 @@ vim.lsp.config('rust_analyzer', {
       cargo = {
         features = 'all',
       },
+      check = {
+        command = 'clippy',
+      },
       completion = {
         fullFunctionSignatures = { enable = true },
         snippets = {
