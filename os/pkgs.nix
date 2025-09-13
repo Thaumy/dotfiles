@@ -121,19 +121,10 @@ let
   ];
 in
 {
-  environment = {
-    systemPackages =
-      fs ++
-      etc ++
-      net ++
-      sdk ++
-      infra;
-
-    etc = with pkgs; {
-      "sdk-homes/gcc".source = gcc14;
-
-      "app-homes/firefox".source = firefox;
-      "app-homes/chromium".source = chromium;
-    };
-  };
+  environment.systemPackages =
+    fs ++
+    etc ++
+    net ++
+    sdk ++
+    infra;
 }
