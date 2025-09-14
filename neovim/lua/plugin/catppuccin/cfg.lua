@@ -2,6 +2,10 @@ local k = require 'infra.key'
 local plugin = require 'catppuccin'
 
 plugin.setup {
+  styles = {
+    comments = {},
+    conditionals = {},
+  },
   highlight_overrides = {
     latte = {
       ErrorMsg = { fg = '#d20f39', style = {} },
