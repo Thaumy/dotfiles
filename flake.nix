@@ -1,6 +1,6 @@
 {
   inputs = {
-    pkgs.url = "github:NixOS/nixpkgs/6ada30eca4f5df9a61abe5e2c9c2de6a00f50252"; # 25-9-1
+    pkgs.url = "github:NixOS/nixpkgs/2d6368b8a1233880a56f34b8cea95062db3410da"; # 25-9-13
     nur.url = "github:nix-community/nur/a180e837cadff3e66502353a5dbdaffd05b049ac"; # 25-9-1
 
     hm = {
