@@ -9,12 +9,14 @@ pub extern "C" fn u32_stack_new() -> *mut Vec<u32> {
     Box::into_raw(Box::new(stack))
 }
 
+#[expect(clippy::missing_safety_doc)]
 #[unsafe(no_mangle)]
 pub unsafe extern "C" fn u32_stack_push(ptr: *mut Vec<u32>, value: u32) {
     let stack = unsafe { &mut *ptr };
     stack.push(value);
 }
 
+#[expect(clippy::missing_safety_doc)]
 #[unsafe(no_mangle)]
 pub unsafe extern "C" fn u32_stack_pop(ptr: *mut Vec<u32>, value: *mut u32) -> bool {
     let stack = unsafe { &mut *ptr };
@@ -27,6 +29,7 @@ pub unsafe extern "C" fn u32_stack_pop(ptr: *mut Vec<u32>, value: *mut u32) -> b
     }
 }
 
+#[expect(clippy::missing_safety_doc)]
 #[unsafe(no_mangle)]
 pub unsafe extern "C" fn u32_stack_top(ptr: *mut Vec<u32>) -> *const u32 {
     let stack = unsafe { &mut *ptr };
@@ -36,18 +39,21 @@ pub unsafe extern "C" fn u32_stack_top(ptr: *mut Vec<u32>) -> *const u32 {
     }
 }
 
+#[expect(clippy::missing_safety_doc)]
 #[unsafe(no_mangle)]
 pub unsafe extern "C" fn u32_stack_clear(ptr: *mut Vec<u32>) {
     let stack = unsafe { &mut *ptr };
     stack.clear()
 }
 
+#[expect(clippy::missing_safety_doc)]
 #[unsafe(no_mangle)]
 pub unsafe extern "C" fn u32_stack_len(ptr: *const Vec<u32>) -> usize {
     let stack = unsafe { &*ptr };
     stack.len()
 }
 
+#[expect(clippy::missing_safety_doc)]
 #[unsafe(no_mangle)]
 pub unsafe extern "C" fn u32_stack_drop(ptr: *mut Vec<u32>) {
     drop(unsafe { Box::from_raw(ptr) });

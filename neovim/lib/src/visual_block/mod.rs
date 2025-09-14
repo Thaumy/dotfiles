@@ -20,6 +20,7 @@ const BOUNDS: [(u8, u8); 7] = [
     (b'{', b'}'),
 ];
 
+#[expect(clippy::missing_safety_doc)]
 #[unsafe(no_mangle)]
 pub unsafe extern "C" fn visual_block_select(
     pre_alloc: *mut PreAlloc,
