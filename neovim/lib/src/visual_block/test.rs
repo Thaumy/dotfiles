@@ -7,10 +7,10 @@ fn new_case(cursor: &str, line: &str, interval: &str) {
 
     let interval_l = interval.find('[').unwrap();
     let interval_r = interval.find(']').unwrap();
-    let (expect_sel_from, expect_sel_to) = if cursor_col - interval_l < interval_r - cursor_col {
-        (interval_r, interval_l)
-    } else {
+    let (expect_sel_from, expect_sel_to) = if cursor_col - interval_l > interval_r - cursor_col {
         (interval_l, interval_r)
+    } else {
+        (interval_r, interval_l)
     };
 
     let line = CString::new(line).unwrap();
@@ -125,4 +125,18 @@ test! {
     "   |       "
   r#""<[>123<]>""#
     "   [   ]   "
+}
+
+test! {
+    case14
+    "    |    "
+  r#"(1234567)"#
+    " [     ] "
+}
+
+test! {
+    case15
+    "           |       "
+  r#"("123".to_string())"#
+    " [               ] "
 }

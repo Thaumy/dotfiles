@@ -78,12 +78,12 @@ pub unsafe extern "C" fn visual_block_select(
         }
 
         let lb_pair_col = if rb_col < len {
-            pair_l_bound(&mut pre_alloc.bound_stack, line, lb_col + 1, lb_ty)
+            pair_l_bound(&mut pre_alloc.bound_stack, line, cursor_col + 1, lb_ty)
         } else {
             None
         };
         let rb_pair_col = if lb_col > 0 {
-            pair_r_bound(&mut pre_alloc.bound_stack, line, rb_col - 1, rb_ty)
+            pair_r_bound(&mut pre_alloc.bound_stack, line, cursor_col - 1, rb_ty)
         } else {
             None
         };
@@ -159,13 +159,20 @@ fn select(
     sel_from: &mut usize,
     sel_to: &mut usize,
 ) {
+    // cursor must be within the interval
+    #[cfg(debug_assertions)]
+    assert!(lb_col <= cursor_col && cursor_col <= rb_col);
+
     #[cfg(debug_assertions)]
     println!("interval [{}, {}]", lb_col + 1, rb_col - 1);
+
     if cursor_col - lb_col > rb_col - cursor_col {
+        println!("direction ->");
         // cursor near right bound
         *sel_from = lb_col + 1;
         *sel_to = rb_col - 1;
     } else {
+        println!("direction <-");
         // cursor near left bound
         *sel_from = rb_col - 1;
         *sel_to = lb_col + 1;
