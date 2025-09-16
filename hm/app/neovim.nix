@@ -80,12 +80,12 @@ in
       nvim-cmp # code completion, [deps: cmp-path, cmp-buffer, cmp-cmdline, cmp-nvim-lsp, luasnip, nvim-lspconfig]
       cmp-path # path completion source
       cmp-buffer # buffer completion source
-      Ionide-vim # F# lsp support
+      Ionide-vim # F# LSP support
       cmp_luasnip # luasnip completion source
       cmp-cmdline # cmdline completion source
-      cmp-nvim-lsp # lsp completion source
+      cmp-nvim-lsp # LSP completion source
       cmp-nvim-lua # nvim lua APIs completion source
-      nvim-lspconfig # lsp support
+      nvim-lspconfig # LSP support
       nvim-treesitter.withAllGrammars # language parser
 
       # input helpers
