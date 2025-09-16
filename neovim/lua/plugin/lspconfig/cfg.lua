@@ -26,6 +26,9 @@ vim.lsp.config('lua_ls', {
       diagnostics = {
         globals = { 'vim' },
       },
+      workspace = {
+        ignoreDir = { '.direnv' },
+      },
       hint = {
         enable = true,
       },
