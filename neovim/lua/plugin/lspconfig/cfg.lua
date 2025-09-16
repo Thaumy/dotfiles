@@ -1,6 +1,6 @@
 local plugin = require 'lspconfig'
 
--- for lsp names, see:
+-- For more LSP names, see:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 
 vim.lsp.enable('biome', {
