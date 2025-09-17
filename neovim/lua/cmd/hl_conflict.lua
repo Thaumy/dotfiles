@@ -21,7 +21,8 @@ local cb = function(args)
         (not vim.api.nvim_buf_is_valid(buf)) or
         vim.api.nvim_get_option_value('readonly', { buf = buf }) or
         (not vim.api.nvim_get_option_value('modifiable', { buf = buf })) or
-        vim.api.nvim_get_option_value('buftype', { buf = buf }) ~= '' -- abnormal buffer
+        -- abnormal buffer
+        vim.api.nvim_get_option_value('buftype', { buf = buf }) ~= ''
     then
       return
     end
@@ -53,4 +54,7 @@ local cb = function(args)
   end)
 end
 
-vim.api.nvim_create_autocmd({ 'BufEnter', 'TextChanged', 'InsertLeave' }, { callback = cb })
+vim.api.nvim_create_autocmd(
+  { 'BufEnter', 'TextChanged', 'InsertLeave' },
+  { callback = cb }
+)
