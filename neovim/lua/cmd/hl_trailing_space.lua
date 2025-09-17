@@ -11,7 +11,7 @@ local function trailing_spaces_len(line)
 end
 
 local ns = vim.api.nvim_create_namespace 'trailing-space-hl'
-local ext_marks = { {} }
+local ext_marks = {}
 local debounce = require 'infra.debounce':new()
 
 local cb = function(args)
@@ -59,3 +59,9 @@ vim.api.nvim_create_autocmd(
   { 'BufEnter', 'TextChanged', 'TextChangedI', 'InsertLeave' },
   { callback = cb }
 )
+
+vim.api.nvim_create_autocmd('BufDelete', {
+  callback = function(args)
+    ext_marks[args.buf] = nil
+  end,
+})
