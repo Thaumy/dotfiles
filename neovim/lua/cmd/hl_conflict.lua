@@ -11,7 +11,7 @@ local function match_bound_mark(line)
 end
 
 local ns = vim.api.nvim_create_namespace 'git-conflict-hl'
-local ext_marks = { {} }
+local ext_marks = {}
 local debounce = require 'infra.debounce':new()
 
 local cb = function(args)
@@ -58,3 +58,9 @@ vim.api.nvim_create_autocmd(
   { 'BufEnter', 'TextChanged', 'InsertLeave' },
   { callback = cb }
 )
+
+vim.api.nvim_create_autocmd('BufDelete', {
+  callback = function(args)
+    ext_marks[args.buf] = nil
+  end,
+})
