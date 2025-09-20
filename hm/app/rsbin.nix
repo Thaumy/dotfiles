@@ -10,6 +10,7 @@ in
     (dup-img-finder "dif")
     (safe-remove "rr")
     (vi-project "vp")
+    (vi-visual-pane "vvp")
     (wm-action "wm")
     (sh-history-filter "shf")
   ];
