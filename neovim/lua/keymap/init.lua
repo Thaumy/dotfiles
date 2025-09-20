@@ -203,8 +203,6 @@ map('n', 'U', '<C-R>')
 
 -- go bottom
 map({ 'n', 'x' }, 'ff', 'G')
--- go prev buf
-map('n', 'bp', '<C-^>')
 -- go prev/next position
 map('n', 'cp', '<C-o>')
 map('n', 'cn', '<C-i>')
@@ -293,7 +291,7 @@ map({ 'n', 'x' }, 'rp', function()
 end)
 
 -- yank abs path of current buf
-map('n', 'bn', function()
+map('n', 'bp', function()
   local buf = vim.api.nvim_get_current_buf()
   local pwd = vim.api.nvim_buf_get_name(buf)
   vim.fn.setreg('+', pwd)
