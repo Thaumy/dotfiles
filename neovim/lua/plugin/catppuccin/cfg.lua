@@ -3,6 +3,7 @@ local plugin = require 'catppuccin'
 
 plugin.setup {
   styles = {
+    miscs = {},
     comments = {},
     conditionals = {},
   },
