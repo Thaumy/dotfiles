@@ -8,6 +8,9 @@ plugin.setup {
     conditionals = {},
   },
   highlight_overrides = {
+    all = {
+      ['@lsp.type.unresolvedReference.rust'] = { link = 'Error' },
+    },
     latte = {
       ErrorMsg = { fg = '#d20f39', style = {} },
       CurSearch = { fg = '#6420aa', bg = '#ffb5da' },
