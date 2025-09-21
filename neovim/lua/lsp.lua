@@ -99,7 +99,7 @@ do
   end
 
   k.map('n', '<M-a>', function()
-    local client = vim.lsp.get_clients()[1]
+    local client = vim.lsp.get_clients { bufnr = 0 }[1]
     if client == nil then
       vim.notify 'no LSP'
       return
