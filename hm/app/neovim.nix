@@ -27,12 +27,12 @@ let
 
   colorful-menu-nvim = pkgs.vimUtils.buildVimPlugin {
     pname = "colorful-menu.nvim";
-    version = "2025-04-24";
+    version = "2025-09-24";
     src = pkgs.fetchFromGitHub {
-      owner = "Thaumy";
+      owner = "xzbdmw";
       repo = "colorful-menu.nvim";
-      rev = "baed2c5c4b6a534276cba753e1cc9dd56bb1a42c";
-      hash = "sha256-VnvsF8YrvWSSykkK5rIeTtqI8ndWk2CNFPspokTDy+4=";
+      rev = "d5b97d247528be308b6b69d96b5950a30e470f3d";
+      hash = "sha256-CgZiqkeNZwTQZbODmToX8yanWOuv9w+X/EB7luVcNsg=";
     };
     doCheck = false;
   };
