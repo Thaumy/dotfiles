@@ -34,6 +34,14 @@ alias l "eza --no-permissions --no-filesize --no-user --no-time --group-director
 alias ls "eza -l --git -g --time-style '+%y-%m-%d %H:%M' --smart-group --group-directories-first"
 alias la "eza -l --git -g --time-style '+%y-%m-%d %H:%M' --smart-group --group-directories-first -a"
 
+function ti
+    if set -q argv[1]
+        set -g SHELL_TITLE "$argv[1]"
+    else
+        set -e SHELL_TITLE
+    end
+end
+
 function lc
     cd "$(command lf -print-last-dir $argv)"
 end

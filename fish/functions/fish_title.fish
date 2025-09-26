@@ -1,4 +1,9 @@
 function fish_title
+    if set -q SHELL_TITLE
+        echo "$SHELL_TITLE"
+        return
+    end
+
     # If we're connected via ssh, we print the hostname.
     set -l ssh
     set -q SSH_TTY
