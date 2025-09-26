@@ -116,11 +116,23 @@ end
 
 -- fmt
 k.map('n', 'fm', function()
+  local ft = vim.bo.ft
+  if
+      ft == 'neo-tree' or
+      ft == 'TelescopePrompt' or
+      vim.bo.readonly or
+      (not vim.bo.modifiable)
+  then
+    return
+  end
+
   if vim.bo.ft == 'markdown' then
     vim.cmd 'Neoformat denofmt'
   else
     vim.lsp.buf.format { sync = true }
   end
+
+  vim.cmd 'w'
 end)
 
 -- rename
