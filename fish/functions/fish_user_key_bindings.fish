@@ -14,24 +14,24 @@ function fish_user_key_bindings
 
     # C-h
     bind \b \
-      backward-char \
-      backward-char \
-      backward-char \
-      backward-char \
-      backward-char \
-      backward-char \
-      backward-char \
-      backward-char
+        backward-char \
+        backward-char \
+        backward-char \
+        backward-char \
+        backward-char \
+        backward-char \
+        backward-char \
+        backward-char
     # C-l
     bind \f \
-      forward-char \
-      forward-char \
-      forward-char \
-      forward-char \
-      forward-char \
-      forward-char \
-      forward-char \
-      forward-char
+        forward-char \
+        forward-char \
+        forward-char \
+        forward-char \
+        forward-char \
+        forward-char \
+        forward-char \
+        forward-char
     bind \ea beginning-of-buffer # M-a
     bind \ed end-of-buffer # M-d
     bind \e\x7F kill-whole-line # M-Bs
