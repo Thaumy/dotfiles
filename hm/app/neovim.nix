@@ -106,6 +106,7 @@ in
       taplo # TOML
       biome # Web
       pyright # Python
+      fish-lsp # fish shell
       fantomas # F# fmt
       marksman # Markdown
       tinymist # Typst
