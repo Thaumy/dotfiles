@@ -1,10 +1,9 @@
-{ pkgs, ... }: {
+{ inputs, pkgs, ... }: {
   manual.manpages.enable = false;
 
   imports = [
     ./sh/mod.nix
     ./app/mod.nix
-    ./nixpkgs.nix
     ./symlinks.nix
     ./daemon/mod.nix
   ];
@@ -23,4 +22,6 @@
       size = 22;
     };
   };
+
+  nixpkgs.overlays = [ inputs.nur.overlays.default ];
 }
