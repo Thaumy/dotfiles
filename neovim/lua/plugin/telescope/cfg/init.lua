@@ -34,6 +34,16 @@ plugin.setup {
         ['<M-j>'] = plugin_actions.cycle_history_next,
       },
     },
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case',
+      '--multiline',
+    },
   },
 
   pickers = {
