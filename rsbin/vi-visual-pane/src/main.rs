@@ -22,7 +22,7 @@ fn main() {
     dump.write_all(trim.as_bytes()).unwrap();
 
     let e = Command::new("nvim")
-        .args(["+$|normal 3|", DUMP_PATH])
+        .args(["+$", "+normal 3|", DUMP_PATH])
         .exec();
     panic!("{:?}", e);
 }
