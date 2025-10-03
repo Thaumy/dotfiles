@@ -6,8 +6,11 @@
     extraGroups = [
       "wheel"
       "docker"
+      "bldcache"
       "libvirtd"
       "networkmanager"
     ];
   };
+
+  users.groups."bldcache" = { };
 }
