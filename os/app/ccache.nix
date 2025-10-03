@@ -1,7 +1,12 @@
 { config, ... }: {
   programs.ccache = {
     enable = true;
+    group = "bldcache";
   };
+
+  systemd.tmpfiles.rules = [
+    "a+ ${config.programs.ccache.cacheDir} - - - - g:nixbld:rwx"
+  ];
 
   nixpkgs.overlays = [
     (self: super: {
@@ -14,9 +19,7 @@
           if [ ! -d "$CCACHE_DIR" ]; then
             echo "====="
             echo "Directory '$CCACHE_DIR' does not exist"
-            echo "Please create it with:"
-            echo "  sudo mkdir -m0770 '$CCACHE_DIR'"
-            echo "  sudo chown root:nixbld '$CCACHE_DIR'"
+            echo "Please check your tmpfiles rules"
             echo "====="
             exit 1
           fi
