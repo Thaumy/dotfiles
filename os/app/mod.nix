@@ -2,6 +2,7 @@ _: {
   imports = [
     ./fish.nix
     ./ccache.nix
+    ./sccache.nix
 
     ./logind.nix
     ./systemd.nix

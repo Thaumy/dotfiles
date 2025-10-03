@@ -33,7 +33,6 @@ let
     evtest
     psmisc
     hdparm
-    sccache
     libvirt
     openssl
     pamixer
