@@ -62,6 +62,7 @@ end)
 -- mouse yank/paste
 map('n', '<RightMouse>', 'p', true)
 map('x', '<RightMouse>', 'y', true)
+map('x', '<M-RightMouse>', 'p', true)
 map('x', '<MiddleMouse>', 'd', true)
 map('i', '<RightMouse>', '<C-r>+', true)
 
