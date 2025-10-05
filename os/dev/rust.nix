@@ -6,12 +6,8 @@ let
       "aarch64-apple-darwin"
       "aarch64-unknown-linux-gnu"
       "aarch64-unknown-linux-musl"
-      "x86_64-apple-darwin"
-      "x86_64-pc-windows-msvc"
       "x86_64-unknown-linux-gnu"
       "x86_64-unknown-linux-musl"
-      "wasm32-wasip1"
-      "wasm32-wasip2"
       "wasm32-unknown-unknown"
     ];
   });
