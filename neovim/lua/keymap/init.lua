@@ -12,13 +12,28 @@ local k = require 'infra.key'
 local map = k.map
 local map_cmd = k.map_cmd
 
--- zz with horizontal relocation
+-- zz with horizontal relocation and blank line control
 map('n', 'zz', function()
-  local pos = vim.api.nvim_win_get_cursor(0)
-  vim.api.nvim_win_set_cursor(0, { pos[1], 0 })
-  vim.api.nvim_win_set_cursor(0, pos)
+  local total_lines = vim.api.nvim_buf_line_count(0)
+  local top_line = vim.fn.line 'w0'
+  local win_height = vim.api.nvim_win_get_height(0)
+  local win_mid = math.floor(win_height / 2)
 
-  vim.api.nvim_feedkeys('zz', 'n', false)
+  local blank_lines = top_line + win_height - 1 - total_lines
+  local scroll = vim.fn.winline() - win_mid - 1
+
+  local view = vim.fn.winsaveview()
+
+  -- allow up to 3 blank lines due to scrolling
+  if blank_lines + scroll > 3 then
+    view.topline = view.topline + 3 - blank_lines
+    vim.notify 'EOF reached'
+  else
+    view.topline = view.topline + scroll
+  end
+
+  view.leftcol = 0
+  vim.fn.winrestview(view)
 end)
 
 -- remap `textDocument/selectionRange`
