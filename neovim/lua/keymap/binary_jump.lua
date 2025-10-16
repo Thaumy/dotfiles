@@ -1,5 +1,22 @@
 local map = require 'infra.key'.map
 
+-- `false` indicates we don't know if the inlay hint is
+-- enabled or not, we will enable inlay hint only if it's `true`,
+-- which means we are sure the inlay hint was enabled before
+local inlay_hint_previously_enabled = false
+local function disable_inlay_hint()
+  if vim.lsp.inlay_hint.is_enabled() then
+    inlay_hint_previously_enabled = true
+    vim.lsp.inlay_hint.enable(false)
+  end
+end
+local function restore_inlay_hint()
+  if inlay_hint_previously_enabled then
+    vim.lsp.inlay_hint.enable(true)
+    inlay_hint_previously_enabled = false
+  end
+end
+
 local ns = vim.api.nvim_create_namespace 'binary-jump-target-hl'
 
 local prev_hl = nil
@@ -16,6 +33,9 @@ local range = nil
 
 local on_ev = nil
 local function hl(row, l, m, r)
+  -- disable to avoid counterintuitive jumping
+  disable_inlay_hint()
+
   local buf = vim.api.nvim_get_current_buf()
   prev_hl = {
     buf,
@@ -41,6 +61,7 @@ local function hl(row, l, m, r)
       once = true,
       callback = function()
         clear_hl()
+        restore_inlay_hint()
         range = nil
         on_ev = nil
         vim.on_key(nil, ns)
@@ -50,6 +71,7 @@ local function hl(row, l, m, r)
       -- if <Esc> was pressed
       if key == '\27' then
         clear_hl()
+        restore_inlay_hint()
         range = nil
         if on_ev ~= nil then
           vim.api.nvim_del_autocmd(on_ev)
