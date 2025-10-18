@@ -23,9 +23,13 @@ local ns = vim.api.nvim_create_namespace 'binary-jump-target-hl'
 local prev_hl = nil
 local function clear_hl()
   if prev_hl ~= nil then
-    vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[2])
-    vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[3])
-    vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[4])
+    vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[2]) -- [l, next_m_l)
+    vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[3]) -- [next_m_l]
+    vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[4]) -- (next_m_l, m)
+    vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[5]) -- [m]
+    vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[6]) -- (m, next_m_r)
+    vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[7]) -- [next_m_r]
+    vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[8]) -- (next_m_r, r]
     prev_hl = nil
   end
 end
@@ -39,22 +43,37 @@ local function hl(row, l, m, r)
   disable_inlay_hint()
 
   local buf = vim.api.nvim_get_current_buf()
+  local next_m_l = math.floor((l + m - 1) / 2)
+  local next_m_r = math.ceil((m + 1 + r) / 2)
   prev_hl = {
     buf,
     vim.api.nvim_buf_set_extmark(
-      buf, ns,
-      row - 1, l,
-      { end_col = m, hl_group = 'BinaryJumpRange' }
+      buf, ns, row,
+      l, { end_col = next_m_l, hl_group = 'BinaryJumpRange' }
     ),
     vim.api.nvim_buf_set_extmark(
-      buf, ns,
-      row - 1, m,
-      { end_col = m + 1, hl_group = 'BinaryJumpMid' }
+      buf, ns, row,
+      next_m_l, { end_col = next_m_l + 1, hl_group = 'BinaryJumpNextMid' }
     ),
     vim.api.nvim_buf_set_extmark(
-      buf, ns,
-      row - 1, m + 1,
-      { end_col = r + 1, hl_group = 'BinaryJumpRange' }
+      buf, ns, row,
+      next_m_l + 1, { end_col = m, hl_group = 'BinaryJumpRange' }
+    ),
+    vim.api.nvim_buf_set_extmark(
+      buf, ns, row,
+      m, { end_col = m + 1, hl_group = 'BinaryJumpMid' }
+    ),
+    vim.api.nvim_buf_set_extmark(
+      buf, ns, row,
+      m + 1, { end_col = next_m_r, hl_group = 'BinaryJumpRange' }
+    ),
+    vim.api.nvim_buf_set_extmark(
+      buf, ns, row,
+      next_m_r, { end_col = next_m_r + 1, hl_group = 'BinaryJumpNextMid' }
+    ),
+    vim.api.nvim_buf_set_extmark(
+      buf, ns, row,
+      next_m_r + 1, { end_col = r + 1, hl_group = 'BinaryJumpRange' }
     ),
   }
 
@@ -120,7 +139,7 @@ map({ 'n', 'x' }, '<C-h>', function()
 
   vim.schedule(function()
     if range ~= nil then
-      hl(row, range[1], m, range[2])
+      hl(row - 1, range[1], m, range[2])
     end
   end)
 end)
@@ -160,7 +179,7 @@ map({ 'n', 'x' }, '<C-l>', function()
 
   vim.schedule(function()
     if range ~= nil then
-      hl(row, range[1], m, range[2])
+      hl(row - 1, range[1], m, range[2])
     end
   end)
 end)

@@ -10,6 +10,7 @@ plugin.setup {
   highlight_overrides = {
     all = {
       BinaryJumpMid = { link = 'Character' },
+      BinaryJumpNextMid = { link = 'DiffText' },
       BinaryJumpRange = { link = 'DiffChange' },
       CmpItemAbbrMatchFuzzy = { link = 'CmpItemAbbrMatch' },
       ['@lsp.type.enumMember'] = { link = '@constant.builtin' },
