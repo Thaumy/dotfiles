@@ -9,8 +9,8 @@ plugin.setup {
   },
   highlight_overrides = {
     all = {
-      BinaryJumpMid = { link = 'ErrorMsg' },
-      BinaryJumpRange = { link = 'DiagnosticVirtualTextOk' },
+      BinaryJumpMid = { link = 'Character' },
+      BinaryJumpRange = { link = 'DiffChange' },
       CmpItemAbbrMatchFuzzy = { link = 'CmpItemAbbrMatch' },
       ['@lsp.type.enumMember'] = { link = '@constant.builtin' },
       ['@lsp.type.unresolvedReference.rust'] = { link = 'Error' },
