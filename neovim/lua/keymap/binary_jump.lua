@@ -1,4 +1,5 @@
 local map = require 'infra.key'.map
+local illuminate = require 'illuminate'
 
 -- `false` indicates we don't know if the inlay hint is
 -- enabled or not, we will enable inlay hint only if it's `true`,
@@ -34,6 +35,7 @@ local range = nil
 local on_ev = nil
 local function hl(row, l, m, r)
   -- disable to avoid counterintuitive jumping
+  illuminate.pause()
   disable_inlay_hint()
 
   local buf = vim.api.nvim_get_current_buf()
@@ -61,6 +63,7 @@ local function hl(row, l, m, r)
       once = true,
       callback = function()
         clear_hl()
+        illuminate.resume()
         restore_inlay_hint()
         range = nil
         on_ev = nil
@@ -71,6 +74,7 @@ local function hl(row, l, m, r)
       -- if <Esc> was pressed
       if key == '\27' then
         clear_hl()
+        illuminate.resume()
         restore_inlay_hint()
         range = nil
         if on_ev ~= nil then
