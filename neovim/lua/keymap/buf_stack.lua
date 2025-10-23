@@ -5,6 +5,13 @@ local buf_stack = U32Stack:new()
 local buf_stack_redo = U32Stack:new()
 local navi_by_motion = false
 
+local function ignore_ft(ft)
+  return
+      ft == 'neo-tree' or
+      ft == 'qf' or
+      ft == 'fidget'
+end
+
 vim.api.nvim_create_autocmd('BufLeave', {
   callback = function(args)
     local buf = args.buf
@@ -20,11 +27,7 @@ vim.api.nvim_create_autocmd('BufLeave', {
       end
 
       local ft = vim.api.nvim_get_option_value('filetype', { buf = buf })
-      if
-          ft == 'neo-tree'
-      then
-        return
-      end
+      if ignore_ft(ft) then return end
 
       if buf_stack:top() ~= buf then
         buf_stack:push(buf)
@@ -34,14 +37,7 @@ vim.api.nvim_create_autocmd('BufLeave', {
 })
 
 map('n', 'bb', function()
-  local ft = vim.bo.ft
-  if
-      ft == 'neo-tree' or
-      ft == 'fidget' or
-      ft == 'qf'
-  then
-    return
-  end
+  if ignore_ft(vim.bo.ft) then return end
 
   -- buf is curr
   local buf = vim.api.nvim_get_current_buf()
@@ -73,14 +69,7 @@ map('n', 'bb', function()
 end)
 
 map('n', 'B', function()
-  local ft = vim.bo.ft
-  if
-      ft == 'neo-tree' or
-      ft == 'fidget' or
-      ft == 'qf'
-  then
-    return
-  end
+  if ignore_ft(vim.bo.ft) then return end
 
   -- buf is curr
   local buf = vim.api.nvim_get_current_buf()
