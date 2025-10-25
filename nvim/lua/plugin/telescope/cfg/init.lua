@@ -66,6 +66,13 @@ plugin.setup {
 k.map_cmd('n', 'tm', 'Telescope')
 -- global search
 k.map('n', 'g/', function()
+  local ft = vim.bo.ft
+  if
+      ft == 'neo-tree' or
+      ft == 'qf'
+  then
+    return
+  end
   plugin_builtin.live_grep { debounce = 100 }
 end)
 -- show diagnostics
