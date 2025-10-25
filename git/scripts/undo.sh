@@ -32,8 +32,15 @@ if [ "$1" = 'n' ]; then
   exit
 fi
 
+if [ "$1" = 'nm' ]; then
+  git clean -df
+  git restore .
+  exit
+fi
+
 echo 'available options:'
 echo 'c: undo commit'
 echo 'm [path]: undo modify'
 echo 'a [path]: undo add'
 echo 'n [path]: undo new files'
+echo 'nm: undo new files and modify'
