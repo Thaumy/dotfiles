@@ -124,6 +124,7 @@ vim.lsp.enable {
   'bashls',                 -- Bash
   'clangd',                 -- C/C++
   'denols',                 -- Deno
+  'jsonls',                 -- JSON
   'nil_ls',                 -- Nix
   'yamlls',                 -- YAML
   'pyright',                -- Python

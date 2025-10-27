@@ -121,6 +121,7 @@ in
       yaml-language-server # YAML
       kotlin-language-server # Kotlin
       haskell-language-server # Haskell
+      vscode-langservers-extracted # mainly for jsonls
     ];
   };
 
