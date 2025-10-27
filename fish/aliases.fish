@@ -21,10 +21,10 @@ alias s sudo
 alias sc "sudo -u $USER"
 alias su "sudo su"
 
-alias hmb "home-manager build --flake path:$HOME/cfg --cores 6 --no-out-link"
-alias hms "home-manager switch --flake path:$HOME/cfg"
-alias nrb "nixos-rebuild build --flake path:$HOME/cfg --cores 6 && command rm -f result"
-alias nrs "sudo nixos-rebuild switch --flake path:$HOME/cfg"
+alias hmb "home-manager build --flake path:(realpath $HOME/cfg) --cores 6 --no-out-link"
+alias hms "home-manager switch --flake path:(realpath $HOME/cfg)"
+alias nrb "nixos-rebuild build --flake path:(realpath $HOME/cfg) --cores 6 && command rm -f result"
+alias nrs "sudo nixos-rebuild switch --flake path:(realpath $HOME/cfg)"
 
 alias dk docker
 alias lzdk lazydocker
