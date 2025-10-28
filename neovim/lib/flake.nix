@@ -29,10 +29,10 @@
           inherit name;
 
           # Use nightly fmt for better style
-          RUSTFMT = "${rust-toolchain "nightly" "2025-05-27"}/bin/rustfmt";
+          RUSTFMT = "${rust-toolchain "nightly" "2025-10-28"}/bin/rustfmt";
 
           nativeBuildInputs = [
-            (rust-toolchain "stable" "1.87.0")
+            (rust-toolchain "stable" "1.90.0")
           ];
         };
 
@@ -40,7 +40,7 @@
           inherit name;
 
           nativeBuildInputs = [
-            (rust-toolchain "stable" "1.87.0")
+            (rust-toolchain "stable" "1.90.0")
           ];
 
           src = ./.;
