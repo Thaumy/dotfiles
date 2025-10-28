@@ -6,8 +6,10 @@ in
   programs.git = {
     enable = true;
 
-    userName = "Thaumy Cheng";
-    userEmail = "thaumy.love@gmail.com";
+    settings.user = {
+      name = "Thaumy Cheng";
+      email = "thaumy.love@gmail.com";
+    };
     signing = {
       signByDefault = true;
       key = "0x6A8A3AE9A7A59845"; # v3 [S]
