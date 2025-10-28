@@ -22,9 +22,6 @@
         rust-toolchain = channel: version:
           pkgs.rust-bin."${channel}"."${version}".complete.override {
             extensions = [ "rust-src" ];
-            targets = [
-              "x86_64-unknown-linux-gnu"
-            ];
           };
       in
       {
