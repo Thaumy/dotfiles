@@ -18,6 +18,7 @@ local function invalid(buf, win)
   return
       (not vim.api.nvim_buf_is_valid(buf)) or
       (not vim.api.nvim_win_is_valid(win)) or
+      vim.api.nvim_get_option_value('ft', { buf = buf }) == 'neo-tree' or
       vim.api.nvim_get_option_value('readonly', { buf = buf }) or
       (not vim.api.nvim_get_option_value('modifiable', { buf = buf })) or
       -- abnormal buffer
