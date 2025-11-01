@@ -14,6 +14,7 @@ local specs = {
   require 'plugin.fidget.spec',
   require 'plugin.lualine.spec',
   require 'plugin.neo-tree.spec',
+  require 'plugin.coq-goals.spec',
   require 'plugin.telescope.spec',
   require 'plugin.md-preview.spec',
   require 'plugin.actions-preview.spec',
