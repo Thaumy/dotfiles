@@ -9,6 +9,7 @@ in
     (edit-config "cfg")
     (dup-img-finder "dif")
     (safe-remove "rr")
+    (screenshot "ss")
     (vi-project "vp")
     (vi-visual-pane "vvp")
     (wm-action "wm")
