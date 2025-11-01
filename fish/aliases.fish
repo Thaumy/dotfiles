@@ -17,10 +17,6 @@ alias hibernate "systemctl hibernate"
 alias q exit
 alias qa "tmux kill-session"
 
-alias s sudo
-alias sc "sudo -u $USER"
-alias su "sudo su"
-
 alias hmb "home-manager build --flake path:(realpath $HOME/cfg) --cores 6 --no-out-link"
 alias hms "home-manager switch --flake path:(realpath $HOME/cfg)"
 alias nrb "nixos-rebuild build --flake path:(realpath $HOME/cfg) --cores 6 && command rm -f result"
