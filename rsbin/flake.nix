@@ -70,6 +70,7 @@
               hash = "sha256-rjp3mONHWAJY043rxPckrvoRg5W5a7WQOLod1qF2aW4=";
             }) "dup-img-finder";
           safe-remove = build-pkg ./safe-remove "safe-remove";
+          screenshot = build-pkg ./screenshot "screenshot";
           sh-history-filter = build-pkg
             (pkgs.fetchFromGitHub {
               owner = "Thaumy";
