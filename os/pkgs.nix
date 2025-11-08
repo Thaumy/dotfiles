@@ -44,6 +44,7 @@ let
     cdrtools
     steam-run
     dmidecode
+    watchexec
     vulkan-tools
     inotify-tools
     uutils-findutils
