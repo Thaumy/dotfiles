@@ -4,6 +4,5 @@
     nodejs
     openapi-generator-cli
     nodePackages_latest.yo
-    nodePackages_latest.webpack
   ];
 }

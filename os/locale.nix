@@ -7,10 +7,10 @@
       sarasa-gothic
       jetbrains-mono
       liberation_ttf
-      noto-fonts-emoji
       source-han-serif
       times-newer-roman
       material-design-icons
+      noto-fonts-color-emoji
       nerd-fonts.symbols-only
     ];
 
@@ -42,8 +42,8 @@
         waylandFrontend = true;
         addons = with pkgs; [
           fcitx5-gtk
-          fcitx5-chinese-addons
           kdePackages.fcitx5-qt
+          qt6Packages.fcitx5-chinese-addons
         ];
       };
     };

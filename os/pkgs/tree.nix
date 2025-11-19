@@ -1,5 +1,5 @@
 { pkgs, ... }: with pkgs; [
+  dust
   tree
   pstree
-  du-dust
 ]

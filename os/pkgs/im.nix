@@ -1,4 +1,4 @@
 { pkgs, ... }: with pkgs; [
-  tdesktop
   element-desktop
+  telegram-desktop
 ]

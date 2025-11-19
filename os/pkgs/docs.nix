@@ -11,7 +11,7 @@ with pkgs; [
   glow
   typst
   lychee
-  typstfmt
+  typstyle
   pkgs-24-05.wpsoffice
   pkgs-24-05.libreoffice
 ]

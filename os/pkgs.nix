@@ -105,7 +105,6 @@ let
     systemctl-tui
     wl-clipboard-rs
     whitesur-gtk-theme
-    nodePackages.ts-node
     networkmanagerapplet
     libsForQt5.qtstyleplugin-kvantum
 
