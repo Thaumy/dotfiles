@@ -91,8 +91,12 @@ plugin.setup {
 
 local neotree_cmd = require 'neo-tree.command'.execute
 
--- show on plugin loaded if term width > 120
-if vim.go.columns > 120 then
+-- show tree if term width > 120 and
+-- nvim not started in diff mode
+if
+    vim.go.columns > 120 and
+    (not vim.tbl_contains(vim.v.argv, '-d'))
+then
   neotree_cmd { action = 'show' }
 end
 
