@@ -42,6 +42,7 @@ let
     patchelf
     libinput
     cdrtools
+    graphviz
     steam-run
     dmidecode
     watchexec
