@@ -303,7 +303,7 @@ map({ 'n', 'x' }, 'rp', function()
 end)
 
 -- yank abs path of current buf
-map('n', 'bp', function()
+map('n', 'yp', function()
   local buf = vim.api.nvim_get_current_buf()
   local pwd = vim.api.nvim_buf_get_name(buf)
   vim.fn.setreg('+', pwd)
