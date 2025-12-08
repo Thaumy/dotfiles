@@ -8,7 +8,7 @@ set fish_color_param white
 set fish_color_comment 5f8700
 set fish_color_match f07171
 set fish_color_selection --background=f89595
-set fish_color_search_match --background=353535
+set fish_color_search_match 4c4f69 --background=a8daf0
 set fish_color_history_current --bold
 set fish_color_operator afd7d7
 set fish_color_escape 4cbf99
