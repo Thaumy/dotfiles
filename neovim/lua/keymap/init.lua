@@ -319,3 +319,6 @@ end)
 
 -- refresh buf
 map_cmd({ 'n', 'x' }, 'r', 'e')
+
+-- yank whole buf
+map_cmd('n', 'ya', '%y+')
