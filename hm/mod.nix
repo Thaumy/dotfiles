@@ -12,9 +12,6 @@
     username = "thaumy";
     stateVersion = "22.11";
     homeDirectory = "/home/thaumy";
-    sessionPath = [
-      "/home/thaumy/.dotnet/tools"
-    ];
     pointerCursor = {
       gtk.enable = true;
       package = pkgs.adwaita-icon-theme;
