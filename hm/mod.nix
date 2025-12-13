@@ -20,5 +20,7 @@
     };
   };
 
+  news.display = "silent";
+
   nixpkgs.overlays = [ inputs.nur.overlays.default ];
 }
