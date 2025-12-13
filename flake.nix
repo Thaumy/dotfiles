@@ -4,7 +4,7 @@
     nur.url = "github:nix-community/nur/a180e837cadff3e66502353a5dbdaffd05b049ac"; # 25-9-1
 
     hm = {
-      url = "github:nix-community/home-manager/1830716059bfee7cbcfbfcc38d7be98e482a5762"; # 25-10-26
+      url = "github:nix-community/home-manager/13cc1efd78b943b98c08d74c9060a5b59bf86921"; # 25-12-10
       inputs.nixpkgs.follows = "pkgs";
     };
 
