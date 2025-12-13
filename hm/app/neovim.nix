@@ -24,18 +24,6 @@ let
       hash = "sha256-6WG1JOr16qL6StSSinpjvaRqb6OmktlGOGLZXej6AT0=";
     };
   };
-
-  colorful-menu-nvim = pkgs.vimUtils.buildVimPlugin {
-    pname = "colorful-menu.nvim";
-    version = "2025-09-24";
-    src = pkgs.fetchFromGitHub {
-      owner = "xzbdmw";
-      repo = "colorful-menu.nvim";
-      rev = "d5b97d247528be308b6b69d96b5950a30e470f3d";
-      hash = "sha256-CgZiqkeNZwTQZbODmToX8yanWOuv9w+X/EB7luVcNsg=";
-    };
-    doCheck = false;
-  };
 in
 {
   nixpkgs.overlays = [ inputs.nvim-nightly.overlays.default ];
