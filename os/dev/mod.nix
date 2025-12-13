@@ -5,7 +5,6 @@ _: {
     ./coq.nix
     ./web.nix
     ./rust.nix
-    ./java.nix
     ./llvm.nix
     ./wasm.nix
   ];
