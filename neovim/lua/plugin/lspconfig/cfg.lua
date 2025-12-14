@@ -1,11 +1,5 @@
-local plugin = require 'lspconfig'
-
 -- For more LSPs, see:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
-
-vim.lsp.enable('biome', {
-  root_dir = plugin.util.root_pattern '.git' or vim.fn.getcwd(),
-})
 
 vim.lsp.config('nil_ls', {
   settings = {
