@@ -109,6 +109,7 @@ in
       yaml-language-server # YAML
       kotlin-language-server # Kotlin
       haskell-language-server # Haskell
+      typescript-language-server # TypeScript
       vscode-langservers-extracted # mainly for jsonls
     ];
   };

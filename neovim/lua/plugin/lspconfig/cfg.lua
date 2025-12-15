@@ -113,6 +113,7 @@ vim.lsp.enable {
   'gopls',                  -- Go
   'cssls',                  -- CSS
   'biome',                  -- Web FE langs
+  'ts_ls',                  -- TypeScript
   'lua_ls',                 -- Lua
   'texlab',                 -- LaTeX
   'bashls',                 -- Bash
