@@ -50,11 +50,15 @@ local function mode()
 end
 
 local function lsp_name()
-  local client = vim.lsp.get_clients { bufnr = 0 }[1]
-  if client == nil then
+  local clients = vim.lsp.get_clients { bufnr = 0 }
+  local len = #clients
+
+  if len == 0 then
     return ''
+  elseif len == 1 then
+    return clients[1].messages.name
   else
-    return client.messages.name
+    return '󰒋 ' .. len
   end
 end
 
