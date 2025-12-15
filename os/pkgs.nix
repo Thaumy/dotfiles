@@ -5,7 +5,6 @@ let
     gdb
     ocaml
     stack
-    protobuf
     valgrind
     python312
     pax-utils
