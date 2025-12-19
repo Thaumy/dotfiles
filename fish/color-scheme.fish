@@ -25,14 +25,14 @@ set fish_color_host_remote
 
 set fish_pager_color_background
 set fish_pager_color_prefix grey
-set fish_pager_color_progress brwhite --background=6790c5
-set fish_pager_color_completion brwhite #-ffffff
+set fish_pager_color_progress 000000 --background=4cbf99
+set fish_pager_color_completion
 set fish_pager_color_description 8b8b8b
 
-set fish_pager_color_selected_prefix ffffff
-set fish_pager_color_selected_completion ffffff
-set fish_pager_color_selected_description ffffff
-set fish_pager_color_selected_background --background=39b4c0
+set fish_pager_color_selected_prefix 000000
+set fish_pager_color_selected_completion 000000
+set fish_pager_color_selected_description 4c4f69
+set fish_pager_color_selected_background --background=a8daf0
 
 set fish_pager_color_secondary_prefix
 set fish_pager_color_secondary_background
