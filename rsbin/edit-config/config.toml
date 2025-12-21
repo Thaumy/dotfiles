@@ -1,6 +1,6 @@
-v.'' = '~/cfg/neovim/init.lua'
-v.n = '~/cfg/hm/app/neovim.nix'
-v.l = { cd = '~/cfg/neovim/lib', vi = '~/cfg/neovim/lib/src/lib.rs' }
+v.'' = '~/cfg/nvim/init.lua'
+v.n = '~/cfg/hm/app/nvim.nix'
+v.l = { cd = '~/cfg/nvim/lib', vi = '~/cfg/nvim/lib/src/lib.rs' }
 
 hm.'' = '~/cfg/hm/mod.nix'
 hm.sh = '~/cfg/hm/sh/mod.nix'

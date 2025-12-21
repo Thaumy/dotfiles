@@ -146,11 +146,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "path": "./neovim/lib",
+        "path": "./nvim/lib",
         "type": "path"
       },
       "original": {
-        "path": "./neovim/lib",
+        "path": "./nvim/lib",
         "type": "path"
       },
       "parent": []

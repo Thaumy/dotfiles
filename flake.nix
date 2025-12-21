@@ -18,7 +18,7 @@
     rsbin.url = "path:./rsbin";
 
     nvim-nightly.url = "github:nix-community/neovim-nightly-overlay/7e47a8c64312e726aafc0789a5d9043501a7e3ae"; # 25-12-20
-    libnvimcfg.url = "path:./neovim/lib";
+    libnvimcfg.url = "path:./nvim/lib";
   };
 
   outputs = inputs: {
