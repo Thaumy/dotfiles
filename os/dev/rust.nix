@@ -9,6 +9,7 @@ let
       "x86_64-unknown-linux-gnu"
       "x86_64-unknown-linux-musl"
       "wasm32-unknown-unknown"
+      "riscv32i-unknown-none-elf"
     ];
   });
 in
