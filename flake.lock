@@ -6,17 +6,17 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1756006520,
-        "narHash": "sha256-L17+ZaB+knRCoTH8ijfjVZ5m4xeSjhe0jFjGCRXVpWQ=",
+        "lastModified": 1765875479,
+        "narHash": "sha256-Bpj07aWcxLn3+gV4iFxxxzQNCow7TseNBXRD3m7Xyeo=",
         "owner": "daeuniverse",
         "repo": "flake.nix",
-        "rev": "1b7823fec242bee106e9d2a79ba72c835fb3baaf",
+        "rev": "1800f4eedb940644d99d60833ad0acba9aeeee0e",
         "type": "github"
       },
       "original": {
         "owner": "daeuniverse",
         "repo": "flake.nix",
-        "rev": "1b7823fec242bee106e9d2a79ba72c835fb3baaf",
+        "rev": "1800f4eedb940644d99d60833ad0acba9aeeee0e",
         "type": "github"
       }
     },
