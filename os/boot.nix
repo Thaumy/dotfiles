@@ -1,4 +1,18 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, lib, ... }:
+let
+  buildKernel = attrs: lib.recurseIntoAttrs (
+    pkgs.linuxPackagesFor (pkgs.buildLinux (attrs // (
+      let
+        stdenv = pkgs.ccacheStdenv;
+      in
+      {
+        inherit stdenv;
+        buildPackages = pkgs.buildPackages // { inherit stdenv; };
+      }
+    )))
+  );
+in
+{
   boot = {
     loader = {
       efi = {
@@ -24,20 +38,18 @@
       };
     };
 
-    kernelPackages =
-      let
-        kernel = (pkgs.callPackage
-          (builtins.fetchTarball {
-            url = "https://github.com/NixOS/nixpkgs/archive/c14d6c992b7e1709a62b93f10a242b04737b66f1.tar.gz";
-            sha256 = "11325lp5krlhk62nvr1nriaah1y07wvm42dglzw0nicv8dpr70a7";
-          })
-          { }
-        ).linuxKernel.packages.linux_6_12.kernel;
-      in
-      pkgs.linuxPackagesFor (kernel.override {
-        stdenv = pkgs.ccacheStdenv;
-        buildPackages = pkgs.buildPackages // { stdenv = pkgs.ccacheStdenv; };
-      });
+    kernelPackages = buildKernel {
+      version = "6.18.2";
+      src = pkgs.fetchgit {
+        url = "https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git";
+        tag = "v6.18.2";
+        hash = "sha256-cxRuaF1JFm1BWUTDsT55p8aFgp0TfCT6TbGHpObwEw8=";
+      };
+      structuredExtraConfig = with lib.kernel; {
+        # See: https://github.com/NixOS/nixpkgs/commit/6b6c8b140268f092e1fbc66fe7b6d122009ac3cb
+        RUST_FW_LOADER_ABSTRACTIONS = yes;
+      };
+    };
 
     kernel.sysctl = {
       "vm.swappiness" = 20;
