@@ -13,11 +13,11 @@ _: {
     ./fish.nix
     ./rofi.nix
     ./mako.nix
+    ./nvim.nix
     ./dconf.nix
     ./gnome.nix
     ./rsbin.nix
     ./waybar.nix
-    ./neovim.nix
     ./direnv.nix
     ./hyprland.nix
     ./cargo/mod.nix
