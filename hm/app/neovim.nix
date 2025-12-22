@@ -24,6 +24,18 @@ let
       hash = "sha256-6WG1JOr16qL6StSSinpjvaRqb6OmktlGOGLZXej6AT0=";
     };
   };
+
+  neo-tree-nvim = pkgs.vimUtils.buildVimPlugin {
+    pname = "neo-tree.nvim";
+    version = "2025-11-20";
+    src = pkgs.fetchFromGitHub {
+      owner = "nvim-neo-tree";
+      repo = "neo-tree.nvim";
+      rev = "a981ef287503c668434bffa78071d5b9ff92c12f";
+      hash = "sha256-zBNXw9uUvVw6KvT0TTI/cx+W+wfilYlpHIVAWe/i/Pw=";
+    };
+    doCheck = false;
+  };
 in
 {
   nixpkgs.overlays = [ inputs.nvim-nightly.overlays.default ];
