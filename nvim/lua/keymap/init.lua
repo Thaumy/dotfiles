@@ -100,10 +100,9 @@ map({ 'n', 'x' }, 'ww', function()
 end)
 map_cmd({ 'n', 'x' }, 'wa', 'wa')
 map({ 'n', 'x' }, 'qq', function()
-  if vim.bo.ft == 'neo-tree' then
-    return
-  end
-  if vim.bo.bt == '' then
+  local ft = vim.bo.ft
+  if ft == 'neo-tree' then return end
+  if vim.bo.bt == '' or ft == 'm3out' then
     vim.cmd 'BufDel'
   else
     vim.cmd 'q'
@@ -315,6 +314,28 @@ map('n', '<C-p>', function()
     vim.cmd 'MarkdownPreview'
     return
   end
+end)
+
+vim.api.nvim_create_user_command('M3', function(opts)
+  local buf_name = os.date 'm3out [%y-%m-%d %H:%M:%S]'
+  local output = vim.fn.execute('make ' .. opts.args)
+  local buf = vim.api.nvim_create_buf(true, true)
+  vim.api.nvim_buf_set_name(buf, buf_name)
+  vim.api.nvim_buf_set_option(buf, 'ft', 'm3out')
+  vim.api.nvim_buf_set_lines(buf, 0, -1, true, vim.fn.split(output, '\n'))
+  vim.api.nvim_win_set_buf(0, buf)
+end, { nargs = '*' })
+
+k.map('n', 'M', function()
+  vim.api.nvim_feedkeys(':M3 ', 'n', false)
+end)
+
+k.map('n', 'ck', function()
+  vim.cmd 'silent! cprev'
+end)
+
+k.map('n', 'cj', function()
+  vim.cmd 'silent! cnext'
 end)
 
 -- refresh buf
