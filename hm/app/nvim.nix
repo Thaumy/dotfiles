@@ -91,9 +91,9 @@ in
       # input helpers
       luasnip # snippet
       neoformat # formatter
+      mini-pairs # auto close pairs
       crates-nvim # crate.io cmp
       comment-nvim # better comment support
-      autoclose-nvim # auto close pairs and brackets
     ];
 
     extraPackages = with pkgs; [
