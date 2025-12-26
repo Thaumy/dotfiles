@@ -1,5 +1,5 @@
 return {
-  'm4xshen/autoclose.nvim',
+  'nvim-mini/mini.pairs',
   dev = true,
 
   keys = {
@@ -10,6 +10,6 @@ return {
   event = 'InsertEnter',
 
   config = function()
-    require 'plugin.autoclose.cfg'
+    require 'plugin.mini-pairs.cfg'
   end,
 }

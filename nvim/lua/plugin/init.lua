@@ -32,7 +32,7 @@ local specs = {
   require 'plugin.crates.spec',
   require 'plugin.comment.spec',
   require 'plugin.neoformat.spec',
-  require 'plugin.autoclose.spec',
+  require 'plugin.mini-pairs.spec',
 }
 
 local cfg = {
