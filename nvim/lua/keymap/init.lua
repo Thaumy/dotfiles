@@ -319,3 +319,71 @@ map_cmd({ 'n', 'x' }, 'r', 'e')
 
 -- yank whole buf
 map_cmd('n', 'ya', '%y+')
+
+-- go prev qf item
+k.map('n', 'ck', function()
+  if vim.bo.ft ~= 'qf' then return end
+
+  local cursor_row = vim.api.nvim_win_get_cursor(0)[1]
+  local qf_list = vim.fn.getqflist()
+  for i = cursor_row - 1, 1, -1 do
+    if qf_list[i].valid == 1 then
+      vim.fn.winrestview {
+        col = vim.api.nvim_win_get_height(0),
+        coladd = 0,
+        curswant = 0,
+        leftcol = 0,
+        lnum = i,
+        skipcol = 0,
+        topfill = 0,
+        topline = i,
+      }
+
+      local count = 0
+      for j = i - 1, 1, -1 do
+        if qf_list[j].valid == 1 then
+          count = count + 1
+        end
+      end
+      vim.print(count .. ' items above')
+
+      return
+    end
+  end
+
+  vim.print '󰘣 no more items'
+end)
+
+-- go next qf item
+k.map('n', 'cj', function()
+  if vim.bo.ft ~= 'qf' then return end
+
+  local cursor_row = vim.api.nvim_win_get_cursor(0)[1]
+  local qf_list = vim.fn.getqflist()
+  for i = cursor_row + 1, #qf_list do
+    if qf_list[i].valid == 1 then
+      vim.fn.winrestview {
+        col = vim.api.nvim_win_get_height(0),
+        coladd = 0,
+        curswant = 0,
+        leftcol = 0,
+        lnum = i,
+        skipcol = 0,
+        topfill = 0,
+        topline = i,
+      }
+
+      local count = 0
+      for j = i + 1, #qf_list do
+        if qf_list[j].valid == 1 then
+          count = count + 1
+        end
+      end
+      vim.print(count .. ' items below')
+
+      return
+    end
+  end
+
+  vim.print '󰘡 no more items'
+end)
