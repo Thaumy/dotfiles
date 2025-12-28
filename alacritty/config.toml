@@ -10,8 +10,16 @@ normal = { family = "JetBrains Mono", style = "Medium" }
 
 [keyboard]
 bindings = [
-  { mods = "Control | Super", key = "k", action = "IncreaseFontSize" },
-  { mods = "Control | Super", key = "j", action = "DecreaseFontSize" },
+  { mods = "Control | Alt", key = "k", command = { program = "alacritty", args = [
+    "msg",
+    "config",
+    "font.size=18",
+  ] } },
+  { mods = "Control | Alt", key = "j", command = { program = "alacritty", args = [
+    "msg",
+    "config",
+    "font.size=12.1",
+  ] } },
 
   # unmap
   { mode = "Vi", key = "i", action = "ReceiveChar" },
