@@ -98,10 +98,9 @@ map({ 'n', 'x' }, 'ww', function()
 end)
 map_cmd({ 'n', 'x' }, 'wa', 'wa')
 map({ 'n', 'x' }, 'qq', function()
-  if vim.bo.ft == 'neo-tree' then
-    return
-  end
-  if vim.bo.bt == '' then
+  local ft = vim.bo.ft
+  if ft == 'neo-tree' then return end
+  if vim.bo.bt == '' or ft == 'buildlog' then
     vim.cmd 'BufDel'
   else
     vim.cmd 'q'

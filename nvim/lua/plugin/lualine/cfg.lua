@@ -83,6 +83,14 @@ local function visual_chars()
   end
 end
 
+local function build_state()
+  if BUILD_JOB_ID ~= nil then
+    return '󰞌 B'
+  else
+    return ''
+  end
+end
+
 local function col()
   return string.format('C%d', vim.api.nvim_win_get_cursor(0)[2])
 end
@@ -111,7 +119,7 @@ plugin.setup {
   sections = {
     lualine_a = { mode },
     lualine_b = { { 'branch', color = { fg = '#4C4F69', bg = '#d3d7e0' } } },
-    lualine_c = { relative_path, visual_chars },
+    lualine_c = { relative_path, visual_chars, build_state },
     lualine_x = { 'searchcount', col, 'encoding', file_format },
     lualine_y = { { lsp_name, color = { fg = '#4C4F69', bg = '#d3d7e0' } } },
     lualine_z = {},
