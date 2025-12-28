@@ -1,5 +1,3 @@
-local ui = require 'infra.ui'
-
 require 'keymap.disabled'
 require 'keymap.indent'
 require 'keymap.buf_stack'
