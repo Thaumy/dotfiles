@@ -1,3 +1,5 @@
+local shorten_path = require 'infra.shorten_path'
+
 vim.o.shortmess = 'ltToOcCFsSI'
 vim.bo.softtabstop = 2
 vim.opt.tabstop = 2
@@ -41,3 +43,32 @@ vim.g.loaded_python3_provider = 0
 
 -- max qflist stack size
 vim.go.chi = 3
+
+function QFTF(opts)
+  local list = nil
+  if opts.quickfix == 1 then
+    list = vim.fn.getqflist()
+  else
+    list = vim.fn.getloclist(opts.wini)
+  end
+
+  local lines = {}
+
+  for i, it in ipairs(list) do
+    if it.valid == 1 and it.bufnr ~= 0 then
+      local path = shorten_path(vim.api.nvim_buf_get_name(it.bufnr))
+      local text = string.gsub(it.text, '^%s+', '')
+      if it.type ~= '' then
+        lines[i] = string.format('%s:%d:%d [%s] %s', path, it.lnum, it.col, it.type, text)
+      else
+        lines[i] = string.format('%s:%d:%d %s', path, it.lnum, it.col, text)
+      end
+    else
+      lines[i] = it.text
+    end
+  end
+
+  return lines
+end
+
+vim.go.qftf = 'v:lua.QFTF'
