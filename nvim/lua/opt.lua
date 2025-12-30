@@ -38,3 +38,24 @@ vim.g.loaded_perl_provider = 0
 vim.g.loaded_node_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_python3_provider = 0
+
+function QFTF()
+  local lines = {}
+  for i, it in ipairs(vim.fn.getqflist()) do
+    if it.valid == 1 and it.bufnr ~= 0 then
+      local path = vim.fn.bufname(it.bufnr)
+      path = string.gsub(path, vim.fn.getcwd() .. '/', '')
+      local text = string.gsub(it.text, '^%s+', '')
+      if it.type ~= '' then
+        lines[i] = string.format('%s:%d:%d [%s] %s', path, it.lnum, it.col, it.type, text)
+      else
+        lines[i] = string.format('%s:%d:%d %s', path, it.lnum, it.col, text)
+      end
+    else
+      lines[i] = it.text
+    end
+  end
+  return lines
+end
+
+vim.o.qftf = 'v:lua.QFTF'
