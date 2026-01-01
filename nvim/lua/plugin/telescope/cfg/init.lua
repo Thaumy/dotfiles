@@ -66,6 +66,33 @@ plugin.setup {
         return display, hls
       end,
     },
+    live_grep = {
+      entry_maker = function(line)
+        local path, row, col, text = string.match(line, '([^:]+):(%d+):(%d+):%s*(.+)')
+
+        local from, to = 0, #path
+        local hl_path = { { from, to }, 'Directory' }
+        from, to = to, to + 1
+        local hl_sep1 = { { from, to }, 'Delimiter' };
+        from, to = to, to + #row
+        local hl_row = { { from, to }, 'Number' };
+        from, to = to, to + 1
+        local hl_sep2 = { { from, to }, 'Delimiter' }
+        from, to = to, to + #col
+        local hl_col = { { from, to }, 'Number' }
+        local hls = { hl_path, hl_sep1, hl_row, hl_sep2, hl_col }
+        local display = string.format('%s:%s:%s %s', path, row, col, text)
+
+        return {
+          value = text,      -- will be passed to qf entry text
+          ordinal = display, -- used for filtering
+          display = function() return display, hls end,
+          filename = path,
+          lnum = tonumber(row),
+          col = tonumber(col),
+        }
+      end,
+    },
   },
 }
 
