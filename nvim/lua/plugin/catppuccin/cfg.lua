@@ -12,6 +12,8 @@ plugin.setup {
       BinaryJumpNextMid = { link = 'DiffText' },
       BinaryJumpRange = { link = 'DiffChange' },
       CmpItemAbbrMatchFuzzy = { link = 'CmpItemAbbrMatch' },
+      TelescopeMatching = { link = 'Search' },
+      TelescopeSelection = { link = 'CursorLine' },
       ['@lsp.type.enumMember'] = { link = '@constant.builtin' },
       ['@lsp.type.unresolvedReference.rust'] = { link = 'Error' },
     },
