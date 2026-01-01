@@ -1,6 +1,5 @@
 local k = require 'infra.key'
 local plugin = require 'telescope'
-local path_display = require 'plugin.telescope.cfg.path_display'
 local create_layout = require 'plugin.telescope.cfg.create_layout'
 local plugin_builtin = require 'telescope.builtin'
 local plugin_actions = require 'telescope.actions'
@@ -48,7 +47,17 @@ plugin.setup {
 
   pickers = {
     find_files = {
-      path_display = path_display,
+      path_display = function(_, path)
+        local name = vim.fs.basename(path)
+        local parent = vim.fs.dirname(path)
+
+        local display = string.format('%s %s', name, parent)
+        local hls = {
+          { { #name + 1, #display }, 'NonText' },
+        }
+
+        return display, hls
+      end,
     },
   },
 }
