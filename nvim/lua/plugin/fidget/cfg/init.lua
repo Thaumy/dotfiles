@@ -22,6 +22,7 @@ plugin.setup {
     configs = { default = notification.default_config },
     view = { group_separator = '' },
     window = {
+      align = 'top',
       normal_hl = 'Normal',
       winblend = 10,
       border = 'none',
