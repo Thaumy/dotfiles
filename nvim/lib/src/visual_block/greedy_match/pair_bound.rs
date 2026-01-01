@@ -1,4 +1,4 @@
-use super::BOUNDS;
+use crate::visual_block::BOUNDS;
 #[cfg(debug_assertions)]
 use crate::visual_block::debug::DebugChar;
 
