@@ -41,7 +41,7 @@ plugin.setup {
       '--with-filename',
       '--line-number',
       '--column',
-      '--smart-case',
+      '--case-sensitive',
       '--multiline',
     },
   },
