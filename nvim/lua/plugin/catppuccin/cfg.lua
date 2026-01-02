@@ -21,6 +21,7 @@ plugin.setup {
       ErrorMsg = { fg = '#d20f39', style = {} },
       CurSearch = { fg = '#6420aa', bg = '#ffb5da' },
       CursorLine = { bg = '#fafafa' },
+      ColorColumn = { bg = '#d7d8dc' },
       TodoFgNote = { fg = '#40a02b' },
       TodoBgNote = { fg = '#eff1f5', bg = '#40a02b', bold = true },
       TodoBgHack = { fg = '#eff1f5', bg = '#df8e1d', bold = true },
