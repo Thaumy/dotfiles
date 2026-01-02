@@ -168,11 +168,13 @@ fn select(
     println!("interval [{}, {}]", lb_col + 1, rb_col - 1);
 
     if cursor_col - lb_col > rb_col - cursor_col {
+        #[cfg(debug_assertions)]
         println!("direction ->");
         // cursor near right bound
         *sel_from = lb_col + 1;
         *sel_to = rb_col - 1;
     } else {
+        #[cfg(debug_assertions)]
         println!("direction <-");
         // cursor near left bound
         *sel_from = rb_col - 1;
