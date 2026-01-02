@@ -108,7 +108,7 @@ plugin.setup {
   sections = {
     lualine_a = { mode },
     lualine_b = { { 'branch', color = { fg = '#4C4F69', bg = '#d3d7e0' } } },
-    lualine_c = { relative_path, 'diagnostics', readonly, visual_chars },
+    lualine_c = { relative_path, readonly, visual_chars },
     lualine_x = { 'searchcount', col, 'encoding', file_format },
     lualine_y = { { lsp_name, color = { fg = '#4C4F69', bg = '#d3d7e0' } } },
     lualine_z = {},
