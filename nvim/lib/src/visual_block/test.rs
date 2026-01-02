@@ -28,7 +28,7 @@ fn new_case(cursor: &str, line: &str, interval: &str) {
 }
 
 macro_rules! test {
-    { $name:ident $cursor:literal $line: literal $interval: literal } => {
+    { $name:ident $cursor:literal $line:literal $interval:literal } => {
         #[test]
         fn $name() {
             new_case($cursor, $line, $interval)
