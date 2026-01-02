@@ -3,6 +3,7 @@ use std::ffi::CStr;
 #[cfg(debug_assertions)]
 mod debug;
 mod greedy_match;
+mod stack_match;
 #[cfg(test)]
 mod test;
 
@@ -47,6 +48,13 @@ pub unsafe extern "C" fn visual_block_select(
         println!("index    {}\n", indexes);
     }
 
+    if let Some((lb_col, rb_col)) = stack_match::match_bounds(pre_alloc, line, cursor_col) {
+        (*sel_from, *sel_to) = select(cursor_col, lb_col, rb_col);
+        #[cfg(debug_assertions)]
+        print_selection(line, *sel_from, *sel_to);
+        return true;
+    }
+
     if let Some((lb_col, rb_col)) = greedy_match::match_bounds(pre_alloc, line, cursor_col) {
         (*sel_from, *sel_to) = select(cursor_col, lb_col, rb_col);
         #[cfg(debug_assertions)]
@@ -58,12 +66,14 @@ pub unsafe extern "C" fn visual_block_select(
 }
 
 pub struct PreAlloc {
+    col_rb_stack: Vec<(usize, u8)>,
     bound_stack: Vec<u8>,
 }
 
 #[unsafe(no_mangle)]
 pub extern "C" fn visual_block_pre_alloc() -> *mut PreAlloc {
     let pre_alloc = PreAlloc {
+        col_rb_stack: Vec::with_capacity(128),
         bound_stack: Vec::with_capacity(128),
     };
     Box::into_raw(Box::new(pre_alloc))

@@ -140,3 +140,10 @@ test! {
   r#"("123".to_string())"#
     " [               ] "
 }
+
+test! {
+    case16
+    "        |        "
+  r#"("foo",bar,"baz")"#
+    " [             ] "
+}
