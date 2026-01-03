@@ -27,12 +27,12 @@ let
 
   neo-tree-nvim = pkgs.vimUtils.buildVimPlugin {
     pname = "neo-tree.nvim";
-    version = "2025-11-20";
+    version = "2026-01-03";
     src = pkgs.fetchFromGitHub {
-      owner = "nvim-neo-tree";
+      owner = "Thaumy";
       repo = "neo-tree.nvim";
-      rev = "a981ef287503c668434bffa78071d5b9ff92c12f";
-      hash = "sha256-zBNXw9uUvVw6KvT0TTI/cx+W+wfilYlpHIVAWe/i/Pw=";
+      rev = "07555ed6653f1f2bb03b663db4ef2faadd4c1a60";
+      hash = "sha256-MaB+TqClstHQPTzUiHV0Sfm5qVLYa/m9frHadiUnGKQ=";
     };
     doCheck = false;
   };
