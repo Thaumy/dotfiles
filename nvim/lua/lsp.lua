@@ -66,6 +66,18 @@ do
 
     local lines = vim.lsp.util.convert_input_to_markdown_lines(result.contents)
 
+    -- show macro expansion for Rust
+    local client = vim.lsp.get_client_by_id(ctx.client_id)
+    if client.name == 'rust_analyzer' then
+      local ret = client:request_sync('rust-analyzer/expandMacro', ctx.params)
+      if ret ~= nil and ret.err == nil and ret.result ~= nil then
+        lines[#lines + 1] = '---'
+        lines[#lines + 1] = '```rust'
+        vim.list_extend(lines, vim.split(ret.result.expansion, '\n', { trimempty = true }))
+        lines[#lines + 1] = '```'
+      end
+    end
+
     if vim.tbl_isempty(lines) then
       vim.notify 'no docs'
       return
