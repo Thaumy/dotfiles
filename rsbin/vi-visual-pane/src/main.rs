@@ -7,8 +7,20 @@ use std::process::{Command, Stdio};
 const DUMP_PATH: &str = "/tmp/tmux-vis-pane-dump";
 
 fn main() {
-    let all = args().nth(1).is_some_and(|arg| &arg == "-a");
+    match args().nth(1).as_deref() {
+        None => capture_dump(false),
+        Some("-a") => capture_dump(true),
+        Some("-e") => {}
+        _ => panic!("unknown option"),
+    };
 
+    let e = Command::new("nvim")
+        .args(["+$", "+normal 3|", DUMP_PATH])
+        .exec();
+    panic!("{:?}", e);
+}
+
+fn capture_dump(all: bool) {
     let tmux = Command::new("tmux")
         .args(["capture-pane", "-pS", if all { "-" } else { "-1" }])
         .stdout(Stdio::piped())
@@ -20,9 +32,4 @@ fn main() {
 
     let mut dump = File::create(DUMP_PATH).unwrap();
     dump.write_all(trim.as_bytes()).unwrap();
-
-    let e = Command::new("nvim")
-        .args(["+$", "+normal 3|", DUMP_PATH])
-        .exec();
-    panic!("{:?}", e);
 }
