@@ -1,4 +1,5 @@
 local k = require 'infra.key'
+local shorten_path = require 'infra.shorten_path'
 local plugin = require 'telescope'
 local create_layout = require 'plugin.telescope.cfg.create_layout'
 local plugin_builtin = require 'telescope.builtin'
@@ -8,6 +9,35 @@ local function send_to_qflist(prompt_bufnr)
   plugin_actions.send_to_qflist(prompt_bufnr)
   if #vim.fn.getqflist() == 0 then return end
   plugin_actions.open_qflist(prompt_bufnr)
+end
+
+local function make_lsp_picker_entry(opts)
+  local path = shorten_path(opts.filename)
+  local row = tostring(opts.lnum)
+  local col = tostring(opts.col)
+  local text = vim.trim(opts.text)
+
+  local from, to = 0, #path
+  local hl_path = { { from, to }, 'Directory' }
+  from, to = to, to + 1
+  local hl_sep1 = { { from, to }, 'Delimiter' };
+  from, to = to, to + #row
+  local hl_row = { { from, to }, 'Number' };
+  from, to = to, to + 1
+  local hl_sep2 = { { from, to }, 'Delimiter' }
+  from, to = to, to + #col
+  local hl_col = { { from, to }, 'Number' }
+  local hls = { hl_path, hl_sep1, hl_row, hl_sep2, hl_col }
+  local display = string.format('%s:%s:%s %s', path, row, col, text)
+
+  return {
+    value = text,      -- will be passed to qf entry text
+    ordinal = display, -- used for filtering
+    display = function() return display, hls end,
+    filename = path,
+    lnum = opts.lnum,
+    col = opts.col,
+  }
 end
 
 plugin.setup {
@@ -92,6 +122,12 @@ plugin.setup {
           col = tonumber(col),
         }
       end,
+    },
+    lsp_references = {
+      entry_maker = make_lsp_picker_entry,
+    },
+    lsp_implementations = {
+      entry_maker = make_lsp_picker_entry,
     },
   },
 }
