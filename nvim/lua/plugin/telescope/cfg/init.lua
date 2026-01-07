@@ -4,6 +4,12 @@ local create_layout = require 'plugin.telescope.cfg.create_layout'
 local plugin_builtin = require 'telescope.builtin'
 local plugin_actions = require 'telescope.actions'
 
+local function send_to_qflist(prompt_bufnr)
+  plugin_actions.send_to_qflist(prompt_bufnr)
+  if #vim.fn.getqflist() == 0 then return end
+  plugin_actions.open_qflist(prompt_bufnr)
+end
+
 plugin.setup {
   defaults = {
     layout_config = {
@@ -24,16 +30,13 @@ plugin.setup {
     },
     mappings = {
       i = {
-        ['<C-q>'] = function(prompt_bufnr)
-          plugin_actions.send_to_qflist(prompt_bufnr)
-          if #vim.fn.getqflist() == 0 then return end
-          plugin_actions.open_qflist(prompt_bufnr)
-        end,
+        ['<C-q>'] = send_to_qflist,
         ['<M-q>'] = function() end,
         ['<M-k>'] = plugin_actions.cycle_history_prev,
         ['<M-j>'] = plugin_actions.cycle_history_next,
       },
       n = {
+        ['<C-q>'] = send_to_qflist,
         ['<M-q>'] = function() end,
       },
     },
