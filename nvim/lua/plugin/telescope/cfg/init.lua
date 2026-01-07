@@ -29,8 +29,12 @@ plugin.setup {
           if #vim.fn.getqflist() == 0 then return end
           plugin_actions.open_qflist(prompt_bufnr)
         end,
+        ['<M-q>'] = function() end,
         ['<M-k>'] = plugin_actions.cycle_history_prev,
         ['<M-j>'] = plugin_actions.cycle_history_next,
+      },
+      n = {
+        ['<M-q>'] = function() end,
       },
     },
     vimgrep_arguments = {
