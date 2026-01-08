@@ -40,6 +40,14 @@ local function make_lsp_picker_entry(opts)
   }
 end
 
+local severity = vim.diagnostic.severity
+local severity_conv = {
+  [severity.E] = { 'E', 'ErrorMsg' },
+  [severity.W] = { 'W', 'WarningMsg' },
+  [severity.I] = { 'I', 'LspDiagnosticsInformation' },
+  [severity.N] = { 'H', 'LspDiagnosticsHint' },
+}
+
 plugin.setup {
   defaults = {
     layout_config = {
@@ -128,6 +136,41 @@ plugin.setup {
     },
     lsp_implementations = {
       entry_maker = make_lsp_picker_entry,
+    },
+    diagnostics = {
+      entry_maker = function(opts)
+        local path = shorten_path(opts.filename)
+        local row = tostring(opts.lnum)
+        local col = tostring(opts.col)
+        local type_mark_and_hl = severity_conv[severity[opts.type]]
+        local text = opts.text
+
+        local from, to = 0, #path
+        local hl_path = { { from, to }, 'Directory' }
+        from, to = to, to + 1
+        local hl_sep1 = { { from, to }, 'Delimiter' };
+        from, to = to, to + #row
+        local hl_row = { { from, to }, 'Number' };
+        from, to = to, to + 1
+        local hl_sep2 = { { from, to }, 'Delimiter' }
+        from, to = to, to + #col
+        local hl_col = { { from, to }, 'Number' }
+        from, to = to + 1, to + #type_mark_and_hl[1] + 3
+        local hl_type = { { from, to }, type_mark_and_hl[2] }
+        local hls = { hl_path, hl_sep1, hl_row, hl_sep2, hl_col, hl_type }
+        local display = string.format('%s:%s:%s [%s] %s', path, row, col, type_mark_and_hl[1], text)
+
+        return {
+          ordinal = display, -- used for filtering
+          display = function() return display, hls end,
+          filename = path,
+          lnum = opts.lnum,
+          col = opts.col,
+          type = opts.type,
+          qf_type = opts.type,
+          text = text,
+        }
+      end,
     },
   },
 }
