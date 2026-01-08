@@ -43,7 +43,7 @@ function QFTF()
   local lines = {}
   for i, it in ipairs(vim.fn.getqflist()) do
     if it.valid == 1 and it.bufnr ~= 0 then
-      local path = vim.fn.bufname(it.bufnr)
+      local path = vim.api.nvim_buf_get_name(it.bufnr)
       path = string.gsub(path, vim.fn.getcwd() .. '/', '')
       local text = string.gsub(it.text, '^%s+', '')
       if it.type ~= '' then

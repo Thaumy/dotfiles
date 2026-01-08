@@ -47,7 +47,7 @@ end)
 map('x', 'y', function()
   local from = vim.fn.getpos 'v'
   local to = vim.fn.getpos '.'
-  local mode = vim.fn.mode()
+  local mode = vim.api.nvim_get_mode().mode
 
   local selected = vim.fn.getregion(from, to, { type = mode })
   local text = table.concat(selected, '\n')
