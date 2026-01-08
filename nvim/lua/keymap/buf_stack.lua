@@ -21,8 +21,9 @@ vim.api.nvim_create_autocmd('BufLeave', {
         return
       end
 
-      local info = vim.fn.getbufinfo(buf)[1]
-      if info == nil or info.listed == 0 then
+      if (not vim.api.nvim_buf_is_valid(buf)) or
+          (not vim.api.nvim_get_option_value('buflisted', { buf = buf }))
+      then
         return
       end
 
@@ -50,9 +51,10 @@ map('n', 'bb', function()
     -- buf is prev
     buf = buf_stack:pop()
     if buf ~= nil then
-      local info = vim.fn.getbufinfo(buf)[1]
-      if info ~= nil then
-        listed = info.listed == 1
+      if vim.api.nvim_buf_is_valid(buf) and
+          vim.api.nvim_get_option_value('buflisted', { buf = buf })
+      then
+        listed = true
       end
     end
   until buf_stack:len() == 0 or buf ~= vim.api.nvim_get_current_buf() and listed
@@ -82,9 +84,10 @@ map('n', 'B', function()
     -- buf is next
     buf = buf_stack_redo:pop()
     if buf ~= nil then
-      local info = vim.fn.getbufinfo(buf)[1]
-      if info ~= nil then
-        listed = info.listed == 1
+      if vim.api.nvim_buf_is_valid(buf) and
+          vim.api.nvim_get_option_value('buflisted', { buf = buf })
+      then
+        listed = true
       end
     end
   until buf_stack_redo:len() == 0 or buf ~= vim.api.nvim_get_current_buf() and listed
