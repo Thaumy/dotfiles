@@ -327,7 +327,7 @@ map('n', '<C-p>', function()
 end)
 
 -- refresh buf
-map_cmd({ 'n', 'x' }, 'r', 'e')
+map_cmd({ 'n', 'x' }, 'rr', 'e')
 
 -- yank whole buf
 map_cmd('n', 'ya', '%y+')
