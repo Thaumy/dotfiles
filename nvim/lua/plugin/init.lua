@@ -1,9 +1,6 @@
 local plugin = require 'lazy'
 
 local specs = {
-  -- infrastructures
-  require 'plugin.bufdel.spec',
-
   -- colorizers or signs
   require 'plugin.ufo.spec',
   require 'plugin.gitsigns.spec',
