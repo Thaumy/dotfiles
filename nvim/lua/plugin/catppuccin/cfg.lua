@@ -12,6 +12,7 @@ plugin.setup {
       BinaryJumpNextMid = { link = 'DiffText' },
       BinaryJumpRange = { link = 'DiffChange' },
       CmpItemAbbrMatchFuzzy = { link = 'CmpItemAbbrMatch' },
+      Recording = { fg = '#ff3200', bg = '#ffffff', bold = true },
       TelescopeMatching = { link = 'Search' },
       TelescopeSelection = { link = 'CursorLine' },
       ['@lsp.type.enumMember'] = { link = '@constant.builtin' },

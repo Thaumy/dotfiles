@@ -106,6 +106,17 @@ local function relative_path()
   return vim.fn.expand '%:.'
 end
 
+local recording = {
+  function()
+    if RECORDING then
+      return 'REC'
+    else
+      return ''
+    end
+  end,
+  color = 'Recording',
+}
+
 plugin.setup {
   options = {
     icons_enabled = false,
@@ -114,7 +125,7 @@ plugin.setup {
     section_separators = { left = '', right = '' },
   },
   sections = {
-    lualine_a = { mode },
+    lualine_a = { mode, recording },
     lualine_b = { { 'branch', color = { fg = '#4C4F69', bg = '#d3d7e0' } } },
     lualine_c = { relative_path, readonly, visual_chars, build_state },
     lualine_x = { 'searchcount', col, 'encoding', file_format },
