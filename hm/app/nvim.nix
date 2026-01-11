@@ -49,7 +49,6 @@ in
       # infrastructures
       nui-nvim # ui components
       lazy-nvim # lazy plugin loader
-      nvim-bufdel # better buffer delete
       plenary-nvim # common utils
       promise-async # promise & async
 
