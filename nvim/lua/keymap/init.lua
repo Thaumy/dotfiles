@@ -85,6 +85,27 @@ map('i', '<RightMouse>', '<C-r>+', true)
 map('x', 'uj', 'u')
 map('x', 'uk', 'U')
 
+local function buf_switch_and_delete()
+  local curr_win = vim.api.nvim_get_current_win()
+  local curr_buf = vim.api.nvim_get_current_buf()
+
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if buf ~= curr_buf and
+        vim.api.nvim_get_option_value('buflisted', { buf = buf }) and
+        vim.api.nvim_get_option_value('buftype', { buf = buf }) == ''
+    then
+      vim.api.nvim_win_set_buf(curr_win, buf)
+      vim.api.nvim_buf_delete(curr_buf, { force = true })
+      return
+    end
+  end
+
+  local unnamed_buf = vim.api.nvim_create_buf(true, false)
+  vim.api.nvim_win_set_buf(curr_win, unnamed_buf)
+  vim.api.nvim_buf_delete(curr_buf, { force = true })
+  vim.print 'no more listed buffers'
+end
+
 -- buf
 map({ 'n', 'x' }, 'ww', function()
   local ft = vim.bo.ft
@@ -107,7 +128,7 @@ map({ 'n', 'x' }, 'qq', function()
   local ft = vim.bo.ft
   if ft == 'neo-tree' then return end
   if vim.bo.bt == '' or ft == 'buildlog' then
-    vim.cmd 'BufDel'
+    buf_switch_and_delete()
   else
     vim.cmd 'q'
   end
@@ -118,7 +139,7 @@ map({ 'n', 'x' }, 'wq', function()
     return
   end
   vim.cmd 'w'
-  vim.cmd 'BufDel'
+  buf_switch_and_delete()
 end)
 
 -- clear search hl
