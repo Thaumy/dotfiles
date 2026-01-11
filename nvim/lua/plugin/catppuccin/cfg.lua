@@ -15,6 +15,7 @@ plugin.setup {
       IlluminatedWordText = { bg = '#dce0e8' },
       IlluminatedWordRead = { bg = '#dce0e8' },
       IlluminatedWordWrite = { bg = '#dce0e8' },
+      Recording = { fg = '#ff3200', bg = '#ffffff', bold = true },
       TelescopeMatching = { link = 'Search' },
       TelescopeSelection = { link = 'CursorLine' },
       ['@lsp.type.enumMember'] = { link = '@constant.builtin' },
