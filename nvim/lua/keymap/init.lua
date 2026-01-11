@@ -69,7 +69,7 @@ map('x', 'y', function()
   vim.fn.setreg('+', text, mode)
 
   -- feed <Esc> to exit
-  vim.api.nvim_feedkeys('\27', 'x', false)
+  vim.api.nvim_input '\27'
 end)
 
 -- mouse yank/paste
@@ -187,7 +187,7 @@ vim.api.nvim_create_autocmd('FileType', {
         vim.fn.setqflist(lines, 'r')
 
         -- feed <Esc> to exit visual mode
-        vim.api.nvim_feedkeys('\27', 'x', false)
+        vim.api.nvim_input '\27'
 
         -- cursor relocation
         local max_row = new_len
