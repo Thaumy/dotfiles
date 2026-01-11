@@ -295,8 +295,12 @@ map({ 'n', 'x' }, 'rp', function()
   local mode = vim.api.nvim_get_mode().mode
   if mode == 'n' then
     vim.api.nvim_feedkeys(':%s/', 'n', false)
-  elseif mode == 'v' or mode == 'V' then
-    vim.api.nvim_feedkeys(':s/', 'n', false)
+  elseif
+      mode == 'v' or -- by char
+      mode == 'V' or -- by line
+      mode == '\22'  -- by block
+  then
+    vim.api.nvim_feedkeys([[:s/\%V]], 'n', false)
   end
 end)
 
