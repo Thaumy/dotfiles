@@ -56,7 +56,7 @@ local filesystem = {
 
   ['1']     = 'navigate_up',
   ['2']     = 'set_root',
-  ['r']     = 'refresh',
+  ['rr']     = 'refresh',
   ['yy']    = 'copy',
   ['to']    = { 'add', config = { show_path = 'none' } },
   ['s']     = 'rename',
