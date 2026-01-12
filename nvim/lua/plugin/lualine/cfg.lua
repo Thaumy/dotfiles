@@ -1,3 +1,4 @@
+local shorten_path = require 'infra.shorten_path'
 local plugin = require 'lualine'
 
 local map = {
@@ -73,14 +74,6 @@ local function file_format()
   end
 end
 
-local function readonly()
-  if vim.bo.readonly or (not vim.bo.modifiable) then
-    return 'RO'
-  else
-    return ''
-  end
-end
-
 local function visual_chars()
   local wc = vim.fn.wordcount()
   if wc.visual_chars ~= nil then
@@ -95,7 +88,17 @@ local function col()
 end
 
 local function relative_path()
-  return vim.fn.expand '%:.'
+  if vim.bo.buftype ~= '' then return '' end
+
+  local path = shorten_path(vim.api.nvim_buf_get_name(0))
+
+  if vim.bo.readonly or (not vim.bo.modifiable) then
+    return string.format('%s RO', path)
+  elseif vim.bo.modified then
+    return string.format('%s M', path)
+  else
+    return string.format('%s S', path)
+  end
 end
 
 plugin.setup {
@@ -108,7 +111,7 @@ plugin.setup {
   sections = {
     lualine_a = { mode },
     lualine_b = { { 'branch', color = { fg = '#4C4F69', bg = '#d3d7e0' } } },
-    lualine_c = { relative_path, readonly, visual_chars },
+    lualine_c = { relative_path, visual_chars },
     lualine_x = { 'searchcount', col, 'encoding', file_format },
     lualine_y = { { lsp_name, color = { fg = '#4C4F69', bg = '#d3d7e0' } } },
     lualine_z = {},
