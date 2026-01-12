@@ -1,5 +1,3 @@
-use std::ffi::CString;
-
 use super::{visual_block_pre_alloc, visual_block_select};
 
 fn new_case(cursor: &str, line: &str, interval: &str) {
@@ -13,14 +11,22 @@ fn new_case(cursor: &str, line: &str, interval: &str) {
         (interval_r, interval_l)
     };
 
-    let line = CString::new(line).unwrap();
     let line_ptr = line.as_ptr();
+    let line_len = line.len();
 
     let pre_alloc = visual_block_pre_alloc();
     let mut sel_from = 0;
     let mut sel_to = 0;
-    let success =
-        unsafe { visual_block_select(pre_alloc, line_ptr, cursor_col, &mut sel_from, &mut sel_to) };
+    let success = unsafe {
+        visual_block_select(
+            pre_alloc,
+            line_ptr,
+            line_len,
+            cursor_col,
+            &mut sel_from,
+            &mut sel_to,
+        )
+    };
     assert!(success);
 
     assert_eq!(sel_from, expect_sel_from);

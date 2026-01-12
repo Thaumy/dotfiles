@@ -4,7 +4,8 @@ ffi.cdef [[
   void* visual_block_pre_alloc();
   bool visual_block_select(
     void* pre_alloc,
-    int8_t* line,
+    uint8_t* line_ptr,
+    size_t line_len,
     size_t cursor_col,
     size_t* sel_from,
     size_t* sel_to

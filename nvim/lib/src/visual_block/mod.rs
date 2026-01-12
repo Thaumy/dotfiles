@@ -1,4 +1,4 @@
-use std::ffi::CStr;
+use std::slice;
 
 #[cfg(debug_assertions)]
 mod debug;
@@ -21,13 +21,14 @@ const BOUNDS: [(u8, u8); 7] = [
 #[unsafe(no_mangle)]
 pub unsafe extern "C" fn visual_block_select(
     pre_alloc: *mut PreAlloc,
-    line: *const i8,
+    line_ptr: *const u8,
+    line_len: usize,
     cursor_col: usize,
     sel_from: *mut usize,
     sel_to: *mut usize,
 ) -> bool {
     let pre_alloc = unsafe { &mut *pre_alloc };
-    let line = unsafe { CStr::from_ptr(line) }.to_bytes();
+    let line = unsafe { slice::from_raw_parts(line_ptr, line_len) };
     let sel_from = unsafe { &mut *sel_from };
     let sel_to = unsafe { &mut *sel_to };
 
