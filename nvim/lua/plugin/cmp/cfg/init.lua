@@ -4,7 +4,6 @@ local luasnip = require 'luasnip'
 local compare = require 'cmp.config.compare'
 local unsafe_last = require 'plugin.cmp.cfg.unsafe_last'
 local kind_compare = require 'plugin.cmp.cfg.kind_compare'
-local unsafe_last = require 'plugin.cmp.cfg.unsafe_last'
 local crate_version_first = require 'plugin.cmp.cfg.crate_version_first'
 
 plugin.setup {
