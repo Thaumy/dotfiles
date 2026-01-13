@@ -307,6 +307,12 @@ end)
 map('n', 'yp', function()
   vim.fn.setreg('+', vim.api.nvim_buf_get_name(0))
 end)
+
+-- yank abs path of current buf, with :line:col suffix
+map('n', 'yl', function()
+  local path = vim.api.nvim_buf_get_name(0)
+  local pos = vim.api.nvim_win_get_cursor(0)
+  vim.fn.setreg('+', string.format('%s:%d:%d', path, pos[1], pos[2]))
 end)
 
 -- docs preview
