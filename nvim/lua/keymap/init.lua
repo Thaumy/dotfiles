@@ -285,8 +285,7 @@ map({ 'n', 'x' }, 'qj', '18j', true)
 map({ 'n', 'x' }, 'qk', '18k', true)
 
 map({ 'n', 'x' }, 'rp', function()
-  local curr_buf = vim.api.nvim_get_current_buf()
-  local curr_buf_ft = vim.api.nvim_get_option_value('ft', { buf = curr_buf })
+  local curr_buf_ft = vim.api.nvim_get_option_value('ft', { buf = 0 })
   if curr_buf_ft == 'qf' then
     vim.api.nvim_feedkeys(':cdo s/', 'n', false)
     return
@@ -306,9 +305,8 @@ end)
 
 -- yank abs path of current buf
 map('n', 'yp', function()
-  local buf = vim.api.nvim_get_current_buf()
-  local pwd = vim.api.nvim_buf_get_name(buf)
-  vim.fn.setreg('+', pwd)
+  vim.fn.setreg('+', vim.api.nvim_buf_get_name(0))
+end)
 end)
 
 -- docs preview
