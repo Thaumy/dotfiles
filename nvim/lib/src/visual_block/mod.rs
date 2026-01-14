@@ -17,6 +17,20 @@ const BOUNDS: [(u8, u8); 7] = [
     (b'{', b'}'),
 ];
 
+pub struct PreAlloc {
+    col_rb_stack: Vec<(usize, u8)>,
+    bound_stack: Vec<u8>,
+}
+
+#[unsafe(no_mangle)]
+pub extern "C" fn visual_block_pre_alloc() -> *mut PreAlloc {
+    let pre_alloc = PreAlloc {
+        col_rb_stack: Vec::with_capacity(128),
+        bound_stack: Vec::with_capacity(128),
+    };
+    Box::into_raw(Box::new(pre_alloc))
+}
+
 #[expect(clippy::missing_safety_doc)]
 #[unsafe(no_mangle)]
 pub unsafe extern "C" fn visual_block_select(
@@ -64,20 +78,6 @@ pub unsafe extern "C" fn visual_block_select(
     }
 
     false
-}
-
-pub struct PreAlloc {
-    col_rb_stack: Vec<(usize, u8)>,
-    bound_stack: Vec<u8>,
-}
-
-#[unsafe(no_mangle)]
-pub extern "C" fn visual_block_pre_alloc() -> *mut PreAlloc {
-    let pre_alloc = PreAlloc {
-        col_rb_stack: Vec::with_capacity(128),
-        bound_stack: Vec::with_capacity(128),
-    };
-    Box::into_raw(Box::new(pre_alloc))
 }
 
 fn select(cursor_col: usize, lb_col: usize, rb_col: usize) -> (usize, usize) {
