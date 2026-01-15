@@ -1,36 +1,36 @@
 local shorten_path = require 'infra.shorten_path'
 
-vim.o.shortmess = 'ltToOcCFsSI'
-vim.bo.softtabstop = 2
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-vim.opt.fillchars:append { eob = ' ' }
+vim.go.shortmess = 'ltToOcCFsSI'
+vim.go.softtabstop = 2
+vim.go.tabstop = 2
+vim.go.shiftwidth = 2
+vim.go.expandtab = true
+vim.go.fillchars = 'eob: '
 
 -- extra characters in viw
-vim.opt.iskeyword:append { '-', '#' }
+vim.go.iskeyword = '@,48-57,_,192-255,-,#'
 
 -- show line numbers
-vim.wo.number = true
-vim.opt.numberwidth = 1
+vim.go.number = true
+vim.go.numberwidth = 1
 
 -- single status line
-vim.opt.laststatus = 3
+vim.go.laststatus = 3
 
 -- hl current line
-vim.opt.cursorline = true
+vim.go.cursorline = true
 
 -- share system clipboards
-vim.opt.clipboard = 'unnamed,unnamedplus'
+vim.go.clipboard = 'unnamed,unnamedplus'
 
 -- disable swap file
-vim.opt.swapfile = false
+vim.go.swapfile = false
 
 -- disable line wrapping when esceeding term width
-vim.wo.wrap = false
+vim.go.wrap = false
 
 -- keymap expire time
-vim.o.timeoutlen = 500
+vim.go.timeoutlen = 500
 
 -- disable deprecation warnings
 vim.deprecate = function() end
