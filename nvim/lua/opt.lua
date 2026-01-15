@@ -41,6 +41,9 @@ vim.g.loaded_node_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_python3_provider = 0
 
+-- max qflist stack len
+vim.o.chi = 3
+
 function QFTF(opts)
   local list = nil
   if opts.quickfix == 1 then
