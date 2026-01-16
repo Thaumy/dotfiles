@@ -36,6 +36,11 @@ let
     };
     doCheck = false;
   };
+
+  # Will be symlinked to the final plugin dir, mainly for plugin dev.
+  localPlugins = [
+    #{ name = "foo.nvim"; path = "/abs/path"; }
+  ];
 in
 {
   nixpkgs.overlays = [ inputs.nvim-nightly.overlays.default ];
@@ -136,7 +141,21 @@ in
       let
         packDir = pkgs.vimUtils.packDir config.programs.neovim.finalPackage.passthru.packpathDirs;
       in
-      mkSymlink "${packDir}/pack/myNeovimPackages/start";
+      # symlink local plugin to vim pack dir
+      pkgs.symlinkJoin {
+        name = "nvim-plugins";
+        paths = [ "${packDir}/pack/myNeovimPackages/start" ]
+          ++ map
+          (it: (pkgs.stdenv.mkDerivation {
+            name = it.name;
+            src = ./.;
+            buildPhase = ''
+              mkdir -p $out
+              ln -s ${it.path} $out/${it.name}
+            '';
+          }))
+          localPlugins;
+      };
 
     ".config/nvim-treesitter-parsers".source =
       let
