@@ -133,6 +133,15 @@ k.map('n', 'fm', function()
       vim.bo.readonly or
       (not vim.bo.modifiable)
   then
+    vim.print 'can not fmt special buffer'
+    return
+  end
+
+  if
+      vim.bo.readonly or
+      (not vim.bo.modifiable)
+  then
+    vim.print 'can not fmt RO buffer'
     return
   end
 
@@ -140,6 +149,11 @@ k.map('n', 'fm', function()
     vim.cmd 'Neoformat denofmt'
   else
     vim.lsp.buf.format { sync = true }
+  end
+
+  if vim.api.nvim_buf_get_name(0) == '' then
+    vim.print 'no filename, can not write'
+    return
   end
 
   vim.cmd 'w'
