@@ -108,15 +108,15 @@ end
 
 -- buf
 map({ 'n', 'x' }, 'ww', function()
-  local ft = vim.bo.ft
-  if
-      ft == 'neo-tree' or
-      ft == 'TelescopePrompt' or
-      vim.bo.readonly or
-      (not vim.bo.modifiable)
-  then
+  if vim.bo.buftype ~= '' then
+    vim.print 'can not write special buffer'
     return
   end
+  if vim.api.nvim_buf_get_name(0) == '' then
+    vim.print 'no filename, can not write'
+    return
+  end
+
   vim.cmd 'w'
 end)
 map_cmd({ 'n', 'x' }, 'wa', 'wa')
@@ -135,9 +135,15 @@ map({ 'n', 'x' }, 'qq', function()
 end)
 map_cmd({ 'n', 'x' }, 'qa', 'qa!')
 map({ 'n', 'x' }, 'wq', function()
-  if vim.bo.ft == 'neo-tree' then
+  if vim.bo.buftype ~= '' then
+    vim.print 'can not write special buffer'
     return
   end
+  if vim.api.nvim_buf_get_name(0) == '' then
+    vim.print 'no filename, can not write'
+    return
+  end
+
   vim.cmd 'w'
   buf_switch_and_delete()
 end)
