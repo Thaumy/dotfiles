@@ -19,7 +19,6 @@ local cb = function(args)
   debounce:schedule(200, function()
     if
         (not vim.api.nvim_buf_is_valid(buf)) or
-        vim.api.nvim_get_option_value('ft', { buf = buf }) == 'neo-tree' or
         vim.api.nvim_get_option_value('readonly', { buf = buf }) or
         (not vim.api.nvim_get_option_value('modifiable', { buf = buf })) or
         -- abnormal buffer
