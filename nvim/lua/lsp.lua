@@ -116,10 +116,8 @@ end
 
 -- fmt
 k.map('n', 'fm', function()
-  local ft = vim.bo.ft
   if
-      ft == 'neo-tree' or
-      ft == 'TelescopePrompt' or
+      vim.bo.buftype ~= '' or
       vim.bo.readonly or
       (not vim.bo.modifiable)
   then
