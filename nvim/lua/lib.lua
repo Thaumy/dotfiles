@@ -1,6 +1,15 @@
 local ffi = require 'ffi'
 
 ffi.cdef [[
+  void shorten_path(
+    uint8_t* original_ptr,
+    size_t original_len,
+    uint8_t** shorten_ptr,
+    size_t* shorten_len,
+    void** ptr_to_drop
+  );
+  void shorten_path_drop(void* ptr);
+
   void* u32_stack_new();
   void u32_stack_push(void* ptr, uint32_t value);
   bool u32_stack_pop(void* ptr, uint32_t* value);
