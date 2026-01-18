@@ -69,6 +69,7 @@
               rev = "v0.3.0";
               hash = "sha256-rjp3mONHWAJY043rxPckrvoRg5W5a7WQOLod1qF2aW4=";
             }) "dup-img-finder";
+          git-abort = build-pkg ./git-abort "git-abort";
           safe-remove = build-pkg ./safe-remove "safe-remove";
           screenshot = build-pkg ./screenshot "screenshot";
           sh-history-filter = build-pkg

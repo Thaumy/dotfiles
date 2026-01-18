@@ -8,6 +8,7 @@ in
   home.packages = with rsbin; [
     (edit-config "cfg")
     (dup-img-finder "dif")
+    (git-abort "git-abort")
     (safe-remove "rr")
     (screenshot "ss")
     (vi-project "vp")
