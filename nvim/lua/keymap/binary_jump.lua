@@ -23,13 +23,17 @@ local ns = vim.api.nvim_create_namespace 'binary-jump-target-hl'
 local prev_hl = nil
 local function clear_hl()
   if prev_hl ~= nil then
-    vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[2]) -- [l, next_m_l)
-    vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[3]) -- [next_m_l]
-    vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[4]) -- (next_m_l, m)
-    vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[5]) -- [m]
-    vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[6]) -- (m, next_m_r)
-    vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[7]) -- [next_m_r]
-    vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[8]) -- (next_m_r, r]
+    if prev_hl[2] ~= nil then
+      vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[2]) -- [l, next_m_l)
+      vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[3]) -- [next_m_l]
+    end
+    vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[4])   -- (next_m_l, m)
+    vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[5])   -- [m]
+    vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[6])   -- (m, next_m_r)
+    if prev_hl[7] ~= nil then
+      vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[7]) -- [next_m_r]
+      vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[8]) -- (next_m_r, r]
+    end
     prev_hl = nil
   end
 end
@@ -45,37 +49,41 @@ local function hl(row, l, m, r)
   local buf = vim.api.nvim_get_current_buf()
   local next_m_l = math.floor((l + m - 1) / 2)
   local next_m_r = math.ceil((m + 1 + r) / 2)
-  prev_hl = {
-    buf,
-    vim.api.nvim_buf_set_extmark(
+  prev_hl = { buf }
+  -- only hl when there are chars on the left
+  if m > l then
+    prev_hl[2] = vim.api.nvim_buf_set_extmark(
       buf, ns, row,
       l, { end_col = next_m_l, hl_group = 'BinaryJumpRange' }
-    ),
-    vim.api.nvim_buf_set_extmark(
+    )
+    prev_hl[3] = vim.api.nvim_buf_set_extmark(
       buf, ns, row,
       next_m_l, { end_col = next_m_l + 1, hl_group = 'BinaryJumpNextMid' }
-    ),
-    vim.api.nvim_buf_set_extmark(
-      buf, ns, row,
-      next_m_l + 1, { end_col = m, hl_group = 'BinaryJumpRange' }
-    ),
-    vim.api.nvim_buf_set_extmark(
-      buf, ns, row,
-      m, { end_col = m + 1, hl_group = 'BinaryJumpMid' }
-    ),
-    vim.api.nvim_buf_set_extmark(
-      buf, ns, row,
-      m + 1, { end_col = next_m_r, hl_group = 'BinaryJumpRange' }
-    ),
-    vim.api.nvim_buf_set_extmark(
+    )
+  end
+  prev_hl[4] = vim.api.nvim_buf_set_extmark(
+    buf, ns, row,
+    next_m_l + 1, { end_col = m, hl_group = 'BinaryJumpRange' }
+  )
+  prev_hl[5] = vim.api.nvim_buf_set_extmark(
+    buf, ns, row,
+    m, { end_col = m + 1, hl_group = 'BinaryJumpMid' }
+  )
+  prev_hl[6] = vim.api.nvim_buf_set_extmark(
+    buf, ns, row,
+    m + 1, { end_col = next_m_r, hl_group = 'BinaryJumpRange' }
+  )
+  -- only hl when there are chars on the right
+  if m < r then
+    prev_hl[7] = vim.api.nvim_buf_set_extmark(
       buf, ns, row,
       next_m_r, { end_col = next_m_r + 1, hl_group = 'BinaryJumpNextMid' }
-    ),
-    vim.api.nvim_buf_set_extmark(
+    )
+    prev_hl[8] = vim.api.nvim_buf_set_extmark(
       buf, ns, row,
       next_m_r + 1, { end_col = r + 1, hl_group = 'BinaryJumpRange' }
-    ),
-  }
+    )
+  end
 
   if on_ev == nil then
     on_ev = vim.api.nvim_create_autocmd({ 'CursorMoved', 'ModeChanged' }, {
