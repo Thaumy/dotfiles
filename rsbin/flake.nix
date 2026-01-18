@@ -2,7 +2,7 @@
   inputs = {
     pkgs.url = "github:NixOS/nixpkgs/723ce9394b443fc4ce83d6d5a54aee528c5bb328"; # 25-8-2
     rust-overlay = {
-      url = "github:oxalica/rust-overlay/08ff39bf869cadca3102b39824f4c7025186b7dc"; # 25-8-2
+      url = "github:oxalica/rust-overlay/4b7472a78857ac789fb26616040f55cfcbd36c6e"; # 26-01-18
       inputs.nixpkgs.follows = "pkgs";
     };
     flake-utils.url = "github:numtide/flake-utils/11707dc2f618dd54ca8739b309ec4fc024de578b"; # 24-11-14
@@ -28,7 +28,7 @@
           name = bin-name;
 
           nativeBuildInputs = [
-            (rust-toolchain "stable" "1.88.0")
+            (rust-toolchain "stable" "1.92.0")
           ];
 
           cargoLock = {
@@ -53,10 +53,10 @@
           name = "rsbin";
 
           # Use nightly fmt for better style
-          RUSTFMT = "${rust-toolchain "nightly" "2025-08-02"}/bin/rustfmt";
+          RUSTFMT = "${rust-toolchain "nightly" "2026-01-18"}/bin/rustfmt";
 
           nativeBuildInputs = [
-            (rust-toolchain "stable" "1.88.0")
+            (rust-toolchain "stable" "1.92.0")
           ];
         };
 
