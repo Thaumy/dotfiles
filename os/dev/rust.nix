@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }:
 let
-  toolchain = (pkgs.rust-bin.nightly."2025-10-28".complete.override {
+  toolchain = (pkgs.rust-bin.nightly."2026-01-18".complete.override {
     extensions = [ "rust-src" ];
     targets = [
       "aarch64-apple-darwin"
