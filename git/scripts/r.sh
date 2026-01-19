@@ -13,7 +13,7 @@ else
 fi
 
 if (( n >= max_commits )); then
-  git rebase -i --root
+  git rebase -ir --root
 else
-  git rebase -i "HEAD~$n"
+  git rebase -ir "HEAD~$n"
 fi
