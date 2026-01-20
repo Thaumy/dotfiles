@@ -1,6 +1,16 @@
 local ffi = require 'ffi'
 
 ffi.cdef [[
+  void case_conv(
+    uint8_t* from_ptr,
+    size_t from_len,
+    uint8_t to_convention,
+    uint8_t** to_ptr,
+    size_t* to_len,
+    void** ptr_to_drop
+  );
+  void case_conv_drop(void* ptr);
+
   void shorten_path(
     uint8_t* original_ptr,
     size_t original_len,
