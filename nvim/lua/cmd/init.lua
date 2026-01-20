@@ -1,4 +1,5 @@
 require 'cmd.make'
+require 'cmd.case_conv'
 require 'cmd.im_switch'
 require 'cmd.hl_conflict'
 require 'cmd.hl_trailing_space'

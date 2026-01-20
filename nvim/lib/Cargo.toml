@@ -8,3 +8,6 @@ crate-type = ["cdylib"]
 
 [profile.release]
 lto = "fat"
+
+[dependencies]
+heck = "0.5"
