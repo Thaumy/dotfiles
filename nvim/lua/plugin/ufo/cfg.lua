@@ -43,12 +43,12 @@ k.map('n', '<M-k>', function()
   if vim.bo.ft == 'TelescopePrompt' then
     return
   end
-  vim.api.nvim_feedkeys('za', 'n', true)
+  vim.cmd 'normal! za'
 end)
 -- expand code block
 k.map('n', '<M-j>', function()
   if vim.bo.ft == 'TelescopePrompt' then
     return
   end
-  vim.api.nvim_feedkeys('zo', 'n', true)
+  vim.cmd 'normal! zo'
 end)

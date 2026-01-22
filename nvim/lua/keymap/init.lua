@@ -124,7 +124,7 @@ map_cmd('n', '<C-n>', 'noh')
 
 -- find git conflict mark
 map('n', 'cf', function()
-  vim.api.nvim_feedkeys('/<<<<<<< \r', 'n', false)
+  vim.cmd 'normal! /<<<<<<< \r'
 end)
 
 -- visual-block front/back insert
