@@ -29,6 +29,9 @@ bindings = [
   { mods = "Control", key = "-", action = "ReceiveChar" },
 ]
 
+[window]
+decorations = "None"
+
 [colors.primary]
 foreground = "#4c4f69"
 background = "#eff1f5"
