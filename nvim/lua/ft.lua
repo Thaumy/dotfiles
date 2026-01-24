@@ -20,5 +20,6 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = 'gitcommit',
   callback = function()
     vim.api.nvim_set_option_value('cc', '72', { scope = 'local' })
+    vim.bo.textwidth = 0
   end,
 })
