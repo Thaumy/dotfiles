@@ -19,6 +19,6 @@ vim.filetype.add {
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'gitcommit',
   callback = function()
-    vim.opt_local.colorcolumn = '80'
+    vim.api.nvim_set_option_value('cc', '72', { scope = 'local' })
   end,
 })
