@@ -11,6 +11,7 @@ return {
   keys = {
     { mode = 'n', 'tm' },
     { mode = 'n', 'g/' },
+    { mode = 'n', 'cf' },
     { mode = 'n', 'fd' },
     { mode = 'n', '<M-d>' },
     { mode = 'n', '<M-u>' },
