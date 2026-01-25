@@ -122,11 +122,6 @@ end)
 -- clear search hl
 map_cmd('n', '<C-n>', 'noh')
 
--- find git conflict mark
-map('n', 'cf', function()
-  vim.cmd 'normal! /<<<<<<< \r'
-end)
-
 -- visual-block front/back insert
 map('x', 'i', function()
   if vim.api.nvim_get_mode().mode == '\22' then

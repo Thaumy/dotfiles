@@ -84,3 +84,7 @@ k.map('n', '<M-d>', plugin_builtin.lsp_definitions)
 k.map('n', '<M-u>', plugin_builtin.lsp_references)
 -- go impl
 k.map('n', '<M-i>', plugin_builtin.lsp_implementations)
+
+-- list git conflicts
+local git_conflicts = require 'plugin.telescope.cfg.git_conflicts'
+k.map('n', 'cf', git_conflicts)
