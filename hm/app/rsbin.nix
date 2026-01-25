@@ -9,6 +9,7 @@ in
     (edit-config "cfg")
     (dup-img-finder "dif")
     (git-abort "git-abort")
+    (git-conflicts "git-conflicts")
     (git-continue "git-continue")
     (safe-remove "rr")
     (screenshot "ss")
