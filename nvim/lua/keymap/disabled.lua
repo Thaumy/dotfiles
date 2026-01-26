@@ -3,7 +3,7 @@ local unmap = require 'infra.key'.unmap
 -- search backward
 unmap('n', '?')
 -- select word backward
-unmap('x', 'b')
+unmap({ 'n', 'x' }, 'b')
 -- recording
 unmap({ 'n', 'x' }, 'q')
 -- key chord

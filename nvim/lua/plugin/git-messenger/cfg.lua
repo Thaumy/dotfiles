@@ -2,7 +2,7 @@ local k = require 'infra.key'
 
 local ns = vim.api.nvim_create_namespace 'git-blame-popup'
 
-k.map('n', 'b', function()
+k.map('n', 'bl', function()
   vim.cmd 'GitMessenger'
   vim.on_key(function(key, _)
     -- if <Esc> was pressed in normal mode
