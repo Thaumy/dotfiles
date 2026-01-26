@@ -3,7 +3,7 @@ return {
   dev = true,
 
   keys = {
-    { mode = 'n', 'b' },
+    { mode = 'n', 'bl' },
   },
 
   config = function()
