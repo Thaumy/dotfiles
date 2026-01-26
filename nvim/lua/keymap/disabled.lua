@@ -8,6 +8,10 @@ unmap('x', 'b')
 unmap({ 'n', 'x' }, 'q')
 -- key chord
 unmap({ 'x', 'i' }, '<C-k>')
+-- jump to next word
+unmap({ 'n', 'x' }, 'w')
+-- replace
+unmap({ 'n', 'x' }, 'r')
 
 -- move cursor left/up/down
 unmap({ 'n', 'x' }, '<Bs>')
