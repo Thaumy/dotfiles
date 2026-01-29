@@ -1,0 +1,11 @@
+[package]
+name = "git-blame-line"
+version = "0.1.0"
+edition = "2024"
+
+[profile.release]
+lto = "fat"
+
+[dependencies]
+chrono = "0.4"
+git2 = { version = "0.20", default-features = false }
