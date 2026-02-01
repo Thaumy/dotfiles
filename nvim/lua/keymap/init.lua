@@ -4,6 +4,7 @@ require 'keymap.buf_stack'
 require 'keymap.cycle_wins'
 require 'keymap.binary_jump'
 require 'keymap.visual_block'
+require 'keymap.blame_line'
 
 local k = require 'infra.key'
 

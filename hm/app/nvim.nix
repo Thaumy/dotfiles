@@ -14,17 +14,6 @@ let
     };
   };
 
-  git-messenger-vim = pkgs.vimUtils.buildVimPlugin {
-    pname = "git-messenger.vim";
-    version = "2025-01-23";
-    src = pkgs.fetchFromGitHub {
-      owner = "Thaumy";
-      repo = "git-messenger.vim";
-      rev = "566545a19c4a5b974c4dedce7fbbcf88292250a7";
-      hash = "sha256-6WG1JOr16qL6StSSinpjvaRqb6OmktlGOGLZXej6AT0=";
-    };
-  };
-
   neo-tree-nvim = pkgs.vimUtils.buildVimPlugin {
     pname = "neo-tree.nvim";
     version = "2026-01-03";
@@ -76,7 +65,6 @@ in
       neo-tree-nvim # file explorer, [deps: plenary-nvim, nvim-web-devicons, nui-nvim]
       telescope-nvim # fuzzy finder
       bufferline-nvim # buffer tabs
-      git-messenger-vim # git blame popup
       colorful-menu-nvim # hl for code completion menu
       actions-preview-nvim # code actions preview
       markdown-preview-nvim # markdown renderer
