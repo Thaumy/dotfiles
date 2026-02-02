@@ -112,6 +112,7 @@ in
       biome # Web
       pyright # Python
       lemminx # XML
+      protols # Protocol Buffers
       fish-lsp # fish shell
       fantomas # F# fmt
       marksman # Markdown
