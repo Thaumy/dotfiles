@@ -38,9 +38,17 @@ if [ "$1" = 'w' ]; then
   exit
 fi
 
+if [ "$1" = 'cw' ]; then
+  git reset HEAD^
+  git clean -df
+  git restore .
+  exit
+fi
+
 echo 'available options:'
 echo 'c: undo commit'
 echo 'm [path]: undo modify'
 echo 'a [path]: undo add'
 echo 'n [path]: undo new files'
 echo 'w: undo any writing (equal to m+n)'
+echo 'cw: undo commit, then undo any writing (equal to c+w)'
