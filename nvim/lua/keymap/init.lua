@@ -166,6 +166,7 @@ end)
 -- focus on quickfix list
 map('n', 'cc', function()
   if #vim.fn.getqflist() == 0 then
+    vim.cmd 'bo cclose'
     vim.print 'qf list is empty'
   else
     vim.cmd 'bo copen'
