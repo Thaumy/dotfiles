@@ -1,9 +1,9 @@
 { pkgs, ... }:
 let
-  pkgs-24-05 = pkgs.callPackage
+  pkgs-25-05 = pkgs.callPackage
     (builtins.fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-24.05.tar.gz";
-      sha256 = "0zydsqiaz8qi4zd63zsb2gij2p614cgkcaisnk11wjy3nmiq0x1s";
+      url = "https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-25.05.tar.gz";
+      sha256 = "0v6bd1xk8a2aal83karlvc853x44dg1n4nk08jg3dajqyy0s98np";
     })
     { };
 in
@@ -12,6 +12,6 @@ with pkgs; [
   typst
   lychee
   typstyle
-  pkgs-24-05.wpsoffice
-  pkgs-24-05.libreoffice
+  pkgs-25-05.wpsoffice
+  pkgs-25-05.libreoffice
 ]
