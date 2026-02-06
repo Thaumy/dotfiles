@@ -124,7 +124,8 @@ in
   home.file = {
     ".config/nvim".source = mkSymlink "${homeDir}/cfg/nvim";
 
-    ".config/libnvimcfg.so".source = "${inputs.libnvimcfg.packages.${pkgs.system}.default}/lib/libnvimcfg.so";
+    ".config/libnvimcfg.so".source =
+      "${inputs.libnvimcfg.packages.${pkgs.stdenv.hostPlatform.system}.default}/lib/libnvimcfg.so";
 
     ".config/nvim-plugins".source =
       let

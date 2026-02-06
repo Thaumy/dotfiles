@@ -2,7 +2,7 @@
 let
   homeDir = config.home.homeDirectory;
   mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-  rsbin = inputs.rsbin.packages.${pkgs.system};
+  rsbin = inputs.rsbin.packages.${pkgs.stdenv.hostPlatform.system};
 in
 {
   home.packages = with rsbin; [
