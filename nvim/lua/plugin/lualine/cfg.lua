@@ -92,7 +92,12 @@ local function build_state()
 end
 
 local function col()
-  return string.format('C%d', vim.api.nvim_win_get_cursor(0)[2])
+  local n = vim.api.nvim_win_get_cursor(0)[2]
+  if n < 80 then
+    return string.format('C%d', n)
+  else
+    return string.format('%%#WarningMsg#C%d', n)
+  end
 end
 
 local function relative_path()
