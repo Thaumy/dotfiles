@@ -60,11 +60,6 @@ map('x', 'y', function()
     if to[3] - 1 == #line then
       text = text .. '\n'
     end
-  elseif mode == 'V' then
-    -- visual line
-    -- add line break to the head for the
-    -- same behavior as normal yank (yy)
-    text = '\n' .. text
   end
 
   vim.fn.setreg('+', text, mode)
