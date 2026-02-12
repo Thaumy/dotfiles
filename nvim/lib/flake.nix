@@ -2,7 +2,7 @@
   inputs = {
     pkgs.url = "github:NixOS/nixpkgs/d38bf033dc578bcc3757ecb3fdda7755f65421bc"; # 25-10-26
     rust-overlay = {
-      url = "github:oxalica/rust-overlay/4b7472a78857ac789fb26616040f55cfcbd36c6e"; # 26-01-18
+      url = "github:oxalica/rust-overlay/095c394bb91342882f27f6c73f64064fb9de9f2a"; # 26-2-4
       inputs.nixpkgs.follows = "pkgs";
     };
     flake-utils.url = "github:numtide/flake-utils/11707dc2f618dd54ca8739b309ec4fc024de578b"; # 24-11-14
@@ -29,10 +29,10 @@
           inherit name;
 
           # Use nightly fmt for better style
-          RUSTFMT = "${rust-toolchain "nightly" "2026-01-18"}/bin/rustfmt";
+          RUSTFMT = "${rust-toolchain "nightly" "2026-02-04"}/bin/rustfmt";
 
           nativeBuildInputs = [
-            (rust-toolchain "stable" "1.92.0")
+            (rust-toolchain "stable" "1.93.0")
           ];
         };
 
@@ -40,7 +40,7 @@
           inherit name;
 
           nativeBuildInputs = [
-            (rust-toolchain "stable" "1.92.0")
+            (rust-toolchain "stable" "1.93.0")
           ];
 
           src = ./.;
