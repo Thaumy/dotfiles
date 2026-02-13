@@ -127,25 +127,21 @@ in
     ".config/libnvimcfg.so".source =
       "${inputs.libnvimcfg.packages.${pkgs.stdenv.hostPlatform.system}.default}/lib/libnvimcfg.so";
 
-    ".config/nvim-plugins".source =
-      let
-        packDir = pkgs.vimUtils.packDir config.programs.neovim.finalPackage.passthru.packpathDirs;
-      in
-      # symlink local plugin to vim pack dir
-      pkgs.symlinkJoin {
-        name = "nvim-plugins";
-        paths = [ "${packDir}/pack/myNeovimPackages/start" ]
-          ++ map
-          (it: (pkgs.stdenv.mkDerivation {
-            name = it.name;
-            src = ./.;
-            buildPhase = ''
-              mkdir -p $out
-              ln -s ${it.path} $out/${it.name}
-            '';
-          }))
-          localPlugins;
-      };
+    ".config/nvim-plugins".source = pkgs.symlinkJoin {
+      name = "nvim-plugins";
+      paths = [ "${config.xdg.dataFile."nvim/site/pack/hm".source}/start" ]
+        # symlink local plugin to vim pack dir
+        ++ map
+        (it: (pkgs.stdenv.mkDerivation {
+          name = it.name;
+          src = ./.;
+          buildPhase = ''
+            mkdir -p $out
+            ln -s ${it.path} $out/${it.name}
+          '';
+        }))
+        localPlugins;
+    };
 
     ".config/nvim-treesitter-parsers".source =
       let
