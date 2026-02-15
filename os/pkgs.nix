@@ -99,7 +99,6 @@ let
     fastfetch
     shellcheck
     qbittorrent
-    ollama-cuda
     home-manager
     any-nix-shell
     systemctl-tui
