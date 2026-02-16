@@ -74,15 +74,15 @@ let
     aircrack-ng
     wirelesstools
 
-    (pkgs.callPackage
-      (pkgs.fetchFromGitHub {
-        owner = "nixos";
-        repo = "nixpkgs";
-        rev = "nixos-24.05";
-        hash = "sha256-OnSAY7XDSx7CtDoqNh8jwVwh4xNL/2HaJxGjryLWzX8=";
-      })
-      { }
-    ).postman
+    ((import (pkgs.fetchFromGitHub {
+      owner = "nixos";
+      repo = "nixpkgs";
+      rev = "nixos-24.05";
+      hash = "sha256-OnSAY7XDSx7CtDoqNh8jwVwh4xNL/2HaJxGjryLWzX8=";
+    })) {
+      system = pkgs.stdenv.hostPlatform.system;
+      config.allowUnfree = true;
+    }).postman
   ];
 
   etc = with pkgs; [
@@ -107,15 +107,15 @@ let
     networkmanagerapplet
     libsForQt5.qtstyleplugin-kvantum
 
-    (pkgs.callPackage
-      (pkgs.fetchFromGitHub {
-        owner = "nixos";
-        repo = "nixpkgs";
-        rev = "nixos-24.05";
-        hash = "sha256-OnSAY7XDSx7CtDoqNh8jwVwh4xNL/2HaJxGjryLWzX8=";
-      })
-      { }
-    ).jetbrains.datagrip
+    ((import (pkgs.fetchFromGitHub {
+      owner = "nixos";
+      repo = "nixpkgs";
+      rev = "nixos-24.05";
+      hash = "sha256-OnSAY7XDSx7CtDoqNh8jwVwh4xNL/2HaJxGjryLWzX8=";
+    })) {
+      system = pkgs.stdenv.hostPlatform.system;
+      config.allowUnfree = true;
+    }).jetbrains.datagrip
   ];
 in
 {
