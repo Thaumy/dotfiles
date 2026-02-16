@@ -86,6 +86,7 @@ let
   ];
 
   etc = with pkgs; [
+    xev
     mutt
     tmux
     grim
@@ -93,7 +94,6 @@ let
     udiskie
     blueman
     paperkey
-    xorg.xev
     gammastep
     alacritty
     fastfetch
