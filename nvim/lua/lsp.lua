@@ -74,6 +74,7 @@ do
     if config == nil then
       config = { focus_id = ctx.method }
     end
+    config.border = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' }
     hover_buf = vim.lsp.util.open_floating_preview(lines, 'markdown', config)
 
     on_cursor_moved = vim.api.nvim_create_autocmd('CursorMoved', {
