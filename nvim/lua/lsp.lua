@@ -30,7 +30,10 @@ do
   local ns = vim.api.nvim_create_namespace 'diagnostic-win'
   local on_cursor_moved = nil
   k.map('n', '<M-w>', function()
-    diagnostic_buf = vim.diagnostic.open_float { scope = 'cursor' }
+    diagnostic_buf = vim.diagnostic.open_float {
+      scope = 'cursor',
+      border = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
+    }
 
     on_cursor_moved = vim.api.nvim_create_autocmd('CursorMoved', {
       once = true,
