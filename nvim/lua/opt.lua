@@ -1,33 +1,33 @@
 local shorten_path = require 'infra.shorten_path'
 
 vim.o.shortmess = 'ltToOcCFsSI'
-vim.bo.softtabstop = 2
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-vim.opt.fillchars:append { eob = ' ' }
+vim.o.softtabstop = 2
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
+vim.o.expandtab = true
+vim.o.fillchars = 'eob: '
 
 -- extra characters in viw
-vim.opt.iskeyword:append { '-', '#' }
+vim.o.iskeyword = '@,48-57,_,192-255,-,#'
 
 -- show line numbers
-vim.wo.number = true
-vim.opt.numberwidth = 1
+vim.o.number = true
+vim.o.numberwidth = 1
 
 -- single status line
-vim.opt.laststatus = 3
+vim.o.laststatus = 3
 
 -- hl current line
-vim.opt.cursorline = true
+vim.o.cursorline = true
 
 -- share system clipboards
-vim.opt.clipboard = 'unnamed,unnamedplus'
+vim.o.clipboard = 'unnamed,unnamedplus'
 
 -- disable swap file
-vim.opt.swapfile = false
+vim.o.swapfile = false
 
 -- disable line wrapping when esceeding term width
-vim.wo.wrap = false
+vim.o.wrap = false
 
 -- keymap expire time
 vim.o.timeoutlen = 500
@@ -42,7 +42,7 @@ vim.g.loaded_ruby_provider = 0
 vim.g.loaded_python3_provider = 0
 
 -- max qflist stack size
-vim.go.chi = 3
+vim.o.chi = 3
 
 function QFTF(opts)
   local list = nil
