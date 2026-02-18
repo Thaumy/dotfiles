@@ -1,7 +1,6 @@
 local k = require 'infra.key'
 local plugin = require 'neo-tree'
 local mappings = require 'plugin.neo-tree.cfg.mappings'
-local event_handlers = require 'plugin.neo-tree.cfg.event_handlers'
 local Debounce = require 'infra.debounce'
 
 plugin.setup {
@@ -85,8 +84,6 @@ plugin.setup {
       mappings = mappings.git_status,
     },
   },
-
-  event_handlers = event_handlers,
 }
 
 local neotree_cmd = require 'neo-tree.command'.execute
