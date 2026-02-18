@@ -11,7 +11,12 @@ map('n', ';', function()
     if win > curr_win then
       local buf = vim.api.nvim_win_get_buf(win)
       local ft = vim.api.nvim_get_option_value('filetype', { buf = buf })
-      if ft ~= 'qf' and ft ~= 'fidget' then
+      if
+          ft ~= 'qf' and
+          ft ~= 'fidget' and
+          -- skip bqf preview window
+          not (vim.api.nvim_buf_get_name(buf):match 'BqfPreviewFloatWin')
+      then
         target_win = win
         break
       end
