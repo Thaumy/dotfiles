@@ -53,6 +53,7 @@ let
   ];
 
   fs = with pkgs; [
+    wimlib
     parted
     gparted
     exfatprogs
