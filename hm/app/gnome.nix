@@ -4,7 +4,11 @@
     sushi # file preview
     geary # mail
     evince # docs reader
-    nautilus
+    (nautilus.overrideAttrs (finalAttrs: previousAttrs: {
+      patches = previousAttrs.patches ++ [
+        ../patch/natilus-add-ultra-large-zoom-level.patch
+      ];
+    }))
     file-roller # archive
     dconf-editor
     gnome-tweaks
