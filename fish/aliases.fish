@@ -28,7 +28,7 @@ alias lzdk lazydocker
 functions -e ll
 alias l "eza --no-permissions --no-filesize --no-user --no-time --group-directories-first"
 alias ls "eza -l --git -g --time-style '+%y-%m-%d %H:%M' --smart-group --group-directories-first"
-alias la "eza -l --git -g --time-style '+%y-%m-%d %H:%M' --smart-group --group-directories-first -a"
+alias la "ls -a"
 
 function ti
     if set -q argv[1]
