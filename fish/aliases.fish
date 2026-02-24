@@ -29,6 +29,8 @@ functions -e ll
 alias l "eza --no-permissions --no-filesize --no-user --no-time --group-directories-first"
 alias ls "eza -l --git -g --time-style '+%y-%m-%d %H:%M' --smart-group --group-directories-first"
 alias la "ls -a"
+alias lt "ls --tree"
+alias lta "la --tree"
 
 function ti
     if set -q argv[1]
