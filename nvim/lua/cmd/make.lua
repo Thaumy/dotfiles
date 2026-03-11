@@ -95,11 +95,24 @@ vim.api.nvim_create_user_command('M', function(opts)
     else
       vim.print 'build complete'
     end
-    vim.fn.setqflist({}, ' ', {
+
+    local items = (vim.fn.getqflist {
       efm = efm,
       lines = out,
-    })
+    }).items
     out = {}
+
+    local valid_items = {}
+    local n = 1
+    for i = 1, #items do
+      local item = items[i]
+      if item.valid == 1 and item.bufnr > 0 then
+        valid_items[n] = items[i]
+        n = n + 1
+      end
+    end
+
+    vim.fn.setqflist(valid_items)
     vim.api.nvim_exec_autocmds({ 'QuickFixCmdPost' }, {})
     line_parts = {}
     BUILD_JOB_ID = nil
