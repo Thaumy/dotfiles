@@ -34,10 +34,25 @@ alias lta "la --tree"
 
 function ti
     if set -q argv[1]
-        set -g SHELL_TITLE "$argv[1]"
+        if test "$argv[1]" = -s
+            if set -q argv[2]
+                # set tmux session name
+                tmux rename-session "$argv[2]"
+            else
+                # clear tmux session name
+                tmux rename-session "$(tmux display-message -p '#{session_id}' | string replace '$' '')"
+                echo "  session name cleared"
+            end
+        else
+            # clear fish title
+            set -g SHELL_TITLE "$argv[1]"
+        end
     else
+        # clear fish title
         set -e SHELL_TITLE
+        echo "  shell title cleared"
     end
+    return 0
 end
 
 function lc
