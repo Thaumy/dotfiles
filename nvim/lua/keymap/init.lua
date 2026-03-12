@@ -347,7 +347,13 @@ map('n', '<C-p>', function()
 end)
 
 -- refresh buf
-map_cmd({ 'n', 'x' }, 'rr', 'e')
+map({ 'n', 'x' }, 'rr', function()
+  if vim.api.nvim_buf_get_name(0) == '' then
+    vim.print 'no filename, can not refresh'
+    return
+  end
+  vim.cmd 'e'
+end)
 
 -- yank whole buf
 map_cmd('n', 'ya', '%y+')
