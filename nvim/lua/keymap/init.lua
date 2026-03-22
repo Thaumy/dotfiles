@@ -173,6 +173,11 @@ map('n', 'cc', function()
   end
 end)
 
+-- close quickfix list
+map('n', 'cq', function()
+  vim.cmd 'bo cclose'
+end)
+
 -- delete quickfix row
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'qf',
