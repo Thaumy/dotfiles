@@ -79,6 +79,7 @@ in
       colorful-menu-nvim # hl for code completion menu
       actions-preview-nvim # code actions preview
       markdown-preview-nvim # markdown renderer
+      nvim-treesitter-context # show current context
 
       # analyzers
       nvim-cmp # code completion, [deps: cmp-path, cmp-buffer, cmp-cmdline, cmp-nvim-lsp, luasnip, nvim-lspconfig]
