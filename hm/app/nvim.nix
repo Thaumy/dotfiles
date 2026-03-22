@@ -26,6 +26,18 @@ let
     doCheck = false;
   };
 
+  nvim-bqf = pkgs.vimUtils.buildVimPlugin {
+    pname = "nvim-bqf";
+    version = "2026-03-19";
+    src = pkgs.fetchFromGitHub {
+      owner = "Thaumy";
+      repo = "nvim-bqf";
+      rev = "b11bbd9741f2980eae8261780b9605fc109b6447";
+      hash = "sha256-TPX12JVvfSb2SHxWNMRXfI5Ju79Z78VIyrq3LX6LQE8=";
+    };
+    doCheck = false;
+  };
+
   # Will be symlinked to the final plugin dir, mainly for plugin dev.
   localPlugins = [
     #{ name = "foo.nvim"; path = "/abs/path"; }
