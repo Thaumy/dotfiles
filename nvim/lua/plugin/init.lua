@@ -17,6 +17,7 @@ local specs = {
   require 'plugin.coq-goals.spec',
   require 'plugin.telescope.spec',
   require 'plugin.md-preview.spec',
+  require 'plugin.treesitter-ctx.spec',
   require 'plugin.actions-preview.spec',
 
   -- analyzers

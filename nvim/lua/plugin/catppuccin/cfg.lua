@@ -36,6 +36,7 @@ plugin.setup {
       TodoBgTest = { fg = '#eff1f5', bg = '#fe640b', bold = true },
       TodoBgTODO = { fg = '#eff1f5', bg = '#04a5e5', bold = true },
       TrailingSpace = { bg = '#ffc800' },
+      TreesitterContextBottom = { bg = '#e6e9ee', style = {} },
       CmpItemAbbrMatch = { fg = '#6420aa', style = {} },
       CmpMenuCursorLine = { bg = '#e6e9ef', bold = true },
       NeoTreeGitConflict = { fg = '#ed1b24' },
