@@ -10,3 +10,8 @@ plugin.add_snippets('rust', {
   s('ccf', { t '#[cfg(feature = "', i(0), t '")]' }),
   s('ccnf', { t '#[cfg(not(feature = "', i(0), t '"))]' }),
 })
+
+plugin.add_snippets('lua', {
+  s('debug_print', { t 'vim.print(vim.inspect(', i(0), t '))' }),
+  s('debug_notify', { t 'vim.notify(vim.inspect(', i(0), t '))' }),
+})
