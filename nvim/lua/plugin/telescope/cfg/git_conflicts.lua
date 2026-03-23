@@ -15,7 +15,7 @@ return function()
     return
   end
 
-  pickers.new({}, {
+  pickers.new({ file_ignore_patterns = {} }, {
     finder = finders.new_table {
       results = out,
       entry_maker = function(line)
