@@ -246,8 +246,14 @@ map('n', 'U', '<C-R>')
 -- go bottom
 map({ 'n', 'x' }, 'ff', 'G')
 -- go prev/next position
-map('n', 'cp', '<C-o>')
-map('n', 'cn', '<C-i>')
+map('n', 'cp', function()
+  if vim.bo.bt ~= '' then return end
+  vim.cmd 'normal! \15' -- <C-o>
+end)
+map('n', 'cn', function()
+  if vim.bo.bt ~= '' then return end
+  vim.cmd 'normal! 1\t' -- <C-i>
+end)
 
 -- select line/col/all
 map('n', 'v<Space>', 'V')
