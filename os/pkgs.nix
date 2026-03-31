@@ -6,7 +6,7 @@ let
     ocaml
     stack
     valgrind
-    python312
+    python315
     pax-utils
     sysfsutils
     android-tools

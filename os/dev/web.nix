@@ -4,6 +4,5 @@
     nodejs
     protobuf
     openapi-generator-cli
-    nodePackages_latest.yo
   ];
 }
