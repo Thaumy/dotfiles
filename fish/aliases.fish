@@ -21,6 +21,7 @@ alias hmb "home-manager build --flake path:(realpath $HOME/cfg) --cores 6 --no-o
 alias hms "home-manager switch --flake path:(realpath $HOME/cfg)"
 alias nrb "nixos-rebuild build --flake path:(realpath $HOME/cfg) --cores 6 && command rm -f result"
 alias nrs "sudo nixos-rebuild switch --flake path:(realpath $HOME/cfg)"
+alias nfu "nix flake update"
 
 alias dk docker
 alias lzdk lazydocker
