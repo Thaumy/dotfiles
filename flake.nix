@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "pkgs";
     };
 
-    dae.url = "github:daeuniverse/flake.nix/1800f4eedb940644d99d60833ad0acba9aeeee0e"; # 25-12-16
+    dae.url = "github:daeuniverse/flake.nix/62d55a8172c5ec028b21d50ea54c7c73107db6aa"; # 26-2-20
 
     rust-overlay = {
       url = "github:oxalica/rust-overlay/095c394bb91342882f27f6c73f64064fb9de9f2a"; # 26-2-4
