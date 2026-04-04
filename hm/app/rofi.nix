@@ -5,5 +5,5 @@ let
 in
 {
   home.packages = [ pkgs.rofi ];
-  home.file.".config/rofi".source = mkSymlink "${homeDir}/cfg/rofi";
+  xdg.configFile."rofi".source = mkSymlink "${homeDir}/cfg/rofi";
 }

@@ -12,5 +12,5 @@ in
     '';
   };
 
-  home.file.".config/fish/functions".source = mkSymlink "${homeDir}/cfg/fish/functions";
+  xdg.configFile."fish/functions".source = mkSymlink "${homeDir}/cfg/fish/functions";
 }

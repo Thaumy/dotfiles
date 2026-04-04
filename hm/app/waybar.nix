@@ -8,5 +8,5 @@ in
     enable = true;
   };
 
-  home.file.".config/waybar".source = mkSymlink "${homeDir}/cfg/waybar";
+  xdg.configFile."waybar".source = mkSymlink "${homeDir}/cfg/waybar";
 }

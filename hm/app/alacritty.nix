@@ -4,5 +4,5 @@ let
   mkSymlink = config.lib.file.mkOutOfStoreSymlink;
 in
 {
-  home.file.".config/alacritty/alacritty.toml".source = mkSymlink "${homeDir}/cfg/alacritty/config.toml";
+  xdg.configFile."alacritty/alacritty.toml".source = mkSymlink "${homeDir}/cfg/alacritty/config.toml";
 }

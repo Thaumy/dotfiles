@@ -121,17 +121,17 @@ in
     ];
   };
 
-  # HACK: disable HM-generated init.lua to avoid build failures
-  # caused by trying to create symlink outside $HOME
-  xdg.configFile."nvim/init.lua".enable = false;
+  xdg.configFile = {
+    # HACK: disable HM-generated init.lua to avoid build failures
+    # caused by trying to create symlink outside $HOME
+    "nvim/init.lua".enable = false;
 
-  home.file = {
-    ".config/nvim".source = mkSymlink "${homeDir}/cfg/nvim";
+    "nvim".source = mkSymlink "${homeDir}/cfg/nvim";
 
-    ".config/libnvimcfg.so".source =
+    "libnvimcfg.so".source =
       "${inputs.libnvimcfg.packages.${pkgs.stdenv.hostPlatform.system}.default}/lib/libnvimcfg.so";
 
-    ".config/nvim-plugins".source = pkgs.symlinkJoin {
+    "nvim-plugins".source = pkgs.symlinkJoin {
       name = "nvim-plugins";
       paths = [ "${config.xdg.dataFile."nvim/site/pack/hm".source}/start" ]
         # symlink local plugin to vim pack dir
@@ -147,7 +147,7 @@ in
         localPlugins;
     };
 
-    ".config/nvim-treesitter-parsers".source =
+    "nvim-treesitter-parsers".source =
       let
         nvim-treesitter-parsers = pkgs.symlinkJoin {
           name = "nvim-treesitter-parsers";

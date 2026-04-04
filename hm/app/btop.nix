@@ -4,5 +4,5 @@ let
   mkSymlink = config.lib.file.mkOutOfStoreSymlink;
 in
 {
-  home.file.".config/btop".source = mkSymlink "${homeDir}/cfg/btop";
+  xdg.configFile."btop".source = mkSymlink "${homeDir}/cfg/btop";
 }
