@@ -5,6 +5,8 @@ in
 {
   xdg.userDirs = {
     enable = true;
+    setSessionVariables = true;
+
     music = "${homeDir}/mus";
     videos = "${homeDir}/vid";
     desktop = "${homeDir}/dt";

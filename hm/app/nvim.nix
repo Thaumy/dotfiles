@@ -133,6 +133,10 @@ in
     ];
   };
 
+  # HACK: disable HM-generated init.lua to avoid build failures
+  # caused by trying to create symlink outside $HOME
+  xdg.configFile."nvim/init.lua".enable = false;
+
   home.file = {
     ".config/nvim".source = mkSymlink "${homeDir}/cfg/nvim";
 
