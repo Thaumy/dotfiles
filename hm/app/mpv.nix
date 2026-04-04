@@ -4,5 +4,5 @@ let
   mkSymlink = config.lib.file.mkOutOfStoreSymlink;
 in
 {
-  home.file.".config/mpv".source = mkSymlink "${homeDir}/cfg/mpv";
+  xdg.configFile."mpv".source = mkSymlink "${homeDir}/cfg/mpv";
 }

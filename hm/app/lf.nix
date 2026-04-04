@@ -5,5 +5,5 @@ let
 in
 {
   home.packages = [ pkgs.lf ];
-  home.file.".config/lf".source = mkSymlink "${homeDir}/cfg/lf";
+  xdg.configFile."lf".source = mkSymlink "${homeDir}/cfg/lf";
 }

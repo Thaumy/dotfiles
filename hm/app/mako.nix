@@ -8,5 +8,5 @@ in
     mako
     libnotify
   ];
-  home.file.".config/mako".source = mkSymlink "${homeDir}/cfg/mako";
+  xdg.configFile."mako".source = mkSymlink "${homeDir}/cfg/mako";
 }

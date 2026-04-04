@@ -20,9 +20,9 @@ in
     (sh-history-filter "shf")
   ];
 
-  home.file = {
-    ".config/rsbin/edit-config/config.toml".source = mkSymlink "${homeDir}/cfg/rsbin/edit-config/config.toml";
-    ".config/dup-img-finder".source = mkSymlink "${homeDir}/cfg/dup-img-finder";
-    ".config/sh-history-filter".source = mkSymlink "${homeDir}/cfg/sh-history-filter";
+  xdg.configFile = {
+    "rsbin/edit-config/config.toml".source = mkSymlink "${homeDir}/cfg/rsbin/edit-config/config.toml";
+    "dup-img-finder".source = mkSymlink "${homeDir}/cfg/dup-img-finder";
+    "sh-history-filter".source = mkSymlink "${homeDir}/cfg/sh-history-filter";
   };
 }

@@ -4,5 +4,5 @@ let
   mkSymlink = config.lib.file.mkOutOfStoreSymlink;
 in
 {
-  home.file.".config/bat/config".source = mkSymlink "${homeDir}/cfg/bat/config";
+  xdg.configFile."bat/config".source = mkSymlink "${homeDir}/cfg/bat/config";
 }

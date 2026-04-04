@@ -9,13 +9,13 @@ in
     "sec".source = mkSymlink "${homeDir}/docs/sec";
     "fork-repo".source = mkSymlink "${homeDir}/dev/repo/fork";
     "thaumy-repo".source = mkSymlink "${homeDir}/dev/repo/thaumy";
+  };
 
-    ".config/nixpkgs/config.nix" = {
-      source = pkgs.writeTextFile {
-        name = "config.nix";
-        text = "{ allowUnfree = true; }";
-      };
-      recursive = true;
+  xdg.configFile."nixpkgs/config.nix" = {
+    source = pkgs.writeTextFile {
+      name = "config.nix";
+      text = "{ allowUnfree = true; }";
     };
+    recursive = true;
   };
 }
