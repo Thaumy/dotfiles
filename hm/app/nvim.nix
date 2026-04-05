@@ -41,6 +41,10 @@ let
   # Will be symlinked to the final plugin dir, mainly for plugin dev.
   localPlugins = [
     #{ name = "foo.nvim"; path = "/abs/path"; }
+    #rec {
+    #  name = "coq-goals.nvim";
+    #  path = "/home/thaumy/thaumy-repo/${name}";
+    #}
   ];
 in
 {
@@ -117,8 +121,10 @@ in
       tinymist # Typst
       nixpkgs-fmt # Nix fmt
       rust-analyzer # Rust
+      #ts_query_ls # Tree-sitter query
       fsautocomplete # F#
       omnisharp-roslyn # C#
+      #coqPackages.coq-lsp # Coq
       vue-language-server # Vue
       jdt-language-server # Java
       lua-language-server # Lua
