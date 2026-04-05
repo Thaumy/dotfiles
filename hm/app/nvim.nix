@@ -14,18 +14,6 @@ let
     };
   };
 
-  neo-tree-nvim = pkgs.vimUtils.buildVimPlugin {
-    pname = "neo-tree.nvim";
-    version = "2026-01-03";
-    src = pkgs.fetchFromGitHub {
-      owner = "Thaumy";
-      repo = "neo-tree.nvim";
-      rev = "07555ed6653f1f2bb03b663db4ef2faadd4c1a60";
-      hash = "sha256-MaB+TqClstHQPTzUiHV0Sfm5qVLYa/m9frHadiUnGKQ=";
-    };
-    doCheck = false;
-  };
-
   nvim-bqf = pkgs.vimUtils.buildVimPlugin {
     pname = "nvim-bqf";
     version = "2026-03-19";
