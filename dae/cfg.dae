@@ -30,12 +30,6 @@ dns {
   }
 }
 
-group {
-  proxy {
-    policy: min_moving_avg
-  }
-}
-
 routing {
   dscp(4) -> must_direct # BT
   domain(geosite:cn) -> direct
