@@ -91,6 +91,7 @@ let
     mutt
     tmux
     grim
+    dash
     devenv
     udiskie
     blueman
