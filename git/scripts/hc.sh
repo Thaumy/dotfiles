@@ -1,12 +1,11 @@
-#!/usr/bin/env bash
+#!/usr/bin/env dash
 
-declare NORM='\033[0m'
-declare GREEN='\033[32m'
+NORM='\033[0m'
+GREEN='\033[32m'
 
-declare HASH
 HASH=$(git rev-parse HEAD)
 echo -n "$HASH" | wl-copy
 
 git --no-pager show --stat
 
-echo -e "\n${GREEN}󰜴 commit hash copied${NORM}"
+echo "\n${GREEN}󰜴 commit hash copied${NORM}"

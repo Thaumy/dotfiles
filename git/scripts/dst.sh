@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env dash
 
 if [ -z "$1" ]; then
   git diff stash@\{0\}

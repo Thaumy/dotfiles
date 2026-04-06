@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env dash
 
 if [ "$1" = 'c' ]; then
   git reset HEAD^

@@ -1,14 +1,11 @@
 { pkgs, ... }:
 let
   shf-fish = pkgs.writeShellScriptBin "shf-fish" ''
-    #!/usr/bin/env bash
+    #!/usr/bin/env dash
 
     set -e
 
-    declare OLD_HISTORY
     OLD_HISTORY="$HOME/.local/share/fish/fish_history"
-
-    declare NEW_HISTORY
     NEW_HISTORY="/tmp/shf-fish-$(date +%s)"
 
     shf \

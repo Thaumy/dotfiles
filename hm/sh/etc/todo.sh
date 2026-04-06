@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env dash
 
 if [ -z "$1" ]; then
   exec nvim "$XDG_DOCUMENTS_DIR/todo/_"

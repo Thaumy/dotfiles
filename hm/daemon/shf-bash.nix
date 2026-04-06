@@ -1,14 +1,11 @@
 { pkgs, ... }:
 let
   shf-bash = pkgs.writeShellScriptBin "shf-bash" ''
-    #!/usr/bin/env bash
+    #!/usr/bin/env dash
 
     set -e
 
-    declare OLD_HISTORY
     OLD_HISTORY="$HOME/.bash_history"
-
-    declare NEW_HISTORY
     NEW_HISTORY="/tmp/shf-bash-$(date +%s)"
 
     shf \

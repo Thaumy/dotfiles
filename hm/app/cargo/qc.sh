@@ -1,18 +1,18 @@
-#!/usr/bin/env bash
+#!/usr/bin/env dash
 
 set -e
 
-declare BOLD='\033[1m'
-declare NORM='\033[0m'
-declare GREEN='\033[32m'
-declare PURPLE='\033[35m'
+BOLD='\033[1m'
+NORM='\033[0m'
+GREEN='\033[32m'
+PURPLE='\033[35m'
 
-function panic {
+panic() {
   huh; exit
 }
 
-function hl {
-  echo -e "${GREEN}󰜴 ${BOLD}${PURPLE}$1${NORM}"
+hl() {
+  echo "${GREEN}󰜴 ${BOLD}${PURPLE}$1${NORM}"
 }
 
 hl  "cargo build --workspace --offline"
@@ -24,7 +24,7 @@ hl  "cargo fmt --check"
 if ! cargo fmt --check; then
   panic
 else
-  echo -e "    ${BOLD}${GREEN}PASS${NORM}"
+  echo "    ${BOLD}${GREEN}PASS${NORM}"
 fi
 
 hl  "cargo clippy --workspace --tests --offline -- -D warnings"
