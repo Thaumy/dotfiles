@@ -23,3 +23,11 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.bo.textwidth = 0
   end,
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'gitrebase',
+  callback = function()
+    vim.cmd [[/^pick .\+\n\n# Rebase]]
+    vim.cmd 'noh'
+  end,
+})
