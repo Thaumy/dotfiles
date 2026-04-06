@@ -9,6 +9,7 @@ let
 in
 {
   home.packages = [
+    (writeBin "sv" etc/sv.sh)
     (writeBin "pwdc" etc/pwdc.sh)
     (writeBin "todo" etc/todo.sh)
     (writeBin "pdif" etc/pdif.sh)

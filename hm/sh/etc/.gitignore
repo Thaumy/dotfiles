@@ -1,6 +1,7 @@
 *.*
 !.gitignore
 
+!sv.sh
 !cfg.sh
 !pwdc.sh
 !todo.sh
