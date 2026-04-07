@@ -1,5 +1,6 @@
 #!/usr/bin/env dash
 
+set -e
 
 if [ -z "$1" ]; then
   threads=$(nproc --ignore=1 --all)

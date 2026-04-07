@@ -1,5 +1,7 @@
 #!/usr/bin/env dash
 
+set -e
+
 NORM='\033[0m'
 GREEN='\033[32m'
 

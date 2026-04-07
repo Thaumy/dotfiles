@@ -1,5 +1,7 @@
 #!/usr/bin/env dash
 
+set -e
+
 if [ "$1" = 'c' ]; then
   git reset HEAD^
   exit
