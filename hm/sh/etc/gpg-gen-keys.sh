@@ -1,8 +1,8 @@
 #!/usr/bin/env dash
 
-INFO="$1"
-
 set -e
+
+INFO="$1"
 
 mkdir -p log
 mkdir -p pub
