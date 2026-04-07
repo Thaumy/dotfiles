@@ -8,7 +8,9 @@ hm.sh = '~/cfg/hm/sh/mod.nix'
 git.'' = '~/cfg/git/config.ini'
 git.n = '~/cfg/hm/app/git.nix'
 
-os = '~/cfg/os/mod.nix'
+os.'' = '~/cfg/os/mod.nix'
+os.pkg = '~/cfg/os/pkgs.nix'
+
 mx = '~/cfg/tmux/tmux.conf'
 bat = '~/cfg/bat/config'
 ssh = '~/cfg/ssh/thaumy.conf'
