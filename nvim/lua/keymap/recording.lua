@@ -1,11 +1,11 @@
 local map = require 'infra.key'.map
 local vim_api = vim.api
-local lualine = require 'lualine'
 
 RECORDING = false
 
 local function refresh_lualine()
-  lualine.refresh {
+  if VVP_MODE then return end
+  require 'lualine'.refresh {
     force = true,
     scope = 'window',
     place = { 'statusline' },

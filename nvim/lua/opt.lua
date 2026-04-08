@@ -12,6 +12,18 @@ vim_o.tabstop = 2
 vim_o.shiftwidth = 2
 vim_o.expandtab = true
 vim_o.fillchars = 'eob: '
+vim_o.numberwidth = 1
+
+if VVP_MODE then
+  vim_o.number = false
+  vim_o.laststatus = 0
+  vim_o.cmdheight = 0
+else
+  -- show line numbers
+  vim_o.number = true
+  -- single status line
+  vim_o.laststatus = 3
+end
 
 -- disable key presses and selected area printing
 vim_o.showcmd = false
@@ -21,13 +33,6 @@ vim_o.showmode = false
 
 -- extra characters in viw
 vim_o.iskeyword = '@,48-57,_,192-255,-,#'
-
--- show line numbers
-vim.o.number = true
-vim.o.numberwidth = 1
-
--- single status line
-vim.o.laststatus = 3
 
 -- hl current line
 vim_o.cursorline = true

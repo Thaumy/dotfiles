@@ -15,6 +15,7 @@ fn main() {
     };
 
     let e = Command::new("nvim")
+        .env("NVIM_VVP", "1")
         .args(["+$", "+normal 3|", DUMP_PATH])
         .exec();
     panic!("{:?}", e);
