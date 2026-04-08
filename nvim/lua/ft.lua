@@ -20,6 +20,12 @@ vim_filetype.add {
   },
 }
 
+vim_filetype.add {
+  extension = {
+    vvp = 'vvp',
+  },
+}
+
 vim_api.nvim_create_autocmd('FileType', {
   pattern = 'gitcommit',
   callback = function()

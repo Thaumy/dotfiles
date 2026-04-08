@@ -4,7 +4,7 @@ use std::io::Write;
 use std::os::unix::process::CommandExt;
 use std::process::{Command, Stdio};
 
-const DUMP_PATH: &str = "/tmp/tmux-vis-pane-dump";
+const DUMP_PATH: &str = "/tmp/dump.vvp";
 
 fn main() {
     match args().nth(1).as_deref() {
