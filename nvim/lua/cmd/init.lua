@@ -1,4 +1,5 @@
 require 'cmd.make'
+require 'cmd.ccapture'
 require 'cmd.case_conv'
 require 'cmd.im_switch'
 require 'cmd.hl_conflict'

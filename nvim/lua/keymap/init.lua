@@ -121,7 +121,11 @@ end)
 map({ 'n', 'x' }, 'qq', function()
   local ft = vim.bo.ft
   if ft == 'neo-tree' then return end
-  if vim.bo.bt == '' or ft == 'buildlog' then
+  if
+      vim.bo.bt == '' or
+      ft == 'buildlog' or
+      ft == 'ccapture'
+  then
     buf_switch_and_delete()
   else
     vim.cmd 'q'
