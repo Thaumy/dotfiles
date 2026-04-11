@@ -15,14 +15,12 @@ local map_cmd = k.map_cmd
 -- zz with horizontal relocation and blank line control
 map('n', 'zz', function()
   local total_lines = vim.api.nvim_buf_line_count(0)
-  local top_line = vim.fn.line 'w0'
+  local view = vim.fn.winsaveview()
   local win_height = vim.api.nvim_win_get_height(0)
   local win_mid = math.floor(win_height / 2)
 
-  local blank_lines = top_line + win_height - 1 - total_lines
-  local scroll = vim.fn.winline() - win_mid - 1
-
-  local view = vim.fn.winsaveview()
+  local blank_lines = view.topline + win_height - 1 - total_lines
+  local scroll = view.lnum - view.topline - win_mid
 
   -- allow up to 3 blank lines due to scrolling
   if blank_lines + scroll > 3 then
