@@ -11,11 +11,8 @@ in
     "thaumy-repo".source = mkSymlink "${homeDir}/dev/repo/thaumy";
   };
 
-  xdg.configFile."nixpkgs/config.nix" = {
-    source = pkgs.writeTextFile {
-      name = "config.nix";
-      text = "{ allowUnfree = true; }";
-    };
-    recursive = true;
+  xdg.configFile."nixpkgs/config.nix".source = pkgs.writeTextFile {
+    name = "config.nix";
+    text = "{ allowUnfree = true; }";
   };
 }
