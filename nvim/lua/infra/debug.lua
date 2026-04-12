@@ -7,14 +7,6 @@ local function trev(t)
   return rev
 end
 
-local function print(any)
-  vim.api.nvim_echo({ { vim.inspect(any) } }, true, {})
-end
-
-local function notify(any)
-  vim.notify(vim.inspect(any))
-end
-
 local function bench(fn)
   local since = os.clock()
   local ret = fn()
@@ -27,7 +19,5 @@ end
 
 return {
   trev = trev,
-  print = print,
   bench = bench,
-  notify = notify,
 }
