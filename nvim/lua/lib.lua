@@ -1,6 +1,15 @@
 local ffi = require 'ffi'
 
 ffi.cdef [[
+  void* buf_history_new();
+  void buf_history_add(void* bh, uint32_t buf);
+  void buf_history_del(void* bh, uint32_t buf);
+  uint32_t buf_history_cursor(void* bh);
+  uint32_t buf_history_undo(void* bh);
+  uint32_t buf_history_redo(void* bh);
+  void buf_history_invalid(void* bh, uint32_t buf);
+  void buf_history_drop(void* bh);
+
   void case_conv(
     uint8_t* from_ptr,
     size_t from_len,

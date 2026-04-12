@@ -1,6 +1,6 @@
 require 'keymap.disabled'
 require 'keymap.indent'
-require 'keymap.buf_stack'
+require 'keymap.buf_history'
 require 'keymap.cycle_wins'
 require 'keymap.binary_jump'
 require 'keymap.visual_block'
@@ -80,24 +80,52 @@ map('x', 'uj', 'u')
 map('x', 'uk', 'U')
 
 local function buf_switch_and_delete()
-  local curr_win = vim.api.nvim_get_current_win()
+  local win = vim.api.nvim_get_current_win()
   local curr_buf = vim.api.nvim_get_current_buf()
 
-  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-    if buf ~= curr_buf and
-        vim.api.nvim_get_option_value('buflisted', { buf = buf }) and
-        vim.api.nvim_get_option_value('buftype', { buf = buf }) == ''
-    then
-      vim.api.nvim_win_set_buf(curr_win, buf)
-      vim.api.nvim_buf_delete(curr_buf, { force = true })
+  local buf = 0
+
+  local bh = BUF_HISTORY[win]
+  if bh ~= nil then
+    buf = LIBNVIMCFG.buf_history_cursor(bh)
+    if buf == 0 and vim.api.nvim_buf_get_name(curr_buf) == '' then
+      vim.print 'no buffers left'
       return
     end
+
+    LIBNVIMCFG.buf_history_del(bh, curr_buf)
+
+    while true do
+      buf = LIBNVIMCFG.buf_history_cursor(bh)
+
+      if buf == 0 or vim.api.nvim_buf_is_valid(buf) then
+        break
+      else
+        LIBNVIMCFG.buf_history_invalid(bh, buf)
+      end
+    end
+
+    NAVI_BY_MOTION = true
   end
 
-  local unnamed_buf = vim.api.nvim_create_buf(true, false)
-  vim.api.nvim_win_set_buf(curr_win, unnamed_buf)
-  vim.api.nvim_buf_delete(curr_buf, { force = true })
-  vim.print 'no more listed buffers'
+  if buf == 0 then
+    buf = vim.api.nvim_create_buf(true, false)
+
+    -- If this unnamed buffer is renamed, it will be deleted and all relevant
+    -- autocmd bindings will be removed, even if Neovim reuses the buffer ID.
+    -- So there's no need to clear this autocmd after renaming.
+    vim.api.nvim_create_autocmd({ 'BufHidden' }, {
+      once = true,
+      buffer = buf,
+      callback = function()
+        vim.schedule(function()
+          vim.api.nvim_buf_delete(buf, {})
+        end)
+      end,
+    })
+  end
+
+  vim.api.nvim_win_set_buf(win, buf)
 end
 
 -- buf
