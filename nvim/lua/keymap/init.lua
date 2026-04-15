@@ -6,6 +6,7 @@ require 'keymap.binary_jump'
 require 'keymap.visual_block'
 require 'keymap.blame_line'
 require 'keymap.recording'
+require 'keymap.macro_expand'
 
 local k = require 'infra.key'
 
