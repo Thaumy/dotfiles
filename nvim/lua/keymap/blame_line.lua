@@ -1,4 +1,5 @@
 local k = require 'infra.key'
+local window = require 'infra.window'
 
 local ns = vim.api.nvim_create_namespace 'git-blame-line'
 
@@ -7,14 +8,12 @@ local blame_buf = nil
 local autocmd = nil
 
 local function close_blame()
-  if blame_win ~= nil then
-    vim.api.nvim_win_close(blame_win, false)
-    blame_win = nil
-  end
-  if blame_buf ~= nil then
-    vim.api.nvim_buf_delete(blame_buf, {})
-    blame_buf = nil
-  end
+  if blame_win == nil then return end
+
+  vim.api.nvim_win_close(blame_win, false)
+  blame_win = nil
+  vim.api.nvim_buf_delete(blame_buf, {})
+  blame_buf = nil
 end
 
 k.map('n', 'bl', function()
@@ -36,31 +35,32 @@ k.map('n', 'bl', function()
     vim.print(vim.trim(obj.stderr))
     return
   end
-  local out = vim.split(obj.stdout, '\n', { trimempty = true });
+  local lines = vim.split(obj.stdout, '\n', { trimempty = true });
 
-  if blame_buf == nil then
-    blame_buf = vim.api.nvim_create_buf(false, true)
-    vim.api.nvim_create_autocmd({ 'BufLeave' }, {
-      once = true,
-      buffer = blame_buf,
-      callback = close_blame,
-    })
-  end
-
-  vim.api.nvim_buf_set_lines(blame_buf, 0, -1, true, out)
+  blame_buf = vim.api.nvim_create_buf(false, true)
+  vim.api.nvim_buf_set_lines(blame_buf, 0, -1, true, lines)
   vim.api.nvim_set_option_value('modifiable', false, { buf = blame_buf })
+  vim.api.nvim_create_autocmd({ 'BufLeave' }, {
+    once = true,
+    buffer = blame_buf,
+    callback = close_blame,
+  })
 
-  if blame_win == nil then
-    blame_win = vim.api.nvim_open_win(blame_buf, false, {
-      relative = 'cursor',
-      row = 1,
-      col = 1,
-      width = 72,
-      height = #out,
-      style = 'minimal',
-      border = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
-    })
+  local blame_width = 0
+  local max_height = math.floor(vim.o.lines * 0.5) - 3
+  for i, line in ipairs(lines) do
+    if i > max_height then break end
+
+    if #line >= 72 then
+      blame_width = 72
+      break
+    elseif #line > blame_width then
+      blame_width = #line
+    end
   end
+  local blame_height = math.min(#lines, max_height)
+
+  blame_win = window.open_float(blame_buf, blame_width, blame_height)
 
   if autocmd == nil then
     autocmd = vim.api.nvim_create_autocmd(
