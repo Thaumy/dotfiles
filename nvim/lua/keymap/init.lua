@@ -41,6 +41,23 @@ map('n', 'zz', function()
   vim_fn.winrestview(view)
 end)
 
+map('n', 'zj', function()
+  local win_width = vim_api.nvim_win_get_width(0)
+  local curr_line = vim_api.nvim_get_current_line()
+  if vim_api.nvim_strwidth(curr_line) < win_width then return end
+
+  local view = vim_fn.winsaveview()
+
+  local leftcol = view.col - math.floor(win_width / 2)
+  if leftcol > 0 then
+    view.leftcol = leftcol
+  else
+    view.leftcol = 0
+  end
+
+  vim_fn.winrestview(view)
+end)
+
 -- remap `textDocument/selectionRange`
 vim_keymap.del('x', 'in')
 map('x', '1', function()
