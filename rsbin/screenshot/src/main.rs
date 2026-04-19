@@ -17,7 +17,7 @@ fn main() {
     let save_to = format!(
         "{}/{}",
         screenshots_dir,
-        now.format("%y-%m-%d_%H:%M:%S_%3f.png")
+        now.format("%y-%m-%d_%H-%M-%S_%3f.png")
     );
 
     Command::new("grim")
@@ -31,7 +31,7 @@ fn main() {
             "-i",
             &save_to,
             "Screenshot saved",
-            &now.format("%H:%M:%S").to_string(),
+            &now.format("%H-%M-%S").to_string(),
         ])
         .spawn()
         .unwrap()
