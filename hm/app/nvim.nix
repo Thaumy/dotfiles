@@ -26,6 +26,18 @@ let
     doCheck = false;
   };
 
+  telescope-nvim = pkgs.vimUtils.buildVimPlugin {
+    pname = "telescope.nvim";
+    version = "2026-04-19";
+    src = pkgs.fetchFromGitHub {
+      owner = "Thaumy";
+      repo = "telescope.nvim";
+      rev = "79dce8e67232c0e2443f4cb4920355d0e7cb22eb";
+      hash = "sha256-ekfqqG44cS13FJ0qQKOCl8bftxF8BSRD5v+wZrCAvb8=";
+    };
+    doCheck = false;
+  };
+
   # Will be symlinked to the final plugin dir, mainly for plugin dev.
   localPlugins = [
     #{ name = "foo.nvim"; path = "/abs/path"; }
