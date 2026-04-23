@@ -17,10 +17,10 @@ map('n', 'zz', function()
   local total_lines = vim.api.nvim_buf_line_count(0)
   local view = vim.fn.winsaveview()
   local win_height = vim.api.nvim_win_get_height(0)
-  local win_mid = math.floor(win_height / 2)
+  local target_line = math.floor(win_height * 0.4)
 
   local blank_lines = view.topline + win_height - 1 - total_lines
-  local scroll = view.lnum - view.topline - win_mid
+  local scroll = view.lnum - view.topline - target_line
 
   -- allow up to 3 blank lines due to scrolling
   if blank_lines + scroll > 3 then
