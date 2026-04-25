@@ -78,7 +78,7 @@ in
       bufferline-nvim # buffer tabs
       colorful-menu-nvim # hl for code completion menu
       actions-preview-nvim # code actions preview
-      markdown-preview-nvim # markdown renderer
+      markdown-preview-nvim # preview markdown in browser
       nvim-treesitter-context # show current context
 
       # analyzers
