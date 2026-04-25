@@ -1,4 +1,5 @@
 local k = require 'infra.key'
+local window = require 'infra.window'
 
 local enable_inlay_hint = true
 
@@ -22,7 +23,6 @@ vim.diagnostic.config {
 }
 vim.o.updatetime = 300
 
-local hover_buf = nil
 local diagnostic_buf = nil
 
 -- show diagnostic
@@ -61,12 +61,27 @@ end
 
 -- show def
 do
-  local ns = vim.api.nvim_create_namespace 'lsp-hover-win'
-  local on_cursor_moved = nil
+  local ns = vim.api.nvim_create_namespace 'lsp-doc'
+  local dash80 = string.rep('─', 80)
+
+  local doc_win = nil
+  local doc_buf = nil
+  local autocmd = nil
+
+  local function close_doc()
+    if doc_win == nil then return end
+
+    vim.api.nvim_win_close(doc_win, false)
+    doc_win = nil
+    vim.api.nvim_buf_delete(doc_buf, {})
+    doc_buf = nil
+  end
+
   -- See: https://neovim.io/doc/user/lsp.html#lsp-handler
-  vim.lsp.handlers['textDocument/hover'] = function(err, result, ctx, config)
+  vim.lsp.handlers['textDocument/hover'] = function(err, result)
     if err ~= nil or result == nil or result.contents == nil then return end
 
+    result.contents.value = result.contents.value:gsub('\n%-%-%-\n', '---')
     local lines = vim.lsp.util.convert_input_to_markdown_lines(result.contents)
 
     if vim.tbl_isempty(lines) then
@@ -74,35 +89,75 @@ do
       return
     end
 
-    if config == nil then
-      config = { focus_id = ctx.method }
-    end
-    config.border = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' }
-    hover_buf = vim.lsp.util.open_floating_preview(lines, 'markdown', config)
-
-    on_cursor_moved = vim.api.nvim_create_autocmd('CursorMoved', {
+    doc_buf = vim.api.nvim_create_buf(false, true)
+    vim.api.nvim_buf_set_lines(doc_buf, 0, -1, true, lines)
+    vim.api.nvim_set_option_value('modifiable', false, { buf = doc_buf })
+    vim.api.nvim_set_option_value('filetype', 'markdown', { buf = doc_buf })
+    vim.api.nvim_create_autocmd({ 'BufLeave' }, {
       once = true,
-      callback = function()
-        on_cursor_moved = nil
-        vim.on_key(nil, ns)
-      end,
+      buffer = doc_buf,
+      callback = close_doc,
     })
-    vim.on_key(function(key, _)
-      -- if <Esc> was pressed
-      if key == '\27' then
-        if hover_buf ~= nil and vim.api.nvim_buf_is_valid(hover_buf) then
-          vim.api.nvim_buf_delete(hover_buf, {})
-        end
-        if on_cursor_moved ~= nil then
-          vim.api.nvim_del_autocmd(on_cursor_moved)
-          on_cursor_moved = nil
-        end
-        vim.on_key(nil, ns)
+
+    local doc_width = 0
+    for i, line in ipairs(lines) do
+      if line == '---' then
+        vim.api.nvim_buf_set_extmark(doc_buf, ns, i - 1, 0, {
+          virt_text = { { dash80, 'NonText' } },
+          virt_text_pos = 'overlay',
+        })
       end
+
+      if doc_width < 80 then
+        if #line >= 80 then
+          doc_width = 80
+        elseif #line > doc_width then
+          doc_width = #line
+        end
+      end
+    end
+
+    doc_win = window.open_float(doc_buf, doc_width, 1)
+    vim.api.nvim_set_option_value('wrap', true, { win = doc_win })
+    vim.api.nvim_set_option_value('conceallevel', 2, { win = doc_win })
+
+    local doc_height = vim.api.nvim_win_text_height(doc_win, {
+      max_height = math.floor(vim.o.lines * 0.5) - 3,
+    }).all
+    vim.api.nvim_win_set_height(doc_win, doc_height)
+
+    if autocmd == nil then
+      autocmd = vim.api.nvim_create_autocmd(
+        { 'CursorMoved', 'BufLeave', 'ModeChanged', 'WinScrolled' },
+        {
+          once = true,
+          buffer = vim.api.nvim_get_current_buf(),
+          callback = function()
+            vim.api.nvim_del_autocmd(autocmd)
+            autocmd = nil
+            vim.on_key(nil, ns)
+            close_doc()
+          end,
+        })
+    end
+
+    vim.on_key(function(key, _)
+      vim.on_key(nil, ns)
+      -- if <Esc> was pressed
+      if key == '\27' then close_doc() end
     end, ns)
   end
 
   k.map('n', '<M-a>', function()
+    if doc_win ~= nil then
+      if autocmd ~= nil then
+        vim.api.nvim_del_autocmd(autocmd)
+        autocmd = nil
+      end
+      vim.api.nvim_set_current_win(doc_win)
+      return
+    end
+
     local client = vim.lsp.get_clients { bufnr = 0 }[1]
     if client == nil then
       vim.notify 'no LSP'
