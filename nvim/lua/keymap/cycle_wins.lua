@@ -10,12 +10,14 @@ map('n', ';', function()
   for _, win in ipairs(wins) do
     if win > curr_win then
       local buf = vim.api.nvim_win_get_buf(win)
-      local ft = vim.api.nvim_get_option_value('filetype', { buf = buf })
+      local bt = vim.api.nvim_get_option_value('bt', { buf = buf })
+      local ft = vim.api.nvim_get_option_value('ft', { buf = buf })
       if
-          ft ~= 'qf' and
-          ft ~= 'fidget' and
-          -- skip bqf preview window
-          not (vim.api.nvim_buf_get_name(buf):match 'BqfPreviewFloatWin')
+          bt == '' or
+          ft == 'neo-tree' or
+          ft == 'help' or
+          ft == 'buildlog' or
+          ft == 'ccapture'
       then
         target_win = win
         break
