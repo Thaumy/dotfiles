@@ -13,6 +13,7 @@ return {
     { mode = 'n', 'c;' },
     { mode = 'n', 'g;' },
     { mode = 'n', 'cf' },
+    { mode = 'n', 'ci' },
     { mode = 'n', 'fd' },
     { mode = 'n', '<M-d>' },
     { mode = 'n', '<M-u>' },

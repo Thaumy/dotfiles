@@ -198,3 +198,7 @@ k.map('n', '<M-i>', plugin_builtin.lsp_implementations)
 -- list git conflicts
 local git_conflicts = require 'plugin.telescope.cfg.git_conflicts'
 k.map('n', 'cf', git_conflicts)
+
+-- list git modified lines
+local git_modified = require 'plugin.telescope.cfg.git_modified'
+k.map('n', 'ci', git_modified)
