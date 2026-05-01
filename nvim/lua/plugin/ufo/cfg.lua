@@ -47,12 +47,12 @@ k.map('n', '<M-k>', function()
   if vim_bo.ft == 'TelescopePrompt' then
     return
   end
-  vim.cmd 'normal! za'
+  vim.cmd 'sil! exe "norm za"'
 end)
 -- expand code block
 k.map('n', '<M-j>', function()
   if vim_bo.ft == 'TelescopePrompt' then
     return
   end
-  vim.cmd 'normal! zo'
+  vim.cmd 'sil! exe "norm zo"'
 end)
