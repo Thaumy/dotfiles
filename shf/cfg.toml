@@ -1,0 +1,63 @@
+[output]
+dedup = true
+
+[predicate]
+regex = [
+  "  ",
+  "^$",
+  " +$",
+  "^#.+",
+  "-*help",
+  "^.* /nix/store/.+",
+  ''''^.* /dev/shm/tmp\..+'''',
+
+  "^rr .+",
+  "^sed .+",
+  "^grep .+",
+  "^ping .+",
+  "^wget .+",
+  "^kill .+",
+  "^tokei .+",
+  "^history .+",
+  "^xdg-open .+",
+  "^rm( -rf)? .+",
+  "^pstree -p .+",
+  "^n|v|vp|l|la|to|q$",
+  "^gsettings set .+ .+",
+  "^symlink-localize .+",
+  "^(sudo)? systemctl status .+",
+
+  "^nix eval .+",
+  "^nix-shell -p .+",
+  "^nix flake show .+",
+  "^nix-prefetch-.+ .+",
+
+  "^g(it)? push",
+  "^g(it)? ss .+",
+  "^g(it)? co .+",
+  "^g(it)? cp .+",
+  "^g(it)? rm .+",
+  "^g(it)? show .+",
+  "^g(it)? reset .+",
+  "^g(it)? revert .+",
+  "^g(it)? remote .+",
+  "^g(it)? branch .+",
+  "^g(it)? cl(one)? .+",
+  "^g(it)? checkout .+",
+  "^g(it)? commit -m .+",
+  "^g(it)? cherrypick .+",
+  "^g(it)?.* [a-z0-9]{40}",
+  "^g(it)? submodule (add|remove) .+",
+  "^g(it)?( |-)filter-repo --path .+",
+  "^g(it)?( |-)filter-repo --path-regex .+",
+
+  "^npm i .+@.+",
+  "^cargo add .+@.+",
+
+  "^adb install .+",
+  "^adb shell sh .+",
+
+  "^docker logs [0-9a-z]{12,16}",
+  "/var/lib/docker/containers/.+",
+  "admin:///var/lib/docker/containers/.+",
+]
