@@ -1,0 +1,6 @@
+_: {
+  xdg.configFile."lesskey".text = ''
+    #env
+    LESSUTFCHARDEF=E000-F8FF:p,F0000-FFFFD:p,100000-10FFFD:p
+  '';
+}

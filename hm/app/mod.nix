@@ -14,6 +14,7 @@ _: {
     ./rofi.nix
     ./mako.nix
     ./nvim.nix
+    ./less.nix
     ./dconf.nix
     ./gnome.nix
     ./rsbin.nix
