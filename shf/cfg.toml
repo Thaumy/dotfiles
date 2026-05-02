@@ -1,0 +1,54 @@
+[output]
+dedup = true
+
+[predicate]
+regex = [
+  "  ",
+  "^$",
+  " +$",
+  "^#.+",
+  "-*help",
+  "^.* /nix/store/.+",
+  ''''^.* /dev/shm/tmp\..+'''',
+
+  "^rr .+",
+  "^sed .+",
+  "^grep .+",
+  "^ping .+",
+  "^wget .+",
+  "^kill .+",
+  "^tokei .+",
+  "^xdg-open .+",
+  "^rm( -rf)? .+",
+  "^nix-shell -p .+",
+  "^nix-prefetch-.+ .+",
+  "^gsettings set .+ .+",
+  "^symlink-localize .+",
+  "^(sudo)? systemctl status .+",
+
+  "^g(it)? co .+",
+  "^g(it)? cp .+",
+  "^g(it)? rm .+",
+  "^g(it)? show .+",
+  "^g(it)? reset .+",
+  "^g(it)? push -f.+",
+  "^g(it)? revert .+",
+  "^g(it)? remote .+",
+  "^g(it)? branch .+",
+  "^g(it)? checkout .+",
+  "^g(it)? commit -m .+",
+  "^g(it)? cherrypick .+",
+  "^g(it)? submodule (add|remove) .+",
+  "^g(it)?( |-)filter-repo --path .+",
+  "^g(it)?( |-)filter-repo --path-regex .+",
+
+  "^npm i .+@.+",
+  "^cargo add .+@.+",
+
+  "^adb install .+",
+  "^adb shell sh .+",
+
+  "^docker logs [0-9a-z]{12,16}",
+  "/var/lib/docker/containers/.+",
+  "admin:///var/lib/docker/containers/.+",
+]
