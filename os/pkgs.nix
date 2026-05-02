@@ -47,9 +47,6 @@ let
     watchexec
     vulkan-tools
     inotify-tools
-    uutils-findutils
-    uutils-diffutils
-    uutils-coreutils-noprefix
   ];
 
   fs = with pkgs; [

@@ -12,6 +12,7 @@
     ./docs.nix
     ./text.nix
     ./media.nix
+    ./uutils.nix
     ./browser.nix
     ./archive.nix
     ./meeting.nix
