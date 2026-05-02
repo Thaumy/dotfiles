@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
-  shf-fish = pkgs.writeShellScriptBin "shf-fish" ''
-    #!/usr/bin/env dash
+  shf-fish = pkgs.writeScriptBin "shf-fish" ''
+    #!${pkgs.dash}/bin/dash
 
     set -e
 

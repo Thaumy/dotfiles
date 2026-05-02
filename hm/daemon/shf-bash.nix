@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
-  shf-bash = pkgs.writeShellScriptBin "shf-bash" ''
-    #!/usr/bin/env dash
+  shf-bash = pkgs.writeScriptBin "shf-bash" ''
+    #!${pkgs.dash}/bin/dash
 
     set -e
 
