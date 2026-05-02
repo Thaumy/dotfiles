@@ -53,6 +53,7 @@ let
     wimlib
     parted
     gparted
+    compsize
     exfatprogs
     cryptsetup
     smartmontools

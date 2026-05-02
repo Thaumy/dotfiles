@@ -29,7 +29,6 @@
 
   environment.systemPackages = with pkgs; [
     nurl
-    yarn2nix
     nix-tree
     nix-index
     nix-prefetch-github

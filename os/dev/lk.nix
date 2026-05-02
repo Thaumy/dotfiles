@@ -2,7 +2,7 @@
   environment.systemPackages = with pkgs; [
     flex
     bison
-    gcc14
+    gcc15
     gnumake
     linux-scripts
     universal-ctags
