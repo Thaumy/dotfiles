@@ -35,21 +35,7 @@
   };
 
   i18n = rec {
-    inputMethod = {
-      enable = true;
-      type = "fcitx5";
-      fcitx5 = {
-        waylandFrontend = true;
-        addons = with pkgs; [
-          fcitx5-gtk
-          kdePackages.fcitx5-qt
-          qt6Packages.fcitx5-chinese-addons
-        ];
-      };
-    };
-
     defaultLocale = "en_US.UTF-8";
-
     extraLocaleSettings = {
       LC_NAME = defaultLocale;
       LC_TIME = defaultLocale;

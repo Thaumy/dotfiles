@@ -2,6 +2,7 @@
   manual.manpages.enable = false;
 
   imports = [
+    ./i18n.nix
     ./sh/mod.nix
     ./app/mod.nix
     ./symlinks.nix
