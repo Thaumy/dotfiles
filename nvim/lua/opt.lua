@@ -45,7 +45,7 @@ vim.g.loaded_python3_provider = 0
 vim.o.chi = 3
 
 function QFTF(opts)
-  local list = nil
+  local list
   if opts.quickfix == 1 then
     list = vim.fn.getqflist()
   else
