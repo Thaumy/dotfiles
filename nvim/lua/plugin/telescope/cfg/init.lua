@@ -179,6 +179,8 @@ plugin.setup {
 
 -- open
 k.map_cmd('n', 'tm', 'Telescope')
+-- current buffer search
+k.map('n', 'c;', plugin_builtin.current_buffer_fuzzy_find)
 -- global search
 k.map('n', 'g;', function()
   if vim.bo.buftype ~= '' then return end
