@@ -178,7 +178,7 @@ plugin.setup {
 -- open
 k.map_cmd('n', 'tm', 'Telescope')
 -- global search
-k.map('n', 'g/', function()
+k.map('n', 'g;', function()
   if vim.bo.buftype ~= '' then return end
   plugin_builtin.live_grep { debounce = 100 }
 end)
