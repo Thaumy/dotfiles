@@ -20,6 +20,10 @@ ffi.cdef [[
   );
   void case_conv_drop(void* ptr);
 
+  void* im_switch_new();
+  void im_switch_activate(void* im_sw);
+  void im_switch_deactivate(void* im_sw);
+
   void shorten_path(
     uint8_t* original_ptr,
     size_t original_len,

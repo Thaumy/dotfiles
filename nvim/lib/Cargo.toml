@@ -11,3 +11,8 @@ lto = "fat"
 
 [dependencies]
 heck = "0.5"
+zbus = { version = "5", default-features = false, features = ["async-io"] }
+tokio = { version = "1", default-features = false, features = [
+  "rt",
+  "rt-multi-thread",
+] }
