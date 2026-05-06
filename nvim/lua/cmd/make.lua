@@ -17,12 +17,12 @@ vim.api.nvim_create_user_command('M', function(opts)
   end
 
   local curr_buf = vim.api.nvim_get_current_buf()
-  local mp = vim.api.nvim_buf_get_option(curr_buf, 'makeprg')
+  local mp = vim.api.nvim_get_option_value('makeprg', { buf = curr_buf })
   if mp == '' then
     vim.print 'no makeprg'
     return
   end
-  local efm = vim.api.nvim_buf_get_option(curr_buf, 'efm')
+  local efm = vim.api.nvim_get_option_value('efm', { buf = curr_buf })
   if efm == '' then
     vim.print 'no errorformat'
     return
