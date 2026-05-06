@@ -37,9 +37,15 @@ local when_change = function(args)
     if hl_results[buf] == nil then
       hl_results[buf] = {
         ext_marks = {},
+        changedtick = nil,
         checked_rows = {},
       }
     end
+    local hl_result = hl_results[buf]
+
+    local changedtick = vim.api.nvim_buf_get_changedtick(buf)
+    if hl_result.changedtick == changedtick then return end
+    hl_result.changedtick = changedtick
 
     local in_insert_mode = vim.api.nvim_get_mode().mode == 'i'
     -- row indexing is one-based
@@ -50,8 +56,6 @@ local when_change = function(args)
     local row_to = win_info.botline
     -- indexing is zero-based, end exclusive, so we have [row_from, row_to]
     local lines = vim.api.nvim_buf_get_lines(buf, row_from - 1, row_to, true)
-
-    local hl_result = hl_results[buf]
 
     for i, line in ipairs(lines) do
       local row = row_from + i - 1
@@ -103,6 +107,7 @@ local when_scroll = function(args)
     if hl_results[buf] == nil then
       hl_results[buf] = {
         ext_marks = {},
+        changedtick = vim.api.nvim_buf_get_changedtick(buf),
         checked_rows = {},
       }
     end
