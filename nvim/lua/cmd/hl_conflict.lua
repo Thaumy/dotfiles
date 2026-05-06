@@ -12,13 +12,30 @@ end
 
 local ns = vim.api.nvim_create_namespace 'git-conflict-hl'
 local hl_results = {}
-local debounce = require 'infra.debounce':new()
+vim.api.nvim_create_autocmd('BufDelete', {
+  callback = function(args)
+    hl_results[args.buf] = nil
+  end,
+})
 
-local cb = function(args)
-  local buf = args.buf
-  debounce:schedule(200, function()
+local debounce = require 'infra.debounce'
+local win_debounce = {}
+vim.api.nvim_create_autocmd('WinClosed', {
+  callback = function(args)
+    win_debounce[tonumber(args.file)] = nil
+  end,
+})
+
+local cb = function()
+  local win = vim.api.nvim_get_current_win()
+  if win_debounce[win] == nil then
+    win_debounce[win] = debounce:new()
+  end
+  win_debounce[win]:schedule(200, function()
+    if not vim.api.nvim_win_is_valid(win) then return end
+
+    local buf = vim.api.nvim_win_get_buf(win)
     if
-        (not vim.api.nvim_buf_is_valid(buf)) or
         vim.api.nvim_get_option_value('readonly', { buf = buf }) or
         (not vim.api.nvim_get_option_value('modifiable', { buf = buf })) or
         -- abnormal buffer
@@ -68,9 +85,3 @@ vim.api.nvim_create_autocmd(
   { 'BufEnter', 'TextChanged', 'InsertLeave' },
   { callback = cb }
 )
-
-vim.api.nvim_create_autocmd('BufDelete', {
-  callback = function(args)
-    hl_results[args.buf] = nil
-  end,
-})

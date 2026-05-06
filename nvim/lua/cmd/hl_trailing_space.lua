@@ -11,28 +11,39 @@ local function trailing_spaces_len(line)
 end
 
 local ns = vim.api.nvim_create_namespace 'trailing-space-hl'
-local debounce = require 'infra.debounce':new()
 local hl_results = {}
+vim.api.nvim_create_autocmd('BufDelete', {
+  callback = function(args)
+    hl_results[args.buf] = nil
+  end,
+})
 
-local function invalid(buf, win)
+local debounce = require 'infra.debounce'
+local win_debounce = {}
+vim.api.nvim_create_autocmd('WinClosed', {
+  callback = function(args)
+    win_debounce[tonumber(args.file)] = nil
+  end,
+})
+
+local function invalid(buf)
   return
-      (not vim.api.nvim_buf_is_valid(buf)) or
-      (not vim.api.nvim_win_is_valid(win)) or
       vim.api.nvim_get_option_value('readonly', { buf = buf }) or
       (not vim.api.nvim_get_option_value('modifiable', { buf = buf })) or
       -- abnormal buffer
       vim.api.nvim_get_option_value('buftype', { buf = buf }) ~= ''
 end
 
-local when_change = function(args)
-  local buf = args.buf
-  debounce:schedule(200, function()
-    local win = vim.api.nvim_get_current_win()
+local when_change = function()
+  local win = vim.api.nvim_get_current_win()
+  if win_debounce[win] == nil then
+    win_debounce[win] = debounce:new()
+  end
+  win_debounce[win]:schedule(200, function()
+    if not vim.api.nvim_win_is_valid(win) then return end
 
-    -- cancel if we have switched to another window
-    if buf ~= vim.api.nvim_win_get_buf(win) then return end
-
-    if invalid(buf, win) then return end
+    local buf = vim.api.nvim_win_get_buf(win)
+    if invalid(buf) then return end
 
     if hl_results[buf] == nil then
       hl_results[buf] = {
@@ -94,15 +105,16 @@ vim.api.nvim_create_autocmd(
   { callback = when_change }
 )
 
-local when_scroll = function(args)
-  local buf = args.buf
-  debounce:schedule(200, function()
-    local win = vim.api.nvim_get_current_win()
+local when_scroll = function()
+  local win = vim.api.nvim_get_current_win()
+  if win_debounce[win] == nil then
+    win_debounce[win] = debounce:new()
+  end
+  win_debounce[win]:schedule(200, function()
+    if not vim.api.nvim_win_is_valid(win) then return end
 
-    -- cancel if we have switched to another window
-    if buf ~= vim.api.nvim_win_get_buf(win) then return end
-
-    if invalid(buf, win) then return end
+    local buf = vim.api.nvim_win_get_buf(win)
+    if invalid(buf) then return end
 
     if hl_results[buf] == nil then
       hl_results[buf] = {
@@ -156,10 +168,4 @@ end
 
 vim.api.nvim_create_autocmd('WinScrolled', {
   callback = when_scroll,
-})
-
-vim.api.nvim_create_autocmd('BufDelete', {
-  callback = function(args)
-    hl_results[args.buf] = nil
-  end,
 })
