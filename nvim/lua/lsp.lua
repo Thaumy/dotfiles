@@ -1,5 +1,6 @@
 local k = require 'infra.key'
 local window = require 'infra.window'
+local nvim_buf_set_extmark = vim.api.nvim_buf_set_extmark
 
 local enable_inlay_hint = true
 
@@ -102,7 +103,7 @@ do
     local doc_width = 0
     for i, line in ipairs(lines) do
       if line == '---' then
-        vim.api.nvim_buf_set_extmark(doc_buf, ns, i - 1, 0, {
+        nvim_buf_set_extmark(doc_buf, ns, i - 1, 0, {
           virt_text = { { dash80, 'NonText' } },
           virt_text_pos = 'overlay',
         })

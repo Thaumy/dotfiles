@@ -1,4 +1,7 @@
+local string_gsub = string.gsub
 local shorten_path = require 'infra.shorten_path'
+local string_format = string.format
+local nvim_buf_get_name = vim.api.nvim_buf_get_name
 
 vim.o.shortmess = 'ltToOcCFsSI'
 vim.o.softtabstop = 2
@@ -56,12 +59,12 @@ function QFTF(opts)
 
   for i, it in ipairs(list) do
     if it.valid == 1 and it.bufnr ~= 0 then
-      local path = shorten_path(vim.api.nvim_buf_get_name(it.bufnr))
-      local text = string.gsub(it.text, '^%s+', '')
+      local path = shorten_path(nvim_buf_get_name(it.bufnr))
+      local text = string_gsub(it.text, '^%s+', '')
       if it.type ~= '' then
-        lines[i] = string.format('%s:%d:%d [%s] %s', path, it.lnum, it.col, it.type, text)
+        lines[i] = string_format('%s:%d:%d [%s] %s', path, it.lnum, it.col, it.type, text)
       else
-        lines[i] = string.format('%s:%d:%d %s', path, it.lnum, it.col, text)
+        lines[i] = string_format('%s:%d:%d %s', path, it.lnum, it.col, text)
       end
     else
       lines[i] = it.text

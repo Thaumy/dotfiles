@@ -1,4 +1,6 @@
 local k = require 'infra.key'
+local table_concat = table.concat
+local nvim_buf_set_text = vim.api.nvim_buf_set_text
 
 BUILD_JOB_ID = nil
 local out = {}
@@ -56,9 +58,9 @@ vim.api.nvim_create_user_command('M', function(opts)
       line_parts[#line_parts + 1] = first
     elseif len == 1 and #line_parts ~= 0 then
       -- data is [''], handle EOF
-      out[#out + 1] = table.concat(line_parts)
+      out[#out + 1] = table_concat(line_parts)
       if out_buf ~= nil then
-        vim.api.nvim_buf_set_text(out_buf, -1, -1, -1, -1, { out[#out], '' })
+        nvim_buf_set_text(out_buf, -1, -1, -1, -1, { out[#out], '' })
       end
       return
     end
@@ -66,9 +68,9 @@ vim.api.nvim_create_user_command('M', function(opts)
     if data[2] ~= nil then
       -- complete the previous line
       if #line_parts ~= 0 then
-        out[#out + 1] = table.concat(line_parts)
+        out[#out + 1] = table_concat(line_parts)
         if out_buf ~= nil then
-          vim.api.nvim_buf_set_text(out_buf, -1, -1, -1, -1, { out[#out], '' })
+          nvim_buf_set_text(out_buf, -1, -1, -1, -1, { out[#out], '' })
         end
       end
 
@@ -76,7 +78,7 @@ vim.api.nvim_create_user_command('M', function(opts)
       for i = 2, len - 1 do
         if out_buf ~= nil then
           out[#out + 1] = data[i]
-          vim.api.nvim_buf_set_text(out_buf, -1, -1, -1, -1, { out[#out], '' })
+          nvim_buf_set_text(out_buf, -1, -1, -1, -1, { out[#out], '' })
         end
       end
 

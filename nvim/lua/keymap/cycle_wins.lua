@@ -1,4 +1,6 @@
 local map = require 'infra.key'.map
+local nvim_win_get_buf = vim.api.nvim_win_get_buf
+local nvim_get_option_value = vim.api.nvim_get_option_value
 
 map('n', ';', function()
   local wins = vim.api.nvim_list_wins()
@@ -9,9 +11,9 @@ map('n', ';', function()
   local target_win = nil
   for _, win in ipairs(wins) do
     if win > curr_win then
-      local buf = vim.api.nvim_win_get_buf(win)
-      local bt = vim.api.nvim_get_option_value('bt', { buf = buf })
-      local ft = vim.api.nvim_get_option_value('ft', { buf = buf })
+      local buf = nvim_win_get_buf(win)
+      local bt = nvim_get_option_value('bt', { buf = buf })
+      local ft = nvim_get_option_value('ft', { buf = buf })
       if
           bt == '' or
           ft == 'neo-tree' or

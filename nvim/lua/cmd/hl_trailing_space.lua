@@ -1,5 +1,8 @@
 -- highlight trailing space
 
+local nvim_buf_set_extmark = vim.api.nvim_buf_set_extmark
+local nvim_buf_del_extmark = vim.api.nvim_buf_del_extmark
+
 local function trailing_spaces_len(line)
   local len = 0
   local i = -1
@@ -74,7 +77,7 @@ local when_change = function()
       -- clear old hl
       local id = hl_result.ext_marks[row]
       if id ~= nil then
-        vim.api.nvim_buf_del_extmark(buf, ns, id)
+        nvim_buf_del_extmark(buf, ns, id)
         hl_result.ext_marks[row] = nil
       end
 
@@ -86,7 +89,7 @@ local when_change = function()
       -- has trailing space
       if line:byte(-1) == 32 then
         local len = #line
-        hl_result.ext_marks[row] = vim.api.nvim_buf_set_extmark(
+        hl_result.ext_marks[row] = nvim_buf_set_extmark(
           buf, ns,
           row - 1, len - trailing_spaces_len(line),
           { end_col = len, hl_group = 'TrailingSpace' }
@@ -152,7 +155,7 @@ local when_scroll = function()
       -- has trailing space
       if line:byte(-1) == 32 then
         local len = #line
-        hl_result.ext_marks[row] = vim.api.nvim_buf_set_extmark(
+        hl_result.ext_marks[row] = nvim_buf_set_extmark(
           buf, ns,
           row - 1, len - trailing_spaces_len(line),
           { end_col = len, hl_group = 'TrailingSpace' }
