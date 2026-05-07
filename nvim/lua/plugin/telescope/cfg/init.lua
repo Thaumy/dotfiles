@@ -88,6 +88,7 @@ plugin.setup {
       '--case-sensitive',
       '--multiline',
     },
+    sorting_strategy = 'ascending',
   },
 
   pickers = {
