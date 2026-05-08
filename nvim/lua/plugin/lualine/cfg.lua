@@ -1,5 +1,7 @@
-local shorten_path = require 'infra.shorten_path'
 local plugin = require 'lualine'
+local vim_bo = vim.bo
+local vim_api = vim.api
+local shorten_path = require 'infra.shorten_path'
 
 local map = {
   ['n']     = 'NOR',
@@ -41,7 +43,7 @@ local map = {
 }
 
 local function mode()
-  local mode_code = vim.api.nvim_get_mode().mode
+  local mode_code = vim_api.nvim_get_mode().mode
   local mode_text = map[mode_code]
   if mode_text == nil then
     return mode_code
@@ -64,7 +66,7 @@ local function lsp_name()
 end
 
 local function file_format()
-  local format = vim.bo.fileformat
+  local format = vim_bo.fileformat
   if format == 'unix' then
     return 'LF'
   elseif format == 'mac' then
@@ -92,7 +94,7 @@ local function build_state()
 end
 
 local function col()
-  local n = vim.api.nvim_win_get_cursor(0)[2]
+  local n = vim_api.nvim_win_get_cursor(0)[2]
   if n < 80 then
     return string.format('C%d', n)
   else
@@ -101,13 +103,13 @@ local function col()
 end
 
 local function relative_path()
-  if vim.bo.buftype ~= '' then return '' end
+  if vim_bo.buftype ~= '' then return '' end
 
-  local path = shorten_path(vim.api.nvim_buf_get_name(0))
+  local path = shorten_path(vim_api.nvim_buf_get_name(0))
 
-  if vim.bo.readonly or (not vim.bo.modifiable) then
+  if vim_bo.readonly or (not vim_bo.modifiable) then
     return string.format('%s RO', path)
-  elseif vim.bo.modified then
+  elseif vim_bo.modified then
     return string.format('%s M', path)
   else
     return string.format('%s S', path)

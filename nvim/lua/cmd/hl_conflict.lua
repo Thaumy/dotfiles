@@ -1,5 +1,6 @@
-local nvim_buf_set_extmark = vim.api.nvim_buf_set_extmark
-local nvim_buf_del_extmark = vim.api.nvim_buf_del_extmark
+local vim_api = vim.api
+local nvim_buf_set_extmark = vim_api.nvim_buf_set_extmark
+local nvim_buf_del_extmark = vim_api.nvim_buf_del_extmark
 
 local function match_bound_mark(line)
   if #line < 8 then
@@ -11,9 +12,9 @@ local function match_bound_mark(line)
       sub == '>>>>>>> '
 end
 
-local ns = vim.api.nvim_create_namespace 'git-conflict-hl'
+local ns = vim_api.nvim_create_namespace 'git-conflict-hl'
 local hl_results = {}
-vim.api.nvim_create_autocmd('BufDelete', {
+vim_api.nvim_create_autocmd('BufDelete', {
   callback = function(args)
     hl_results[args.buf] = nil
   end,
@@ -21,26 +22,26 @@ vim.api.nvim_create_autocmd('BufDelete', {
 
 local debounce = require 'infra.debounce'
 local win_debounce = {}
-vim.api.nvim_create_autocmd('WinClosed', {
+vim_api.nvim_create_autocmd('WinClosed', {
   callback = function(args)
     win_debounce[tonumber(args.file)] = nil
   end,
 })
 
 local cb = function()
-  local win = vim.api.nvim_get_current_win()
+  local win = vim_api.nvim_get_current_win()
   if win_debounce[win] == nil then
     win_debounce[win] = debounce:new()
   end
   win_debounce[win]:schedule(200, function()
-    if not vim.api.nvim_win_is_valid(win) then return end
+    if not vim_api.nvim_win_is_valid(win) then return end
 
-    local buf = vim.api.nvim_win_get_buf(win)
+    local buf = vim_api.nvim_win_get_buf(win)
     if
-        vim.api.nvim_get_option_value('readonly', { buf = buf }) or
-        (not vim.api.nvim_get_option_value('modifiable', { buf = buf })) or
+        vim_api.nvim_get_option_value('readonly', { buf = buf }) or
+        (not vim_api.nvim_get_option_value('modifiable', { buf = buf })) or
         -- abnormal buffer
-        vim.api.nvim_get_option_value('buftype', { buf = buf }) ~= ''
+        vim_api.nvim_get_option_value('buftype', { buf = buf }) ~= ''
     then
       return
     end
@@ -53,13 +54,13 @@ local cb = function()
     end
     local hl_result = hl_results[buf]
 
-    local changedtick = vim.api.nvim_buf_get_changedtick(buf)
+    local changedtick = vim_api.nvim_buf_get_changedtick(buf)
     if hl_result.changedtick == changedtick then return end
     hl_result.changedtick = changedtick
 
     local ext_marks = hl_result.ext_marks
 
-    local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+    local lines = vim_api.nvim_buf_get_lines(buf, 0, -1, false)
     for index, line in ipairs(lines) do
       if ext_marks[index] ~= nil then
         nvim_buf_del_extmark(buf, ns, ext_marks[index])
@@ -82,7 +83,7 @@ local cb = function()
   end)
 end
 
-vim.api.nvim_create_autocmd(
+vim_api.nvim_create_autocmd(
   { 'BufEnter', 'TextChanged', 'InsertLeave' },
   { callback = cb }
 )

@@ -1,12 +1,14 @@
 local k = require 'infra.key'
+local vim_o = vim.o
+local vim_bo = vim.bo
 local plugin = require 'ufo'
 local table_insert = table.insert
 local strdisplaywidth = vim.fn.strdisplaywidth
 
-vim.o.foldcolumn = '0' -- '0' is not bad
-vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
-vim.o.foldlevelstart = 99
-vim.o.foldenable = true
+vim_o.foldcolumn = '0' -- '0' is not bad
+vim_o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
+vim_o.foldlevelstart = 99
+vim_o.foldenable = true
 
 local function fold_virt_text_handler(virtText, lnum, endLnum, width, truncate)
   local newVirtText = {}
@@ -42,14 +44,14 @@ plugin.setup {
 
 -- fold code block
 k.map('n', '<M-k>', function()
-  if vim.bo.ft == 'TelescopePrompt' then
+  if vim_bo.ft == 'TelescopePrompt' then
     return
   end
   vim.cmd 'normal! za'
 end)
 -- expand code block
 k.map('n', '<M-j>', function()
-  if vim.bo.ft == 'TelescopePrompt' then
+  if vim_bo.ft == 'TelescopePrompt' then
     return
   end
   vim.cmd 'normal! zo'

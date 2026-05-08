@@ -1,13 +1,14 @@
 local types = require 'cmp.types'
+local vim_api = vim.api
 
 local function has_dot_before()
-  local pos = vim.api.nvim_win_get_cursor(0)
+  local pos = vim_api.nvim_win_get_cursor(0)
   local col = pos[2]
   if col == 0 then
     return false
   end
   local line = pos[1]
-  return vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col) == '.'
+  return vim_api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col) == '.'
 end
 
 return function(entry1, entry2)

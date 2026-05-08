@@ -1,4 +1,6 @@
 local map = require 'infra.key'.map
+local vim_api = vim.api
+local vim_lsp = vim.lsp
 local illuminate = require 'illuminate'
 
 -- `false` indicates we don't know if the inlay hint is
@@ -6,33 +8,33 @@ local illuminate = require 'illuminate'
 -- which means we are sure the inlay hint was enabled before
 local inlay_hint_previously_enabled = false
 local function disable_inlay_hint()
-  if vim.lsp.inlay_hint.is_enabled() then
+  if vim_lsp.inlay_hint.is_enabled() then
     inlay_hint_previously_enabled = true
-    vim.lsp.inlay_hint.enable(false)
+    vim_lsp.inlay_hint.enable(false)
   end
 end
 local function restore_inlay_hint()
   if inlay_hint_previously_enabled then
-    vim.lsp.inlay_hint.enable(true)
+    vim_lsp.inlay_hint.enable(true)
     inlay_hint_previously_enabled = false
   end
 end
 
-local ns = vim.api.nvim_create_namespace 'binary-jump-target-hl'
+local ns = vim_api.nvim_create_namespace 'binary-jump-target-hl'
 
 local prev_hl = nil
 local function clear_hl()
   if prev_hl ~= nil then
     if prev_hl[2] ~= nil then
-      vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[2]) -- [l, next_m_l)
-      vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[3]) -- [next_m_l]
+      vim_api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[2]) -- [l, next_m_l)
+      vim_api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[3]) -- [next_m_l]
     end
-    vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[4])   -- (next_m_l, m)
-    vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[5])   -- [m]
-    vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[6])   -- (m, next_m_r)
+    vim_api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[4])   -- (next_m_l, m)
+    vim_api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[5])   -- [m]
+    vim_api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[6])   -- (m, next_m_r)
     if prev_hl[7] ~= nil then
-      vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[7]) -- [next_m_r]
-      vim.api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[8]) -- (next_m_r, r]
+      vim_api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[7]) -- [next_m_r]
+      vim_api.nvim_buf_del_extmark(prev_hl[1], ns, prev_hl[8]) -- (next_m_r, r]
     end
     prev_hl = nil
   end
@@ -46,47 +48,47 @@ local function hl(row, l, m, r)
   illuminate.pause()
   disable_inlay_hint()
 
-  local buf = vim.api.nvim_get_current_buf()
+  local buf = vim_api.nvim_get_current_buf()
   local next_m_l = math.floor((l + m - 1) / 2)
   local next_m_r = math.ceil((m + 1 + r) / 2)
   prev_hl = { buf }
   -- only hl when there are chars on the left
   if m > l then
-    prev_hl[2] = vim.api.nvim_buf_set_extmark(
+    prev_hl[2] = vim_api.nvim_buf_set_extmark(
       buf, ns, row,
       l, { end_col = next_m_l, hl_group = 'BinaryJumpRange' }
     )
-    prev_hl[3] = vim.api.nvim_buf_set_extmark(
+    prev_hl[3] = vim_api.nvim_buf_set_extmark(
       buf, ns, row,
       next_m_l, { end_col = next_m_l + 1, hl_group = 'BinaryJumpNextMid' }
     )
   end
-  prev_hl[4] = vim.api.nvim_buf_set_extmark(
+  prev_hl[4] = vim_api.nvim_buf_set_extmark(
     buf, ns, row,
     next_m_l + 1, { end_col = m, hl_group = 'BinaryJumpRange' }
   )
-  prev_hl[5] = vim.api.nvim_buf_set_extmark(
+  prev_hl[5] = vim_api.nvim_buf_set_extmark(
     buf, ns, row,
     m, { end_col = m + 1, hl_group = 'BinaryJumpMid' }
   )
-  prev_hl[6] = vim.api.nvim_buf_set_extmark(
+  prev_hl[6] = vim_api.nvim_buf_set_extmark(
     buf, ns, row,
     m + 1, { end_col = next_m_r, hl_group = 'BinaryJumpRange' }
   )
   -- only hl when there are chars on the right
   if m < r then
-    prev_hl[7] = vim.api.nvim_buf_set_extmark(
+    prev_hl[7] = vim_api.nvim_buf_set_extmark(
       buf, ns, row,
       next_m_r, { end_col = next_m_r + 1, hl_group = 'BinaryJumpNextMid' }
     )
-    prev_hl[8] = vim.api.nvim_buf_set_extmark(
+    prev_hl[8] = vim_api.nvim_buf_set_extmark(
       buf, ns, row,
       next_m_r + 1, { end_col = r + 1, hl_group = 'BinaryJumpRange' }
     )
   end
 
   if on_ev == nil then
-    on_ev = vim.api.nvim_create_autocmd({ 'CursorMoved', 'ModeChanged' }, {
+    on_ev = vim_api.nvim_create_autocmd({ 'CursorMoved', 'ModeChanged' }, {
       once = true,
       callback = function()
         clear_hl()
@@ -105,7 +107,7 @@ local function hl(row, l, m, r)
         restore_inlay_hint()
         range = nil
         if on_ev ~= nil then
-          vim.api.nvim_del_autocmd(on_ev)
+          vim_api.nvim_del_autocmd(on_ev)
           on_ev = nil
         end
         vim.on_key(nil, ns)
@@ -115,11 +117,11 @@ local function hl(row, l, m, r)
 end
 
 map({ 'n', 'x' }, '<C-h>', function()
-  if #vim.api.nvim_get_current_line() == 0 then return end
+  if #vim_api.nvim_get_current_line() == 0 then return end
 
   clear_hl()
 
-  local pos = vim.api.nvim_win_get_cursor(0)
+  local pos = vim_api.nvim_win_get_cursor(0)
   local row = pos[1]
   local col = pos[2]
 
@@ -132,7 +134,7 @@ map({ 'n', 'x' }, '<C-h>', function()
   range = { l, math.max(l, col - 1) }
 
   if range[1] == range[2] then
-    vim.api.nvim_win_set_cursor(0, { row, range[1] })
+    vim_api.nvim_win_set_cursor(0, { row, range[1] })
     range = nil
     return
   end
@@ -140,10 +142,10 @@ map({ 'n', 'x' }, '<C-h>', function()
   local m = math.floor((range[1] + range[2]) / 2)
 
   if on_ev ~= nil then
-    vim.api.nvim_del_autocmd(on_ev)
+    vim_api.nvim_del_autocmd(on_ev)
     on_ev = nil
   end
-  vim.api.nvim_win_set_cursor(0, { row, m })
+  vim_api.nvim_win_set_cursor(0, { row, m })
 
   vim.schedule(function()
     if range ~= nil then
@@ -153,12 +155,12 @@ map({ 'n', 'x' }, '<C-h>', function()
 end)
 
 map({ 'n', 'x' }, '<C-l>', function()
-  local max = #vim.api.nvim_get_current_line() - 1
+  local max = #vim_api.nvim_get_current_line() - 1
   if max == -1 then return end
 
   clear_hl()
 
-  local pos = vim.api.nvim_win_get_cursor(0)
+  local pos = vim_api.nvim_win_get_cursor(0)
   local row = pos[1]
   local col = pos[2]
 
@@ -171,7 +173,7 @@ map({ 'n', 'x' }, '<C-l>', function()
   range = { math.min(col + 1, r), r }
 
   if range[1] == range[2] then
-    vim.api.nvim_win_set_cursor(0, { row, range[1] })
+    vim_api.nvim_win_set_cursor(0, { row, range[1] })
     range = nil
     clear_hl()
     return
@@ -180,10 +182,10 @@ map({ 'n', 'x' }, '<C-l>', function()
   local m = math.ceil((range[1] + range[2]) / 2)
 
   if on_ev ~= nil then
-    vim.api.nvim_del_autocmd(on_ev)
+    vim_api.nvim_del_autocmd(on_ev)
     on_ev = nil
   end
-  vim.api.nvim_win_set_cursor(0, { row, m })
+  vim_api.nvim_win_set_cursor(0, { row, m })
 
   vim.schedule(function()
     if range ~= nil then

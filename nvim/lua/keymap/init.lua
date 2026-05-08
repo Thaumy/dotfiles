@@ -9,15 +9,21 @@ require 'keymap.recording'
 require 'keymap.macro_expand'
 
 local k = require 'infra.key'
+local lib = LIBNVIMCFG
+local vim_bo = vim.bo
+local vim_fn = vim.fn
+local vim_api = vim.api
+local vim_lsp = vim.lsp
+local vim_keymap = vim.keymap
 
 local map = k.map
 local map_cmd = k.map_cmd
 
 -- zz with horizontal relocation and blank line control
 map('n', 'zz', function()
-  local total_lines = vim.api.nvim_buf_line_count(0)
-  local view = vim.fn.winsaveview()
-  local win_height = vim.api.nvim_win_get_height(0)
+  local total_lines = vim_api.nvim_buf_line_count(0)
+  local view = vim_fn.winsaveview()
+  local win_height = vim_api.nvim_win_get_height(0)
   local target_line = math.floor(win_height * 0.4)
 
   local blank_lines = view.topline + win_height - 1 - total_lines
@@ -32,40 +38,40 @@ map('n', 'zz', function()
   end
 
   view.leftcol = 0
-  vim.fn.winrestview(view)
+  vim_fn.winrestview(view)
 end)
 
 -- remap `textDocument/selectionRange`
-vim.keymap.del('x', 'in')
+vim_keymap.del('x', 'in')
 map('x', '1', function()
-  vim.lsp.buf.selection_range(1)
+  vim_lsp.buf.selection_range(1)
 end)
-vim.keymap.del('x', 'an')
+vim_keymap.del('x', 'an')
 map('x', '2', function()
-  vim.lsp.buf.selection_range(-1)
+  vim_lsp.buf.selection_range(-1)
 end)
 
 map('x', 'y', function()
-  local from = vim.fn.getpos 'v'
-  local to = vim.fn.getpos '.'
-  local mode = vim.api.nvim_get_mode().mode
+  local from = vim_fn.getpos 'v'
+  local to = vim_fn.getpos '.'
+  local mode = vim_api.nvim_get_mode().mode
 
-  local selected = vim.fn.getregion(from, to, { type = mode })
+  local selected = vim_fn.getregion(from, to, { type = mode })
   local text = table.concat(selected, '\n')
 
   if mode == 'v' or mode == '\22' then
     -- visual or visual block
-    local line = vim.api.nvim_get_current_line()
+    local line = vim_api.nvim_get_current_line()
     -- if the last line break is selected
     if to[3] - 1 == #line then
       text = text .. '\n'
     end
   end
 
-  vim.fn.setreg('+', text, mode)
+  vim_fn.setreg('+', text, mode)
 
   -- feed <Esc> to exit
-  vim.api.nvim_input '\27'
+  vim_api.nvim_input '\27'
 end)
 
 -- mouse yank/paste
@@ -80,28 +86,28 @@ map('x', 'uj', 'u')
 map('x', 'uk', 'U')
 
 local function buf_switch_and_delete()
-  local win = vim.api.nvim_get_current_win()
-  local curr_buf = vim.api.nvim_get_current_buf()
+  local win = vim_api.nvim_get_current_win()
+  local curr_buf = vim_api.nvim_get_current_buf()
 
   local buf = 0
 
   local bh = BUF_HISTORY[win]
   if bh ~= nil then
-    buf = LIBNVIMCFG.buf_history_cursor(bh)
-    if buf == 0 and vim.api.nvim_buf_get_name(curr_buf) == '' then
+    buf = lib.buf_history_cursor(bh)
+    if buf == 0 and vim_api.nvim_buf_get_name(curr_buf) == '' then
       vim.print 'no buffers left'
       return
     end
 
-    LIBNVIMCFG.buf_history_del(bh, curr_buf)
+    lib.buf_history_del(bh, curr_buf)
 
     while true do
-      buf = LIBNVIMCFG.buf_history_cursor(bh)
+      buf = lib.buf_history_cursor(bh)
 
-      if buf == 0 or vim.api.nvim_buf_is_valid(buf) then
+      if buf == 0 or vim_api.nvim_buf_is_valid(buf) then
         break
       else
-        LIBNVIMCFG.buf_history_invalid(bh, buf)
+        lib.buf_history_invalid(bh, buf)
       end
     end
 
@@ -109,32 +115,32 @@ local function buf_switch_and_delete()
   end
 
   if buf == 0 then
-    buf = vim.api.nvim_create_buf(true, false)
+    buf = vim_api.nvim_create_buf(true, false)
 
     -- If this unnamed buffer is renamed, it will be deleted and all relevant
     -- autocmd bindings will be removed, even if Neovim reuses the buffer ID.
     -- So there's no need to clear this autocmd after renaming.
-    vim.api.nvim_create_autocmd({ 'BufHidden' }, {
+    vim_api.nvim_create_autocmd({ 'BufHidden' }, {
       once = true,
       buffer = buf,
       callback = function()
         vim.schedule(function()
-          vim.api.nvim_buf_delete(buf, {})
+          vim_api.nvim_buf_delete(buf, {})
         end)
       end,
     })
   end
 
-  vim.api.nvim_win_set_buf(win, buf)
+  vim_api.nvim_win_set_buf(win, buf)
 end
 
 -- buf
 map({ 'n', 'x' }, 'ww', function()
-  if vim.bo.buftype ~= '' then
+  if vim_bo.buftype ~= '' then
     vim.print 'can not write special buffer'
     return
   end
-  if vim.api.nvim_buf_get_name(0) == '' then
+  if vim_api.nvim_buf_get_name(0) == '' then
     vim.print 'no filename, can not write'
     return
   end
@@ -147,10 +153,10 @@ map({ 'n', 'x' }, 'ws', function()
   vim.cmd 'qa'
 end)
 map({ 'n', 'x' }, 'qq', function()
-  local ft = vim.bo.ft
+  local ft = vim_bo.ft
   if ft == 'neo-tree' then return end
   if
-      vim.bo.bt == '' or
+      vim_bo.bt == '' or
       ft == 'buildlog' or
       ft == 'ccapture'
   then
@@ -161,11 +167,11 @@ map({ 'n', 'x' }, 'qq', function()
 end)
 map_cmd({ 'n', 'x' }, 'qa', 'qa!')
 map({ 'n', 'x' }, 'wq', function()
-  if vim.bo.buftype ~= '' then
+  if vim_bo.buftype ~= '' then
     vim.print 'can not write special buffer'
     return
   end
-  if vim.api.nvim_buf_get_name(0) == '' then
+  if vim_api.nvim_buf_get_name(0) == '' then
     vim.print 'no filename, can not write'
     return
   end
@@ -179,13 +185,13 @@ map_cmd('n', '<C-n>', 'noh')
 
 -- visual-block front/back insert
 map('x', 'i', function()
-  if vim.api.nvim_get_mode().mode == '\22' then
-    vim.api.nvim_feedkeys('I', 'n', false)
+  if vim_api.nvim_get_mode().mode == '\22' then
+    vim_api.nvim_feedkeys('I', 'n', false)
   end
 end)
 map('x', 'a', function()
-  if vim.api.nvim_get_mode().mode == '\22' then
-    vim.api.nvim_feedkeys('A', 'n', false)
+  if vim_api.nvim_get_mode().mode == '\22' then
+    vim_api.nvim_feedkeys('A', 'n', false)
   end
 end)
 
@@ -196,7 +202,7 @@ end)
 
 -- focus on quickfix list
 map('n', 'cc', function()
-  if #vim.fn.getqflist() == 0 then
+  if #vim_fn.getqflist() == 0 then
     vim.cmd 'bo cclose'
     vim.print 'qf list is empty'
   else
@@ -210,32 +216,32 @@ map('n', 'cq', function()
 end)
 
 -- delete quickfix row
-vim.api.nvim_create_autocmd('FileType', {
+vim_api.nvim_create_autocmd('FileType', {
   pattern = 'qf',
   callback = function()
-    vim.keymap.set('n', 'dd', function()
-        local lines = vim.fn.getqflist()
-        local row = vim.api.nvim_win_get_cursor(0)[1]
+    vim_keymap.set('n', 'dd', function()
+        local lines = vim_fn.getqflist()
+        local row = vim_api.nvim_win_get_cursor(0)[1]
         table.remove(lines, row)
-        vim.fn.setqflist(lines, 'r')
+        vim_fn.setqflist(lines, 'r')
 
         -- cursor relocation
         local max_row = #lines
         if row < max_row then
-          vim.api.nvim_win_set_cursor(0, { row, 0 })
+          vim_api.nvim_win_set_cursor(0, { row, 0 })
         elseif max_row ~= 0 then
-          vim.api.nvim_win_set_cursor(0, { max_row, 0 })
+          vim_api.nvim_win_set_cursor(0, { max_row, 0 })
         else
           vim.cmd 'q' -- quit if empty
         end
       end,
       { buffer = true }
     )
-    vim.keymap.set('x', 'd', function()
-        local from = (vim.fn.getpos 'v')[2]
-        local to = (vim.fn.getpos '.')[2]
+    vim_keymap.set('x', 'd', function()
+        local from = (vim_fn.getpos 'v')[2]
+        local to = (vim_fn.getpos '.')[2]
 
-        local lines = vim.fn.getqflist()
+        local lines = vim_fn.getqflist()
         local len = #lines
         local new_len = len - (math.abs(to - from) + 1)
 
@@ -243,17 +249,17 @@ vim.api.nvim_create_autocmd('FileType', {
         local tail_new_start = math.min(from, to)
         table.move(lines, tail_start, len, tail_new_start, lines)
         for i = new_len + 1, len do lines[i] = nil end
-        vim.fn.setqflist(lines, 'r')
+        vim_fn.setqflist(lines, 'r')
 
         -- feed <Esc> to exit visual mode
-        vim.api.nvim_input '\27'
+        vim_api.nvim_input '\27'
 
         -- cursor relocation
         local max_row = new_len
         if from < max_row then
-          vim.api.nvim_win_set_cursor(0, { from, 0 })
+          vim_api.nvim_win_set_cursor(0, { from, 0 })
         elseif max_row ~= 0 then
-          vim.api.nvim_win_set_cursor(0, { max_row, 0 })
+          vim_api.nvim_win_set_cursor(0, { max_row, 0 })
         else
           vim.cmd 'q' -- quit if empty
         end
@@ -276,11 +282,11 @@ map('n', 'U', '<C-R>')
 map({ 'n', 'x' }, 'ff', 'G')
 -- go prev/next position
 map('n', 'cp', function()
-  if vim.bo.bt ~= '' then return end
+  if vim_bo.bt ~= '' then return end
   vim.cmd 'normal! \15' -- <C-o>
 end)
 map('n', 'cn', function()
-  if vim.bo.bt ~= '' then return end
+  if vim_bo.bt ~= '' then return end
   vim.cmd 'normal! 1\t' -- <C-i>
 end)
 
@@ -311,30 +317,30 @@ end
 
 -- go line head/end
 map({ 'n', 'x' }, 'qh', function()
-  local line = vim.api.nvim_get_current_line()
+  local line = vim_api.nvim_get_current_line()
   local spaces = prefix_spaces_len(line)
 
-  local pos = vim.api.nvim_win_get_cursor(0)
+  local pos = vim_api.nvim_win_get_cursor(0)
   if spaces < pos[2] then
     pos[2] = spaces
   else
     pos[2] = 0
   end
-  vim.api.nvim_win_set_cursor(0, pos)
+  vim_api.nvim_win_set_cursor(0, pos)
 end)
 map({ 'n', 'x' }, 'ql', function()
-  local line = vim.api.nvim_get_current_line()
+  local line = vim_api.nvim_get_current_line()
   if #line == 0 then return end
 
   local spaces = prefix_spaces_len(line)
 
-  local pos = vim.api.nvim_win_get_cursor(0)
+  local pos = vim_api.nvim_win_get_cursor(0)
   if spaces > pos[2] then
     pos[2] = spaces
   else
     pos[2] = #line - 1
   end
-  vim.api.nvim_win_set_cursor(0, pos)
+  vim_api.nvim_win_set_cursor(0, pos)
 end)
 
 -- quick word L/R
@@ -348,39 +354,39 @@ map({ 'n', 'x' }, 'qj', '18j', true)
 map({ 'n', 'x' }, 'qk', '18k', true)
 
 map({ 'n', 'x' }, 'rp', function()
-  local curr_buf_ft = vim.api.nvim_get_option_value('ft', { buf = 0 })
+  local curr_buf_ft = vim_api.nvim_get_option_value('ft', { buf = 0 })
   if curr_buf_ft == 'qf' then
-    vim.api.nvim_feedkeys(':cdo s/', 'n', false)
+    vim_api.nvim_feedkeys(':cdo s/', 'n', false)
     return
   end
 
-  local mode = vim.api.nvim_get_mode().mode
+  local mode = vim_api.nvim_get_mode().mode
   if mode == 'n' then
-    vim.api.nvim_feedkeys(':%s/', 'n', false)
+    vim_api.nvim_feedkeys(':%s/', 'n', false)
   elseif
       mode == 'v' or -- by char
       mode == 'V' or -- by line
       mode == '\22'  -- by block
   then
-    vim.api.nvim_feedkeys([[:s/\%V]], 'n', false)
+    vim_api.nvim_feedkeys([[:s/\%V]], 'n', false)
   end
 end)
 
 -- yank abs path of current buf
 map('n', 'yp', function()
-  vim.fn.setreg('+', vim.api.nvim_buf_get_name(0))
+  vim_fn.setreg('+', vim_api.nvim_buf_get_name(0))
 end)
 
 -- yank abs path of current buf, with :line:col suffix
 map('n', 'yl', function()
-  local path = vim.api.nvim_buf_get_name(0)
-  local pos = vim.api.nvim_win_get_cursor(0)
-  vim.fn.setreg('+', string.format('%s:%d:%d', path, pos[1], pos[2]))
+  local path = vim_api.nvim_buf_get_name(0)
+  local pos = vim_api.nvim_win_get_cursor(0)
+  vim_fn.setreg('+', string.format('%s:%d:%d', path, pos[1], pos[2]))
 end)
 
 -- docs preview
 map('n', '<C-p>', function()
-  if vim.bo.ft == 'markdown' then
+  if vim_bo.ft == 'markdown' then
     vim.cmd 'MarkdownPreview'
     return
   end
@@ -388,7 +394,7 @@ end)
 
 -- refresh buf
 map({ 'n', 'x' }, 'rr', function()
-  if vim.api.nvim_buf_get_name(0) == '' then
+  if vim_api.nvim_buf_get_name(0) == '' then
     vim.print 'no filename, can not refresh'
     return
   end

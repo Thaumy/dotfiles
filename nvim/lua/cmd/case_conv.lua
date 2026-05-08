@@ -1,6 +1,7 @@
 local k = require 'infra.key'
-local ffi = require 'ffi'
 local lib = LIBNVIMCFG
+local ffi = require 'ffi'
+local vim_fn = vim.fn
 
 local function case_conv(from, code)
   if code < 0 or code > 7 then return end
@@ -39,11 +40,11 @@ local map = {
 }
 
 k.map('x', 'co', function()
-  local from = vim.fn.getpos 'v'
-  local to = vim.fn.getpos '.'
+  local from = vim_fn.getpos 'v'
+  local to = vim_fn.getpos '.'
   local mode = vim.api.nvim_get_mode().mode
 
-  local selected = vim.fn.getregion(from, to, { type = mode })
+  local selected = vim_fn.getregion(from, to, { type = mode })
   local text = table.concat(selected, '\n')
 
   vim.ui.input({ prompt = 'convention: ' }, function(short_name)

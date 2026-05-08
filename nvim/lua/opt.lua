@@ -1,14 +1,17 @@
+local vim_o = vim.o
+local vim_g = vim.g
+local vim_fn = vim.fn
 local string_gsub = string.gsub
 local shorten_path = require 'infra.shorten_path'
 local string_format = string.format
 local nvim_buf_get_name = vim.api.nvim_buf_get_name
 
-vim.o.shortmess = 'ltToOcCFsSI'
-vim.o.softtabstop = 2
-vim.o.tabstop = 2
-vim.o.shiftwidth = 2
-vim.o.expandtab = true
-vim.o.fillchars = 'eob: '
+vim_o.shortmess = 'ltToOcCFsSI'
+vim_o.softtabstop = 2
+vim_o.tabstop = 2
+vim_o.shiftwidth = 2
+vim_o.expandtab = true
+vim_o.fillchars = 'eob: '
 
 -- disable key presses and selected area printing
 vim_o.showcmd = false
@@ -17,7 +20,7 @@ vim_o.showcmd = false
 vim_o.showmode = false
 
 -- extra characters in viw
-vim.o.iskeyword = '@,48-57,_,192-255,-,#'
+vim_o.iskeyword = '@,48-57,_,192-255,-,#'
 
 -- show line numbers
 vim.o.number = true
@@ -27,38 +30,38 @@ vim.o.numberwidth = 1
 vim.o.laststatus = 3
 
 -- hl current line
-vim.o.cursorline = true
+vim_o.cursorline = true
 
 -- share system clipboards
-vim.o.clipboard = 'unnamed,unnamedplus'
+vim_o.clipboard = 'unnamed,unnamedplus'
 
 -- disable swap file
-vim.o.swapfile = false
+vim_o.swapfile = false
 
 -- disable line wrapping when exceeds term width
-vim.o.wrap = false
+vim_o.wrap = false
 
 -- keymap expire time
-vim.o.timeoutlen = 500
+vim_o.timeoutlen = 500
 
 -- disable deprecation warnings
 vim.deprecate = function() end
 
 -- providers
-vim.g.loaded_perl_provider = 0
-vim.g.loaded_node_provider = 0
-vim.g.loaded_ruby_provider = 0
-vim.g.loaded_python3_provider = 0
+vim_g.loaded_perl_provider = 0
+vim_g.loaded_node_provider = 0
+vim_g.loaded_ruby_provider = 0
+vim_g.loaded_python3_provider = 0
 
 -- max qflist stack size
-vim.o.chi = 3
+vim_o.chi = 3
 
 function QFTF(opts)
   local list
   if opts.quickfix == 1 then
-    list = vim.fn.getqflist()
+    list = vim_fn.getqflist()
   else
-    list = vim.fn.getloclist(opts.wini)
+    list = vim_fn.getloclist(opts.wini)
   end
 
   local lines = {}
@@ -80,4 +83,4 @@ function QFTF(opts)
   return lines
 end
 
-vim.o.qftf = 'v:lua.QFTF'
+vim_o.qftf = 'v:lua.QFTF'

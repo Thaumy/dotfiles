@@ -1,7 +1,9 @@
 local k = require 'infra.key'
 local window = require 'infra.window'
+local vim_api = vim.api
+local vim_lsp = vim.lsp
 
-local ns = vim.api.nvim_create_namespace 'macro-expand'
+local ns = vim_api.nvim_create_namespace 'macro-expand'
 
 local expand_win = nil
 local expand_buf = nil
@@ -10,30 +12,30 @@ local autocmd = nil
 local function close_expand()
   if expand_win == nil then return end
 
-  vim.api.nvim_win_close(expand_win, false)
+  vim_api.nvim_win_close(expand_win, false)
   expand_win = nil
-  vim.api.nvim_buf_delete(expand_buf, {})
+  vim_api.nvim_buf_delete(expand_buf, {})
   expand_buf = nil
 end
 
 k.map('n', '<M-z>', function()
   if expand_win ~= nil then
     if autocmd ~= nil then
-      vim.api.nvim_del_autocmd(autocmd)
+      vim_api.nvim_del_autocmd(autocmd)
       autocmd = nil
     end
-    vim.api.nvim_set_current_win(expand_win)
+    vim_api.nvim_set_current_win(expand_win)
     return
   end
 
   -- now we only have impl for Rust
-  local client = (vim.lsp.get_clients {
+  local client = (vim_lsp.get_clients {
     name = 'rust_analyzer',
-    bufnr = vim.api.nvim_get_current_buf(),
+    bufnr = vim_api.nvim_get_current_buf(),
   })[1]
   if client == nil then return end
 
-  local params = vim.lsp.util.make_position_params(0, 'utf-8')
+  local params = vim_lsp.util.make_position_params(0, 'utf-8')
   local ret = client:request_sync('rust-analyzer/expandMacro', params)
 
   local lines = {}
@@ -43,11 +45,11 @@ k.map('n', '<M-z>', function()
     return
   end
 
-  expand_buf = vim.api.nvim_create_buf(false, true)
-  vim.api.nvim_buf_set_lines(expand_buf, 0, -1, true, lines)
-  vim.api.nvim_set_option_value('modifiable', false, { buf = expand_buf })
-  vim.api.nvim_set_option_value('filetype', 'rust', { buf = expand_buf })
-  vim.api.nvim_create_autocmd({ 'BufLeave' }, {
+  expand_buf = vim_api.nvim_create_buf(false, true)
+  vim_api.nvim_buf_set_lines(expand_buf, 0, -1, true, lines)
+  vim_api.nvim_set_option_value('modifiable', false, { buf = expand_buf })
+  vim_api.nvim_set_option_value('filetype', 'rust', { buf = expand_buf })
+  vim_api.nvim_create_autocmd({ 'BufLeave' }, {
     once = true,
     buffer = expand_buf,
     callback = close_expand,
@@ -70,13 +72,13 @@ k.map('n', '<M-z>', function()
   expand_win = window.open_float(expand_buf, expand_width, expand_height)
 
   if autocmd == nil then
-    autocmd = vim.api.nvim_create_autocmd(
+    autocmd = vim_api.nvim_create_autocmd(
       { 'CursorMoved', 'BufLeave', 'ModeChanged', 'WinScrolled' },
       {
         once = true,
-        buffer = vim.api.nvim_get_current_buf(),
+        buffer = vim_api.nvim_get_current_buf(),
         callback = function()
-          vim.api.nvim_del_autocmd(autocmd)
+          vim_api.nvim_del_autocmd(autocmd)
           autocmd = nil
           vim.on_key(nil, ns)
           close_expand()

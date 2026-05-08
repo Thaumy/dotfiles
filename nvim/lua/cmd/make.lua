@@ -1,16 +1,18 @@
 local k = require 'infra.key'
+local vim_fn = vim.fn
+local vim_api = vim.api
 local table_concat = table.concat
-local nvim_buf_set_text = vim.api.nvim_buf_set_text
+local nvim_buf_set_text = vim_api.nvim_buf_set_text
 
 BUILD_JOB_ID = nil
 local out = {}
 local out_buf = nil
 local line_parts = {}
 
-vim.api.nvim_create_user_command('M', function(opts)
+vim_api.nvim_create_user_command('M', function(opts)
   if BUILD_JOB_ID ~= nil then
     if opts.args == ';' then
-      vim.fn.jobstop(BUILD_JOB_ID)
+      vim_fn.jobstop(BUILD_JOB_ID)
       BUILD_JOB_ID = nil
     else
       vim.print 'need to wait or terminate the current build'
@@ -18,35 +20,35 @@ vim.api.nvim_create_user_command('M', function(opts)
     return
   end
 
-  local curr_buf = vim.api.nvim_get_current_buf()
-  local mp = vim.api.nvim_get_option_value('makeprg', { buf = curr_buf })
+  local curr_buf = vim_api.nvim_get_current_buf()
+  local mp = vim_api.nvim_get_option_value('makeprg', { buf = curr_buf })
   if mp == '' then
     vim.print 'no makeprg'
     return
   end
-  local efm = vim.api.nvim_get_option_value('efm', { buf = curr_buf })
+  local efm = vim_api.nvim_get_option_value('efm', { buf = curr_buf })
   if efm == '' then
     vim.print 'no errorformat'
     return
   end
 
   if out_buf == nil then
-    out_buf = vim.api.nvim_create_buf(true, true)
-    vim.api.nvim_create_autocmd('BufDelete', {
+    out_buf = vim_api.nvim_create_buf(true, true)
+    vim_api.nvim_create_autocmd('BufDelete', {
       buffer = out_buf,
       once = true,
       callback = function() out_buf = nil end,
     })
-    vim.api.nvim_set_option_value('ft', 'buildlog', { buf = out_buf })
-    vim.api.nvim_set_option_value('mp', mp, { buf = out_buf })
-    vim.api.nvim_set_option_value('efm', efm, { buf = out_buf })
+    vim_api.nvim_set_option_value('ft', 'buildlog', { buf = out_buf })
+    vim_api.nvim_set_option_value('mp', mp, { buf = out_buf })
+    vim_api.nvim_set_option_value('efm', efm, { buf = out_buf })
   else
-    vim.api.nvim_buf_set_lines(out_buf, 0, -1, false, {})
+    vim_api.nvim_buf_set_lines(out_buf, 0, -1, false, {})
   end
 
-  vim.api.nvim_buf_set_name(out_buf, os.date 'build [%y-%m-%d %H:%M:%S]')
+  vim_api.nvim_buf_set_name(out_buf, os.date 'build [%y-%m-%d %H:%M:%S]')
 
-  local args = vim.fn.expandcmd(opts.args)
+  local args = vim_fn.expandcmd(opts.args)
   local cmd = string.gsub(mp, '%$%*', args)
 
   local function write_out_buf(_, data, _)
@@ -98,7 +100,7 @@ vim.api.nvim_create_user_command('M', function(opts)
       vim.print 'build complete'
     end
 
-    local items = (vim.fn.getqflist {
+    local items = (vim_fn.getqflist {
       efm = efm,
       lines = out,
     }).items
@@ -114,13 +116,13 @@ vim.api.nvim_create_user_command('M', function(opts)
       end
     end
 
-    vim.fn.setqflist(valid_items)
-    vim.api.nvim_exec_autocmds({ 'QuickFixCmdPost' }, {})
+    vim_fn.setqflist(valid_items)
+    vim_api.nvim_exec_autocmds({ 'QuickFixCmdPost' }, {})
     line_parts = {}
     BUILD_JOB_ID = nil
   end
 
-  BUILD_JOB_ID = vim.fn.jobstart(cmd, {
+  BUILD_JOB_ID = vim_fn.jobstart(cmd, {
     on_stderr = write_out_buf,
     on_stdout = write_out_buf,
     on_exit = on_exit,
@@ -133,10 +135,10 @@ vim.api.nvim_create_user_command('M', function(opts)
   if opts.bang then return end
 
   if curr_buf ~= out_buf then
-    vim.api.nvim_win_set_buf(0, out_buf)
+    vim_api.nvim_win_set_buf(0, out_buf)
   end
 end, { nargs = '*', bang = true })
 
 k.map('n', 'M', function()
-  vim.api.nvim_feedkeys(':M ', 'n', false)
+  vim_api.nvim_feedkeys(':M ', 'n', false)
 end)

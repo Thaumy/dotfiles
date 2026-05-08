@@ -1,5 +1,7 @@
-local nvim_buf_set_extmark = vim.api.nvim_buf_set_extmark
-local nvim_buf_del_extmark = vim.api.nvim_buf_del_extmark
+local vim_fn = vim.fn
+local vim_api = vim.api
+local nvim_buf_set_extmark = vim_api.nvim_buf_set_extmark
+local nvim_buf_del_extmark = vim_api.nvim_buf_del_extmark
 
 local function trailing_spaces_len(line)
   local len = 0
@@ -11,9 +13,9 @@ local function trailing_spaces_len(line)
   return len
 end
 
-local ns = vim.api.nvim_create_namespace 'trailing-space-hl'
+local ns = vim_api.nvim_create_namespace 'trailing-space-hl'
 local hl_results = {}
-vim.api.nvim_create_autocmd('BufDelete', {
+vim_api.nvim_create_autocmd('BufDelete', {
   callback = function(args)
     hl_results[args.buf] = nil
   end,
@@ -21,7 +23,7 @@ vim.api.nvim_create_autocmd('BufDelete', {
 
 local debounce = require 'infra.debounce'
 local win_debounce = {}
-vim.api.nvim_create_autocmd('WinClosed', {
+vim_api.nvim_create_autocmd('WinClosed', {
   callback = function(args)
     win_debounce[tonumber(args.file)] = nil
   end,
@@ -29,21 +31,21 @@ vim.api.nvim_create_autocmd('WinClosed', {
 
 local function invalid(buf)
   return
-      vim.api.nvim_get_option_value('readonly', { buf = buf }) or
-      (not vim.api.nvim_get_option_value('modifiable', { buf = buf })) or
+      vim_api.nvim_get_option_value('readonly', { buf = buf }) or
+      (not vim_api.nvim_get_option_value('modifiable', { buf = buf })) or
       -- abnormal buffer
-      vim.api.nvim_get_option_value('buftype', { buf = buf }) ~= ''
+      vim_api.nvim_get_option_value('buftype', { buf = buf }) ~= ''
 end
 
 local when_change = function()
-  local win = vim.api.nvim_get_current_win()
+  local win = vim_api.nvim_get_current_win()
   if win_debounce[win] == nil then
     win_debounce[win] = debounce:new()
   end
   win_debounce[win]:schedule(200, function()
-    if not vim.api.nvim_win_is_valid(win) then return end
+    if not vim_api.nvim_win_is_valid(win) then return end
 
-    local buf = vim.api.nvim_win_get_buf(win)
+    local buf = vim_api.nvim_win_get_buf(win)
     if invalid(buf) then return end
 
     if hl_results[buf] == nil then
@@ -55,19 +57,19 @@ local when_change = function()
     end
     local hl_result = hl_results[buf]
 
-    local changedtick = vim.api.nvim_buf_get_changedtick(buf)
+    local changedtick = vim_api.nvim_buf_get_changedtick(buf)
     if hl_result.changedtick == changedtick then return end
     hl_result.changedtick = changedtick
 
-    local in_insert_mode = vim.api.nvim_get_mode().mode == 'i'
+    local in_insert_mode = vim_api.nvim_get_mode().mode == 'i'
     -- row indexing is one-based
-    local cursor_row = vim.api.nvim_win_get_cursor(0)[1]
+    local cursor_row = vim_api.nvim_win_get_cursor(0)[1]
 
-    local win_info = vim.fn.getwininfo(win)[1]
+    local win_info = vim_fn.getwininfo(win)[1]
     local row_from = win_info.topline
     local row_to = win_info.botline
     -- indexing is zero-based, end exclusive, so we have [row_from, row_to]
-    local lines = vim.api.nvim_buf_get_lines(buf, row_from - 1, row_to, true)
+    local lines = vim_api.nvim_buf_get_lines(buf, row_from - 1, row_to, true)
 
     for i, line in ipairs(lines) do
       local row = row_from + i - 1
@@ -101,39 +103,39 @@ local when_change = function()
   end)
 end
 
-vim.api.nvim_create_autocmd(
+vim_api.nvim_create_autocmd(
   { 'BufEnter', 'TextChanged', 'InsertLeave' },
   { callback = when_change }
 )
 
 local when_scroll = function()
-  local win = vim.api.nvim_get_current_win()
+  local win = vim_api.nvim_get_current_win()
   if win_debounce[win] == nil then
     win_debounce[win] = debounce:new()
   end
   win_debounce[win]:schedule(200, function()
-    if not vim.api.nvim_win_is_valid(win) then return end
+    if not vim_api.nvim_win_is_valid(win) then return end
 
-    local buf = vim.api.nvim_win_get_buf(win)
+    local buf = vim_api.nvim_win_get_buf(win)
     if invalid(buf) then return end
 
     if hl_results[buf] == nil then
       hl_results[buf] = {
         ext_marks = {},
-        changedtick = vim.api.nvim_buf_get_changedtick(buf),
+        changedtick = vim_api.nvim_buf_get_changedtick(buf),
         checked_rows = {},
       }
     end
 
-    local in_insert_mode = vim.api.nvim_get_mode().mode == 'i'
+    local in_insert_mode = vim_api.nvim_get_mode().mode == 'i'
     -- row indexing is one-based
-    local cursor_row = vim.api.nvim_win_get_cursor(0)[1]
+    local cursor_row = vim_api.nvim_win_get_cursor(0)[1]
 
-    local win_info = vim.fn.getwininfo(win)[1]
+    local win_info = vim_fn.getwininfo(win)[1]
     local row_from = win_info.topline
     local row_to = win_info.botline
     -- indexing is zero-based, end exclusive, so we have [row_from, row_to]
-    local lines = vim.api.nvim_buf_get_lines(buf, row_from - 1, row_to, true)
+    local lines = vim_api.nvim_buf_get_lines(buf, row_from - 1, row_to, true)
 
     local hl_result = hl_results[buf]
 
@@ -167,6 +169,6 @@ local when_scroll = function()
   end)
 end
 
-vim.api.nvim_create_autocmd('WinScrolled', {
+vim_api.nvim_create_autocmd('WinScrolled', {
   callback = when_scroll,
 })

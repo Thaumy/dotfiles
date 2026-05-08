@@ -1,7 +1,9 @@
+local vim_lsp = vim.lsp
+
 -- For more LSPs, see:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 
-vim.lsp.config('nil_ls', {
+vim_lsp.config('nil_ls', {
   settings = {
     ['nil'] = {
       formatting = {
@@ -14,7 +16,7 @@ vim.lsp.config('nil_ls', {
   },
 })
 
-vim.lsp.config('lua_ls', {
+vim_lsp.config('lua_ls', {
   settings = {
     Lua = {
       diagnostics = {
@@ -40,11 +42,11 @@ vim.lsp.config('lua_ls', {
   },
 })
 
-vim.lsp.config('omnisharp', {
+vim_lsp.config('omnisharp', {
   cmd = { 'OmniSharp' },
 })
 
-vim.lsp.config('rust_analyzer', {
+vim_lsp.config('rust_analyzer', {
   settings = {
     ['rust-analyzer'] = {
       cargo = {
@@ -104,7 +106,7 @@ vim.lsp.config('rust_analyzer', {
   },
 })
 
-vim.lsp.enable {
+vim_lsp.enable {
   'hls',                    -- Haskell
   'ruff',                   -- Python fmt
   'html',                   -- HTML

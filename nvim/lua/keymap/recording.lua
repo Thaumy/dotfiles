@@ -1,5 +1,6 @@
-local lualine = require 'lualine'
 local map = require 'infra.key'.map
+local vim_api = vim.api
+local lualine = require 'lualine'
 
 RECORDING = false
 
@@ -14,7 +15,7 @@ end
 local keys = {}
 local play = ''
 local play_readable = ''
-local ns = vim.api.nvim_create_namespace 'better-recording'
+local ns = vim_api.nvim_create_namespace 'better-recording'
 
 map({ 'n', 'x' }, 'rj', function()
   if RECORDING then return end
@@ -44,7 +45,7 @@ end)
 map({ 'n', 'x' }, 'rk', function()
   if RECORDING then return end
 
-  vim.api.nvim_input(play)
+  vim_api.nvim_input(play)
   vim.schedule(function()
     vim.print(string.format('played: [%s]', play_readable))
   end)

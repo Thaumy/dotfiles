@@ -1,5 +1,7 @@
 local k = require 'infra.key'
 local plugin = require 'neo-tree'
+local vim_go = vim.go
+local vim_api = vim.api
 local mappings = require 'plugin.neo-tree.cfg.mappings'
 local Debounce = require 'infra.debounce'
 
@@ -91,7 +93,7 @@ local neotree_cmd = require 'neo-tree.command'.execute
 -- show tree if term width > 120 and
 -- nvim not started in diff mode
 if
-    vim.go.columns > 120 and
+    vim_go.columns > 120 and
     (not vim.tbl_contains(vim.v.argv, '-d'))
 then
   neotree_cmd { action = 'show' }
@@ -99,10 +101,10 @@ end
 
 -- auto show/close neo-tree when window resized
 local debounce = Debounce:new()
-local auto_toggle = vim.api.nvim_create_autocmd('VimResized', {
+local auto_toggle = vim_api.nvim_create_autocmd('VimResized', {
   callback = function()
     debounce:schedule(200, function()
-      if vim.go.columns < 120 then
+      if vim_go.columns < 120 then
         neotree_cmd { action = 'close' }
       else
         neotree_cmd { action = 'show' }
@@ -114,7 +116,7 @@ local auto_toggle = vim.api.nvim_create_autocmd('VimResized', {
 -- toggle
 k.map('n', '<M-e>', function()
   if auto_toggle ~= nil then
-    vim.api.nvim_del_autocmd(auto_toggle)
+    vim_api.nvim_del_autocmd(auto_toggle)
     auto_toggle = nil
   end
   neotree_cmd { action = 'show', toggle = true }

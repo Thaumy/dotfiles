@@ -1,12 +1,13 @@
 local map = require 'infra.key'.map
-local nvim_win_get_buf = vim.api.nvim_win_get_buf
-local nvim_get_option_value = vim.api.nvim_get_option_value
+local vim_api = vim.api
+local nvim_win_get_buf = vim_api.nvim_win_get_buf
+local nvim_get_option_value = vim_api.nvim_get_option_value
 
 map('n', ';', function()
-  local wins = vim.api.nvim_list_wins()
+  local wins = vim_api.nvim_list_wins()
   table.sort(wins, function(l, r) return l < r end)
 
-  local curr_win = vim.api.nvim_get_current_win()
+  local curr_win = vim_api.nvim_get_current_win()
 
   local target_win = nil
   for _, win in ipairs(wins) do
@@ -32,6 +33,6 @@ map('n', ';', function()
   end
 
   if target_win ~= nil then
-    vim.api.nvim_set_current_win(target_win)
+    vim_api.nvim_set_current_win(target_win)
   end
 end)

@@ -1,11 +1,13 @@
+local vim_keymap = vim.keymap
+
 local map_opts = { noremap = true, silent = true }
 
 local function unmap(modes, lhs)
-  vim.keymap.set(modes, lhs, '<nop>', map_opts)
+  vim_keymap.set(modes, lhs, '<nop>', map_opts)
 end
 
 local function map(modes, lhs, rhs, keep_rhs)
-  vim.keymap.set(modes, lhs, rhs, map_opts)
+  vim_keymap.set(modes, lhs, rhs, map_opts)
   if keep_rhs == true then
     return
   end
@@ -15,7 +17,7 @@ local function map(modes, lhs, rhs, keep_rhs)
 end
 
 local function map_cmd(mode, lhs, cmd_rhs)
-  vim.keymap.set(mode, lhs, function()
+  vim_keymap.set(mode, lhs, function()
     vim.cmd(cmd_rhs)
   end, map_opts)
 end

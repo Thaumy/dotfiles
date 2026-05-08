@@ -1,9 +1,12 @@
+local vim_fn = vim.fn
+local vim_api = vim.api
+
 local function open_float(buf, width, height)
   local row
   local n_or_s
   local top_border = ' '
   local bottom_border = ' '
-  if vim.fn.winline() + height + 1 < vim.api.nvim_win_get_height(0) then
+  if vim_fn.winline() + height + 1 < vim_api.nvim_win_get_height(0) then
     row = 1
     n_or_s = 'N'
     top_border = ''
@@ -15,7 +18,7 @@ local function open_float(buf, width, height)
 
   local col
   local w_or_e
-  if vim.fn.wincol() + width + 1 < vim.api.nvim_win_get_width(0) then
+  if vim_fn.wincol() + width + 1 < vim_api.nvim_win_get_width(0) then
     col = 1
     w_or_e = 'W'
   else
@@ -23,7 +26,7 @@ local function open_float(buf, width, height)
     w_or_e = 'E'
   end
 
-  return vim.api.nvim_open_win(buf, false, {
+  return vim_api.nvim_open_win(buf, false, {
     relative = 'cursor',
     anchor = n_or_s .. w_or_e,
     row = row,

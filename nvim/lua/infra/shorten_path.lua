@@ -1,5 +1,5 @@
-local ffi = require 'ffi'
 local lib = LIBNVIMCFG
+local ffi = require 'ffi'
 
 return function(original)
   local original_ptr = ffi.cast('uint8_t*', original)
