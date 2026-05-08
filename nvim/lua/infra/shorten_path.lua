@@ -4,9 +4,9 @@ local lib = LIBNVIMCFG
 return function(original)
   local original_ptr = ffi.cast('uint8_t*', original)
   local original_len = ffi.new('size_t', #original)
-  local shorten_ptr  = ffi.new 'uint8_t*[1]'
-  local shorten_len  = ffi.new 'size_t[1]'
-  local ptr_to_drop  = ffi.new 'void*[1]'
+  local shorten_ptr = ffi.new 'uint8_t*[1]'
+  local shorten_len = ffi.new 'size_t[1]'
+  local ptr_to_drop = ffi.new 'void*[1]'
 
   lib.shorten_path(
     original_ptr,

@@ -10,8 +10,8 @@ local highlight = {
 }
 
 plugin.setup {
-  indent  = { char = '▏' },
-  scope   = {
+  indent = { char = '▏' },
+  scope = {
     show_start = false,
     show_end = false,
     highlight = highlight,

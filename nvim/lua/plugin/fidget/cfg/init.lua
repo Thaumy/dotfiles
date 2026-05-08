@@ -1,7 +1,7 @@
-local k                          = require 'infra.key'
-local fn                         = require 'plugin.fidget.cfg.fn'
-local plugin                     = require 'fidget'
-local notification               = require 'fidget.notification'
+local k = require 'infra.key'
+local fn = require 'plugin.fidget.cfg.fn'
+local plugin = require 'fidget'
+local notification = require 'fidget.notification'
 
 notification.default_config.icon = '󰍧 '
 
