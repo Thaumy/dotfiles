@@ -20,9 +20,9 @@ local function make_lsp_picker_entry(opts)
   local from, to = 0, #path
   local hl_path = { { from, to }, 'Directory' }
   from, to = to, to + 1
-  local hl_sep1 = { { from, to }, 'Delimiter' };
+  local hl_sep1 = { { from, to }, 'Delimiter' }
   from, to = to, to + #row
-  local hl_row = { { from, to }, 'Number' };
+  local hl_row = { { from, to }, 'Number' }
   from, to = to, to + 1
   local hl_sep2 = { { from, to }, 'Delimiter' }
   from, to = to, to + #col
@@ -111,9 +111,9 @@ plugin.setup {
         local from, to = 0, #path
         local hl_path = { { from, to }, 'Directory' }
         from, to = to, to + 1
-        local hl_sep1 = { { from, to }, 'Delimiter' };
+        local hl_sep1 = { { from, to }, 'Delimiter' }
         from, to = to, to + #row
-        local hl_row = { { from, to }, 'Number' };
+        local hl_row = { { from, to }, 'Number' }
         from, to = to, to + 1
         local hl_sep2 = { { from, to }, 'Delimiter' }
         from, to = to, to + #col
@@ -148,9 +148,9 @@ plugin.setup {
         local from, to = 0, #path
         local hl_path = { { from, to }, 'Directory' }
         from, to = to, to + 1
-        local hl_sep1 = { { from, to }, 'Delimiter' };
+        local hl_sep1 = { { from, to }, 'Delimiter' }
         from, to = to, to + #row
-        local hl_row = { { from, to }, 'Number' };
+        local hl_row = { { from, to }, 'Number' }
         from, to = to, to + 1
         local hl_sep2 = { { from, to }, 'Delimiter' }
         from, to = to, to + #col

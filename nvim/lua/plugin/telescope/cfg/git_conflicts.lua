@@ -9,7 +9,7 @@ return function()
     vim.print(vim.trim(obj.stderr))
     return
   end
-  local out = vim.split(obj.stdout, '\n', { trimempty = true });
+  local out = vim.split(obj.stdout, '\n', { trimempty = true })
   if #out == 0 then
     vim.print 'no conflict'
     return
@@ -25,9 +25,9 @@ return function()
         local from, to = 0, #display_path
         local hl_path = { { from, to }, 'Directory' }
         from, to = to, to + 1
-        local hl_sep1 = { { from, to }, 'Delimiter' };
+        local hl_sep1 = { { from, to }, 'Delimiter' }
         from, to = to, to + #row
-        local hl_row = { { from, to }, 'Number' };
+        local hl_row = { { from, to }, 'Number' }
         local hls = { hl_path, hl_sep1, hl_row }
         local display = string.format('%s:%s', display_path, row)
 

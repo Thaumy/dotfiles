@@ -35,7 +35,7 @@ k.map('n', 'bl', function()
     vim.print(vim.trim(obj.stderr))
     return
   end
-  local lines = vim.split(obj.stdout, '\n', { trimempty = true });
+  local lines = vim.split(obj.stdout, '\n', { trimempty = true })
 
   blame_buf = vim.api.nvim_create_buf(false, true)
   vim.api.nvim_buf_set_lines(blame_buf, 0, -1, true, lines)

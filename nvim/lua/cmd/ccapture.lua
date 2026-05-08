@@ -9,9 +9,9 @@ vim.api.nvim_create_user_command('C', function(opts)
 
   local out_lines = nil
   if success then
-    out_lines = vim.split(out, '\n', { trimempty = true });
+    out_lines = vim.split(out, '\n', { trimempty = true })
   else
-    out_lines = vim.split(vim.v.errmsg, '\n', { trimempty = true });
+    out_lines = vim.split(vim.v.errmsg, '\n', { trimempty = true })
   end
 
   if #out_lines == 0 then
