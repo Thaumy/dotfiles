@@ -44,7 +44,7 @@ let
   ];
 in
 {
-  nixpkgs.overlays = [ inputs.nvim-nightly.overlays.default ];
+  nixpkgs.overlays = [ inputs.nvim.overlays.default ];
 
   programs.neovim = {
     enable = true;
