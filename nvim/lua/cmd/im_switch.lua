@@ -1,5 +1,3 @@
--- auto switch fcitx
-
 local lib = LIBNVIMCFG
 
 -- fcitx5 dbus is broken under root user
