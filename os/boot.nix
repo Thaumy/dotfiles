@@ -39,11 +39,11 @@ in
     };
 
     kernelPackages = buildKernel {
-      version = "7.0.3";
+      version = "7.0.6";
       src = pkgs.fetchgit {
         url = "https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git";
-        tag = "v7.0.3";
-        hash = "sha256-xbFqgxLaHdaRTWRQc8TdbRmZexqa4XiLKVP0HaU8DlA=";
+        tag = "v7.0.6";
+        hash = "sha256-ScN1R8mNZT/U3e54y13AheAw/kQ/5eyiZVfQlMWie1E=";
       };
       structuredExtraConfig = with lib.kernel; {
         # See: https://github.com/NixOS/nixpkgs/commit/6b6c8b140268f092e1fbc66fe7b6d122009ac3cb
