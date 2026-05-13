@@ -26,7 +26,7 @@ _: {
     #./postgres.nix
     #./influxdb.nix
 
-    ./docker.nix
-    ./virt-manager.nix
+    #./docker.nix
+    #./virt-manager.nix
   ];
 }
