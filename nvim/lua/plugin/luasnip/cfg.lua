@@ -9,6 +9,7 @@ plugin.add_snippets('rust', {
   s('cct', { t '#[cfg(test)]' }),
   s('ccf', { t '#[cfg(feature = "', i(0), t '")]' }),
   s('ccnf', { t '#[cfg(not(feature = "', i(0), t '"))]' }),
+  s('debug_print', { t 'println!("{:?}", ', i(0), t ');' }),
 })
 
 plugin.add_snippets('lua', {
