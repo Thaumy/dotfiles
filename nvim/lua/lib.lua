@@ -24,6 +24,24 @@ ffi.cdef [[
   void im_switch_activate(void* im_sw);
   void im_switch_deactivate(void* im_sw);
 
+  void* match_words_pre_alloc();
+  size_t match_words(
+    void* pre_alloc,
+    uint8_t* line_ptr,
+    size_t line_len,
+    uint8_t* word_ptr,
+    size_t word_len,
+    size_t* matches_ptr
+  );
+
+  bool select_word(
+    uint8_t* line_ptr,
+    size_t line_len,
+    size_t cursor,
+    size_t* sel_from,
+    size_t* sel_to
+  );
+
   void shorten_path(
     uint8_t* original_ptr,
     size_t original_len,
