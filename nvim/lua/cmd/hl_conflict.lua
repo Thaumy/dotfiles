@@ -1,6 +1,6 @@
+local vim_fn = vim.fn
 local vim_api = vim.api
 local nvim_buf_set_extmark = vim_api.nvim_buf_set_extmark
-local nvim_buf_del_extmark = vim_api.nvim_buf_del_extmark
 
 local function match_bound_mark(line)
   if #line < 8 then
@@ -48,7 +48,6 @@ local cb = function()
 
     if hl_results[buf] == nil then
       hl_results[buf] = {
-        ext_marks = {},
         changedtick = nil,
       }
     end
@@ -58,25 +57,26 @@ local cb = function()
     if hl_result.changedtick == changedtick then return end
     hl_result.changedtick = changedtick
 
-    local ext_marks = hl_result.ext_marks
+    -- clear old hl
+    vim_api.nvim_buf_clear_namespace(buf, ns, 0, -1)
 
-    local lines = vim_api.nvim_buf_get_lines(buf, 0, -1, false)
-    for index, line in ipairs(lines) do
-      if ext_marks[index] ~= nil then
-        nvim_buf_del_extmark(buf, ns, ext_marks[index])
-        ext_marks[index] = nil
-      end
+    local top_row = vim_fn.line('w0', win)
+    local bot_row = vim_fn.line('w$', win)
+    local lines = vim_api.nvim_buf_get_lines(buf, top_row - 1, bot_row, true)
+
+    for l_i, line in ipairs(lines) do
+      local row = top_row + l_i - 2
+      local line_len = #line
+
       if match_bound_mark(line) then
-        ext_marks[index] = nvim_buf_set_extmark(
-          buf, ns,
-          index - 1, 0,
-          { end_col = #line, hl_group = 'GitConflictBoundMark' }
+        nvim_buf_set_extmark(buf, ns,
+          row, 0,
+          { end_col = line_len, hl_group = 'GitConflictBoundMark' }
         )
-      elseif #line == 7 and line == '=======' then
-        ext_marks[index] = nvim_buf_set_extmark(
-          buf, ns,
-          index - 1, 0,
-          { end_col = #line, hl_group = 'GitConflictSepMark' }
+      elseif line_len == 7 and line == '=======' then
+        nvim_buf_set_extmark(buf, ns,
+          row, 0,
+          { end_col = 7, hl_group = 'GitConflictSepMark' }
         )
       end
     end
