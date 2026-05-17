@@ -13,6 +13,9 @@ vim.o.fillchars = 'eob: '
 -- disable key presses and selected area printing
 vim_o.showcmd = false
 
+-- disable mode printing
+vim_o.showmode = false
+
 -- extra characters in viw
 vim.o.iskeyword = '@,48-57,_,192-255,-,#'
 
