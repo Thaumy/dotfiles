@@ -10,6 +10,9 @@ vim.o.shiftwidth = 2
 vim.o.expandtab = true
 vim.o.fillchars = 'eob: '
 
+-- disable key presses and selected area printing
+vim_o.showcmd = false
+
 -- extra characters in viw
 vim.o.iskeyword = '@,48-57,_,192-255,-,#'
 
