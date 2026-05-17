@@ -1,7 +1,6 @@
 local vim_fn = vim.fn
 local vim_api = vim.api
 local nvim_buf_set_extmark = vim_api.nvim_buf_set_extmark
-local nvim_buf_del_extmark = vim_api.nvim_buf_del_extmark
 
 local function trailing_spaces_len(line)
   local len = 0
@@ -50,7 +49,6 @@ local when_change = function()
 
     if hl_results[buf] == nil then
       hl_results[buf] = {
-        ext_marks = {},
         changedtick = nil,
         checked_rows = {},
       }
@@ -61,25 +59,19 @@ local when_change = function()
     if hl_result.changedtick == changedtick then return end
     hl_result.changedtick = changedtick
 
+    -- clear old hl
+    vim_api.nvim_buf_clear_namespace(buf, ns, 0, -1)
+
     local in_insert_mode = vim_api.nvim_get_mode().mode == 'i'
     -- row indexing is one-based
     local cursor_row = vim_api.nvim_win_get_cursor(0)[1]
 
-    local win_info = vim_fn.getwininfo(win)[1]
-    local row_from = win_info.topline
-    local row_to = win_info.botline
-    -- indexing is zero-based, end exclusive, so we have [row_from, row_to]
-    local lines = vim_api.nvim_buf_get_lines(buf, row_from - 1, row_to, true)
+    local top_row = vim_fn.line('w0', win)
+    local bot_row = vim_fn.line('w$', win)
+    local lines = vim_api.nvim_buf_get_lines(buf, top_row - 1, bot_row, true)
 
     for i, line in ipairs(lines) do
-      local row = row_from + i - 1
-
-      -- clear old hl
-      local id = hl_result.ext_marks[row]
-      if id ~= nil then
-        nvim_buf_del_extmark(buf, ns, id)
-        hl_result.ext_marks[row] = nil
-      end
+      local row = top_row + i - 1
 
       -- skip the line currently being edited
       if row == cursor_row and in_insert_mode then
@@ -89,8 +81,7 @@ local when_change = function()
       -- has trailing space
       if line:byte(-1) == 32 then
         local len = #line
-        hl_result.ext_marks[row] = nvim_buf_set_extmark(
-          buf, ns,
+        nvim_buf_set_extmark(buf, ns,
           row - 1, len - trailing_spaces_len(line),
           { end_col = len, hl_group = 'TrailingSpace' }
         )
@@ -121,7 +112,6 @@ local when_scroll = function()
 
     if hl_results[buf] == nil then
       hl_results[buf] = {
-        ext_marks = {},
         changedtick = vim_api.nvim_buf_get_changedtick(buf),
         checked_rows = {},
       }
@@ -131,16 +121,17 @@ local when_scroll = function()
     -- row indexing is one-based
     local cursor_row = vim_api.nvim_win_get_cursor(0)[1]
 
-    local win_info = vim_fn.getwininfo(win)[1]
-    local row_from = win_info.topline
-    local row_to = win_info.botline
-    -- indexing is zero-based, end exclusive, so we have [row_from, row_to]
-    local lines = vim_api.nvim_buf_get_lines(buf, row_from - 1, row_to, true)
+    local top_row = vim_fn.line('w0', win)
+    local bot_row = vim_fn.line('w$', win)
+    local lines = vim_api.nvim_buf_get_lines(buf, top_row - 1, bot_row, true)
 
     local hl_result = hl_results[buf]
 
     for i, line in ipairs(lines) do
-      local row = row_from + i - 1
+      local line_len = #line
+      if line_len == 0 then goto continue end
+
+      local row = top_row + i - 1
 
       -- skip checked rows
       if hl_result.checked_rows[row] == true then
@@ -154,11 +145,9 @@ local when_scroll = function()
 
       -- has trailing space
       if line:byte(-1) == 32 then
-        local len = #line
-        hl_result.ext_marks[row] = nvim_buf_set_extmark(
-          buf, ns,
-          row - 1, len - trailing_spaces_len(line),
-          { end_col = len, hl_group = 'TrailingSpace' }
+        nvim_buf_set_extmark(buf, ns,
+          row - 1, line_len - trailing_spaces_len(line),
+          { end_col = line_len, hl_group = 'TrailingSpace' }
         )
       end
 
