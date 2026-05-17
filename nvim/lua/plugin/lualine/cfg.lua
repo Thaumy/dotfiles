@@ -1,5 +1,6 @@
 local plugin = require 'lualine'
 local vim_bo = vim.bo
+local vim_fn = vim.fn
 local vim_api = vim.api
 local shorten_path = require 'infra.shorten_path'
 
@@ -77,12 +78,25 @@ local function file_format()
 end
 
 local function visual_chars()
-  local wc = vim.fn.wordcount()
-  if wc.visual_chars ~= nil then
-    return string.format('󰒉 %d', wc.visual_chars)
-  else
+  local type = vim_api.nvim_get_mode().mode
+  if
+      type ~= 'v' and -- by char
+      type ~= 'V' and -- by line
+      type ~= '\22'   -- by block
+  then
     return ''
   end
+
+  local from = vim_fn.getpos 'v'
+  local to = vim_fn.getpos '.'
+  local selected = vim_fn.getregion(from, to, { type = type })
+
+  local count = 0
+  for _, line in ipairs(selected) do
+    count = count + vim_fn.strchars(line)
+  end
+
+  return string.format('󰒉 %d', count)
 end
 
 local function build_state()
