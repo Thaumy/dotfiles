@@ -76,8 +76,8 @@ vim.api.nvim_create_user_command('M', function(opts)
 
       -- push lines
       for i = 2, len - 1 do
+        out[#out + 1] = data[i]
         if out_buf ~= nil then
-          out[#out + 1] = data[i]
           nvim_buf_set_text(out_buf, -1, -1, -1, -1, { out[#out], '' })
         end
       end
