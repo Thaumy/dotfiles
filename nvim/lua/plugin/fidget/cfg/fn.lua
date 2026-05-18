@@ -4,7 +4,7 @@ local function lsp_progress_message_fmt(msg)
   end
 
   if msg.percentage ~= nil then
-    local bar_lhs_len = msg.percentage / 10
+    local bar_lhs_len = math.floor(msg.percentage / 10)
     local bar_lhs = string.rep('▓', bar_lhs_len)
     local bar_rhs = string.rep('░', 10 - bar_lhs_len)
 
