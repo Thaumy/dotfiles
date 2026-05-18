@@ -61,6 +61,7 @@ local when_change = function()
 
     -- clear old hl
     vim_api.nvim_buf_clear_namespace(buf, ns, 0, -1)
+    hl_result.checked_rows = {}
 
     local in_insert_mode = vim_api.nvim_get_mode().mode == 'i'
     -- row indexing is one-based
