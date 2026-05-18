@@ -28,7 +28,7 @@ k.map('n', 'bl', function()
     return
   end
 
-  local path = vim.fs.relpath(vim.loop.cwd(), vim.api.nvim_buf_get_name(0))
+  local path = vim.fs.relpath(vim.uv.cwd(), vim.api.nvim_buf_get_name(0))
   local lineno = vim.api.nvim_win_get_cursor(0)[1]
   local obj = vim.system({ 'git-blame-line', path, lineno }, { text = true }):wait()
   if obj.code ~= 0 then
