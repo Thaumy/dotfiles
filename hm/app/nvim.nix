@@ -75,7 +75,6 @@ in
       lualine-nvim # status line
       neo-tree-nvim # file explorer, [deps: plenary-nvim, nvim-web-devicons, nui-nvim]
       telescope-nvim # fuzzy finder
-      bufferline-nvim # buffer tabs
       colorful-menu-nvim # hl for code completion menu
       actions-preview-nvim # code actions preview
       markdown-preview-nvim # preview markdown in browser
