@@ -45,7 +45,7 @@ function ti
                 echo "󰜴 session name cleared"
             end
         else
-            # clear fish title
+            # set fish title
             set -g SHELL_TITLE "$argv[1]"
         end
     else

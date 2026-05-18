@@ -29,7 +29,7 @@ vim.o.clipboard = 'unnamed,unnamedplus'
 -- disable swap file
 vim.o.swapfile = false
 
--- disable line wrapping when esceeding term width
+-- disable line wrapping when exceeds term width
 vim.o.wrap = false
 
 -- keymap expire time
