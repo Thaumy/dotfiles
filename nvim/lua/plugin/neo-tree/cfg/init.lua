@@ -104,7 +104,7 @@ local auto_toggle = vim.api.nvim_create_autocmd('VimResized', {
     debounce:schedule(200, function()
       if vim.go.columns < 120 then
         neotree_cmd { action = 'close' }
-      elseif vim.go.columns >= 120 then
+      else
         neotree_cmd { action = 'show' }
       end
     end)
