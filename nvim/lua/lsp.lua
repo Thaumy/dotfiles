@@ -176,11 +176,7 @@ end
 
 -- fmt
 k.map('n', 'fm', function()
-  if
-      vim.bo.buftype ~= '' or
-      vim.bo.readonly or
-      (not vim.bo.modifiable)
-  then
+  if vim.bo.buftype ~= '' then
     vim.print 'can not fmt special buffer'
     return
   end
