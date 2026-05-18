@@ -122,12 +122,12 @@ pub unsafe extern "C" fn buf_history_invalid(bh: *mut BufHistory, buf: u32) {
         let remove = b.unsigned_abs() == buf;
         if remove && i < cursor {
             before_cursor += 1;
-            i += 1;
         }
+        i += 1;
         !remove
     });
 
-    bh.cursor -= i;
+    bh.cursor -= before_cursor;
 }
 
 #[expect(clippy::missing_safety_doc)]
