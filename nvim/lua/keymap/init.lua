@@ -251,10 +251,8 @@ vim.api.nvim_create_autocmd('FileType', {
         -- cursor relocation
         local max_row = new_len
         if from < max_row then
-          vim.print(from)
           vim.api.nvim_win_set_cursor(0, { from, 0 })
         elseif max_row ~= 0 then
-          vim.print(max_row)
           vim.api.nvim_win_set_cursor(0, { max_row, 0 })
         else
           vim.cmd 'q' -- quit if empty
