@@ -152,7 +152,7 @@ map({ 'n', 'x' }, 'ws', function()
   vim.cmd 'wa'
   vim.cmd 'qa'
 end)
-map({ 'n', 'x' }, 'qq', function()
+map({ 'n', 'x' }, 'eq', function()
   local ft = vim_bo.ft
   if ft == 'neo-tree' then return end
   if
