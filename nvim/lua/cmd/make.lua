@@ -42,6 +42,13 @@ vim_api.nvim_create_user_command('M', function(opts)
     vim_api.nvim_set_option_value('ft', 'buildlog', { buf = out_buf })
     vim_api.nvim_set_option_value('mp', mp, { buf = out_buf })
     vim_api.nvim_set_option_value('efm', efm, { buf = out_buf })
+
+    vim.keymap.set('n', '<C-c>', function()
+      if BUILD_JOB_ID ~= nil then
+        vim_fn.jobstop(BUILD_JOB_ID)
+        BUILD_JOB_ID = nil
+      end
+    end, { buf = out_buf })
   else
     vim_api.nvim_buf_set_lines(out_buf, 0, -1, false, {})
   end
