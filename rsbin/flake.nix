@@ -83,6 +83,7 @@
               rev = "v0.0.5";
               hash = "sha256-+r3S84KQEESPoSA86glyjZK/QSpoF2ujyQ1DwZaUNYw=";
             }) "sh-history-filter";
+          sh-prompt = build-pkg ./sh-prompt "sh-prompt";
           vi-project = build-pkg ./vi-project "vi-project";
           vi-visual-pane = build-pkg ./vi-visual-pane "vi-visual-pane";
           wm-action = build-pkg ./wm-action "wm-action";
