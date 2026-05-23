@@ -143,7 +143,7 @@ local when_scroll = function()
       local row = row_from + i - 1
 
       -- skip checked rows
-      if hl_result.checked_rows[row] ~= nil then
+      if hl_result.checked_rows[row] == true then
         goto continue
       end
 
