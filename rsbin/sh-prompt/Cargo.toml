@@ -1,0 +1,11 @@
+[package]
+name = "sh-prompt"
+version = "0.1.0"
+edition = "2024"
+
+[profile.release]
+lto = "fat"
+
+[dependencies]
+git2 = { version = "0.21", default-features = false }
+whoami = "2"

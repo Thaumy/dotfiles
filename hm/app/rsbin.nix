@@ -14,10 +14,11 @@ in
     (git-continue "git-continue")
     (safe-remove "rr")
     (screenshot "ss")
+    (sh-history-filter "shf")
+    (sh-prompt "sh-prompt")
     (vi-project "vp")
     (vi-visual-pane "vvp")
     (wm-action "wm")
-    (sh-history-filter "shf")
   ];
 
   xdg.configFile = {
