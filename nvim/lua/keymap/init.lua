@@ -283,7 +283,7 @@ map({ 'n', 'x' }, 'ff', 'G')
 -- go prev/next position
 map('n', 'cp', function()
   if vim_bo.bt ~= '' then return end
-  vim.cmd 'normal! \15' -- <C-o>
+  vim.cmd 'sil! exe "norm! \15"' -- <C-o>
 end)
 map('n', 'cn', function()
   if vim_bo.bt ~= '' then return end
