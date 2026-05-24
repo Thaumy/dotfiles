@@ -3,7 +3,6 @@ local plugin = require 'neo-tree'
 local vim_go = vim.go
 local vim_api = vim.api
 local mappings = require 'plugin.neo-tree.cfg.mappings'
-local Debounce = require 'infra.debounce'
 
 plugin.setup {
   enable_diagnostics = false,
@@ -100,7 +99,7 @@ then
 end
 
 -- auto show/close neo-tree when window resized
-local debounce = Debounce:new()
+local debounce = require 'infra.debounce':new()
 local auto_toggle = vim_api.nvim_create_autocmd('VimResized', {
   callback = function()
     debounce:schedule(200, function()
