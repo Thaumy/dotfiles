@@ -3,6 +3,9 @@ local plugin = require 'neo-tree'
 local vim_go = vim.go
 local vim_api = vim.api
 local mappings = require 'plugin.neo-tree.cfg.mappings'
+local fs_component_name = require 'neo-tree.sources.filesystem.components'.name
+local buf_component_name = require 'neo-tree.sources.buffers.components'.name
+local git_component_name = require 'neo-tree.sources.git_status.components'.name
 
 plugin.setup {
   enable_diagnostics = false,
@@ -62,6 +65,18 @@ plugin.setup {
   },
 
   filesystem = {
+    components = {
+      name = function(config, node, state)
+        if node:get_depth() == 1 and node.type ~= 'message' then
+          return {
+            highlight = 'NeoTreeRootName',
+            text = vim.fn.fnamemodify(node.path, ':t'),
+          }
+        end
+
+        return fs_component_name(config, node, state)
+      end,
+    },
     follow_current_file = {
       enabled = true,
     },
@@ -75,12 +90,36 @@ plugin.setup {
   },
 
   buffers = {
+    components = {
+      name = function(config, node, state)
+        if node:get_depth() == 1 and node.type ~= 'message' then
+          return {
+            highlight = 'Label',
+            text = 'buffers',
+          }
+        end
+
+        return buf_component_name(config, node, state)
+      end,
+    },
     window = {
       mappings = mappings.buffers,
     },
   },
 
   git_status = {
+    components = {
+      name = function(config, node, state)
+        if node:get_depth() == 1 and node.type ~= 'message' then
+          return {
+            highlight = 'Label',
+            text = 'git',
+          }
+        end
+
+        return git_component_name(config, node, state)
+      end,
+    },
     window = {
       mappings = mappings.git_status,
     },
