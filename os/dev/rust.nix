@@ -18,21 +18,18 @@ in
   environment = {
     systemPackages = with pkgs; [
       toolchain
-      diesel-cli
       rust-bindgen
 
       grcov
-      cargo-edit
       cargo-udeps
       cargo-audit
-      cargo-tauri
       cargo-expand
       cargo-nextest
+      cargo-modules
       cargo-llvm-cov
       cargo-outdated
       cargo-generate
       cargo-show-asm
-      cargo-component
     ];
   };
 }
