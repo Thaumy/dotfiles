@@ -28,7 +28,7 @@ let
     procs
     cmake
     crunch
-    xxHash
+    xxhash
     evtest
     psmisc
     hdparm

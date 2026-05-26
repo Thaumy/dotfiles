@@ -52,8 +52,10 @@ in
 
   programs.neovim = {
     enable = true;
-
     defaultEditor = true;
+
+    withRuby = false;
+    withPython3 = false;
 
     plugins = with pkgs.vimPlugins; [
       # infrastructures
@@ -140,7 +142,7 @@ in
   xdg.configFile = {
     # HACK: disable HM-generated init.lua to avoid build failures
     # caused by trying to create symlink outside $HOME
-    "nvim/init.lua".enable = false;
+    "nvim/init.lua".enable = lib.mkForce false;
 
     "nvim".source = mkSymlink "${homeDir}/cfg/nvim";
 

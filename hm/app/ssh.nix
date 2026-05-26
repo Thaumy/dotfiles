@@ -3,7 +3,7 @@ _: {
     enable = true;
     enableDefaultConfig = false;
 
-    matchBlocks."*" = {
+    settings."*" = {
       forwardAgent = true;
       serverAliveInterval = 120;
     };
