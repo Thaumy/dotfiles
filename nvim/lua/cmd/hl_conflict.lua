@@ -65,23 +65,40 @@ local when_change = function()
 
     local top_row = vim_fn.line('w0', win)
     local bot_row = vim_fn.line('w$', win)
-    local lines = vim_api.nvim_buf_get_lines(buf, top_row - 1, bot_row, true)
+    local view_lines = vim_api.nvim_buf_get_lines(buf, top_row - 1, bot_row, true)
+    local view_lines_len = #view_lines
+    local have_fold = view_lines_len > vim_api.nvim_win_get_height(win)
 
-    for l_i, line in ipairs(lines) do
-      local row = top_row + l_i - 2
+    local l_i = 0
+    while l_i < view_lines_len do
+      local row = top_row + l_i
+      l_i = l_i + 1
+
+      if have_fold then
+        local fold_end = vim_fn.foldclosedend(row)
+        if fold_end ~= -1 then
+          l_i = fold_end - top_row + 1
+          goto continue
+        end
+      end
+
+      local line = view_lines[l_i]
       local line_len = #line
+      if line_len == 0 then goto continue end
 
       if match_bound_mark(line) then
         nvim_buf_set_extmark(buf, ns,
-          row, 0,
+          row - 1, 0,
           { end_col = line_len, hl_group = 'GitConflictBoundMark' }
         )
       elseif line_len == 7 and line == '=======' then
         nvim_buf_set_extmark(buf, ns,
-          row, 0,
+          row - 1, 0,
           { end_col = 7, hl_group = 'GitConflictSepMark' }
         )
       end
+
+      ::continue::
     end
   end)
 end
@@ -113,17 +130,30 @@ local when_scroll = function()
     -- row indexing is one-based
     local cursor_row = vim_api.nvim_win_get_cursor(0)[1]
 
-    local top_row = vim_fn.line('w0', win)
-    local bot_row = vim_fn.line('w$', win)
-    local lines = vim_api.nvim_buf_get_lines(buf, top_row - 1, bot_row, true)
-
     local hl_result = hl_results[buf]
 
-    for i, line in ipairs(lines) do
+    local top_row = vim_fn.line('w0', win)
+    local bot_row = vim_fn.line('w$', win)
+    local view_lines = vim_api.nvim_buf_get_lines(buf, top_row - 1, bot_row, true)
+    local view_lines_len = #view_lines
+    local have_fold = view_lines_len > vim_api.nvim_win_get_height(win)
+
+    local l_i = 0
+    while l_i < view_lines_len do
+      local row = top_row + l_i
+      l_i = l_i + 1
+
+      if have_fold then
+        local fold_end = vim_fn.foldclosedend(row)
+        if fold_end ~= -1 then
+          l_i = fold_end - top_row + 1
+          goto continue
+        end
+      end
+
+      local line = view_lines[l_i]
       local line_len = #line
       if line_len == 0 then goto continue end
-
-      local row = top_row + i - 1
 
       -- skip checked rows
       if hl_result.checked_rows[row] == true then
