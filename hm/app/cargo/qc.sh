@@ -9,7 +9,7 @@ PURPLE='\033[35m'
 
 panic() {
   huh
-  exit
+  exit 1
 }
 
 hl() {
