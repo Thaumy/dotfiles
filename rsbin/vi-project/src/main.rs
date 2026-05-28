@@ -14,11 +14,11 @@ const ENTRYPOINTS: [&str; 7] = [
 ];
 
 fn main() {
-    if let Some(cd) = args().skip(1).next() {
-        if let Err(e) = set_current_dir(&cd) {
-            eprintln!("failed to switch working dir: {}", e);
-            return;
-        }
+    if let Some(cd) = args().nth(1)
+        && let Err(e) = set_current_dir(&cd)
+    {
+        eprintln!("failed to switch working dir: {}", e);
+        return;
     };
     for path in ENTRYPOINTS {
         let path = Path::new(path);
