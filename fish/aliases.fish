@@ -9,7 +9,6 @@ alias du dust
 alias ps procs
 alias mx tmux
 alias cat "bat --style numbers"
-alias clr "clear && tmux clear-history"
 alias svs "sudo systemctl-tui"
 alias sctl systemctl
 alias hibernate "systemctl hibernate"
@@ -32,6 +31,13 @@ alias ls "eza -l --git -g --time-style '+%y-%m-%d %H:%M' --smart-group --group-d
 alias la "ls -a"
 alias lt "ls --tree"
 alias lta "la --tree"
+
+function clr
+    clear
+    if set -q TMUX
+        tmux clear-history
+    end
+end
 
 function ti
     if set -q argv[1]
