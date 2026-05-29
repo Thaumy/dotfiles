@@ -6,6 +6,7 @@ pub fn match_bounds(
     cursor_col: usize,
 ) -> Option<(usize, usize)> {
     let stack = &mut pre_alloc.col_rb_stack;
+    stack.clear();
 
     'outer: for (col, c) in line.iter().enumerate() {
         // expected right bound
