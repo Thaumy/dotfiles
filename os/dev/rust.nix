@@ -3,7 +3,6 @@ let
   toolchain = (pkgs.rust-bin.nightly."2026-03-30".complete.override {
     extensions = [ "rust-src" ];
     targets = [
-      "aarch64-apple-darwin"
       "aarch64-unknown-linux-gnu"
       "aarch64-unknown-linux-musl"
       "x86_64-unknown-linux-gnu"
