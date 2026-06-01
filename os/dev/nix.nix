@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   nix = {
+    channel.enable = false;
     settings = {
       max-jobs = "auto";
       keep-going = true;
