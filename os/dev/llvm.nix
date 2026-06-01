@@ -6,7 +6,5 @@
       libllvm
       clang-tools
     ];
-
-    etc."sdk-homes/llvm".source = pkgs.libllvm;
   };
 }
