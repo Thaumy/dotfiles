@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }:
 let
-  toolchain = (pkgs.rust-bin.nightly."2026-05-29".complete.override {
+  rust-toolchain = pkgs.rust-bin.nightly."2026-05-29".complete.override {
     extensions = [ "rust-src" ];
     targets = [
       "aarch64-unknown-linux-gnu"
@@ -10,26 +10,24 @@ let
       "wasm32-unknown-unknown"
       "riscv32i-unknown-none-elf"
     ];
-  });
+  };
 in
 {
   nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
 
-  environment = {
-    systemPackages = with pkgs; [
-      toolchain
-      rust-bindgen
+  environment.systemPackages = with pkgs; [
+    grcov
+    rust-bindgen
+    rust-toolchain
 
-      grcov
-      cargo-udeps
-      cargo-audit
-      cargo-expand
-      cargo-nextest
-      cargo-modules
-      cargo-llvm-cov
-      cargo-outdated
-      cargo-generate
-      cargo-show-asm
-    ];
-  };
+    cargo-udeps
+    cargo-audit
+    cargo-expand
+    cargo-nextest
+    cargo-modules
+    cargo-llvm-cov
+    cargo-outdated
+    cargo-generate
+    cargo-show-asm
+  ];
 }

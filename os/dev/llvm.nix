@@ -1,10 +1,8 @@
 { pkgs, ... }: {
-  environment = {
-    systemPackages = with pkgs; [
-      lldb
-      clang
-      libllvm
-      clang-tools
-    ];
-  };
+  environment.systemPackages = with pkgs; [
+    lldb
+    clang
+    libllvm
+    clang-tools
+  ];
 }
