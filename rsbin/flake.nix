@@ -28,7 +28,7 @@
           name = bin-name;
 
           nativeBuildInputs = [
-            (rust-toolchain "stable" "1.94.1")
+            (rust-toolchain "stable" "1.96.0")
           ];
 
           cargoLock = {
@@ -53,10 +53,10 @@
           name = "rsbin";
 
           # Use nightly fmt for better style
-          RUSTFMT = "${rust-toolchain "nightly" "2026-03-30"}/bin/rustfmt";
+          RUSTFMT = "${rust-toolchain "nightly" "2026-05-29"}/bin/rustfmt";
 
           nativeBuildInputs = [
-            (rust-toolchain "stable" "1.94.1")
+            (rust-toolchain "stable" "1.96.0")
           ];
         };
 
