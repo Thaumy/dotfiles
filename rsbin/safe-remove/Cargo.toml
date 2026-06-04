@@ -7,5 +7,5 @@ edition = "2024"
 lto = "fat"
 
 [dependencies]
-anyhow = "1.0"
-trash = "5.2"
+anyhow = "1"
+trash = "5"
