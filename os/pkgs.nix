@@ -90,6 +90,7 @@ let
     tmux
     grim
     dash
+    krita
     devenv
     udiskie
     blueman
