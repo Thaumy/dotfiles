@@ -26,6 +26,18 @@ let
     doCheck = false;
   };
 
+  neo-tree-nvim = pkgs.vimUtils.buildVimPlugin {
+    pname = "neo-tree.nvim";
+    version = "2026-06-06";
+    src = pkgs.fetchFromGitHub {
+      owner = "nvim-neo-tree";
+      repo = "neo-tree.nvim";
+      rev = "a3adf0a84554c9c4947991081fedc9750eac0652";
+      hash = "sha256-3HEoihapTgZgRGl/j64+MSvdO9JOjG3eFpKGR1LX85M=";
+    };
+    doCheck = false;
+  };
+
   # Will be symlinked to the final plugin dir, mainly for plugin dev.
   localPlugins = [
     #{ name = "foo.nvim"; path = "/abs/path"; }
