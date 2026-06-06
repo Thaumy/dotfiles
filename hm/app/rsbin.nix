@@ -17,6 +17,7 @@ in
     (screenshot "ss")
     (sh-history-filter "shf")
     (sh-prompt "sh-prompt")
+    (sh-title "sh-title")
     (vi-project "vp")
     (vi-visual-pane "vvp")
     (wm-action "wm")
