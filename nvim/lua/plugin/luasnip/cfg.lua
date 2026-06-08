@@ -15,4 +15,9 @@ plugin.add_snippets('rust', {
 plugin.add_snippets('lua', {
   s('debug_print', { t 'vim.print(vim.inspect(', i(0), t '))' }),
   s('debug_notify', { t 'vim.notify(vim.inspect(', i(0), t '))' }),
+  s('debug_bench', {
+    t { 'local since = os.clock()', '' },
+    i(0),
+    t { '', "vim.print(string.format('%.3f ms', (os.clock() - since) * 1000))" },
+  }),
 })
