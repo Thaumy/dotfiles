@@ -24,7 +24,12 @@ local debounce = require 'infra.debounce'
 local win_debounce = {}
 vim_api.nvim_create_autocmd('WinClosed', {
   callback = function(args)
-    win_debounce[tonumber(args.file)] = nil
+    local win = tonumber(args.file) --[[@as number]]
+    local h = win_debounce[win]
+    if h ~= nil then
+      h:drop()
+      win_debounce[win] = nil
+    end
   end,
 })
 
