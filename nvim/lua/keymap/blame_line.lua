@@ -52,11 +52,12 @@ k.map('n', 'bl', function()
   for i, line in ipairs(lines) do
     if i > max_height then break end
 
-    if #line >= 72 then
+    local line_len = #line
+    if line_len >= 72 then
       blame_width = 72
       break
-    elseif #line > blame_width then
-      blame_width = #line
+    elseif line_len > blame_width then
+      blame_width = line_len
     end
   end
   local blame_height = math.min(#lines, max_height)

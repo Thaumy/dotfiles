@@ -60,11 +60,12 @@ k.map('n', '<M-z>', function()
   for i, line in ipairs(lines) do
     if i > max_height then break end
 
-    if #line >= 100 then
+    local line_len = #line
+    if line_len >= 100 then
       expand_width = 100
       break
-    elseif #line > expand_width then
-      expand_width = #line
+    elseif line_len > expand_width then
+      expand_width = line_len
     end
   end
   local expand_height = math.min(#lines, max_height)
