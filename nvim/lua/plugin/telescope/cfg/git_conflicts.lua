@@ -3,8 +3,7 @@ local pickers = require 'telescope.pickers'
 local finders = require 'telescope.finders'
 local grep_previewer = require 'telescope.config'.values.grep_previewer
 
-return function()
-  local obj = vim.system({ 'git-conflicts' }, { text = true }):wait()
+local function on_exit(obj)
   if obj.code ~= 0 then
     vim.print(vim.trim(obj.stderr))
     return
@@ -41,4 +40,12 @@ return function()
     },
     previewer = grep_previewer {},
   }):find()
+end
+
+return function()
+  vim.system(
+    { 'git-conflicts' },
+    { text = true },
+    vim.schedule_wrap(on_exit)
+  )
 end
