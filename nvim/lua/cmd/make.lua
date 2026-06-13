@@ -5,7 +5,7 @@ local table_concat = table.concat
 local nvim_buf_set_text = vim_api.nvim_buf_set_text
 
 BUILD_JOB_ID = nil
-local out = {}
+local out_lines = {}
 local out_buf = nil
 local line_parts = {}
 
@@ -59,39 +59,59 @@ vim_api.nvim_create_user_command('M', function(opts)
   local cmd = string.gsub(mp, '%$%*', args)
 
   local function write_out_buf(_, data, _)
-    local len = #data
-    local first = data[1]
+    local data_len = #data
 
+    local line_parts_len = #line_parts
+    local out_lines_len = #out_lines
+    local new_out_buf_lines = {}
+    local new_out_buf_lines_len = 0
+
+    local first = data[1]
     if first ~= '' then
       -- part of the previous line
-      line_parts[#line_parts + 1] = first
-    elseif len == 1 and #line_parts ~= 0 then
+      line_parts_len = line_parts_len + 1
+      line_parts[line_parts_len] = first
+    elseif data_len == 1 and line_parts_len ~= 0 then
       -- data is [''], handle EOF
-      out[#out + 1] = table_concat(line_parts)
+      local new_out_line = table_concat(line_parts)
+      out_lines_len = out_lines_len + 1
+      out_lines[out_lines_len] = new_out_line
       if out_buf ~= nil then
-        nvim_buf_set_text(out_buf, -1, -1, -1, -1, { out[#out], '' })
+        new_out_buf_lines_len = new_out_buf_lines_len + 1
+        new_out_buf_lines[new_out_buf_lines_len] = new_out_line
       end
       return
     end
 
     if data[2] ~= nil then
       -- complete the previous line
-      if #line_parts ~= 0 then
-        out[#out + 1] = table_concat(line_parts)
+      if line_parts_len ~= 0 then
+        local new_out_line = table_concat(line_parts)
+        out_lines_len = out_lines_len + 1
+        out_lines[out_lines_len] = new_out_line
         if out_buf ~= nil then
-          nvim_buf_set_text(out_buf, -1, -1, -1, -1, { out[#out], '' })
+          new_out_buf_lines_len = new_out_buf_lines_len + 1
+          new_out_buf_lines[new_out_buf_lines_len] = new_out_line
         end
       end
 
       -- push lines
-      for i = 2, len - 1 do
-        out[#out + 1] = data[i]
+      for i = 2, data_len - 1 do
+        local new_out_line = data[i]
+        out_lines_len = out_lines_len + 1
+        out_lines[out_lines_len] = new_out_line
         if out_buf ~= nil then
-          nvim_buf_set_text(out_buf, -1, -1, -1, -1, { out[#out], '' })
+          new_out_buf_lines_len = new_out_buf_lines_len + 1
+          new_out_buf_lines[new_out_buf_lines_len] = new_out_line
         end
       end
 
-      local last = data[len]
+      if new_out_buf_lines_len > 0 then
+        new_out_buf_lines[new_out_buf_lines_len + 1] = ''
+        nvim_buf_set_text(out_buf, -1, -1, -1, -1, new_out_buf_lines)
+      end
+
+      local last = data[data_len]
       if last ~= '' then
         line_parts = { last }
       else
@@ -109,9 +129,9 @@ vim_api.nvim_create_user_command('M', function(opts)
 
     local items = (vim_fn.getqflist {
       efm = efm,
-      lines = out,
+      lines = out_lines,
     }).items
-    out = {}
+    out_lines = {}
 
     local valid_items = {}
     local n = 1
