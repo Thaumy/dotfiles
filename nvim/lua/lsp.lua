@@ -115,10 +115,11 @@ do
       end
 
       if doc_width < 80 then
-        if #line >= 80 then
+        local line_len = #line
+        if line_len >= 80 then
           doc_width = 80
-        elseif #line > doc_width then
-          doc_width = #line
+        elseif line_len > doc_width then
+          doc_width = line_len
         end
       end
     end

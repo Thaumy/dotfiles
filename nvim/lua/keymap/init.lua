@@ -330,7 +330,9 @@ map({ 'n', 'x' }, 'qh', function()
 end)
 map({ 'n', 'x' }, 'ql', function()
   local line = vim_api.nvim_get_current_line()
-  if #line == 0 then return end
+
+  local line_len = #line
+  if line_len == 0 then return end
 
   local spaces = prefix_spaces_len(line)
 
@@ -338,7 +340,7 @@ map({ 'n', 'x' }, 'ql', function()
   if spaces > pos[2] then
     pos[2] = spaces
   else
-    pos[2] = #line - 1
+    pos[2] = line_len - 1
   end
   vim_api.nvim_win_set_cursor(0, pos)
 end)
