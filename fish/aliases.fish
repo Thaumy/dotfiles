@@ -9,6 +9,7 @@ alias du dust
 alias ps procs
 alias mx tmux
 alias cat "bat --style numbers"
+alias btp btop
 alias svs "sudo systemctl-tui"
 alias sctl systemctl
 alias hibernate "systemctl hibernate"
