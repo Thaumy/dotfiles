@@ -143,6 +143,7 @@ local recording = {
 
 plugin.setup {
   options = {
+    refresh_time = 1000,
     icons_enabled = false,
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
