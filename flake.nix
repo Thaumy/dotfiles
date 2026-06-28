@@ -17,7 +17,7 @@
     };
     rsbin.url = "path:./rsbin";
 
-    nvim.url = "github:nix-community/neovim-nightly-overlay/857c4b359c105ad56822e64fd35f9bf9f7947d70"; # 26-5-26
+    nvim.url = "github:nix-community/neovim-nightly-overlay/dfa2f665e0701eb1b08ddb00fc83d4867d156bce"; # 26-6-28
     libnvimcfg.url = "path:./nvim/lib";
   };
 
