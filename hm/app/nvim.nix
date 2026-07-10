@@ -50,9 +50,6 @@ in
     enable = true;
     defaultEditor = true;
 
-    withRuby = false;
-    withPython3 = false;
-
     plugins = with pkgs.vimPlugins; [
       # infrastructures
       nui-nvim # ui components

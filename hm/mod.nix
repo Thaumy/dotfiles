@@ -11,7 +11,7 @@
 
   home = {
     username = "thaumy";
-    stateVersion = "22.11";
+    stateVersion = "26.05";
     homeDirectory = "/home/thaumy";
     pointerCursor = {
       gtk.enable = true;
