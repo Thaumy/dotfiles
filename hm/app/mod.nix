@@ -22,5 +22,6 @@ _: {
     ./hyprland.nix
     ./cargo/mod.nix
     ./alacritty.nix
+    ./tmux-ws/mod.nix
   ];
 }
