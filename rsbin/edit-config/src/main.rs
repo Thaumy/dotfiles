@@ -38,7 +38,7 @@ macro_rules! expect_arg {
 }
 
 fn main() {
-    let mut args = args().skip(1);
+    let args = args().skip(1);
 
     let home = env::var("HOME").unwrap();
     let cfg = format!("{}/.config/rsbin/edit-config/config.toml", home);
@@ -46,7 +46,7 @@ fn main() {
     let cfg: HashMap<String, Ty> = toml::from_str(&cfg).unwrap();
 
     let mut curr = Curr::Map(cfg);
-    while let Some(arg) = args.next() {
+    for arg in args {
         curr = match curr {
             Curr::Ty(ty) => match ty {
                 Ty::Descent(mut map) => match map.remove(&arg) {
