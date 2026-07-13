@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }:
 let
-  rust-toolchain = pkgs.rust-bin.nightly."2026-05-29".complete.override {
+  rust-toolchain = pkgs.rust-bin.nightly."2026-07-11".complete.override {
     extensions = [ "rust-src" ];
     targets = [
       "aarch64-unknown-linux-gnu"
