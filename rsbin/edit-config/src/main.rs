@@ -28,15 +28,6 @@ macro_rules! unknown_arg {
     }};
 }
 
-macro_rules! expect_arg {
-    ($keys:expr) => {{
-        let keys: Vec<&str> = $keys.map(|it| it.as_str()).collect();
-        let keys = keys.join(", ");
-        eprintln!("expect argument: {}", keys);
-        return;
-    }};
-}
-
 fn main() {
     let args = args().skip(1);
 
@@ -68,12 +59,22 @@ fn main() {
         Curr::Ty(Ty::Descent(mut map)) => match map.remove("") {
             Some(Ty::Vi(path)) => (None, path),
             Some(Ty::CdVi { cd, vi }) => (Some(cd), vi),
-            _ => expect_arg!(map.keys()),
+            _ => {
+                for key in map.keys() {
+                    println!("{}", key);
+                }
+                return;
+            }
         },
         Curr::Map(mut map) => match map.remove("") {
             Some(Ty::Vi(path)) => (None, path),
             Some(Ty::CdVi { cd, vi }) => (Some(cd), vi),
-            _ => expect_arg!(map.keys()),
+            _ => {
+                for key in map.keys() {
+                    println!("{}", key);
+                }
+                return;
+            }
         },
     };
     let vi = wave_to_home(&vi);
