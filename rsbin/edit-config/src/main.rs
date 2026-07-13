@@ -40,8 +40,8 @@ macro_rules! expect_arg {
 fn main() {
     let args = args().skip(1);
 
-    let home = env::var("HOME").unwrap();
-    let cfg = format!("{}/.config/rsbin/edit-config/config.toml", home);
+    let xdg_config_home = env::var("XDG_CONFIG_HOME").unwrap();
+    let cfg = format!("{}/rsbin/edit-config/config.toml", xdg_config_home);
     let cfg = read_to_string(cfg).unwrap();
     let cfg: HashMap<String, Ty> = toml::from_str(&cfg).unwrap();
 
