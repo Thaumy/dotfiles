@@ -352,8 +352,6 @@ map({ 'n', 'x' }, '<M-l>', '<S-Right>')
 -- quick up/down
 map({ 'n', 'x' }, '<C-k>', '6k', true)
 map({ 'n', 'x' }, '<C-j>', '6j', true)
-map({ 'n', 'x' }, 'qj', '18j', true)
-map({ 'n', 'x' }, 'qk', '18k', true)
 
 map({ 'n', 'x' }, 'rp', function()
   local curr_buf_ft = vim_api.nvim_get_option_value('ft', { buf = 0 })
