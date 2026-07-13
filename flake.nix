@@ -12,7 +12,7 @@
     dae.url = "github:daeuniverse/flake.nix/e13041c9a160defbc6aac95bcb88ba5c43cf25ae"; # 26-6-14
 
     rust-overlay = {
-      url = "github:oxalica/rust-overlay/40b0a3a193e0840c76174b4a322874c8f6dd0a63"; # 26-5-29
+      url = "github:oxalica/rust-overlay/e598b37857b895b81020a65a802ef55f5bbed72f"; # 26-7-11
       inputs.nixpkgs.follows = "pkgs";
     };
     rsbin.url = "path:./rsbin";

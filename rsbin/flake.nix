@@ -2,7 +2,7 @@
   inputs = {
     pkgs.url = "github:NixOS/nixpkgs/723ce9394b443fc4ce83d6d5a54aee528c5bb328"; # 25-8-2
     rust-overlay = {
-      url = "github:oxalica/rust-overlay/40b0a3a193e0840c76174b4a322874c8f6dd0a63"; # 26-5-29
+      url = "github:oxalica/rust-overlay/e598b37857b895b81020a65a802ef55f5bbed72f"; # 26-7-11
       inputs.nixpkgs.follows = "pkgs";
     };
     flake-utils.url = "github:numtide/flake-utils/11707dc2f618dd54ca8739b309ec4fc024de578b"; # 24-11-14
