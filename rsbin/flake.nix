@@ -5,89 +5,88 @@
       url = "github:oxalica/rust-overlay/e598b37857b895b81020a65a802ef55f5bbed72f"; # 26-7-11
       inputs.nixpkgs.follows = "pkgs";
     };
-    flake-utils.url = "github:numtide/flake-utils/11707dc2f618dd54ca8739b309ec4fc024de578b"; # 24-11-14
   };
 
-  outputs = inputs: inputs.flake-utils.lib.eachSystem
-    [ "x86_64-linux" ]
-    (system:
-      let
-        pkgs = import inputs.pkgs {
-          inherit system;
-          overlays = [ (import inputs.rust-overlay) ];
+  outputs = inputs:
+    let
+      system = "x86_64-linux";
+
+      pkgs = import inputs.pkgs {
+        inherit system;
+        overlays = [ (import inputs.rust-overlay) ];
+      };
+
+      rust-toolchain = channel: version:
+        pkgs.rust-bin."${channel}"."${version}".complete.override {
+          extensions = [ "rust-src" ];
         };
 
-        rust-toolchain = channel: version:
-          pkgs.rust-bin."${channel}"."${version}".complete.override {
-            extensions = [ "rust-src" ];
-          };
+      build-pkg = src: bin-name: bin-rename: pkgs.rustPlatform.buildRustPackage {
+        inherit src;
 
-        build-pkg = src: bin-name: bin-rename: pkgs.rustPlatform.buildRustPackage {
-          inherit src;
+        name = bin-name;
 
-          name = bin-name;
+        nativeBuildInputs = [
+          (rust-toolchain "stable" "1.97.0")
+        ];
 
-          nativeBuildInputs = [
-            (rust-toolchain "stable" "1.97.0")
-          ];
-
-          cargoLock = {
-            lockFile = "${src}/Cargo.lock";
-            allowBuiltinFetchGit = true;
-          };
-
-          buildPhase = ''
-            cargo b -r --offline
-          '';
-
-          doCheck = false;
-
-          installPhase = ''
-            mkdir -p $out/bin
-            cp target/release/${bin-name} $out/bin/${bin-rename}
-          '';
-        };
-      in
-      {
-        devShells.default = pkgs.mkShell {
-          name = "rsbin";
-
-          # Use nightly fmt for better style
-          RUSTFMT = "${rust-toolchain "nightly" "2026-07-11"}/bin/rustfmt";
-
-          nativeBuildInputs = [
-            (rust-toolchain "stable" "1.97.0")
-          ];
+        cargoLock = {
+          lockFile = "${src}/Cargo.lock";
+          allowBuiltinFetchGit = true;
         };
 
-        packages = {
-          edit-config = build-pkg ./edit-config "edit-config";
-          dup-img-finder = build-pkg
-            (pkgs.fetchFromGitHub {
-              owner = "Thaumy";
-              repo = "dup-img-finder";
-              rev = "v0.3.0";
-              hash = "sha256-rjp3mONHWAJY043rxPckrvoRg5W5a7WQOLod1qF2aW4=";
-            }) "dup-img-finder";
-          git-abort = build-pkg ./git-abort "git-abort";
-          git-blame-line = build-pkg ./git-blame-line "git-blame-line";
-          git-conflicts = build-pkg ./git-conflicts "git-conflicts";
-          git-continue = build-pkg ./git-continue "git-continue";
-          git-modified = build-pkg ./git-modified "git-modified";
-          safe-remove = build-pkg ./safe-remove "safe-remove";
-          screenshot = build-pkg ./screenshot "screenshot";
-          sh-history-filter = build-pkg
-            (pkgs.fetchFromGitHub {
-              owner = "Thaumy";
-              repo = "sh-history-filter";
-              rev = "v0.0.5";
-              hash = "sha256-+r3S84KQEESPoSA86glyjZK/QSpoF2ujyQ1DwZaUNYw=";
-            }) "sh-history-filter";
-          sh-prompt = build-pkg ./sh-prompt "sh-prompt";
-          sh-title = build-pkg ./sh-title "sh-title";
-          vi-project = build-pkg ./vi-project "vi-project";
-          vi-visual-pane = build-pkg ./vi-visual-pane "vi-visual-pane";
-          wm-action = build-pkg ./wm-action "wm-action";
-        };
-      });
+        buildPhase = ''
+          cargo b -r --offline
+        '';
+
+        doCheck = false;
+
+        installPhase = ''
+          mkdir -p $out/bin
+          cp target/release/${bin-name} $out/bin/${bin-rename}
+        '';
+      };
+    in
+    {
+      devShells.${system}.default = pkgs.mkShell {
+        name = "rsbin";
+
+        # Use nightly fmt for better style
+        RUSTFMT = "${rust-toolchain "nightly" "2026-07-11"}/bin/rustfmt";
+
+        nativeBuildInputs = [
+          (rust-toolchain "stable" "1.97.0")
+        ];
+      };
+
+      packages.${system} = {
+        edit-config = build-pkg ./edit-config "edit-config";
+        dup-img-finder = build-pkg
+          (pkgs.fetchFromGitHub {
+            owner = "Thaumy";
+            repo = "dup-img-finder";
+            rev = "v0.3.0";
+            hash = "sha256-rjp3mONHWAJY043rxPckrvoRg5W5a7WQOLod1qF2aW4=";
+          }) "dup-img-finder";
+        git-abort = build-pkg ./git-abort "git-abort";
+        git-blame-line = build-pkg ./git-blame-line "git-blame-line";
+        git-conflicts = build-pkg ./git-conflicts "git-conflicts";
+        git-continue = build-pkg ./git-continue "git-continue";
+        git-modified = build-pkg ./git-modified "git-modified";
+        safe-remove = build-pkg ./safe-remove "safe-remove";
+        screenshot = build-pkg ./screenshot "screenshot";
+        sh-history-filter = build-pkg
+          (pkgs.fetchFromGitHub {
+            owner = "Thaumy";
+            repo = "sh-history-filter";
+            rev = "v0.0.5";
+            hash = "sha256-+r3S84KQEESPoSA86glyjZK/QSpoF2ujyQ1DwZaUNYw=";
+          }) "sh-history-filter";
+        sh-prompt = build-pkg ./sh-prompt "sh-prompt";
+        sh-title = build-pkg ./sh-title "sh-title";
+        vi-project = build-pkg ./vi-project "vi-project";
+        vi-visual-pane = build-pkg ./vi-visual-pane "vi-visual-pane";
+        wm-action = build-pkg ./wm-action "wm-action";
+      };
+    };
 }

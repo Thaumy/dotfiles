@@ -5,61 +5,60 @@
       url = "github:oxalica/rust-overlay/e598b37857b895b81020a65a802ef55f5bbed72f"; # 26-7-11
       inputs.nixpkgs.follows = "pkgs";
     };
-    flake-utils.url = "github:numtide/flake-utils/11707dc2f618dd54ca8739b309ec4fc024de578b"; # 24-11-14
   };
 
-  outputs = inputs: inputs.flake-utils.lib.eachSystem
-    [ "x86_64-linux" ]
-    (system:
-      let
-        name = "nvimcfg";
+  outputs = inputs:
+    let
+      system = "x86_64-linux";
 
-        pkgs = import inputs.pkgs {
-          inherit system;
-          overlays = [ (import inputs.rust-overlay) ];
+      name = "nvimcfg";
+
+      pkgs = import inputs.pkgs {
+        inherit system;
+        overlays = [ (import inputs.rust-overlay) ];
+      };
+
+      rust-toolchain = channel: version:
+        pkgs.rust-bin."${channel}"."${version}".complete.override {
+          extensions = [ "rust-src" ];
+        };
+    in
+    {
+      devShells.${system}.default = pkgs.mkShell {
+        inherit name;
+
+        # Use nightly fmt for better style
+        RUSTFMT = "${rust-toolchain "nightly" "2026-07-11"}/bin/rustfmt";
+
+        nativeBuildInputs = [
+          (rust-toolchain "stable" "1.97.0")
+        ];
+      };
+
+      packages.${system}.default = pkgs.rustPlatform.buildRustPackage {
+        inherit name;
+
+        nativeBuildInputs = [
+          (rust-toolchain "stable" "1.97.0")
+        ];
+
+        src = ./.;
+
+        cargoLock = {
+          lockFile = ./Cargo.lock;
+          allowBuiltinFetchGit = true;
         };
 
-        rust-toolchain = channel: version:
-          pkgs.rust-bin."${channel}"."${version}".complete.override {
-            extensions = [ "rust-src" ];
-          };
-      in
-      {
-        devShells.default = pkgs.mkShell {
-          inherit name;
+        buildPhase = ''
+          cargo b -r --offline
+        '';
 
-          # Use nightly fmt for better style
-          RUSTFMT = "${rust-toolchain "nightly" "2026-07-11"}/bin/rustfmt";
+        doCheck = false;
 
-          nativeBuildInputs = [
-            (rust-toolchain "stable" "1.97.0")
-          ];
-        };
-
-        packages.default = pkgs.rustPlatform.buildRustPackage {
-          inherit name;
-
-          nativeBuildInputs = [
-            (rust-toolchain "stable" "1.97.0")
-          ];
-
-          src = ./.;
-
-          cargoLock = {
-            lockFile = ./Cargo.lock;
-            allowBuiltinFetchGit = true;
-          };
-
-          buildPhase = ''
-            cargo b -r --offline
-          '';
-
-          doCheck = false;
-
-          installPhase = ''
-            mkdir -p $out/lib
-            cp target/release/lib${name}.so $out/lib
-          '';
-        };
-      });
+        installPhase = ''
+          mkdir -p $out/lib
+          cp target/release/lib${name}.so $out/lib
+        '';
+      };
+    };
 }
