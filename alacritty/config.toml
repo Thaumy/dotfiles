@@ -44,7 +44,7 @@ yellow = "#df8e1d"
 blue = "#2e5990"
 magenta = "#ea76cb"
 cyan = "#04a5e5"
-white = "#4c4f69"
+white = "#eff1f5"
 
 [colors.bright]
 black = "#5e5c64"
@@ -54,7 +54,7 @@ yellow = "#fe640b"
 blue = "#1e66f5"
 magenta = "#ea76cb"
 cyan = "#04a5e5"
-white = "#4c4f69"
+white = "#eff1f5"
 
 [colors.dim]
 black = "#0f0f0f"

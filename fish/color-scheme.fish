@@ -1,10 +1,10 @@
-set fish_color_normal white
+set fish_color_normal foreground
 set fish_color_command brgreen
-set fish_color_quote white
+set fish_color_quote foreground
 set fish_color_redirection brcyan
 set fish_color_end afd7d7
 set fish_color_error red
-set fish_color_param white
+set fish_color_param foreground
 set fish_color_comment 5f8700
 set fish_color_match f07171
 set fish_color_selection --background=f89595
