@@ -38,6 +38,9 @@ vim_lsp.config('lua_ls', {
           trailing_table_separator = 'smart',
         },
       },
+      files = {
+        excludeDirs = { '.direnv' },
+      },
     },
   },
 })
