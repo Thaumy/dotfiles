@@ -44,7 +44,14 @@ let
   ];
 in
 {
-  nixpkgs.overlays = [ inputs.nvim.overlays.default ];
+  nixpkgs.overlays = [
+    inputs.nvim.overlays.default
+    (final: prev: {
+      wrapNeovimUnstable = prev.wrapNeovimUnstable.override {
+        makeWrapper = final.makeBinaryWrapper;
+      };
+    })
+  ];
 
   programs.neovim = {
     enable = true;
