@@ -1,13 +1,12 @@
 { pkgs, config, lib, ... }:
 let
   buildKernel = attrs: lib.recurseIntoAttrs (
-    pkgs.linuxPackagesFor (pkgs.buildLinux (attrs // (
+    pkgs.linuxPackagesFor (pkgs.linuxKernel.manualConfig (attrs // (
       let
         stdenv = pkgs.ccacheStdenv;
       in
       {
         inherit stdenv;
-        buildPackages = pkgs.buildPackages // { inherit stdenv; };
       }
     )))
   );
@@ -45,20 +44,20 @@ in
         tag = "v7.0.9";
         hash = "sha256-eSU5Ww3RuaZOC5m6KQ7AiW/VnHTkoQKu8cB9n9mcHYY=";
       };
+      configfile = ./config;
     };
+
+    kernelParams = [ "nohz_full=1-15" ];
 
     kernel.sysctl = {
       "vm.swappiness" = 20;
       "kernel.perf_event_paranoid" = -1;
       "kernel.perf_event_max_sample_rate" = 10000;
     };
-    kernelModules = [
-      "v4l2loopback"
-    ];
 
     supportedFilesystems = [ "ntfs" ];
 
-    extraModulePackages = with config.boot.kernelPackages;
-      [ v4l2loopback.out ];
+    kernelModules = [ "v4l2loopback" ];
+    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
   };
 }
