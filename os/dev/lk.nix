@@ -3,6 +3,8 @@
     flex
     bison
     gcc15
+    pahole
+    ncurses
     gnumake
     linux-scripts
     universal-ctags
