@@ -1,19 +1,31 @@
-{ config, ... }: {
+{ config, ... }:
+let
+  cacheDir = config.programs.ccache.cacheDir;
+in
+{
   programs.ccache = {
     enable = true;
     group = "bldcache";
   };
 
-  systemd.tmpfiles.rules = [
-    "a+ ${config.programs.ccache.cacheDir} - - - - g:nixbld:rwx"
-  ];
+  systemd.tmpfiles = {
+    rules = [
+      "a+ ${cacheDir} - - - - g:nixbld:rwx"
+    ];
+    settings.ccache."${cacheDir}/ccache.conf"."f+" = {
+      mode = "0640";
+      user = "root";
+      group = "nixbld";
+      argument = "max_size = 50G";
+    };
+  };
 
   nixpkgs.overlays = [
     (self: super: {
       ccacheWrapper = super.ccacheWrapper.override {
         extraConfig = ''
           export CCACHE_COMPRESS=1
-          export CCACHE_DIR="${config.programs.ccache.cacheDir}"
+          export CCACHE_DIR="${cacheDir}"
           export CCACHE_UMASK=007
           export CCACHE_SLOPPINESS=random_seed
           if [ ! -d "$CCACHE_DIR" ]; then
@@ -35,5 +47,5 @@
     })
   ];
 
-  nix.settings.extra-sandbox-paths = [ config.programs.ccache.cacheDir ];
+  nix.settings.extra-sandbox-paths = [ cacheDir ];
 }
