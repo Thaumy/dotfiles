@@ -7,7 +7,7 @@ _: {
     ./logind.nix
     ./systemd.nix
     ./openssh.nix
-    #./waydroid.nix
+    ./sysstat.nix
 
     ./xdg.nix
     ./dae.nix
@@ -18,15 +18,6 @@ _: {
     ./xserver.nix
     ./pipewire.nix
 
-    #./nginx.nix
-    #./kafka.nix
-    #./redis.nix
-    #./podman.nix
-    ./sysstat.nix
-    #./postgres.nix
-    #./influxdb.nix
-
     #./docker.nix
-    #./virt-manager.nix
   ];
 }
