@@ -4,7 +4,6 @@ include {
 
 global {
   wan_interface: auto
-  lan_interface: docker0
 
   log_level: warn
   allow_insecure: false

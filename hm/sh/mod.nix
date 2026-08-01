@@ -13,6 +13,8 @@ in
     (writeBin "pwdc" etc/pwdc.sh)
     (writeBin "todo" etc/todo.sh)
     (writeBin "pdif" etc/pdif.sh)
+    (writeBin "nix-gc" nix/gc.sh)
+    (writeBin "backup" backup/run.sh)
     (writeBin "memdir" etc/memdir.sh)
     (writeBin "hashpwd" etc/hashpwd.sh)
     (writeBin "dir-flat" etc/dir-flat.sh)
@@ -22,20 +24,10 @@ in
     (writeBin "gpg-gen-keys" etc/gpg-gen-keys.sh)
     (writeBin "symlink-localize" etc/symlink-localize.sh)
 
-    (writeBin "backup" backup/run.sh)
-
     (writeBin "huh" beep/huh.sh)
     (writeBin "bruh" beep/bruh.sh)
 
     (writeBin "aes-en" crypto/aes-en.sh)
     (writeBin "aes-de" crypto/aes-de.sh)
-
-    (writeBin "nix-gc" nix/gc.sh)
-
-    (writeBin "dk-cub" docker/compose-up-build.sh)
-    (writeBin "dk-cdv" docker/compose-down-v.sh)
-    (writeBin "dk-rmni" docker/rm-none-images.sh)
-    (writeBin "dk-rmac" docker/rm-all-containers.sh)
-    (writeBin "dk-cop-rst" docker/compose-restart.sh)
   ];
 }

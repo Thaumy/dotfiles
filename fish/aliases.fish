@@ -23,9 +23,6 @@ alias nrb "nixos-rebuild build --flake path:(realpath $HOME/cfg) --cores 6 && co
 alias nrs "sudo nixos-rebuild switch --flake path:(realpath $HOME/cfg)"
 alias nfu "nix flake update"
 
-alias dk docker
-alias lzdk lazydocker
-
 functions -e ll
 alias l "eza --no-permissions --no-filesize --no-user --no-time --group-directories-first"
 alias ls "eza -l --git -g --time-style '+%y-%m-%d %H:%M' --smart-group --group-directories-first"

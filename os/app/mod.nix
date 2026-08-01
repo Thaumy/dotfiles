@@ -17,7 +17,5 @@ _: {
     ./greetd.nix
     ./xserver.nix
     ./pipewire.nix
-
-    #./docker.nix
   ];
 }
