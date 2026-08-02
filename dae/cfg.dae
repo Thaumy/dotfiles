@@ -1,7 +1,3 @@
-include {
-  sec.dae
-}
-
 global {
   wan_interface: auto
 
@@ -29,6 +25,12 @@ dns {
   }
 }
 
+group {
+  proxy {
+    policy: min_moving_avg
+  }
+}
+
 routing {
   dscp(4) -> must_direct # BT
   domain(geosite:cn) -> direct
@@ -42,4 +44,8 @@ routing {
   dip(224.0.0.0/3, 'ff00::/8') -> direct
 
   fallback: proxy
+}
+
+subscription {
+  'file://sub'
 }
