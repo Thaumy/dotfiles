@@ -38,6 +38,18 @@ let
     doCheck = false;
   };
 
+  rainbow-delimiters-nvim = pkgs.vimUtils.buildVimPlugin {
+    pname = "rainbow-delimiters.nvim";
+    version = "2026-08-05";
+    src = pkgs.fetchFromGitHub {
+      owner = "Thaumy";
+      repo = "rainbow-delimiters.nvim";
+      rev = "3e8e9bf6dd1e34302c942cf915df2ca321bbd4ab";
+      hash = "sha256-0qpHidPfRx+Hqn/0qte8J0NoHdjeiGwg0Yb9hO3+mdY=";
+    };
+    doCheck = false;
+  };
+
   # Will be symlinked to the final plugin dir, mainly for plugin dev.
   localPlugins = [
     #{ name = "foo.nvim"; path = "/abs/path"; }
