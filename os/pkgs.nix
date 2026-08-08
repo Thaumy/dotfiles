@@ -104,6 +104,7 @@ let
     any-nix-shell
     systemctl-tui
     wl-clipboard-rs
+    opencode-desktop
     whitesur-gtk-theme
     networkmanagerapplet
     libsForQt5.qtstyleplugin-kvantum
