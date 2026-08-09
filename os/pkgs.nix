@@ -54,6 +54,7 @@ let
     parted
     gparted
     compsize
+    duperemove
     exfatprogs
     cryptsetup
     smartmontools
