@@ -13,5 +13,6 @@ fi
 if [ "$n" -ge "$max_commits" ]; then
   git rebase -ir --root
 else
-  git rebase -ir "HEAD~$n"
+  target_base=$(git rev-list --topo-order --skip "$n" -n 1 HEAD)
+  git rebase -ir "$target_base"
 fi
