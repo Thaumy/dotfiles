@@ -5,4 +5,6 @@ _: {
     firewall.enable = false;
     hostFiles = [ ./org-hosts ];
   };
+
+  systemd.network.wait-online.enable = false;
 }
