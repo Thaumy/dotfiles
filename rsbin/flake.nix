@@ -65,8 +65,8 @@
           (pkgs.fetchFromGitHub {
             owner = "Thaumy";
             repo = "dup-img-finder";
-            rev = "v0.3.0";
-            hash = "sha256-rjp3mONHWAJY043rxPckrvoRg5W5a7WQOLod1qF2aW4=";
+            rev = "v0.4.0";
+            hash = "sha256-H+NEDmPSfpzzcKRjJeTuNcDq9808en0PORtT5hAWAHc=";
           }) "dup-img-finder";
         git-abort = build-pkg ./git-abort "git-abort";
         git-blame-line = build-pkg ./git-blame-line "git-blame-line";
