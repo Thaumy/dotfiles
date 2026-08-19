@@ -13,7 +13,9 @@
     username = "thaumy";
     stateVersion = "26.05";
     homeDirectory = "/home/thaumy";
+
     pointerCursor = {
+      enable = true;
       gtk.enable = true;
       package = pkgs.adwaita-icon-theme;
       name = "Adwaita";
