@@ -9,17 +9,16 @@ return function(ns, buf, changedtick, cursor_row, cursor_col, top_row, bot_row)
   local parser = vim.treesitter.get_parser(buf)
   if parser == nil then return false end
 
-  parser:parse(nil, function(err, trees)
+  parser:parse(nil, function(_, trees)
     if
-        err ~= nil or -- currently only possible for timeouts
+        trees == nil or
+        trees[1] == nil or
         (not vim_api.nvim_buf_is_valid(buf)) or
         changedtick ~= vim_api.nvim_buf_get_changedtick(buf)
     then
       return
     end
 
-    -- `trees` will be `nil` only if the parse timed out,
-    -- but we have already checked by `err ~= nil`
     local root_node = trees[1]:root()
 
     local view_node = root_node:named_descendant_for_range(top_row, 0, bot_row + 1, 0)
