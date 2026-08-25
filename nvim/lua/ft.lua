@@ -50,3 +50,12 @@ vim_api.nvim_create_autocmd('FileType', {
     vim_fn.winrestview(view)
   end,
 })
+
+vim_api.nvim_create_autocmd('FileType', {
+  pattern = 'toml',
+  callback = function()
+    if vim_fn.expand '%:t' == 'Cargo.toml' then
+      vim.cmd 'comp cargo'
+    end
+  end,
+})
