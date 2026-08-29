@@ -1,4 +1,5 @@
 local map = require 'infra.key'.map
+local vim_fn = vim.fn
 local vim_api = vim.api
 local vim_lsp = vim.lsp
 
@@ -116,7 +117,7 @@ map({ 'n', 'x' }, '<C-h>', function()
 
   local l
   if range == nil then
-    l = 0
+    l = vim_fn.winsaveview().leftcol
   else
     l = range[1]
   end
@@ -144,8 +145,15 @@ map({ 'n', 'x' }, '<C-h>', function()
 end)
 
 map({ 'n', 'x' }, '<C-l>', function()
-  local max = #vim_api.nvim_get_current_line() - 1
-  if max == -1 then return end
+  local line_len = #vim_api.nvim_get_current_line()
+  if line_len == 0 then return end
+
+  local win = vim_api.nvim_get_current_win()
+  local win_width = vim_api.nvim_win_get_width(win)
+  local win_textoff = vim_fn.getwininfo(win)[1].textoff
+  local leftcol = vim_fn.winsaveview().leftcol
+  local win_text_area_width = win_width - win_textoff
+  local max = math.min(line_len, leftcol + win_text_area_width) - 1
 
   clear_hl()
 
