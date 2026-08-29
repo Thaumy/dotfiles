@@ -157,7 +157,7 @@ map({ 'n', 'x' }, '<C-l>', function()
   if range == nil then
     r = max
   else
-    r = math.min(range[2], max)
+    r = range[2]
   end
   range = { math.min(col + 1, r), r }
 
