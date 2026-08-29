@@ -136,6 +136,5 @@ vim_lsp.enable {
   'tinymist',               -- Typst
   'omnisharp',              -- C#
   'rust_analyzer',          -- Rust
-  'fsautocomplete',         -- F#
   'kotlin_language_server', -- Kotlin
 }

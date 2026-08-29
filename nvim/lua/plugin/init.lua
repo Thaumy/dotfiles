@@ -19,7 +19,6 @@ local specs = {
   require 'plugin.actions-preview.spec',
 
   -- analyzers
-  require 'plugin.ionide.spec',
   require 'plugin.lspconfig.spec',
   require 'plugin.treesitter.spec',
 

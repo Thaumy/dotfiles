@@ -101,7 +101,6 @@ in
       nvim-cmp # code completion, [deps: cmp-path, cmp-buffer, cmp-cmdline, cmp-nvim-lsp, luasnip, nvim-lspconfig]
       cmp-path # path completion source
       cmp-buffer # buffer completion source
-      Ionide-vim # F# LSP support
       cmp_luasnip # luasnip completion source
       cmp-cmdline # cmdline completion source
       cmp-nvim-lsp # LSP completion source
@@ -130,12 +129,10 @@ in
       lemminx # XML
       protols # Protocol Buffers
       fish-lsp # fish shell
-      fantomas # F# fmt
       marksman # Markdown
       tinymist # Typst
       nixpkgs-fmt # Nix fmt
       rust-analyzer # Rust
-      fsautocomplete # F#
       omnisharp-roslyn # C#
       vue-language-server # Vue
       jdt-language-server # Java
