@@ -84,3 +84,9 @@ function pr
 
     echo 'project root not found'
 end
+
+function rp
+    while true
+        $argv
+    end
+end
