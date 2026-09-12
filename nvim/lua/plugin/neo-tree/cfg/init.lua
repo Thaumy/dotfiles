@@ -10,6 +10,7 @@ local git_component_name = require 'neo-tree.sources.git_status.components'.name
 
 plugin.setup {
   enable_diagnostics = false,
+  log_level = vim.log.levels.ERROR,
 
   default_component_configs = {
     indent = {
