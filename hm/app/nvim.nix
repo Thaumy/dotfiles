@@ -44,8 +44,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "Thaumy";
       repo = "rainbow-delimiters.nvim";
-      rev = "3e8e9bf6dd1e34302c942cf915df2ca321bbd4ab";
-      hash = "sha256-0qpHidPfRx+Hqn/0qte8J0NoHdjeiGwg0Yb9hO3+mdY=";
+      rev = "0d5b6d1745ab8c467f075726286bdfc159bd48bc";
+      hash = "sha256-3hQEk1hF0y/Tzxq+HxLqd0H8S2H6y7WB/c9nXXqIdpc=";
     };
     doCheck = false;
   };
