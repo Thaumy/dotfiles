@@ -1,23 +1,23 @@
 {
   inputs = {
-    pkgs.url = "github:NixOS/nixpkgs/81788f7597ea358312f10f38300753746b2a90e4"; # 26-8-10
+    pkgs.url = "github:NixOS/nixpkgs/7b033cac491de078d36d15b07f0036ab197a3180"; # 26-9-16
 
     nur.url = "github:nix-community/nur/797a5b4d04ae501c69eb54cadf7e526c1acad3fa"; # 26-2-14
 
     hm = {
-      url = "github:nix-community/home-manager/5bd505963717a894b02a57cdbcc00db28d9b029f"; # 26-8-16
+      url = "github:nix-community/home-manager/f2785222a14e90f8c5ad2ff62474ce88453c3421"; # 26-9-17
       inputs.nixpkgs.follows = "pkgs";
     };
 
-    dae.url = "github:daeuniverse/flake.nix/e13041c9a160defbc6aac95bcb88ba5c43cf25ae"; # 26-6-14
+    dae.url = "github:daeuniverse/flake.nix/aff5c0459967ac021a7eef45bff6d04d62c75f54"; # 26-9-18
 
     rust-overlay = {
-      url = "github:oxalica/rust-overlay/b211eadeba8b180da9453ec3413a8a3535c85b3f"; # 26-8-16
+      url = "github:oxalica/rust-overlay/35ca0490d13a3d38c4602d0eb9600a30fa63a367"; # 26-9-16
       inputs.nixpkgs.follows = "pkgs";
     };
     rsbin.url = "path:./rsbin";
 
-    nvim.url = "github:nix-community/neovim-nightly-overlay/3dc8fa3b0b2220ffd0836012407b15aa6747d3fe"; # 26-8-16
+    nvim.url = "github:nix-community/neovim-nightly-overlay/8406b7a1e0c6b058cb8d54f60c2abf74f33b61d5"; # 26-9-16
     libnvimcfg.url = "path:./nvim/lib";
   };
 

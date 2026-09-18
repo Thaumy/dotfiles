@@ -29,7 +29,7 @@ in
 
     passSecretService.enable = true;
     gnome.gnome-keyring.enable = true;
-    dbus.packages = [ pkgs.gcr ]; # fix pinentry-gnome3 in non-GNOME systems
+    dbus.packages = [ pkgs.gcr_4 ]; # fix pinentry-gnome3 in non-GNOME systems
   };
 
   environment.systemPackages = with pkgs; [
