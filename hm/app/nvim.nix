@@ -133,7 +133,6 @@ in
       tinymist # Typst
       nixpkgs-fmt # Nix fmt
       rust-analyzer # Rust
-      omnisharp-roslyn # C#
       vue-language-server # Vue
       jdt-language-server # Java
       lua-language-server # Lua

@@ -134,7 +134,6 @@ vim_lsp.enable {
   'fish_lsp',               -- fish shell
   'marksman',               -- Markdown
   'tinymist',               -- Typst
-  'omnisharp',              -- C#
   'rust_analyzer',          -- Rust
   'kotlin_language_server', -- Kotlin
 }
