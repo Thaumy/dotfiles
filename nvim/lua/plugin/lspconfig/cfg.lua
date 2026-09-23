@@ -122,7 +122,7 @@ vim_lsp.enable {
   'ts_ls',                  -- TypeScript
   'lua_ls',                 -- Lua
   'texlab',                 -- LaTeX
-  'bashls',                 -- Bash
+  'bashls',                 -- Bash shell
   'clangd',                 -- C/C++
   'denols',                 -- Deno
   'jsonls',                 -- JSON
@@ -131,7 +131,7 @@ vim_lsp.enable {
   'pyright',                -- Python
   'lemminx',                -- XML
   'protols',                -- Protocol Buffers
-  'fish_lsp',               -- fish shell
+  'fish_lsp',               -- Fish shell
   'marksman',               -- Markdown
   'tinymist',               -- Typst
   'rust_analyzer',          -- Rust

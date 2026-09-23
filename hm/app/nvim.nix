@@ -128,7 +128,7 @@ in
       pyright # Python
       lemminx # XML
       protols # Protocol Buffers
-      fish-lsp # fish shell
+      fish-lsp # Fish shell
       marksman # Markdown
       tinymist # Typst
       nixpkgs-fmt # Nix fmt
@@ -136,7 +136,7 @@ in
       vue-language-server # Vue
       jdt-language-server # Java
       lua-language-server # Lua
-      bash-language-server # Bash
+      bash-language-server # Bash shell
       yaml-language-server # YAML
       kotlin-language-server # Kotlin
       haskell-language-server # Haskell
