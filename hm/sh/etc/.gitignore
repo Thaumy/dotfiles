@@ -1,8 +1,8 @@
 *.*
 !.gitignore
 
+!yl.sh
 !sv.sh
-!pwdc.sh
 !todo.sh
 !memdir.sh
 !hashpwd.sh
