@@ -76,7 +76,8 @@ k.map('n', 'bl', function()
           vim.on_key(nil, ns)
           close_blame()
         end,
-      })
+      }
+    )
   end
 
   vim.on_key(function(key, _)

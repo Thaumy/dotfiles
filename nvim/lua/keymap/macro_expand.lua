@@ -84,7 +84,8 @@ k.map('n', '<M-z>', function()
           vim.on_key(nil, ns)
           close_expand()
         end,
-      })
+      }
+    )
   end
 
   vim.on_key(function(key, _)
