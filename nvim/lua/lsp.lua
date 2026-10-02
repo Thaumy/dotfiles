@@ -145,7 +145,8 @@ do
             vim.on_key(nil, ns)
             close_doc()
           end,
-        })
+        }
+      )
     end
 
     vim.on_key(function(key, _)
