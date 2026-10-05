@@ -73,6 +73,7 @@ do
   local doc_win = nil
   local doc_buf = nil
   local autocmd = nil
+  local curr_epoch = 0
 
   local function close_doc()
     if doc_win == nil then return end
@@ -84,8 +85,14 @@ do
   end
 
   -- See: https://neovim.io/doc/user/lsp.html#lsp-handler
-  vim_lsp.handlers['textDocument/hover'] = function(err, result)
-    if err ~= nil or result == nil or result.contents == nil then return end
+  vim_lsp.handlers['textDocument/hover'] = function(err, result, ctx)
+    if (ctx.params.epoch ~= nil and ctx.params.epoch ~= curr_epoch) or
+        err ~= nil or
+        result == nil or
+        result.contents == nil
+    then
+      return
+    end
 
     result.contents.value = result.contents.value:gsub('\n%-%-%-\n', '---')
     local lines = vim_lsp.util.convert_input_to_markdown_lines(result.contents)
@@ -138,7 +145,6 @@ do
         { 'CursorMoved', 'BufLeave', 'ModeChanged', 'WinScrolled' },
         {
           once = true,
-          buffer = vim_api.nvim_get_current_buf(),
           callback = function()
             vim_api.nvim_del_autocmd(autocmd)
             autocmd = nil
@@ -171,7 +177,16 @@ do
       vim.notify 'no LSP'
       return
     end
-    client:request('textDocument/hover', vim_lsp.util.make_position_params(0, client.offset_encoding))
+
+    curr_epoch = curr_epoch + 1
+    vim_api.nvim_create_autocmd('CursorMoved', {
+      once = true,
+      callback = function() curr_epoch = curr_epoch + 1 end,
+    })
+
+    local params = vim_lsp.util.make_position_params(0, client.offset_encoding)
+    params.epoch = curr_epoch
+    client:request('textDocument/hover', params)
 
     -- close diagnostic buf when show def
     if diagnostic_buf ~= nil and vim_api.nvim_buf_is_valid(diagnostic_buf) then
