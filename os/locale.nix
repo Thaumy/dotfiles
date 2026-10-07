@@ -16,6 +16,20 @@
 
     fontconfig = {
       enable = true;
+
+      # NOTE: workaround clipped PUA icons in Alacritty
+      localConf = ''
+        <match target="pattern">
+          <test name="family">
+            <string>JetBrains Mono</string>
+          </test>
+          <edit name="family" mode="append" binding="strong">
+            <string>Material Design Icons</string>
+            <string>Symbols Nerd Font</string>
+          </edit>
+        </match>
+      '';
+
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
         serif = [
