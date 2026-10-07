@@ -7,6 +7,7 @@
     (nautilus.overrideAttrs (finalAttrs: previousAttrs: {
       patches = previousAttrs.patches ++ [
         ../patch/nautilus-add-ultra-large-zoom-level.patch
+        ../patch/v2.patch
       ];
     }))
     file-roller # archive

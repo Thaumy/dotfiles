@@ -47,6 +47,13 @@ in
       configfile = ./config;
     };
 
+    kernelPatches = [
+      {
+        name = "ordfix";
+        patch = ./ordfix.patch;
+      }
+    ];
+
     kernelParams = [ "nohz_full=1-15" ];
 
     kernel.sysctl = {
