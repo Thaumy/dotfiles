@@ -70,12 +70,14 @@ plugin.setup {
     mappings = {
       i = {
         ['<C-q>'] = send_to_qflist,
+        ['<C-t>'] = function() end,
         ['<M-q>'] = function() end,
         ['<M-k>'] = plugin_actions.cycle_history_prev,
         ['<M-j>'] = plugin_actions.cycle_history_next,
       },
       n = {
         ['<C-q>'] = send_to_qflist,
+        ['<C-t>'] = function() end,
         ['<M-q>'] = function() end,
       },
     },

@@ -7,4 +7,7 @@ plugin.setup {
     show_title = false,
     show_scroll_bar = false,
   },
+  func_map = {
+    tabc = '',
+  },
 }
