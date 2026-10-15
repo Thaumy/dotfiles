@@ -15,14 +15,20 @@ fn has_conflict(entry: &IndexEntry) -> bool {
 }
 
 fn conflict_line_numbers(file: &File) -> io::Result<Vec<usize>> {
-    let reader = BufReader::new(file);
-    let lines = reader.lines();
-
+    let mut reader = BufReader::new(file);
     let mut line_numbers = vec![];
-    for (n, line) in lines.enumerate() {
-        if line?.starts_with("<<<<<<< ") {
-            line_numbers.push(n + 1);
+    let mut n = 1;
+
+    let mut line = Vec::with_capacity(128);
+    loop {
+        if reader.read_until(b'\n', &mut line)? == 0 {
+            break;
         }
+        if line.starts_with(b"<<<<<<< ") {
+            line_numbers.push(n);
+        }
+        n += 1;
+        line.clear();
     }
 
     Ok(line_numbers)
