@@ -25,7 +25,6 @@ in
     cargo-expand
     cargo-nextest
     cargo-modules
-    cargo-llvm-cov
     cargo-outdated
     cargo-generate
     cargo-show-asm
