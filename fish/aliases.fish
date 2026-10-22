@@ -88,5 +88,8 @@ end
 function rp
     while true
         $argv
+        if test $status -eq 130
+            return 130
+        end
     end
 end
