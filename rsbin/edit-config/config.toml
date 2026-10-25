@@ -12,6 +12,7 @@ os.'' = '~/cfg/os/mod.nix'
 os.pkg = '~/cfg/os/pkgs.nix'
 
 mx = '~/cfg/tmux/tmux.conf'
+ws = '~/cfg/tmux-ws/.gitignore'
 bat = '~/cfg/bat/config'
 ssh = '~/cfg/ssh/thaumy.conf'
 cfg = '~/cfg/rsbin/edit-config/config.toml'
