@@ -9,8 +9,8 @@
     src = fetchFromGitHub {
       owner = "Thaumy";
       repo = "guthib-desktop";
-      rev = "d3db84fba8d3760dd281ed244d84996ddd08961e";
-      hash = "sha256-Mlr2wWlc1tS8Y1liLy6iVQMf8dvqdTQS5WNKDQVa71Y=";
+      rev = "c1a5a4a8123a14e638997728b470733bf925479e";
+      hash = "sha256-tkp69NVAEJal3qLjoEsugJqRCtJT39z0gEm3IkkKI+Q=";
       fetchSubmodules = true;
       postCheckout = "git -C $out rev-parse HEAD > $out/.gitrev";
     };
