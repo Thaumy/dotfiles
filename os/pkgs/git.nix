@@ -9,8 +9,8 @@
     src = fetchFromGitHub {
       owner = "Thaumy";
       repo = "guthib-desktop";
-      rev = "d3db84fba8d3760dd281ed244d84996ddd08961e";
-      hash = "sha256-Mlr2wWlc1tS8Y1liLy6iVQMf8dvqdTQS5WNKDQVa71Y=";
+      rev = "43ed8e5fbc4fb7bdd3e19ce8447c727dff05908d";
+      hash = "sha256-ThNyHhBo0b4H7NXw582cVPHNndxu9GY/ozWQGTQmHm8=";
       fetchSubmodules = true;
       postCheckout = "git -C $out rev-parse HEAD > $out/.gitrev";
     };
@@ -22,7 +22,7 @@
     cacheApp = fetchYarnDeps {
       name = "${finalAttrs.pname}-cache-app";
       yarnLock = finalAttrs.src + "/app/yarn.lock";
-      hash = "sha256-DYUlLNxWn4sn7PBir/miJUoDVAQ2/nbOVGWSGN+IPxw=";
+      hash = "sha256-9IWvtItxY6eUa8APuVw5xspSU0BDmtqV+KmUvQYsAeI=";
     };
   }))
 ]
