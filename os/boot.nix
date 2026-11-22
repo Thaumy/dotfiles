@@ -52,6 +52,10 @@ in
         name = "ordfix";
         patch = ./ordfix.patch;
       }
+      {
+        name = "ordfix";
+        patch = ./0001-perf-core-Preserve-the-hardware-index-field-for-miss.patch;
+      }
     ];
 
     kernelParams = [ "nohz_full=1-15" ];
