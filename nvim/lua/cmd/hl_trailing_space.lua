@@ -138,12 +138,20 @@ local when_scroll = function()
         checked_rows = {},
       }
     end
+    local hl_result = hl_results[buf]
+
+    local changedtick = vim_api.nvim_buf_get_changedtick(buf)
+    if hl_result.changedtick ~= changedtick then
+      hl_result.changedtick = changedtick
+
+      -- clear old hl
+      vim_api.nvim_buf_clear_namespace(buf, ns, 0, -1)
+      hl_result.checked_rows = {}
+    end
 
     local in_insert_mode = vim_api.nvim_get_mode().mode == 'i'
     -- row indexing is one-based
     local cursor_row = vim_api.nvim_win_get_cursor(0)[1]
-
-    local hl_result = hl_results[buf]
 
     local top_row = vim_fn.line('w0', win)
     local bot_row = vim_fn.line('w$', win)
